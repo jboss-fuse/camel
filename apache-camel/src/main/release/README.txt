@@ -97,6 +97,5 @@ software:
    * camel-cxf can be configured for secure web service communications
    * camel-jetty can be configured to use https
    * camel-http can be configured to use https
-   * camel-gae can be configured for secure communications
    * camel-xmlsecurity can be configured for secure communications
 
