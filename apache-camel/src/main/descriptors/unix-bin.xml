@@ -33,11 +33,11 @@
     </fileSet>
 
     <!-- copy the examples -->
+    <!--
     <fileSet>
       <directory>../examples</directory>
       <outputDirectory>/examples</outputDirectory>
       <excludes>
-        <!-- disable build, IDEA and Eclipse files -->
         <exclude>**/*.i??</exclude>
         <exclude>**/eclipse-classes/**</exclude>
         <exclude>**/.project</exclude>
@@ -46,7 +46,6 @@
         <exclude>**/target/*</exclude>
         <exclude>**/*.ser</exclude>
         <exclude>**/*.log</exclude>
-        <!-- exclude README.txt which need get filtered -->
         <exclude>**/camel-example-reportincident-wssecurity/README.txt</exclude>
         <exclude>**/camel-example-osgi/README.txt</exclude>
         <exclude>**/camel-example-cxf-osgi/README.txt</exclude>
@@ -54,6 +53,7 @@
       </excludes>
       <lineEnding>unix</lineEnding>
     </fileSet>
+    -->
 
     <!-- copy the manual docs -->
     <fileSet>
@@ -74,8 +74,8 @@
     </fileSet>
   </fileSets>
 
+  <!--
   <files>
-    <!--filtering README.txt-->
     <file>
       <source>../examples/camel-example-reportincident-wssecurity/README.txt</source>
       <outputDirectory>/examples/camel-example-reportincident-wssecurity</outputDirectory>
@@ -105,6 +105,7 @@
       <lineEnding>unix</lineEnding>
     </file>
   </files>
+  -->
 
 
   <componentDescriptors>
