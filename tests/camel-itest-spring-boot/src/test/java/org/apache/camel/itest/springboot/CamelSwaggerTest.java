@@ -37,7 +37,7 @@ public class CamelSwaggerTest extends AbstractSpringBootTestSupport {
         return new ITestConfigBuilder()
                 .module(inferModuleName(CamelSwaggerTest.class))
                 .dependency(DependencyResolver.withVersion("org.hibernate:hibernate-validator"))
-                .dependency(DependencyResolver.withVersion("version_2.10", "org.scala-lang:scala-library"))
+                .dependency(DependencyResolver.withVersion("version_2.10_", "org.scala-lang:scala-library"))
                 .unitTestExclusionPattern(".*(\\.integration\\..*|IntegrationTest$|DefaultCamelSwaggerServletTest$)")
                 .build();
     }

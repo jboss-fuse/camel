@@ -120,6 +120,7 @@ public final class ArquillianPackager {
         List<MavenDependencyExclusion> commonExclusions = new LinkedList<>();
         commonExclusions.add(MavenDependencies.createExclusion("org.slf4j", "slf4j-log4j12"));
         commonExclusions.add(MavenDependencies.createExclusion("log4j", "log4j"));
+        commonExclusions.add(MavenDependencies.createExclusion("log4j", "apache-log4j-extras"));
         commonExclusions.add(MavenDependencies.createExclusion("org.slf4j", "slf4j-simple"));
         commonExclusions.add(MavenDependencies.createExclusion("org.slf4j", "slf4j-simple"));
         commonExclusions.add(MavenDependencies.createExclusion("org.slf4j", "slf4j-jdk14"));

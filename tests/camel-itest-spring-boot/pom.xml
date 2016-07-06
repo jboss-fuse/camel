@@ -20,6 +20,13 @@
         <arquillian-container-se-managed-version>1.0.0.Final</arquillian-container-se-managed-version>
         <arquillian-version>1.1.11.Final</arquillian-version>
 
+        <!-- Additional required libraries -->
+        <spring-data-redis-1_6-version>1.6.4.RELEASE</spring-data-redis-1_6-version>
+        <spring-data-mongodb-version>1.9.2.RELEASE</spring-data-mongodb-version>
+        <atomikos-transactions-version>3.9.3</atomikos-transactions-version>
+        <javax-transaction-api-version>1.2</javax-transaction-api-version>
+        <!-- -->
+
         <spring-version>${spring4-version}</spring-version>
     </properties>
 
@@ -155,70 +162,6 @@
                         <include>**/*Test.java</include>
                     </includes>
                     <systemProperties>
-                        <!--<property>-->
-                        <!--<name>itestComponentVersion</name>-->
-                        <!--<value>${project.version}</value>-->
-                        <!--</property>-->
-                        <!--<property>-->
-                        <!--<name>springDataRedisVersion</name>-->
-                        <!--<value>${spring-data-redis-version}</value>-->
-                        <!--</property>-->
-                        <!--<property>-->
-                        <!--<name>springDataMongodbVersion</name>-->
-                        <!--<value>${spring-data-mongodb-version}</value>-->
-                        <!--</property>-->
-                        <!--<property>-->
-                        <!--<name>hibernateValidatorVersion</name>-->
-                        <!--<value>${hibernate-validator-version}</value>-->
-                        <!--</property>-->
-                        <!--<property>-->
-                        <!--<name>logbackVersion</name>-->
-                        <!--<value>${logback-version}</value>-->
-                        <!--</property>-->
-                        <!--<property>-->
-                        <!--<name>xomVersion</name>-->
-                        <!--<value>${xom-version}</value>-->
-                        <!--</property>-->
-                        <!--<property>-->
-                        <!--<name>springBootVersion</name>-->
-                        <!--<value>${spring-boot-version}</value>-->
-                        <!--</property>-->
-                        <!--<property>-->
-                        <!--<name>scalaVersion</name>-->
-                        <!--<value>${scala-2.10-version}</value>-->
-                        <!--</property>-->
-                        <!--<property>-->
-                        <!--<name>springVersion</name>-->
-                        <!--<value>${spring-version}</value>-->
-                        <!--</property>-->
-                        <!--<property>-->
-                        <!--<name>jaxRsApiVersion</name>-->
-                        <!--<value>2.0.1</value>-->
-                        <!--</property>-->
-                        <!--<property>-->
-                        <!--<name>lucene3Version</name>-->
-                        <!--<value>${lucene3-version}</value>-->
-                        <!--</property>-->
-                        <!--<property>-->
-                        <!--<name>guice3Version</name>-->
-                        <!--<value>${guice3-version}</value>-->
-                        <!--</property>-->
-                        <!--<property>-->
-                        <!--<name>guavaVersion</name>-->
-                        <!--<value>17.0</value>-->
-                        <!--</property>-->
-                        <!--<property>-->
-                        <!--<name>hdfsVersion</name>-->
-                        <!--<value>2.7.2</value>-->
-                        <!--</property>-->
-                        <!--<property>-->
-                        <!--<name>netty4CassandraVersion</name>-->
-                        <!--<value>4.0.27.Final</value>-->
-                        <!--</property>-->
-                        <!--<property>-->
-                        <!--<name>grizzlyWebsocketsVersion</name>-->
-                        <!--<value>${grizzly-websockets-version}</value>-->
-                        <!--</property>-->
 
                         <!-- Test configuration -->
                         <!--
@@ -252,8 +195,32 @@
                             <value>${project.version}</value>
                         </property>
                         <property>
-                            <name>version_org.springframework.data:spring-data-redis</name>
-                            <value>${spring-data-redis-version}</value>
+                            <name>version_com.atomikos:transactions-jdbc</name>
+                            <value>${atomikos-transactions-version}</value>
+                        </property>
+                        <property>
+                            <name>version_jclouds_com.google.guava:guava</name>
+                            <value>${jclouds-google-guava-version}</value>
+                        </property>
+                        <property>
+                            <name>version_3_com.google.inject:guice</name>
+                            <value>${guice3-version}</value>
+                        </property>
+                        <property>
+                            <name>version_com.atomikos:transactions-jms</name>
+                            <value>${atomikos-transactions-version}</value>
+                        </property>
+                        <property>
+                            <name>version_javax.transaction:javax.transaction-api</name>
+                            <value>${javax-transaction-api-version}</value>
+                        </property>
+                        <property>
+                            <name>version_1.6_org.springframework.data:spring-data-redis</name>
+                            <value>${spring-data-redis-1_6-version}</value>
+                        </property>
+                        <property>
+                            <name>version_org.springframework.data:spring-data-mongodb</name>
+                            <value>${spring-data-mongodb-version}</value>
                         </property>
                         <property>
                             <name>version_org.hibernate:hibernate-validator</name>
@@ -276,7 +243,7 @@
                             <value>${spring-version}</value>
                         </property>
                         <property>
-                            <name>version_org.apache.lucene:lucene-core</name>
+                            <name>version_3_org.apache.lucene:lucene-core</name>
                             <value>${lucene3-version}</value>
                         </property>
                         <property>
@@ -286,6 +253,22 @@
                         <property>
                             <name>version_com.google.guava:guava</name>
                             <value>${google-guava-version}</value>
+                        </property>
+                        <property>
+                            <name>version_spark_com.fasterxml.jackson.core:jackson-core</name>
+                            <value>${jackson-spark-version}</value>
+                        </property>
+                        <property>
+                            <name>version_spark_com.fasterxml.jackson.core:jackson-annotations</name>
+                            <value>${jackson-spark-version}</value>
+                        </property>
+                        <property>
+                            <name>version_spark_com.fasterxml.jackson.core:jackson-databind</name>
+                            <value>${jackson-spark-version}</value>
+                        </property>
+                        <property>
+                            <name>version_spark_com.fasterxml.jackson.module:jackson-module-scala_2.11</name>
+                            <value>${jackson-spark-version}</value>
                         </property>
                         <property>
                             <name>version_org.apache.hadoop:hadoop-hdfs</name>
@@ -305,16 +288,6 @@
                         </property>
 
                     </systemProperties>
-                </configuration>
-            </plugin>
-
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
                 </configuration>
             </plugin>
 

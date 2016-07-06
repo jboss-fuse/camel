@@ -37,6 +37,11 @@ public class CamelSparkTest extends AbstractSpringBootTestSupport {
         return new ITestConfigBuilder()
                 .module(inferModuleName(CamelSparkTest.class))
                 .dependency(DependencyResolver.withVersion("org.hibernate:hibernate-validator"))
+                .dependency(DependencyResolver.withVersion("version_spark_", "com.fasterxml.jackson.core:jackson-core"))
+                .dependency(DependencyResolver.withVersion("version_spark_", "com.fasterxml.jackson.core:jackson-annotations"))
+                .dependency(DependencyResolver.withVersion("version_spark_", "com.fasterxml.jackson.core:jackson-databind"))
+                .dependency(DependencyResolver.withVersion("version_spark_", "com.fasterxml.jackson.module:jackson-module-scala_2.11"))
+                .exclusion("log4j:apache-log4j-extras")
                 .build();
     }
 

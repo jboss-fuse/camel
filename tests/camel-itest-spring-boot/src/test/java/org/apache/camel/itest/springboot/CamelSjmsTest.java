@@ -17,6 +17,7 @@
 package org.apache.camel.itest.springboot;
 
 import org.apache.camel.itest.springboot.util.ArquillianPackager;
+import org.apache.camel.itest.springboot.util.DependencyResolver;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.Archive;
@@ -35,9 +36,9 @@ public class CamelSjmsTest extends AbstractSpringBootTestSupport {
     public static ITestConfig createTestConfig() {
         return new ITestConfigBuilder()
                 .module(inferModuleName(CamelSjmsTest.class))
-//                .dependency("com.atomikos:transactions-jdbc:3.9.3")
-//                .dependency("com.atomikos:transactions-jms:3.9.3")
-//                .dependency("javax.transaction:javax.transaction-api:1.2")
+                .dependency(DependencyResolver.withVersion("com.atomikos:transactions-jdbc"))
+                .dependency(DependencyResolver.withVersion("com.atomikos:transactions-jms"))
+                .dependency(DependencyResolver.withVersion("javax.transaction:javax.transaction-api"))
                 .disableJmx("org.apache.activemq:*")
                 .build();
     }

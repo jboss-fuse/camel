@@ -36,8 +36,9 @@ public class CamelJcloudsTest extends AbstractSpringBootTestSupport {
     public static ITestConfig createTestConfig() {
         return new ITestConfigBuilder()
                 .module(inferModuleName(CamelJcloudsTest.class))
-                .dependency(DependencyResolver.withVersion("com.google.inject:guice")) // guice 3
-                .dependency(DependencyResolver.withVersion("com.google.guava:guava"))
+                // These dependencies need to be forced
+                .dependency(DependencyResolver.withVersion("version_3_", "com.google.inject:guice"))
+                .dependency(DependencyResolver.withVersion("version_jclouds_", "com.google.guava:guava"))
                 .build();
     }
 

@@ -40,11 +40,12 @@ public class ComponentTestCommand extends AbstractTestCommand implements Command
     @Override
     public Boolean executeTest(ITestConfig config, String component) throws Exception {
 
-        logger.info("Getting Camel component: {}", component);
-
         if(!config.getAutoStartComponent()) {
-            throw new IllegalStateException("Cannot create the component without starting it in this version of Camel");
+            logger.warn("Cannot autostart the component {}, so it won't be checked", component);
+            return false;
         }
+
+        logger.info("Getting Camel component: {}", component);
 
         org.apache.camel.Component comp = context.getComponent(component, true);
 
