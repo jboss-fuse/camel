@@ -41,7 +41,6 @@
     <module>camel-blueprint-cxf-test</module>
     <module>camel-partial-classpath-test</module>
     <module>camel-typeconverterscan-test</module>
-    <module>mytest</module>
   </modules>
 
   <profiles>
