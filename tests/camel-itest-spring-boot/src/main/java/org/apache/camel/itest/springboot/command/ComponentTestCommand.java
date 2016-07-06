@@ -40,7 +40,7 @@ public class ComponentTestCommand extends AbstractTestCommand implements Command
     @Override
     public Boolean executeTest(ITestConfig config, String component) throws Exception {
 
-        if(!config.getAutoStartComponent()) {
+        if (!config.getAutoStartComponent()) {
             logger.warn("Cannot autostart the component {}, so it won't be checked", component);
             return false;
         }

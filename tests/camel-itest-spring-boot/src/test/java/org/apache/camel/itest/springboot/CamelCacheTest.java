@@ -23,8 +23,6 @@ import org.jboss.shrinkwrap.api.Archive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.net.URL;
-
 
 @RunWith(Arquillian.class)
 public class CamelCacheTest extends AbstractSpringBootTestSupport {

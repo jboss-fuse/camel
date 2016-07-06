@@ -35,7 +35,8 @@ public class CamelJmsTest extends AbstractSpringBootTestSupport {
     public static ITestConfig createTestConfig() {
         return new ITestConfigBuilder()
                 .module(inferModuleName(CamelJmsTest.class))
-                .unitTestExclusionPattern(".*(\\.integration\\..*|IntegrationTest$|ManagedJmsEndpointTopicTest$|ManagedJmsEndpointTest$|JMSTransactionIsTransactedRedeliveredTest$|JmsToJmsTransactedTest$|JmsRequestReplyProcessRepliesConcurrentUsingThreadsTest$|JmsRouteUsingSpringWithAutoWireTest$|JmsRouteUsingSpringTest$)")
+                .unitTestExclusionPattern(".*(\\.integration\\..*|IntegrationTest$|ManagedJmsEndpointTopicTest$|ManagedJmsEndpointTest$|JMSTransactionIsTransactedRedeliveredTest$"
+                        + "|JmsToJmsTransactedTest$|JmsRequestReplyProcessRepliesConcurrentUsingThreadsTest$|JmsRouteUsingSpringWithAutoWireTest$|JmsRouteUsingSpringTest$)")
                 // excluded tests that use JMX heavily and tests that pass when run separately
                 .build();
     }
