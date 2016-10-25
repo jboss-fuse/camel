@@ -23,6 +23,7 @@ import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.impl.DefaultEndpoint;
 import org.apache.camel.impl.DefaultExchange;
 import org.apache.camel.support.SynchronizationAdapter;
+import org.junit.Ignore;
 
 /**
  *
@@ -41,6 +42,7 @@ public class UnitOfWorkSyncProcessTest extends ContextTestSupport {
         super.tearDown();
     }
 
+    @Ignore("ENTESB-6214")
     public void testUnitOfWorkSync() throws Exception {
         // skip test on AIX
         if (isPlatform("aix")) {
