@@ -71,6 +71,13 @@ public class SalesforceEndpointConfig implements Cloneable {
     public static final String REPORT_METADATA = "reportMetadata";
     public static final String INSTANCE_ID = "instanceId";
 
+    // parameters for Streaming API
+    public static final String DEFAULT_REPLAY_ID = "defaultReplayId";
+    public static final String INITIAL_REPLAY_ID_MAP = "initialReplayIdMap";
+
+    // default maximum authentication retries on failed authentication or expired session
+    public static final int DEFAULT_MAX_AUTHENTICATION_RETRIES = 4;
+
     // general properties
     @UriParam
     private String apiVersion = DEFAULT_VERSION;
@@ -138,6 +145,12 @@ public class SalesforceEndpointConfig implements Cloneable {
     private ReportMetadata reportMetadata;
     @UriParam
     private String instanceId;
+
+    // Streaming API properties
+    @UriParam
+    private Integer defaultReplayId;
+    @UriParam
+    private Map<String, Integer> initialReplayIdMap;
 
     // Jetty HttpClient, set using reference
     @UriParam
@@ -516,6 +529,33 @@ public class SalesforceEndpointConfig implements Cloneable {
         valueMap.put(REPORT_METADATA, reportMetadata);
         valueMap.put(INSTANCE_ID, instanceId);
 
+        // add streaming API properties
+        valueMap.put(DEFAULT_REPLAY_ID, defaultReplayId);
+        valueMap.put(INITIAL_REPLAY_ID_MAP, initialReplayIdMap);
+
         return Collections.unmodifiableMap(valueMap);
+    }
+
+    public Integer getDefaultReplayId() {
+        return defaultReplayId;
+    }
+
+    /**
+     * Default replayId setting if no value is found in {@link #initialReplayIdMap}
+     * @param defaultReplayId
+     */
+    public void setDefaultReplayId(Integer defaultReplayId) {
+        this.defaultReplayId = defaultReplayId;
+    }
+
+    public Map<String, Integer> getInitialReplayIdMap() {
+        return initialReplayIdMap;
+    }
+
+    /**
+     * Replay IDs to start from per channel name.
+     */
+    public void setInitialReplayIdMap(Map<String, Integer> initialReplayIdMap) {
+        this.initialReplayIdMap = initialReplayIdMap;
     }
 }
