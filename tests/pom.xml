@@ -56,6 +56,14 @@
       </modules>
     </profile>
 
+    <!-- spring-boot tests -->
+    <profile>
+      <id>spring-boot.test</id>
+      <modules>
+        <module>camel-itest-spring-boot</module>
+      </modules>
+    </profile>
+
     <!-- osgi tests -->
     <profile>
       <id>osgi.test</id>

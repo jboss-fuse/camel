@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+    <artifactId>tests</artifactId>
+    <groupId>org.apache.camel</groupId>
+    <version>2.17.0.redhat-630-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>camel-itest-spring-boot</artifactId>
+
+    <name>Camel :: Integration Tests :: Spring-Boot</name>
+    <description>Spring-Boot Camel test</description>
+
+    <properties>
+        <shrinkwrap-resolver-version>2.2.2</shrinkwrap-resolver-version>
+        <shrinkwrap-version>1.2.3</shrinkwrap-version>
+        <arquillian-container-se-managed-version>1.0.0.Final</arquillian-container-se-managed-version>
+        <arquillian-version>1.1.11.Final</arquillian-version>
+
+        <!-- Additional required libraries -->
+        <spring-data-redis-1_6-version>1.6.4.RELEASE</spring-data-redis-1_6-version>
+        <spring-data-mongodb-version>1.9.2.RELEASE</spring-data-mongodb-version>
+        <atomikos-transactions-version>3.9.3</atomikos-transactions-version>
+        <javax-transaction-api-version>1.2</javax-transaction-api-version>
+        <!-- -->
+
+        <spring-version>${spring4-version}</spring-version>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-core-xml</artifactId>
+        </dependency>
+
+        <!-- Dependency needed to incorporate classes in main jar -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-loader</artifactId>
+            <version>${spring-boot-version}</version>
+        </dependency>
+
+        <!-- Test dependencies needed also at compile/unitTestEnabled time -->
+        <dependency>
+            <groupId>org.jboss.shrinkwrap</groupId>
+            <artifactId>shrinkwrap-api</artifactId>
+            <version>${shrinkwrap-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.shrinkwrap</groupId>
+            <artifactId>shrinkwrap-impl-base</artifactId>
+            <version>${shrinkwrap-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+
+        <!-- Test dependencies -->
+        <dependency>
+            <groupId>org.jboss.arquillian.junit</groupId>
+            <artifactId>arquillian-junit-container</artifactId>
+            <version>${arquillian-version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.arquillian.container</groupId>
+            <artifactId>arquillian-container-test-spi</artifactId>
+            <version>${arquillian-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.arquillian.protocol</groupId>
+            <artifactId>arquillian-protocol-jmx</artifactId>
+            <version>${arquillian-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.arquillian.container</groupId>
+            <artifactId>container-se-api</artifactId>
+            <version>${arquillian-container-se-managed-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.arquillian.container</groupId>
+            <artifactId>container-se-server</artifactId>
+            <version>${arquillian-container-se-managed-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.shrinkwrap.resolver</groupId>
+            <artifactId>shrinkwrap-resolver-api</artifactId>
+            <version>${shrinkwrap-resolver-version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.shrinkwrap.resolver</groupId>
+            <artifactId>shrinkwrap-resolver-spi</artifactId>
+            <version>${shrinkwrap-resolver-version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.shrinkwrap.resolver</groupId>
+            <artifactId>shrinkwrap-resolver-api-maven</artifactId>
+            <version>${shrinkwrap-resolver-version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.shrinkwrap.resolver</groupId>
+            <artifactId>shrinkwrap-resolver-spi-maven</artifactId>
+            <version>${shrinkwrap-resolver-version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.shrinkwrap.resolver</groupId>
+            <artifactId>shrinkwrap-resolver-api-maven-archive</artifactId>
+            <version>${shrinkwrap-resolver-version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.shrinkwrap.resolver</groupId>
+            <artifactId>shrinkwrap-resolver-impl-maven</artifactId>
+            <version>${shrinkwrap-resolver-version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.shrinkwrap.resolver</groupId>
+            <artifactId>shrinkwrap-resolver-impl-maven-archive</artifactId>
+            <version>${shrinkwrap-resolver-version}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <childDelegation>false</childDelegation>
+                    <forkedProcessTimeoutInSeconds>15000</forkedProcessTimeoutInSeconds>
+                    <rerunFailingTestsCount>0</rerunFailingTestsCount>
+                    <excludes>
+                        <exclude>org.apache.camel.itest.springboot.CamelNettyHttpTest</exclude> <!-- It works, but does not terminate -->
+                        <exclude>org.apache.camel.itest.springboot.CamelNetty4HttpTest</exclude> <!-- It works, but does not terminate -->
+                    </excludes>
+                    <includes>
+                        <include>**/*Test.java</include>
+                    </includes>
+                    <systemProperties>
+
+                        <!-- Test configuration -->
+                        <!--
+                        It is better disabling unit testing in surefire, as some of them fail for various reasons
+                        (unrelated to spring-boot) when running in the arquillian jar.
+
+                        Tests are enabled when running from IDE. See org.apache.camel.itest.springboot.ITestConfigBuilder
+                        for property names and defaults values.
+                        -->
+                        <property>
+                            <name>itest.springboot.unitTestEnabled</name>
+                            <value>false</value>
+                        </property>
+                        <property>
+                            <name>itest.springboot.includeTestDependencies</name>
+                            <value>true</value>
+                        </property>
+                        <property>
+                            <name>itest.springboot.mavenOfflineResolution</name>
+                            <value>false</value>
+                        </property>
+
+
+                        <!-- Additional dependencies required by modules -->
+                        <property>
+                            <name>version_org.apache.camel:camel-core</name>
+                            <value>${project.version}</value>
+                        </property>
+                        <property>
+                            <name>version_org.apache.camel:camel-netty4</name>
+                            <value>${project.version}</value>
+                        </property>
+                        <property>
+                            <name>version_com.atomikos:transactions-jdbc</name>
+                            <value>${atomikos-transactions-version}</value>
+                        </property>
+                        <property>
+                            <name>version_jclouds_com.google.guava:guava</name>
+                            <value>${jclouds-google-guava-version}</value>
+                        </property>
+                        <property>
+                            <name>version_3_com.google.inject:guice</name>
+                            <value>${guice3-version}</value>
+                        </property>
+                        <property>
+                            <name>version_com.atomikos:transactions-jms</name>
+                            <value>${atomikos-transactions-version}</value>
+                        </property>
+                        <property>
+                            <name>version_javax.transaction:javax.transaction-api</name>
+                            <value>${javax-transaction-api-version}</value>
+                        </property>
+                        <property>
+                            <name>version_1.6_org.springframework.data:spring-data-redis</name>
+                            <value>${spring-data-redis-1_6-version}</value>
+                        </property>
+                        <property>
+                            <name>version_org.springframework.data:spring-data-mongodb</name>
+                            <value>${spring-data-mongodb-version}</value>
+                        </property>
+                        <property>
+                            <name>version_org.hibernate:hibernate-validator</name>
+                            <value>${hibernate-validator-version}</value>
+                        </property>
+                        <property>
+                            <name>version_xom:xom</name>
+                            <value>${xom-version}</value>
+                        </property>
+                        <property>
+                            <name>version_org.springframework.boot:spring-boot-starter-web</name>
+                            <value>${spring-boot-version}</value>
+                        </property>
+                        <property>
+                            <name>version_2.10_org.scala-lang:scala-library</name>
+                            <value>${scala-2.10-version}</value>
+                        </property>
+                        <property>
+                            <name>version_org.springframework:spring-webmvc</name>
+                            <value>${spring-version}</value>
+                        </property>
+                        <property>
+                            <name>version_3_org.apache.lucene:lucene-core</name>
+                            <value>${lucene3-version}</value>
+                        </property>
+                        <property>
+                            <name>version_com.google.inject:guice</name>
+                            <value>${guice3-version}</value>
+                        </property>
+                        <property>
+                            <name>version_com.google.guava:guava</name>
+                            <value>${google-guava-version}</value>
+                        </property>
+                        <property>
+                            <name>version_spark_com.fasterxml.jackson.core:jackson-core</name>
+                            <value>${jackson-spark-version}</value>
+                        </property>
+                        <property>
+                            <name>version_spark_com.fasterxml.jackson.core:jackson-annotations</name>
+                            <value>${jackson-spark-version}</value>
+                        </property>
+                        <property>
+                            <name>version_spark_com.fasterxml.jackson.core:jackson-databind</name>
+                            <value>${jackson-spark-version}</value>
+                        </property>
+                        <property>
+                            <name>version_spark_com.fasterxml.jackson.module:jackson-module-scala_2.11</name>
+                            <value>${jackson-spark-version}</value>
+                        </property>
+                        <property>
+                            <name>version_org.apache.hadoop:hadoop-hdfs</name>
+                            <value>${hadoop2-version}</value>
+                        </property>
+                        <property>
+                            <name>version_io.netty:netty-all</name>
+                            <value>${netty-version}</value>
+                        </property>
+                        <property>
+                            <name>version_org.glassfish.grizzly:grizzly-websockets</name>
+                            <value>${grizzly-websockets-version}</value>
+                        </property>
+                        <property>
+                            <name>version_org.glassfish.grizzly:connection-pool</name>
+                            <value>${grizzly-websockets-version}</value>
+                        </property>
+
+                    </systemProperties>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>
