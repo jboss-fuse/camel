@@ -53,11 +53,11 @@ import org.slf4j.LoggerFactory;
 
 /**
  * A Consumer of exchanges for a service in CXF.  CxfConsumer acts a CXF
- * service to receive requests, convert them, and forward them to Camel 
+ * service to receive requests, convert them, and forward them to Camel
  * route for processing. It is also responsible for converting and sending
  * back responses to CXF client.
  *
- * @version 
+ * @version
  */
 public class CxfConsumer extends DefaultConsumer implements Suspendable {
     private static final Logger LOG = LoggerFactory.getLogger(CxfConsumer.class);
@@ -132,12 +132,12 @@ public class CxfConsumer extends DefaultConsumer implements Suspendable {
     protected boolean isAsyncInvocationSupported(Exchange cxfExchange) {
         Message cxfMessage = cxfExchange.getInMessage();
         Object addressingProperties = cxfMessage.get(CxfConstants.WSA_HEADERS_INBOUND);
-        if (addressingProperties != null 
+        if (addressingProperties != null
                && !ContextUtils.isGenericAddress(getReplyTo(addressingProperties))) {
             //it's decoupled endpoint, so already switch thread and
-            //use executors, which means underlying transport won't 
-            //be block, so we shouldn't rely on continuation in 
-            //this case, as the SuspendedInvocationException can't be 
+            //use executors, which means underlying transport won't
+            //be block, so we shouldn't rely on continuation in
+            //this case, as the SuspendedInvocationException can't be
             //caught by underlying transport. So we should use the SyncInvocation this time
             return false;
         }
@@ -180,7 +180,7 @@ public class CxfConsumer extends DefaultConsumer implements Suspendable {
 
                     // The continuation could be called before the suspend is called
                     continuation.suspend(cxfEndpoint.getContinuationTimeout());
-                    
+
                     continuation.setObject(camelExchange);
 
                     // use the asynchronous API to process the exchange
@@ -195,7 +195,7 @@ public class CxfConsumer extends DefaultConsumer implements Suspendable {
                         }
                     });
 
-                } else if (continuation.isResumed()) {
+                } else if (!continuation.isTimeout() && continuation.isResumed()) {
                     org.apache.camel.Exchange camelExchange = (org.apache.camel.Exchange)continuation.getObject();
                     try {
                         setResponseBack(cxfExchange, camelExchange);
@@ -204,7 +204,7 @@ public class CxfConsumer extends DefaultConsumer implements Suspendable {
                         throw ex;
                     }
 
-                } else if (!continuation.isResumed() && !continuation.isPending()) {
+                } else if (continuation.isTimeout() || (!continuation.isResumed() && !continuation.isPending())) {
                     org.apache.camel.Exchange camelExchange = (org.apache.camel.Exchange)continuation.getObject();
                     try {
                         if (!continuation.isPending()) {
