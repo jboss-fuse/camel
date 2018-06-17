@@ -52,6 +52,9 @@ public class VerbDefinition extends OptionalIdentifiedDefinition<VerbDefinition>
     @XmlElementRef
     private List<RestOperationResponseMsgDefinition> responseMsgs = new ArrayList<RestOperationResponseMsgDefinition>();
 
+    @XmlElementRef
+    private List<SecurityDefinition> security = new ArrayList<>();
+
     @XmlAttribute
     private String uri;
 
@@ -133,6 +136,17 @@ public class VerbDefinition extends OptionalIdentifiedDefinition<VerbDefinition>
      */
     public void setResponseMsgs(List<RestOperationResponseMsgDefinition> params) {
         this.responseMsgs = responseMsgs;
+    }
+
+    public List<SecurityDefinition> getSecurity() {
+        return security;
+    }
+
+    /**
+     * Sets the swagger security settings for this verb.
+     */
+    public void setSecurity(List<SecurityDefinition> security) {
+        this.security = security;
     }
 
     public String getMethod() {
