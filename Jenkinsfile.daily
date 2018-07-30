@@ -54,6 +54,11 @@ pipeline {
 
         stage('karaf-itests') {
             steps {
+                dir("platform/karaf/features") {
+                    script {
+                        sh "./mvnw $MAVEN_PARAMS clean install"
+                    }
+                }
                 dir("tests/camel-itest-karaf/") {
                     sh "./kill-karaf.sh"
                     script {
