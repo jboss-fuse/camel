@@ -322,7 +322,7 @@ public abstract class AbstractFeatureTest {
             // for remote debugging
             //org.ops4j.pax.exam.CoreOptions.vmOption("-Xdebug"),
             //org.ops4j.pax.exam.CoreOptions.vmOption("-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5008"),
-
+        		
             KarafDistributionOption.karafDistributionConfiguration()
                     .frameworkUrl(maven().groupId("org.apache.karaf").artifactId("apache-karaf").type("tar.gz").versionAsInProject())
                     .karafVersion(karafVersion)
@@ -343,6 +343,12 @@ public abstract class AbstractFeatureTest {
 
             // Disable the Karaf shutdown port
             editConfigurationFilePut("etc/custom.properties", "karaf.shutdown.port", "-1"),
+            editConfigurationFilePut("etc/org.ops4j.pax.url.mvn.cfg",
+            		  "org.ops4j.pax.url.mvn.repositories",
+            		  "    http://repo1.maven.org/maven2@id=central, " + 
+            		  "    http://repository.apache.org/content/groups/snapshots-group@id=apache@snapshots@noreleases, " + 
+            		  "    https://oss.sonatype.org/content/repositories/ops4j-snapshots@id=ops4j.sonatype.snapshots.deploy@snapshots@noreleases, " + 
+            		  "    https://maven.repository.redhat.com/ga@id=rhga"),
 
             // Assign unique ports for Karaf
 //            editConfigurationFilePut("etc/org.ops4j.pax.web.cfg", "org.osgi.service.http.port", Integer.toString(AvailablePortFinder.getNextAvailable())),
