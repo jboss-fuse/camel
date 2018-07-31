@@ -16,10 +16,12 @@
  */
 package org.apache.camel.itest.karaf;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.ops4j.pax.exam.junit.PaxExam;
 
+@Ignore("camel-consul doesn't work in OSGI")
 @RunWith(PaxExam.class)
 public class CamelConsulTest extends BaseKarafTest {
 
