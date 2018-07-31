@@ -54,7 +54,7 @@ pipeline {
 
         stage('karaf-itests') {
             steps {
-                dir("platform/karaf/features") {
+                dir("platforms/karaf/features") {
                     script {
                         sh "../../../mvnw $MAVEN_PARAMS clean install"
                     }
