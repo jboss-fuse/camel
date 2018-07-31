@@ -19,7 +19,7 @@
 
 def AGENT_LABEL = 'checkin'
 
-def MAVEN_PARAMS = '-U -B -e -fae -V -Dmaven.repo.local=/home/jenkins/jenkins-slave/maven-repositories/0 -Dmaven.compiler.fork=true -Dsurefire.rerunFailingTestsCount=2'
+def MAVEN_PARAMS = '-U -B -e -fae -V -Dmaven.repo.local=/home/jenkins/.m2/repository -Dmaven.compiler.fork=true -Dsurefire.rerunFailingTestsCount=2'
 
 def karaf_itests_result, spring_boot_itests_result
 
