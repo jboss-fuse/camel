@@ -36,7 +36,7 @@
 
     <properties>
         <!-- Spring-Boot target version -->
-        <spring-boot-version>1.4.1.RELEASE</spring-boot-version>
+        <spring-boot-version>1.4.7.RELEASE</spring-boot-version>
 
         <!-- The following dependencies should be aligned with the ones in standard camel parent -->
         <avro-version>1.8.1</avro-version>
@@ -52,8 +52,8 @@
         <jetty9-version>9.2.19.v20160908</jetty9-version>
         <jetty-version>${jetty9-version}</jetty-version>
         <json-simple-version>1.1.1.redhat-1</json-simple-version>
-        <tomcat.version>8.0.36</tomcat.version>
-        <tomcat-embed.version>8.0.36.redhat-14</tomcat-embed.version>
+        <tomcat.version>8.0.36.redhat-30</tomcat.version>
+        <tomcat-embed.version>8.0.36.redhat-30</tomcat-embed.version> <!-- Replaced by the FIS pipeline -->
         <velocity-version>1.7.0.redhat-5</velocity-version>
         <wsdl4j-version>1.6.3.redhat-2</wsdl4j-version>
 
@@ -74,13 +74,13 @@
         <cassandra-netty-version-testing>4.0.37.Final</cassandra-netty-version-testing>
 
         <!-- The following versions should be aligned with the ones in spring-boot-repo/spring-boot-dependencies/pom.xml (for the targeted version of spring-boot) -->
-        <jackson2-version>2.8.3</jackson2-version>
+        <jackson2-version>2.8.8</jackson2-version>
         <scala-jackson2-version>2.8.2</scala-jackson2-version>
         <jna-version>4.2.2</jna-version>
-        <hazelcast-version>3.6.5</hazelcast-version>
+        <hazelcast-version>3.6.8</hazelcast-version>
         <htmlunit-version>2.21</htmlunit-version>
         <log4j2-version>2.6.2</log4j2-version>
-        <slf4j-version>1.7.21</slf4j-version>
+        <slf4j-version>1.7.22.redhat-2</slf4j-version>
         <spring-version>4.3.3.RELEASE</spring-version>
         <spring-data-releasetrain-version>Hopper-SR3</spring-data-releasetrain-version>
         <spring-integration-version>4.3.2.RELEASE</spring-integration-version>
