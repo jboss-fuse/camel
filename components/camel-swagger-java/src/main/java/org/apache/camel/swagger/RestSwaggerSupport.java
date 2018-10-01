@@ -206,8 +206,9 @@ public class RestSwaggerSupport {
 
         List<RestDefinition> rests = getRestDefinitions(contextId);
         if (rests != null) {
+            final Map<String, Object> apiProperties = configuration.getApiProperties();
             if (json) {
-                response.setHeader(Exchange.CONTENT_TYPE, "application/json");
+                response.setHeader(Exchange.CONTENT_TYPE, (String) apiProperties.getOrDefault("api.specification.contentType.json", "application/json"));
 
                 // read the rest-dsl into swagger model
                 Swagger swagger = reader.read(rests, route, swaggerConfig, contextId, classResolver);
@@ -226,7 +227,7 @@ public class RestSwaggerSupport {
 
                 response.writeBytes(bytes);
             } else {
-                response.setHeader(Exchange.CONTENT_TYPE, "text/yaml");
+                response.setHeader(Exchange.CONTENT_TYPE, (String) apiProperties.getOrDefault("api.specification.contentType.yaml", "text/yaml"));
 
                 // read the rest-dsl into swagger model
                 Swagger swagger = reader.read(rests, route, swaggerConfig, contextId, classResolver);
