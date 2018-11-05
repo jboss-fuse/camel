@@ -21,6 +21,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
+
+import static java.util.concurrent.TimeUnit.DAYS;
+import static java.util.concurrent.TimeUnit.MILLISECONDS;
+
 import javax.ws.rs.WebApplicationException;
 
 import org.apache.camel.component.linkedin.api.model.Error;
@@ -34,17 +38,15 @@ import org.junit.BeforeClass;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static java.util.concurrent.TimeUnit.DAYS;
-import static java.util.concurrent.TimeUnit.MILLISECONDS;
-
 /**
  * Base class for resource tests.
  */
 public abstract class AbstractResourceIntegrationTest extends Assert {
 
+    public static final long DEFAULT_EXPIRY = MILLISECONDS.convert(60, DAYS) + System.currentTimeMillis();
+    
     protected static final Logger LOG = LoggerFactory.getLogger(PeopleResourceIntegrationTest.class);
     protected static final String DEFAULT_FIELDS = "";
-    public static final long DEFAULT_EXPIRY = MILLISECONDS.convert(60, DAYS) + System.currentTimeMillis();
 
     protected static LinkedInOAuthRequestFilter requestFilter;
     protected static Properties properties;

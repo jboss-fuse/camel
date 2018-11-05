@@ -69,13 +69,12 @@ public final class LinkedInOAuthRequestFilter implements ClientRequestFilter {
 
     private static final Logger LOG = LoggerFactory.getLogger(LinkedInOAuthRequestFilter.class);
 
-    private static final String AUTHORIZATION_URL = "https://www.linkedin.com/uas/oauth2/authorization?"
-        + "response_type=code&client_id=%s&state=%s&redirect_uri=%s";
+    private static final String AUTHORIZATION_URL = "https://www.linkedin.com/uas/oauth2/authorization?" + "response_type=code&client_id=%s&state=%s&redirect_uri=%s";
     private static final String AUTHORIZATION_URL_WITH_SCOPE = "https://www.linkedin.com/uas/oauth2/authorization?"
-        + "response_type=code&client_id=%s&state=%s&scope=%s&redirect_uri=%s";
+                                                               + "response_type=code&client_id=%s&state=%s&scope=%s&redirect_uri=%s";
 
     private static final String ACCESS_TOKEN_URL = "https://www.linkedin.com/uas/oauth2/accessToken?"
-        + "grant_type=authorization_code&code=%s&redirect_uri=%s&client_id=%s&client_secret=%s";
+                                                   + "grant_type=authorization_code&code=%s&redirect_uri=%s&client_id=%s&client_secret=%s";
 
     private static final Pattern QUERY_PARAM_PATTERN = Pattern.compile("&?([^=]+)=([^&]+)");
 
@@ -86,8 +85,7 @@ public final class LinkedInOAuthRequestFilter implements ClientRequestFilter {
     private OAuthToken oAuthToken;
 
     @SuppressWarnings("deprecation")
-    public LinkedInOAuthRequestFilter(OAuthParams oAuthParams, Map<String, Object> httpParams,
-                                      boolean lazyAuth, String[] enabledProtocols) {
+    public LinkedInOAuthRequestFilter(OAuthParams oAuthParams, Map<String, Object> httpParams, boolean lazyAuth, String[] enabledProtocols) {
 
         this.oAuthParams = oAuthParams;
         this.oAuthToken = null;
@@ -104,14 +102,14 @@ public final class LinkedInOAuthRequestFilter implements ClientRequestFilter {
 
         // add HTTP proxy if set
         if (httpParams != null && httpParams.get(ConnRoutePNames.DEFAULT_PROXY) != null) {
-            final HttpHost proxyHost = (HttpHost) httpParams.get(ConnRoutePNames.DEFAULT_PROXY);
-            final Boolean socksProxy = (Boolean) httpParams.get("http.route.socks-proxy");
-            final ProxyConfig proxyConfig = new ProxyConfig(proxyHost.getHostName(), proxyHost.getPort(),
-                socksProxy != null ? socksProxy : false);
+            final HttpHost proxyHost = (HttpHost)httpParams.get(ConnRoutePNames.DEFAULT_PROXY);
+            final Boolean socksProxy = (Boolean)httpParams.get("http.route.socks-proxy");
+            final ProxyConfig proxyConfig = new ProxyConfig(proxyHost.getHostName(), proxyHost.getPort(), socksProxy != null ? socksProxy : false);
             options.setProxyConfig(proxyConfig);
         }
 
-        // disable default gzip compression, as error pages are sent with no compression and htmlunit doesn't negotiate
+        // disable default gzip compression, as error pages are sent with no
+        // compression and htmlunit doesn't negotiate
         new WebConnectionWrapper(webClient) {
             @Override
             public WebResponse getResponse(WebRequest request) throws IOException {
@@ -124,8 +122,7 @@ public final class LinkedInOAuthRequestFilter implements ClientRequestFilter {
             try {
                 updateOAuthToken();
             } catch (IOException e) {
-                throw new IllegalArgumentException(
-                    String.format("Error authorizing user %s: %s", oAuthParams.getUserName(), e.getMessage()), e);
+                throw new IllegalArgumentException(String.format("Error authorizing user %s: %s", oAuthParams.getUserName(), e.getMessage()), e);
             }
         }
     }
@@ -143,8 +140,7 @@ public final class LinkedInOAuthRequestFilter implements ClientRequestFilter {
 
             final String url;
             if (scopes == null || scopes.length == 0) {
-                url = String.format(AUTHORIZATION_URL, oAuthParams.getClientId(),
-                    csrfId, encodedRedirectUri);
+                url = String.format(AUTHORIZATION_URL, oAuthParams.getClientId(), csrfId, encodedRedirectUri);
             } else {
                 final int nScopes = scopes.length;
                 final StringBuilder builder = new StringBuilder();
@@ -155,8 +151,7 @@ public final class LinkedInOAuthRequestFilter implements ClientRequestFilter {
                         builder.append("%20");
                     }
                 }
-                url = String.format(AUTHORIZATION_URL_WITH_SCOPE, oAuthParams.getClientId(), csrfId,
-                    builder.toString(), encodedRedirectUri);
+                url = String.format(AUTHORIZATION_URL_WITH_SCOPE, oAuthParams.getClientId(), csrfId, builder.toString(), encodedRedirectUri);
             }
             HtmlPage authPage = null;
             try {
@@ -165,23 +160,23 @@ public final class LinkedInOAuthRequestFilter implements ClientRequestFilter {
                 // only handle errors returned with redirects
                 boolean done = false;
                 do {
-                        if (e.getStatusCode() == HttpStatus.SC_MOVED_TEMPORARILY || e.getStatusCode() == HttpStatus.SC_SEE_OTHER) {
-                            final URL location = new URL(e.getResponse().getResponseHeaderValue(HttpHeaders.LOCATION));
-                            final String locationQuery = location.getQuery();
-                            if (locationQuery != null && locationQuery.contains("error=")) {
-                                throw new IOException(URLDecoder.decode(locationQuery).replaceAll("&", ", "));
-                            } else {
-                                // follow the redirect to login form
-                                try {
-                                    authPage = webClient.getPage(location);
-                                    done = true;
-                                } catch (FailingHttpStatusCodeException e1) {
-                                    e = e1;
-                                }
-                            }
+                    if (e.getStatusCode() == HttpStatus.SC_MOVED_TEMPORARILY || e.getStatusCode() == HttpStatus.SC_SEE_OTHER) {
+                        final URL location = new URL(e.getResponse().getResponseHeaderValue(HttpHeaders.LOCATION));
+                        final String locationQuery = location.getQuery();
+                        if (locationQuery != null && locationQuery.contains("error=")) {
+                            throw new IOException(URLDecoder.decode(locationQuery).replaceAll("&", ", "));
                         } else {
-                            throw e;
+                            // follow the redirect to login form
+                            try {
+                                authPage = webClient.getPage(location);
+                                done = true;
+                            } catch (FailingHttpStatusCodeException e1) {
+                                e = e1;
+                            }
                         }
+                    } else {
+                        throw e;
+                    }
                 } while (!done);
             }
 
@@ -197,7 +192,7 @@ public final class LinkedInOAuthRequestFilter implements ClientRequestFilter {
             login.setText(oAuthParams.getUserName());
             final HtmlPasswordInput password = loginForm.getInputByName("session_password");
             password.setText(oAuthParams.getUserPassword());
-            final HtmlSubmitInput submitInput = (HtmlSubmitInput) loginForm.getElementsByAttribute("input", "type", "submit").get(0);
+            final HtmlSubmitInput submitInput = (HtmlSubmitInput)loginForm.getElementsByAttribute("input", "type", "submit").get(0);
 
             // validate CSRF and get authorization code
             String redirectQuery;
@@ -243,22 +238,19 @@ public final class LinkedInOAuthRequestFilter implements ClientRequestFilter {
     }
 
     private OAuthToken getAccessToken(String refreshToken) throws IOException {
-        final String tokenUrl = String.format(ACCESS_TOKEN_URL, refreshToken,
-            oAuthParams.getRedirectUri(), oAuthParams.getClientId(), oAuthParams.getClientSecret());
+        final String tokenUrl = String.format(ACCESS_TOKEN_URL, refreshToken, oAuthParams.getRedirectUri(), oAuthParams.getClientId(), oAuthParams.getClientSecret());
         final WebRequest webRequest = new WebRequest(new URL(tokenUrl), HttpMethod.POST);
 
         final WebResponse webResponse = webClient.loadWebResponse(webRequest);
         if (webResponse.getStatusCode() != HttpStatus.SC_OK) {
-            throw new IOException(String.format("Error getting access token: [%s: %s]",
-                webResponse.getStatusCode(), webResponse.getStatusMessage()));
+            throw new IOException(String.format("Error getting access token: [%s: %s]", webResponse.getStatusCode(), webResponse.getStatusMessage()));
         }
         final long currentTime = System.currentTimeMillis();
         final ObjectMapper mapper = new ObjectMapper();
         final Map map = mapper.readValue(webResponse.getContentAsStream(), Map.class);
         final String accessToken = map.get("access_token").toString();
         final Integer expiresIn = Integer.valueOf(map.get("expires_in").toString());
-        return new OAuthToken(refreshToken, accessToken,
-            currentTime + TimeUnit.MILLISECONDS.convert(expiresIn, TimeUnit.SECONDS));
+        return new OAuthToken(refreshToken, accessToken, currentTime + TimeUnit.MILLISECONDS.convert(expiresIn, TimeUnit.SECONDS));
     }
 
     public synchronized OAuthToken getOAuthToken() {
@@ -293,19 +285,22 @@ public final class LinkedInOAuthRequestFilter implements ClientRequestFilter {
             if (secureStorage != null) {
 
                 oAuthToken = secureStorage.getOAuthToken();
-                // if it returned a valid token, we are done, otherwise fall through and generate a new token
+                // if it returned a valid token, we are done, otherwise fall
+                // through and generate a new token
                 if (oAuthToken != null && oAuthToken.getExpiryTime() > currentTime) {
                     return;
                 }
                 LOG.info("OAuth secure storage returned a null or expired token, creating a new token...");
 
-                // throw an exception if a user password is not set for authorization
+                // throw an exception if a user password is not set for
+                // authorization
                 if (oAuthParams.getUserPassword() == null || oAuthParams.getUserPassword().isEmpty()) {
                     throw new IllegalArgumentException("Missing password for LinkedIn authorization");
                 }
             }
 
-            // need new OAuth token, authorize user, LinkedIn does not support OAuth2 grant_type=refresh_token
+            // need new OAuth token, authorize user, LinkedIn does not support
+            // OAuth2 grant_type=refresh_token
             final String refreshToken = getRefreshToken();
             this.oAuthToken = getAccessToken(refreshToken);
             LOG.info("OAuth token created!");
