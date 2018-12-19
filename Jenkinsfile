@@ -38,6 +38,12 @@ pipeline {
 
     stages {
 
+        stage('Dependencies') {
+            steps {
+                sh "./mvnw $MAVEN_PARAMS -q -Dsilent=true -Dmaven.artifact.threads=8 dependency:go-offline" 
+            }
+        }
+
         stage('Build') {
             steps {
                 sh "./mvnw $MAVEN_PARAMS -Dnoassembly -Dmaven.test.skip.exec=true clean install"
