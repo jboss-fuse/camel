@@ -17,7 +17,7 @@
  * under the License.
  */
 
-def MAVEN_PARAMS = '-U -B -e -fae -V -Dmaven.repo.local=/home/jenkins/jenkins-slave/maven-repositories/0 -Dmaven.compiler.fork=true -Dsurefire.rerunFailingTestsCount=2'
+def MAVEN_PARAMS = '-B -e -fae -V -Dmaven.repo.local=/home/jenkins/jenkins-slave/maven-repositories/0 -Dmaven.compiler.fork=true -Dsurefire.rerunFailingTestsCount=2'
 
 pipeline {
 
@@ -40,19 +40,19 @@ pipeline {
 
         stage('Dependencies') {
             steps {
-                sh "./mvnw $MAVEN_PARAMS -q -Dsilent=true -Dmaven.artifact.threads=8 dependency:go-offline" 
+                sh "./mvnw $MAVEN_PARAMS -q -Dmaven.artifact.threads=8 de.qaware.maven:go-offline-maven-plugin:resolve-dependencies" 
             }
         }
 
         stage('Build') {
             steps {
-                sh "./mvnw $MAVEN_PARAMS -Dnoassembly -Dmaven.test.skip.exec=true clean install"
+                sh "./mvnw $MAVEN_PARAMS --offline -Dnoassembly -Dmaven.test.skip.exec=true clean install"
             }
         }
 
         stage('Checks') {
             steps {
-                sh "./mvnw $MAVEN_PARAMS -Psourcecheck checkstyle:check"
+                sh "./mvnw $MAVEN_PARAMS --offline -Psourcecheck checkstyle:check"
             }
             post {
                 always {
@@ -63,7 +63,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh "./mvnw $MAVEN_PARAMS -Dnoassembly -Dmaven.test.failure.ignore=true test"
+                sh "./mvnw $MAVEN_PARAMS --offline -Dnoassembly -Dmaven.test.failure.ignore=true test"
             }
             post {
                 always {
