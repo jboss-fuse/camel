@@ -41,7 +41,7 @@ pipeline {
         stage('Dependencies') {
             steps {
                 configFileProvider([configFile(fileId: 'fuse-maven-settings', variable: 'MAVEN_SETTINGS')]) {
-                    sh "./mvnw $MAVEN_PARAMS -s $MAVEN_SETTINGS -q -Dmaven.artifact.threads=8 de.qaware.maven:go-offline-maven-plugin:resolve-dependencies" 
+                    sh "./mvnw $MAVEN_PARAMS -s $MAVEN_SETTINGS -q -Dmaven.artifact.threads=8 go-offline:resolve-dependencies" 
                 }
             }
         }
