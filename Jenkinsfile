@@ -40,19 +40,25 @@ pipeline {
 
         stage('Dependencies') {
             steps {
-                sh "./mvnw $MAVEN_PARAMS -q -Dmaven.artifact.threads=8 de.qaware.maven:go-offline-maven-plugin:resolve-dependencies" 
+                configFileProvider([configFile(fileId: 'fuse-maven-settings', variable: 'MAVEN_SETTINGS')]) {
+                    sh "./mvnw $MAVEN_PARAMS -s $MAVEN_SETTINGS -q -Dmaven.artifact.threads=8 de.qaware.maven:go-offline-maven-plugin:resolve-dependencies" 
+                }
             }
         }
 
         stage('Build') {
             steps {
-                sh "./mvnw $MAVEN_PARAMS --offline -Dnoassembly -Dmaven.test.skip.exec=true clean install"
+                configFileProvider([configFile(fileId: 'fuse-maven-settings', variable: 'MAVEN_SETTINGS')]) {
+                    sh "./mvnw $MAVEN_PARAMS -s $MAVEN_SETTINGS --offline -Dnoassembly -Dmaven.test.skip.exec=true clean install"
+                }
             }
         }
 
         stage('Checks') {
             steps {
-                sh "./mvnw $MAVEN_PARAMS --offline -Psourcecheck checkstyle:check"
+                configFileProvider([configFile(fileId: 'fuse-maven-settings', variable: 'MAVEN_SETTINGS')]) {
+                    sh "./mvnw $MAVEN_PARAMS -s $MAVEN_SETTINGS --offline -Psourcecheck checkstyle:check"
+                }
             }
             post {
                 always {
@@ -63,7 +69,9 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh "./mvnw $MAVEN_PARAMS --offline -Dnoassembly -Dmaven.test.failure.ignore=true test"
+                configFileProvider([configFile(fileId: 'fuse-maven-settings', variable: 'MAVEN_SETTINGS')]) {
+                    sh "./mvnw $MAVEN_PARAMS -s $MAVEN_SETTINGS --offline -Dnoassembly -Dmaven.test.failure.ignore=true test"
+                }
             }
             post {
                 always {
@@ -75,7 +83,9 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh "./mvnw $MAVEN_PARAMS -Pdeploy -Dnoassembly -Dmaven.test.skip.exec=true install"
+                configFileProvider([configFile(fileId: 'fuse-maven-settings', variable: 'MAVEN_SETTINGS')]) {
+                    sh "./mvnw $MAVEN_PARAMS -s $MAVEN_SETTINGS -Pdeploy -Dnoassembly -Dmaven.test.skip.exec=true install"
+                }
             }
         }
     }
