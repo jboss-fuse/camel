@@ -236,6 +236,8 @@ public class AS2ClientManagerIntegrationTest extends AbstractAS2TestSupport {
         headers.put("CamelAS2.encryptingCertificateChain", null);
         // parameter type is java.security.PrivateKey
         headers.put("CamelAS2.encryptingPrivateKey", null);
+        // parameter type is org.apache.camel.component.as2.api.AS2SignatureAlgorithm
+        headers.put("CamelAS2.signingAlgorithm", null);
 
         final org.apache.http.protocol.HttpCoreContext result = requestBodyAndHeaders("direct://SEND", EDI_MESSAGE, headers);
 
@@ -316,6 +318,8 @@ public class AS2ClientManagerIntegrationTest extends AbstractAS2TestSupport {
         headers.put("CamelAS2.encryptingCertificateChain", certList);
         // parameter type is java.security.PrivateKey
         headers.put("CamelAS2.encryptingPrivateKey", signingKP.getPrivate());
+        // parameter type is org.apache.camel.component.as2.api.AS2SignatureAlgorithm
+        headers.put("CamelAS2.signingAlgorithm", null);
 
         final org.apache.http.protocol.HttpCoreContext result = requestBodyAndHeaders("direct://SEND", EDI_MESSAGE, headers);
 
@@ -398,6 +402,8 @@ public class AS2ClientManagerIntegrationTest extends AbstractAS2TestSupport {
         headers.put("CamelAS2.encryptingCertificateChain", null);
         // parameter type is java.security.PrivateKey
         headers.put("CamelAS2.encryptingPrivateKey", null);
+        // parameter type is org.apache.camel.component.as2.api.AS2SignatureAlgorithm
+        headers.put("CamelAS2.signingAlgorithm", AS2SignatureAlgorithm.SHA1WITHRSA);
 
         final org.apache.http.protocol.HttpCoreContext result = requestBodyAndHeaders("direct://SEND", EDI_MESSAGE, headers);
 
