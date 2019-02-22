@@ -14,10 +14,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.camel.component.http4;
+package org.apache.camel.http.common;
 
 import org.apache.camel.Exchange;
-import org.apache.camel.http.common.HttpHeaderFilterStrategy;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.impl.DefaultExchange;
 import org.apache.camel.test.junit4.CamelTestSupport;
