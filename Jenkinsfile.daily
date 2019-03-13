@@ -21,7 +21,7 @@ def AGENT_LABEL = 'checkin'
 
 def MAVEN_PARAMS = '-U -B -e -fae -V -Dmaven.repo.local=/home/jenkins/.m2/repository -Dmaven.compiler.fork=true -Dsurefire.rerunFailingTestsCount=2'
 
-def karaf_itests_result, spring_boot_itests_result
+def tests_result
 
 pipeline {
 
@@ -52,32 +52,6 @@ pipeline {
             }
         }
 
-        stage('karaf-itests') {
-            steps {
-                dir("platforms/karaf/features") {
-                    script {
-                        sh "../../../mvnw $MAVEN_PARAMS clean install"
-                    }
-                }
-                dir("tests/camel-itest-karaf/") {
-                    sh "./kill-karaf.sh"
-                    script {
-                        karaf_itests_result = sh script: "./run-tests.sh", returnStatus: true
-                    }
-                }
-            }
-        }
-
-        stage('spring-boot-itests') {
-            steps {
-                dir("tests/camel-itest-spring-boot/") {
-                    script {
-                        spring_boot_itests_result = sh script: "../../mvnw $MAVEN_PARAMS -Dmaven.test.failure.ignore=true clean install", returnStatus: true
-                    }
-                }
-            }
-        }
-
         stage('Checks') {
             steps {
                 sh "./mvnw $MAVEN_PARAMS -Psourcecheck checkstyle:check"
@@ -91,7 +65,9 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh "./mvnw $MAVEN_PARAMS -Dnoassembly -Dmaven.test.failure.ignore=true test"
+                script {
+                    tests_result = sh script: "./mvnw $MAVEN_PARAMS -Dmaven.test.failure.ignore=true test", returnStatus: true
+                }
             }
             post {
                 always {
@@ -112,11 +88,8 @@ pipeline {
     post {
         always {
             script {
-                echo "Karaf Itests result is ${karaf_itests_result}"
-                echo "Spring-boot Itests result is ${spring_boot_itests_result}"
-                currentBuild.result = jdk9_result == 0 && jdk10_result == 0 && jdk11_result == 0 ? 'SUCCESS' : 'FAILURE'
+                currentBuild.result = tests_result == 0 ? 'SUCCESS' : 'FAILURE'
             }
         }
     }
 }
-
