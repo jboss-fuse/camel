@@ -92,7 +92,11 @@ public final class LinkedInOAuthRequestFilter implements ClientRequestFilter {
                                       boolean lazyAuth, String[] enabledProtocols) {
 
         this.oAuthParams = oAuthParams;
-        this.oAuthToken = null;
+        if (oAuthParams.getSecureStorage() != null) {
+            this.oAuthToken = oAuthParams.getSecureStorage().getOAuthToken();
+        } else {
+            this.oAuthToken = null;
+        }
 
         // create HtmlUnit client
         webClient = new WebClient(BrowserVersion.FIREFOX_38);

@@ -101,8 +101,9 @@ public class LinkedInComponentConfiguration
          */
         private String accessToken;
         /**
-         * LinkedIn access token expiry time in milliseconds since Unix Epoch,
-         * default is 60 days in the future.
+         * A number of milliseconds since the UNIX Epoch. The default is 60
+         * days. A LinkedIn access token expires when this amount of time
+         * elapses after the token is in use.
          */
         private Long expiryTime;
         /**
