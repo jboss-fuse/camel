@@ -150,13 +150,18 @@ public class CamelInternalProcessor extends DelegateAsyncProcessor {
                 states[i] = state;
             } catch (Throwable e) {
                 exchange.setException(e);
+                //if "task.before" fails, all "after" methods for revious tasks have to be called also - it has meaning only if index > 0
+                if (i > 0) {
+                    //create callback from already executed advices
+                    callback = new InternalCallback(advices.subList(0, i), states, exchange, callback);
+                }
                 callback.done(true);
                 return true;
             }
         }
 
         // create internal callback which will execute the advices in reverse order when done
-        callback = new InternalCallback(states, exchange, callback);
+        callback = new InternalCallback(advices, states, exchange, callback);
 
         // UNIT_OF_WORK_PROCESS_SYNC is @deprecated and we should remove it from Camel 3.0
         Object synchronous = exchange.removeProperty(Exchange.UNIT_OF_WORK_PROCESS_SYNC);
@@ -229,11 +234,13 @@ public class CamelInternalProcessor extends DelegateAsyncProcessor {
         private final Object[] states;
         private final Exchange exchange;
         private final AsyncCallback callback;
+        private final List<CamelInternalProcessorAdvice> advices;
 
-        private InternalCallback(Object[] states, Exchange exchange, AsyncCallback callback) {
+        private InternalCallback(List<CamelInternalProcessorAdvice> advices, Object[] states, Exchange exchange, AsyncCallback callback) {
             this.states = states;
             this.exchange = exchange;
             this.callback = callback;
+            this.advices = advices;
         }
 
         @Override
