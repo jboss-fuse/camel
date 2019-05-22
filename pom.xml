@@ -153,7 +153,7 @@
     <repository>
       <!-- For Swagger 1.5.18.fuse70-1-redhat-1 -->
       <id>jb-fuse-7-brew</id>
-      <url>http://download.eng.bos.redhat.com/brewroot/repos/jb-fuse-7-maven-build/latest/maven</url>
+      <url>https://download.eng.bos.redhat.com/brewroot/repos/jb-fuse-7-maven-build/latest/maven</url>
       <releases>
         <enabled>true</enabled>
       </releases>
@@ -193,7 +193,7 @@
     </repository>
     <repository>
       <id>brew-jb-eap-7.2-maven</id>
-      <url>http://download.eng.bos.redhat.com/brewroot/repos/jb-eap-7.2-maven-build/latest/maven</url>
+      <url>https://download.eng.bos.redhat.com/brewroot/repos/jb-eap-7.2-maven-build/latest/maven</url>
       <releases>
         <enabled>true</enabled>
       </releases>
