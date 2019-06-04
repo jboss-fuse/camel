@@ -120,8 +120,12 @@
                     <groupId>org.infinispan</groupId>
                     <artifactId>infinispan-remote-query-client</artifactId>
                 </exclusion>
+                <exclusion>
+                    <groupId>org.apache.karaf</groupId>
+                    <artifactId>apache-karaf</artifactId>
+                </exclusion>
             </exclusions>
-        </dependency>           
+        </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
@@ -152,6 +156,23 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <systemProperties>
+                        <property>
+                            <name>infinispan.test.jgroups.protocol</name>
+                            <value>tcp</value>
+                        </property>
+                    </systemProperties>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <!-- unit testing requires java 8 -->
     <profiles>
@@ -193,7 +214,7 @@
             </activation>
             <properties>
                 <server.dir.parent>${project.build.directory}</server.dir.parent>
-                <server.dir.name>infinispan-server-${infinispan-version}</server.dir.name>
+                <server.dir.name>infinispan-server-${infinispan-community-version}</server.dir.name>
                 <server.dir>${server.dir.parent}/${server.dir.name}</server.dir>
             </properties>
             <build>
@@ -211,10 +232,10 @@
                                 <configuration>
                                     <target>
                                         <get
-                                         src="https://downloads.jboss.org/infinispan/${infinispan-version}/infinispan-server-${infinispan-version}.zip"
-                                         dest="${project.build.directory}/infinispan-server-${infinispan-version}.zip"/>
+                                         src="https://downloads.jboss.org/infinispan/${infinispan-community-version}/infinispan-server-${infinispan-community-version}.zip"
+                                         dest="${project.build.directory}/infinispan-server-${infinispan-community-version}.zip"/>
                                         <unzip
-                                         src="${project.build.directory}/infinispan-server-${infinispan-version}.zip"
+                                         src="${project.build.directory}/infinispan-server-${infinispan-community-version}.zip"
                                          dest="${server.dir.parent}"/>
                                    </target>
                                </configuration>
@@ -237,7 +258,7 @@
                                             <groupId>org.infinispan.server</groupId>
                                             <artifactId>infinispan-server-testsuite</artifactId>
                                             <classifier>tests</classifier>
-                                            <version>${infinispan-version}</version>
+                                            <version>${infinispan-community-version}</version>
                                             <outputDirectory>${server.dir}/standalone/deployments</outputDirectory>
                                         </artifactItem>
                                     </artifactItems>
@@ -311,6 +332,14 @@
                                 </goals>
                             </execution>
                         </executions>
+                        <configuration>
+                            <systemProperties>
+                                <property>
+                                    <name>infinispan.test.jgroups.protocol</name>
+                                    <value>tcp</value>
+                                </property>
+                            </systemProperties>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>
