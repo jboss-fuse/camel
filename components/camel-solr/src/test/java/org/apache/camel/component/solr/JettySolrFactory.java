@@ -95,6 +95,8 @@ public final class JettySolrFactory {
             installAllTrustingClientSsl();
             mockedSslClient = true;
         }
+        // https://issues.jboss.org/browse/ENTESB-10730
+        System.setProperty("disable.configEdit", "true");
         // Set appropriate paths for Solr to use.
         System.setProperty("solr.solr.home", solrHome);
         System.setProperty("jetty.testMode", "true");
