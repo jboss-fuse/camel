@@ -158,6 +158,8 @@ public class FileUtilTest extends TestCase {
             assertEquals("foo\\bar\\baz", FileUtil.compactPath("foo\\bar\\.\\baz"));
             assertEquals("foo\\bar\\baz", FileUtil.compactPath("foo\\bar\\\\baz"));
             assertEquals("\\foo\\bar\\baz", FileUtil.compactPath("\\foo\\bar\\baz"));
+            // Test that multiple back-slashes at the beginning are preserved, this is necessary for network UNC paths.
+            assertEquals("\\\\foo\\bar\\baz", FileUtil.compactPath("\\\\foo\\bar\\baz"));
             assertEquals("\\", FileUtil.compactPath("\\"));
             assertEquals("\\", FileUtil.compactPath("/"));
             assertEquals("/", FileUtil.compactPath("\\", '/'));
@@ -177,6 +179,8 @@ public class FileUtilTest extends TestCase {
             assertEquals("foo/bar/baz", FileUtil.compactPath("foo/bar/./baz"));
             assertEquals("foo/bar/baz", FileUtil.compactPath("foo/bar//baz"));
             assertEquals("/foo/bar/baz", FileUtil.compactPath("/foo/bar/baz"));
+            // Do not preserve multiple slashes at the beginning if not on Windows.
+            assertEquals("/foo/bar/baz", FileUtil.compactPath("//foo/bar/baz"));
             assertEquals("/", FileUtil.compactPath("/"));
             assertEquals("/", FileUtil.compactPath("\\"));
             assertEquals("/", FileUtil.compactPath("/", '/'));
