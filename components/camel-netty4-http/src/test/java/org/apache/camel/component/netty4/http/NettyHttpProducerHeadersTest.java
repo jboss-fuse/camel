@@ -77,7 +77,7 @@ public class NettyHttpProducerHeadersTest extends CamelTestSupport {
                 port = AvailablePortFinder.getNextAvailable(8000);
 
                 from("netty4-http:http://localhost:" + port + "?matchOnUriPrefix=true")
-                    .setBody(simple("${header."+Exchange.HTTP_URI+"}"));
+                    .setBody(simple("${header." + Exchange.HTTP_URI + "}"));
             }
         };
     }
