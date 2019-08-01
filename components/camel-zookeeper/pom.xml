@@ -37,6 +37,19 @@
     <camel.osgi.export.service>org.apache.camel.spi.ComponentResolver;component=zookeeper</camel.osgi.export.service>
   </properties>
 
+  <repositories>
+    <repository>
+      <id>indy</id>
+      <url>http://indy.psi.redhat.com/api/group/static</url>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>indy</id>
+      <url>http://indy.psi.redhat.com/api/group/static</url>
+    </pluginRepository>
+  </pluginRepositories>
+
   <dependencies>
 
     <dependency>

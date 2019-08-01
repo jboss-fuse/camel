@@ -62,4 +62,18 @@
     </dependency>
     <!--END OF GENERATED CODE-->
   </dependencies>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>indy</id>
+      <url>http://indy.psi.redhat.com/api/group/static</url>
+    </pluginRepository>
+  </pluginRepositories>
+  <!--START OF GENERATED CODE-->
+  <repositories>
+    <repository>
+      <id>indy</id>
+      <url>http://indy.psi.redhat.com/api/group/static</url>
+    </repository>
+  </repositories>
+  <!--END OF GENERATED CODE-->
 </project>
