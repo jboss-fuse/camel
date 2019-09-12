@@ -59,6 +59,8 @@ public class ToDynamicDefinition extends NoOutputDefinition<ToDynamicDefinition>
     private Integer cacheSize;
     @XmlAttribute
     private Boolean ignoreInvalidEndpoint;
+    @XmlAttribute @Metadata(defaultValue = "true")
+    private Boolean allowOptimisedComponents;
 
     public ToDynamicDefinition() {
     }
@@ -162,6 +164,16 @@ public class ToDynamicDefinition extends NoOutputDefinition<ToDynamicDefinition>
         return this;
     }
 
+    /**
+     * Whether to allow components to optimise toD if they are {@link org.apache.camel.spi.SendDynamicAware}.
+     *
+     * @return the builder
+     */
+    public ToDynamicDefinition allowOptimisedComponents(boolean allowOptimisedComponents) {
+        setAllowOptimisedComponents(allowOptimisedComponents);
+        return this;
+    }
+
     // Properties
     // -------------------------------------------------------------------------
 
@@ -198,6 +210,14 @@ public class ToDynamicDefinition extends NoOutputDefinition<ToDynamicDefinition>
 
     public void setIgnoreInvalidEndpoint(Boolean ignoreInvalidEndpoint) {
         this.ignoreInvalidEndpoint = ignoreInvalidEndpoint;
+    }
+
+    public Boolean getAllowOptimisedComponents() {
+        return allowOptimisedComponents;
+    }
+
+    public void setAllowOptimisedComponents(Boolean allowOptimisedComponents) {
+        this.allowOptimisedComponents = allowOptimisedComponents;
     }
 
     // Utilities
