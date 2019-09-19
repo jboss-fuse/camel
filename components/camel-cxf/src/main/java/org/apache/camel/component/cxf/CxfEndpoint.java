@@ -1188,7 +1188,7 @@ public class CxfEndpoint extends DefaultEndpoint implements AsyncEndpoint, Heade
                 //Camel does not strickly enforce returning a value when a value is required from the WSDL/contract
                 //Thus, we'll capture the exception raised and return a null
                 return null;
-             }
+            }
 
         }
 
