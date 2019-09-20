@@ -42,7 +42,7 @@ public class SslContextParametersInUriCometdProducerConsumerTest extends CamelTe
     @Override
     protected JndiRegistry createRegistry() throws Exception {
         KeyStoreParameters ksp = new KeyStoreParameters();
-        ksp.setResource("jsse/localhost.ks");
+        ksp.setResource("jsse/localhost.p12");
         ksp.setPassword("changeit");
         
         KeyManagersParameters kmp = new KeyManagersParameters();

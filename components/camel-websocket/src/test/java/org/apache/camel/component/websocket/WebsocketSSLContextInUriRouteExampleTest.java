@@ -65,8 +65,10 @@ public class WebsocketSSLContextInUriRouteExampleTest extends CamelTestSupport {
     public void setUp() throws Exception {
         port = AvailablePortFinder.getNextAvailable(16300);
 
-        URL trustStoreUrl = this.getClass().getClassLoader().getResource("jsse/localhost.ks");
+        URL trustStoreUrl = this.getClass().getClassLoader().getResource("jsse/localhost.p12");
         setSystemProp("javax.net.ssl.trustStore", trustStoreUrl.toURI().getPath());
+        setSystemProp("javax.net.ssl.trustStoreType", "PKCS12");
+        setSystemProp("javax.net.ssl.trustStorePassword", pwd);
         uri = "websocket://" + server + ":" + port + "/test?sslContextParameters=#sslContextParameters";
 
         super.setUp();
@@ -75,8 +77,9 @@ public class WebsocketSSLContextInUriRouteExampleTest extends CamelTestSupport {
     @Override
     protected JndiRegistry createRegistry() throws Exception {
         KeyStoreParameters ksp = new KeyStoreParameters();
-        ksp.setResource("jsse/localhost.ks");
+        ksp.setResource("jsse/localhost.p12");
         ksp.setPassword(pwd);
+        ksp.setType("PKCS12");
 
         KeyManagersParameters kmp = new KeyManagersParameters();
         kmp.setKeyPassword(pwd);

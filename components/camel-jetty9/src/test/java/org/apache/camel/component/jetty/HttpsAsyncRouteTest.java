@@ -47,8 +47,10 @@ public class HttpsAsyncRouteTest extends HttpsRouteTest {
         super.setUp();
         // ensure jsse clients can validate the self signed dummy localhost cert, 
         // use the server keystore as the trust store for these tests
-        URL trustStoreUrl = this.getClass().getClassLoader().getResource("jsse/localhost.ks");
+        URL trustStoreUrl = this.getClass().getClassLoader().getResource("jsse/localhost.p12");
         setSystemProp("javax.net.ssl.trustStore", trustStoreUrl.toURI().getPath());
+        setSystemProp("javax.net.ssl.trustStorePassword", "changeit");
+        setSystemProp("javax.net.ssl.trustStoreType", "PKCS12");
     }
 
     @Override
@@ -160,13 +162,13 @@ public class HttpsAsyncRouteTest extends HttpsRouteTest {
     protected void configureSslContextFactory(SslContextFactory sslContextFactory) {
         sslContextFactory.setKeyManagerPassword(pwd);
         sslContextFactory.setKeyStorePassword(pwd);
-        URL keyStoreUrl = this.getClass().getClassLoader().getResource("jsse/localhost.ks");
+        URL keyStoreUrl = this.getClass().getClassLoader().getResource("jsse/localhost.p12");
         try {
             sslContextFactory.setKeyStorePath(keyStoreUrl.toURI().getPath());
         } catch (URISyntaxException e) {
             throw new RuntimeException(e.getMessage(), e);
         }
-        sslContextFactory.setTrustStoreType("JKS");
+        sslContextFactory.setTrustStoreType("PKCS12");
     }
     
     @Override
@@ -176,7 +178,7 @@ public class HttpsAsyncRouteTest extends HttpsRouteTest {
                 JettyHttpComponent componentJetty = (JettyHttpComponent) context.getComponent("jetty");
                 componentJetty.setSslPassword(pwd);
                 componentJetty.setSslKeyPassword(pwd);
-                URL keyStoreUrl = this.getClass().getClassLoader().getResource("jsse/localhost.ks");
+                URL keyStoreUrl = this.getClass().getClassLoader().getResource("jsse/localhost.p12");
                 componentJetty.setKeystore(keyStoreUrl.toURI().getPath());
                 
                 from("jetty:https://localhost:" + port1 + "/test?async=true&useContinuation=false").to("mock:a");

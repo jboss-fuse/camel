@@ -64,8 +64,10 @@ public class WebsocketSSLRouteExampleTest extends CamelTestSupport {
 
         super.setUp();
 
-        URL trustStoreUrl = this.getClass().getClassLoader().getResource("jsse/localhost.ks");
+        URL trustStoreUrl = this.getClass().getClassLoader().getResource("jsse/localhost.p12");
         setSystemProp("javax.net.ssl.trustStore", trustStoreUrl.toURI().getPath());
+        setSystemProp("javax.net.ssl.trustStoreType", "PKCS12");
+        setSystemProp("javax.net.ssl.trustStorePassword", pwd);
     }
 
     protected void setSystemProp(String key, String value) {
@@ -94,9 +96,10 @@ public class WebsocketSSLRouteExampleTest extends CamelTestSupport {
     protected SSLContextParameters defineSSLContextParameters() {
 
         KeyStoreParameters ksp = new KeyStoreParameters();
-        // ksp.setResource(this.getClass().getClassLoader().getResource("jsse/localhost.ks").toString());
-        ksp.setResource("jsse/localhost.ks");
+        // ksp.setResource(this.getClass().getClassLoader().getResource("jsse/localhost.p12").toString());
+        ksp.setResource("jsse/localhost.p12");
         ksp.setPassword(pwd);
+        ksp.setType("PKCS12");
 
         KeyManagersParameters kmp = new KeyManagersParameters();
         kmp.setKeyPassword(pwd);
