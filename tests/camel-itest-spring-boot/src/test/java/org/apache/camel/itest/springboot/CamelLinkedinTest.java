@@ -20,10 +20,11 @@ import org.apache.camel.itest.springboot.util.ArquillianPackager;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.Archive;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-
+@Ignore("https://issues.jboss.org/browse/ENTESB-11060")
 @RunWith(Arquillian.class)
 public class CamelLinkedinTest extends AbstractSpringBootTestSupport {
 
