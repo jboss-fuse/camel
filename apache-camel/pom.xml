@@ -663,14 +663,6 @@
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>
-      <artifactId>camel-linkedin-api</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.camel</groupId>
-      <artifactId>camel-linkedin</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.camel</groupId>
       <artifactId>camel-lra</artifactId>
     </dependency>
     <dependency>
@@ -1903,11 +1895,6 @@
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-leveldb-starter</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.camel</groupId>
-      <artifactId>camel-linkedin-starter</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>

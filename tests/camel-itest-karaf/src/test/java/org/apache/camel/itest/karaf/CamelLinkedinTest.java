@@ -16,11 +16,13 @@
  */
 package org.apache.camel.itest.karaf;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.ops4j.pax.exam.junit.PaxExam;
 
 @RunWith(PaxExam.class)
+@Ignore("https://issues.jboss.org/browse/ENTESB-11060")
 public class CamelLinkedinTest extends BaseKarafTest {
 
     public static final String COMPONENT = extractName(CamelLinkedinTest.class);

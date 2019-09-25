@@ -526,9 +526,6 @@ Number of Components: 294 in 199 JAR artifacts (20 deprecated)
 | link:camel-ldif/src/main/docs/ldif-component.adoc[LDIF] (camel-ldif) +
 `ldif:ldapConnectionName` | 2.20 | The ldif component allows you to do updates on an LDAP server from a LDIF body content.
 
-| link:camel-linkedin/camel-linkedin-component/src/main/docs/linkedin-component.adoc[Linkedin] (camel-linkedin) +
-`linkedin:apiName/methodName` | 2.14 | The linkedin component is used for retrieving LinkedIn user profiles, connections, companies, groups, posts, etc.
-
 | link:../camel-core/src/main/docs/log-component.adoc[Log] (camel-core) +
 `log:loggerName` | 1.1 | The log component logs message exchanges to the underlying logging mechanism.
 

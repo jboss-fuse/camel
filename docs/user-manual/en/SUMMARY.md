@@ -288,7 +288,6 @@
 	* [Kubernetes Services](kubernetes-services-component.adoc)
 	* [LDAP](ldap-component.adoc)
 	* [LDIF](ldif-component.adoc)
-	* [Linkedin](linkedin-component.adoc)
 	* [Lucene](lucene-component.adoc)
 	* [Lumberjack](lumberjack-component.adoc)
 	* [Master](master-component.adoc)
