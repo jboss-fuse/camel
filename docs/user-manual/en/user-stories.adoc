@@ -264,9 +264,6 @@ User Group Denmark] |A danish user group for Apache Camel.
 |http://groups.google.com/group/apache-camel-user-group-tunisia[Apache
 Camel User Group Tunisia] |A tunisian user group for Apache Camel.
 
-|http://www.linkedin.com/groups?gid=2447439&trk=hb_side_g[Linkedin
-Apache Camel Group] |The Apache Camel group in linkedin.
-
 |https://plus.google.com/communities/106271384875356488225[Google+
 Apache Camel Group] |The Apache Camel group in google+
 
