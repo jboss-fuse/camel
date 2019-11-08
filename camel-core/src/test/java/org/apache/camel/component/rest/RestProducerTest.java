@@ -18,6 +18,8 @@ package org.apache.camel.component.rest;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
+import java.util.Arrays;
+import java.util.Collections;
 
 import org.apache.camel.CamelContext;
 import org.apache.camel.impl.DefaultCamelContext;
@@ -30,6 +32,22 @@ import static org.junit.Assert.assertNull;
 public class RestProducerTest {
 
     private CamelContext camelContext = new DefaultCamelContext();
+
+    @Test
+    public void shouldCreateMultipleQueryParameters() throws UnsupportedEncodingException, URISyntaxException {
+        final DefaultMessage message = new DefaultMessage(camelContext);
+        message.setHeader("multiple", Arrays.asList("value1", "value2", "value3"));
+
+        assertEquals("param=value1&param=value2&param=value3", RestProducer.createQueryParameters("param={multiple}", message));
+    }
+
+    @Test
+    public void shouldCreateMultipleOptionalQueryParameters() throws UnsupportedEncodingException, URISyntaxException {
+        final DefaultMessage message = new DefaultMessage(camelContext);
+        message.setHeader("multiple", Collections.EMPTY_LIST);
+
+        assertEquals("", RestProducer.createQueryParameters("multiple={multiple?}", message));
+    }
 
     @Test
     public void shouldCreateDefinedQueryParameters() throws UnsupportedEncodingException, URISyntaxException {
@@ -71,9 +89,19 @@ public class RestProducerTest {
         final DefaultMessage message = new DefaultMessage(camelContext);
         message.setHeader("required", "header_required");
         message.setHeader("optional_present", "header_optional_present");
+        message.setHeader("multiple", Arrays.asList("value1", "value2", "value3"));
+        message.setHeader("multipleOptional", Collections.EMPTY_LIST);
 
-        assertEquals("given=value&required=header_required&optional_present=header_optional_present",
-            RestProducer.createQueryParameters(
-                "given=value&required={required}&optional={optional?}&optional_present={optional_present?}", message));
+        assertEquals("given=value"
+            + "&required=header_required"
+            + "&optional_present=header_optional_present"
+            + "&multiple=value1&multiple=value2&multiple=value3",
+            RestProducer.createQueryParameters("given=value"
+                + "&required={required}"
+                + "&optional={optional?}"
+                + "&optional_present={optional_present?}"
+                + "&multiple={multiple}"
+                + "&multipleOptional={multipleOptional?}",
+                message));
     }
 }
