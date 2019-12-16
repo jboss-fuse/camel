@@ -729,7 +729,8 @@
     <velocity-tools-version>2.0</velocity-tools-version>
     <velocity-version>2.0</velocity-version>
     <vertx-version>3.5.3</vertx-version>
-    <vertx-jackson-version>2.9.9</vertx-jackson-version>
+    <vertx-jackson-version>2.9.10</vertx-jackson-version>
+    <vertx-jackson-databind-version>2.9.10.1</vertx-jackson-databind-version>
     <vysper-version>0.7</vysper-version>
     <weld1-version>1.1.28.Final</weld1-version>
     <weld2-version>2.4.6.Final</weld2-version>
