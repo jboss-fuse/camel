@@ -332,6 +332,28 @@ public final class URISupport {
     }
 
     /**
+     * Strips the suffix from the value.
+     * <p/>
+     * Returns the value as-is if not ending with the prefix.
+     *
+     * @param value the value
+     * @param suffix the suffix to remove from value
+     * @return the value without the suffix
+     */
+    public static String stripSuffix(final String value, final String suffix) {
+        if (value == null || suffix == null) {
+            return value;
+        }
+
+        if (value.endsWith(suffix)) {
+            return value.substring(0, value.length() - suffix.length());
+        }
+
+        return value;
+    }
+
+
+    /**
      * Assembles a query from the given map.
      *
      * @param options  the map with the options (eg key/value pairs)
@@ -551,5 +573,37 @@ public final class URISupport {
         }
 
         return pathAndQuery;
+    }
+
+    public static String joinPaths(final String... paths) {
+        if (paths == null || paths.length == 0) {
+            return "";
+        }
+
+        final StringBuilder joined = new StringBuilder();
+
+        boolean addedLast = false;
+        for (int i = paths.length - 1; i >= 0; i--) {
+            String path = paths[i];
+            if (ObjectHelper.isNotEmpty(path)) {
+                if (addedLast) {
+                    path = stripSuffix(path, "/");
+                }
+
+                addedLast = true;
+
+                if (path.charAt(0) == '/') {
+                    joined.insert(0, path);
+                } else {
+                    if (i > 0) {
+                        joined.insert(0, '/').insert(1, path);
+                    } else {
+                        joined.insert(0, path);
+                    }
+                }
+            }
+        }
+
+        return joined.toString();
     }
 }

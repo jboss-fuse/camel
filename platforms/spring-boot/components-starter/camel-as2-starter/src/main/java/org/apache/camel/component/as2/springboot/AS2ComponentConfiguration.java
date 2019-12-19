@@ -27,7 +27,7 @@ import org.apache.camel.component.as2.internal.AS2ApiName;
 import org.apache.camel.spring.boot.ComponentConfigurationPropertiesCommon;
 import org.apache.http.entity.ContentType;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-
+import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
 /**
  * Component used for transferring data secure and reliable over the internet
@@ -39,21 +39,18 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = "camel.component.as2")
 public class AS2ComponentConfiguration
         extends
-        ComponentConfigurationPropertiesCommon {
-
+            ComponentConfigurationPropertiesCommon {
 
     /**
      * To use the shared configuration
      */
     private AS2ConfigurationNestedConfiguration configuration;
-
     /**
      * Whether the component should resolve property placeholders on itself when
      * starting. Only properties which are of String type can use property
      * placeholders.
      */
     private Boolean resolvePropertyPlaceholders = true;
-
 
     public AS2ConfigurationNestedConfiguration getConfiguration() {
         return configuration;
@@ -127,6 +124,7 @@ public class AS2ComponentConfiguration
          * The content type of EDI message. One of application/edifact,
          * application/edi-x12, application/edi-consent
          */
+        @NestedConfigurationProperty
         private ContentType ediMessageType;
         /**
          * The transfer encoding of EDI message.
