@@ -195,7 +195,7 @@
     <docker-java-version>3.0.14</docker-java-version>
     <docker-java-bundle-version>3.0.14_1</docker-java-bundle-version>
     <docker-maven-plugin-version>0.24.0</docker-maven-plugin-version>
-    <dom4j-bundle-version>1.6.1_5</dom4j-bundle-version>
+    <dom4j-bundle-version>2.1.1_1</dom4j-bundle-version>
     <dozer-version>6.4.1</dozer-version>
     <drools-version>7.14.0.Final</drools-version>
     <dropbox-version>3.0.6</dropbox-version>
