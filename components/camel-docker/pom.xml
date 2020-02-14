@@ -51,6 +51,18 @@
       <groupId>com.github.docker-java</groupId>
       <artifactId>docker-java</artifactId>
       <version>${docker-java-version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>io.netty</groupId>
+          <artifactId>netty-codec-http</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>io.netty</groupId>
+      <artifactId>netty-codec-http</artifactId>
+      <version>${netty-version}</version>
     </dependency>
     
     <!-- need to avoid the snapshot dependency -->

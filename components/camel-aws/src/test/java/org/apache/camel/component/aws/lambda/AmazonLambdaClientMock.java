@@ -16,14 +16,21 @@
  */
 package org.apache.camel.component.aws.lambda;
 
-import java.nio.*;
+
+import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.AmazonWebServiceRequest;
 import com.amazonaws.ResponseMetadata;
 import com.amazonaws.regions.Region;
 import com.amazonaws.services.lambda.AbstractAWSLambda;
+import com.amazonaws.services.lambda.model.AddLayerVersionPermissionRequest;
+import com.amazonaws.services.lambda.model.AddLayerVersionPermissionResult;
 import com.amazonaws.services.lambda.model.AddPermissionRequest;
 import com.amazonaws.services.lambda.model.AddPermissionResult;
 import com.amazonaws.services.lambda.model.CreateAliasRequest;
@@ -38,8 +45,14 @@ import com.amazonaws.services.lambda.model.DeleteEventSourceMappingRequest;
 import com.amazonaws.services.lambda.model.DeleteEventSourceMappingResult;
 import com.amazonaws.services.lambda.model.DeleteFunctionConcurrencyRequest;
 import com.amazonaws.services.lambda.model.DeleteFunctionConcurrencyResult;
+import com.amazonaws.services.lambda.model.DeleteFunctionEventInvokeConfigRequest;
+import com.amazonaws.services.lambda.model.DeleteFunctionEventInvokeConfigResult;
 import com.amazonaws.services.lambda.model.DeleteFunctionRequest;
 import com.amazonaws.services.lambda.model.DeleteFunctionResult;
+import com.amazonaws.services.lambda.model.DeleteLayerVersionRequest;
+import com.amazonaws.services.lambda.model.DeleteLayerVersionResult;
+import com.amazonaws.services.lambda.model.DeleteProvisionedConcurrencyConfigRequest;
+import com.amazonaws.services.lambda.model.DeleteProvisionedConcurrencyConfigResult;
 import com.amazonaws.services.lambda.model.EventSourceMappingConfiguration;
 import com.amazonaws.services.lambda.model.FunctionConfiguration;
 import com.amazonaws.services.lambda.model.GetAccountSettingsRequest;
@@ -48,12 +61,24 @@ import com.amazonaws.services.lambda.model.GetAliasRequest;
 import com.amazonaws.services.lambda.model.GetAliasResult;
 import com.amazonaws.services.lambda.model.GetEventSourceMappingRequest;
 import com.amazonaws.services.lambda.model.GetEventSourceMappingResult;
+import com.amazonaws.services.lambda.model.GetFunctionConcurrencyRequest;
+import com.amazonaws.services.lambda.model.GetFunctionConcurrencyResult;
 import com.amazonaws.services.lambda.model.GetFunctionConfigurationRequest;
 import com.amazonaws.services.lambda.model.GetFunctionConfigurationResult;
+import com.amazonaws.services.lambda.model.GetFunctionEventInvokeConfigRequest;
+import com.amazonaws.services.lambda.model.GetFunctionEventInvokeConfigResult;
 import com.amazonaws.services.lambda.model.GetFunctionRequest;
 import com.amazonaws.services.lambda.model.GetFunctionResult;
+import com.amazonaws.services.lambda.model.GetLayerVersionByArnRequest;
+import com.amazonaws.services.lambda.model.GetLayerVersionByArnResult;
+import com.amazonaws.services.lambda.model.GetLayerVersionPolicyRequest;
+import com.amazonaws.services.lambda.model.GetLayerVersionPolicyResult;
+import com.amazonaws.services.lambda.model.GetLayerVersionRequest;
+import com.amazonaws.services.lambda.model.GetLayerVersionResult;
 import com.amazonaws.services.lambda.model.GetPolicyRequest;
 import com.amazonaws.services.lambda.model.GetPolicyResult;
+import com.amazonaws.services.lambda.model.GetProvisionedConcurrencyConfigRequest;
+import com.amazonaws.services.lambda.model.GetProvisionedConcurrencyConfigResult;
 import com.amazonaws.services.lambda.model.InvokeAsyncRequest;
 import com.amazonaws.services.lambda.model.InvokeAsyncResult;
 import com.amazonaws.services.lambda.model.InvokeRequest;
@@ -62,16 +87,32 @@ import com.amazonaws.services.lambda.model.ListAliasesRequest;
 import com.amazonaws.services.lambda.model.ListAliasesResult;
 import com.amazonaws.services.lambda.model.ListEventSourceMappingsRequest;
 import com.amazonaws.services.lambda.model.ListEventSourceMappingsResult;
+import com.amazonaws.services.lambda.model.ListFunctionEventInvokeConfigsRequest;
+import com.amazonaws.services.lambda.model.ListFunctionEventInvokeConfigsResult;
 import com.amazonaws.services.lambda.model.ListFunctionsRequest;
 import com.amazonaws.services.lambda.model.ListFunctionsResult;
+import com.amazonaws.services.lambda.model.ListLayerVersionsRequest;
+import com.amazonaws.services.lambda.model.ListLayerVersionsResult;
+import com.amazonaws.services.lambda.model.ListLayersRequest;
+import com.amazonaws.services.lambda.model.ListLayersResult;
+import com.amazonaws.services.lambda.model.ListProvisionedConcurrencyConfigsRequest;
+import com.amazonaws.services.lambda.model.ListProvisionedConcurrencyConfigsResult;
 import com.amazonaws.services.lambda.model.ListTagsRequest;
 import com.amazonaws.services.lambda.model.ListTagsResult;
 import com.amazonaws.services.lambda.model.ListVersionsByFunctionRequest;
 import com.amazonaws.services.lambda.model.ListVersionsByFunctionResult;
+import com.amazonaws.services.lambda.model.PublishLayerVersionRequest;
+import com.amazonaws.services.lambda.model.PublishLayerVersionResult;
 import com.amazonaws.services.lambda.model.PublishVersionRequest;
 import com.amazonaws.services.lambda.model.PublishVersionResult;
 import com.amazonaws.services.lambda.model.PutFunctionConcurrencyRequest;
 import com.amazonaws.services.lambda.model.PutFunctionConcurrencyResult;
+import com.amazonaws.services.lambda.model.PutFunctionEventInvokeConfigRequest;
+import com.amazonaws.services.lambda.model.PutFunctionEventInvokeConfigResult;
+import com.amazonaws.services.lambda.model.PutProvisionedConcurrencyConfigRequest;
+import com.amazonaws.services.lambda.model.PutProvisionedConcurrencyConfigResult;
+import com.amazonaws.services.lambda.model.RemoveLayerVersionPermissionRequest;
+import com.amazonaws.services.lambda.model.RemoveLayerVersionPermissionResult;
 import com.amazonaws.services.lambda.model.RemovePermissionRequest;
 import com.amazonaws.services.lambda.model.RemovePermissionResult;
 import com.amazonaws.services.lambda.model.Runtime;
@@ -89,6 +130,9 @@ import com.amazonaws.services.lambda.model.UpdateFunctionCodeRequest;
 import com.amazonaws.services.lambda.model.UpdateFunctionCodeResult;
 import com.amazonaws.services.lambda.model.UpdateFunctionConfigurationRequest;
 import com.amazonaws.services.lambda.model.UpdateFunctionConfigurationResult;
+import com.amazonaws.services.lambda.model.UpdateFunctionEventInvokeConfigRequest;
+import com.amazonaws.services.lambda.model.UpdateFunctionEventInvokeConfigResult;
+import com.amazonaws.services.lambda.waiters.AWSLambdaWaiters;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.joda.time.DateTime;
@@ -240,7 +284,7 @@ public class AmazonLambdaClientMock extends AbstractAWSLambda {
     @Override
     public ListEventSourceMappingsResult listEventSourceMappings(ListEventSourceMappingsRequest listEventSourceMappingsRequest) {
         ListEventSourceMappingsResult result = new ListEventSourceMappingsResult();
-        List<EventSourceMappingConfiguration> confList = new ArrayList<EventSourceMappingConfiguration>();
+        List<EventSourceMappingConfiguration> confList = new ArrayList<>();
         EventSourceMappingConfiguration conf = new EventSourceMappingConfiguration();
         conf.setBatchSize(100);
         conf.setFunctionArn("arn:aws:lambda:eu-central-1:643534317684:function:" + listEventSourceMappingsRequest.getFunctionName());
@@ -376,5 +420,109 @@ public class AmazonLambdaClientMock extends AbstractAWSLambda {
     @Override
     public void shutdown() {
         throw new UnsupportedOperationException();        
+    }
+
+
+    ////
+
+
+    @Override
+    public AddLayerVersionPermissionResult addLayerVersionPermission(AddLayerVersionPermissionRequest addLayerVersionPermissionRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public DeleteFunctionEventInvokeConfigResult deleteFunctionEventInvokeConfig(DeleteFunctionEventInvokeConfigRequest deleteFunctionEventInvokeConfigRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public DeleteLayerVersionResult deleteLayerVersion(DeleteLayerVersionRequest deleteLayerVersionRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public DeleteProvisionedConcurrencyConfigResult deleteProvisionedConcurrencyConfig(DeleteProvisionedConcurrencyConfigRequest deleteProvisionedConcurrencyConfigRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public GetFunctionConcurrencyResult getFunctionConcurrency(GetFunctionConcurrencyRequest getFunctionConcurrencyRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public GetFunctionEventInvokeConfigResult getFunctionEventInvokeConfig(GetFunctionEventInvokeConfigRequest getFunctionEventInvokeConfigRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public GetLayerVersionResult getLayerVersion(GetLayerVersionRequest getLayerVersionRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public GetLayerVersionByArnResult getLayerVersionByArn(GetLayerVersionByArnRequest getLayerVersionByArnRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public GetLayerVersionPolicyResult getLayerVersionPolicy(GetLayerVersionPolicyRequest getLayerVersionPolicyRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public GetProvisionedConcurrencyConfigResult getProvisionedConcurrencyConfig(GetProvisionedConcurrencyConfigRequest getProvisionedConcurrencyConfigRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public ListFunctionEventInvokeConfigsResult listFunctionEventInvokeConfigs(ListFunctionEventInvokeConfigsRequest listFunctionEventInvokeConfigsRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public ListLayerVersionsResult listLayerVersions(ListLayerVersionsRequest listLayerVersionsRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public ListLayersResult listLayers(ListLayersRequest listLayersRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public ListProvisionedConcurrencyConfigsResult listProvisionedConcurrencyConfigs(ListProvisionedConcurrencyConfigsRequest listProvisionedConcurrencyConfigsRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public PublishLayerVersionResult publishLayerVersion(PublishLayerVersionRequest publishLayerVersionRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public PutFunctionEventInvokeConfigResult putFunctionEventInvokeConfig(PutFunctionEventInvokeConfigRequest putFunctionEventInvokeConfigRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public PutProvisionedConcurrencyConfigResult putProvisionedConcurrencyConfig(PutProvisionedConcurrencyConfigRequest putProvisionedConcurrencyConfigRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public RemoveLayerVersionPermissionResult removeLayerVersionPermission(RemoveLayerVersionPermissionRequest removeLayerVersionPermissionRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public UpdateFunctionEventInvokeConfigResult updateFunctionEventInvokeConfig(UpdateFunctionEventInvokeConfigRequest updateFunctionEventInvokeConfigRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public AWSLambdaWaiters waiters() {
+        throw new UnsupportedOperationException();
     }
 }
