@@ -29,12 +29,20 @@ import com.amazonaws.services.mq.model.CreateBrokerRequest;
 import com.amazonaws.services.mq.model.CreateBrokerResult;
 import com.amazonaws.services.mq.model.CreateConfigurationRequest;
 import com.amazonaws.services.mq.model.CreateConfigurationResult;
+import com.amazonaws.services.mq.model.CreateTagsRequest;
+import com.amazonaws.services.mq.model.CreateTagsResult;
 import com.amazonaws.services.mq.model.CreateUserRequest;
 import com.amazonaws.services.mq.model.CreateUserResult;
 import com.amazonaws.services.mq.model.DeleteBrokerRequest;
 import com.amazonaws.services.mq.model.DeleteBrokerResult;
+import com.amazonaws.services.mq.model.DeleteTagsRequest;
+import com.amazonaws.services.mq.model.DeleteTagsResult;
 import com.amazonaws.services.mq.model.DeleteUserRequest;
 import com.amazonaws.services.mq.model.DeleteUserResult;
+import com.amazonaws.services.mq.model.DescribeBrokerEngineTypesRequest;
+import com.amazonaws.services.mq.model.DescribeBrokerEngineTypesResult;
+import com.amazonaws.services.mq.model.DescribeBrokerInstanceOptionsRequest;
+import com.amazonaws.services.mq.model.DescribeBrokerInstanceOptionsResult;
 import com.amazonaws.services.mq.model.DescribeBrokerRequest;
 import com.amazonaws.services.mq.model.DescribeBrokerResult;
 import com.amazonaws.services.mq.model.DescribeConfigurationRequest;
@@ -49,6 +57,8 @@ import com.amazonaws.services.mq.model.ListConfigurationRevisionsRequest;
 import com.amazonaws.services.mq.model.ListConfigurationRevisionsResult;
 import com.amazonaws.services.mq.model.ListConfigurationsRequest;
 import com.amazonaws.services.mq.model.ListConfigurationsResult;
+import com.amazonaws.services.mq.model.ListTagsRequest;
+import com.amazonaws.services.mq.model.ListTagsResult;
 import com.amazonaws.services.mq.model.ListUsersRequest;
 import com.amazonaws.services.mq.model.ListUsersResult;
 import com.amazonaws.services.mq.model.RebootBrokerRequest;
@@ -182,4 +192,32 @@ public class AmazonMQClientMock implements AmazonMQ {
         throw new UnsupportedOperationException();
     }
 
+
+    ////
+
+
+    @Override
+    public CreateTagsResult createTags(CreateTagsRequest createTagsRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public DeleteTagsResult deleteTags(DeleteTagsRequest deleteTagsRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public DescribeBrokerEngineTypesResult describeBrokerEngineTypes(DescribeBrokerEngineTypesRequest describeBrokerEngineTypesRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public DescribeBrokerInstanceOptionsResult describeBrokerInstanceOptions(DescribeBrokerInstanceOptionsRequest describeBrokerInstanceOptionsRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public ListTagsResult listTags(ListTagsRequest listTagsRequest) {
+        throw new UnsupportedOperationException();
+    }
 }

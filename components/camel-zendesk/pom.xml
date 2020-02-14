@@ -50,6 +50,18 @@
     <dependency>
       <groupId>com.cloudbees.thirdparty</groupId>
       <artifactId>zendesk-java-client</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>org.asynchttpclient</groupId>
+          <artifactId>async-http-client</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>org.asynchttpclient</groupId>
+      <artifactId>async-http-client</artifactId>
+      <version>${ahc-version}</version>
     </dependency>
 
     <!-- testing -->

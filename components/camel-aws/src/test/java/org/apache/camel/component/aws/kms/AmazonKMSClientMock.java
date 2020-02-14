@@ -18,15 +18,18 @@ package org.apache.camel.component.aws.kms;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import com.amazonaws.AmazonWebServiceRequest;
 import com.amazonaws.ResponseMetadata;
 import com.amazonaws.regions.Region;
 import com.amazonaws.services.kms.AWSKMS;
 import com.amazonaws.services.kms.model.CancelKeyDeletionRequest;
 import com.amazonaws.services.kms.model.CancelKeyDeletionResult;
+import com.amazonaws.services.kms.model.ConnectCustomKeyStoreRequest;
+import com.amazonaws.services.kms.model.ConnectCustomKeyStoreResult;
 import com.amazonaws.services.kms.model.CreateAliasRequest;
 import com.amazonaws.services.kms.model.CreateAliasResult;
+import com.amazonaws.services.kms.model.CreateCustomKeyStoreRequest;
+import com.amazonaws.services.kms.model.CreateCustomKeyStoreResult;
 import com.amazonaws.services.kms.model.CreateGrantRequest;
 import com.amazonaws.services.kms.model.CreateGrantResult;
 import com.amazonaws.services.kms.model.CreateKeyRequest;
@@ -35,20 +38,30 @@ import com.amazonaws.services.kms.model.DecryptRequest;
 import com.amazonaws.services.kms.model.DecryptResult;
 import com.amazonaws.services.kms.model.DeleteAliasRequest;
 import com.amazonaws.services.kms.model.DeleteAliasResult;
+import com.amazonaws.services.kms.model.DeleteCustomKeyStoreRequest;
+import com.amazonaws.services.kms.model.DeleteCustomKeyStoreResult;
 import com.amazonaws.services.kms.model.DeleteImportedKeyMaterialRequest;
 import com.amazonaws.services.kms.model.DeleteImportedKeyMaterialResult;
+import com.amazonaws.services.kms.model.DescribeCustomKeyStoresRequest;
+import com.amazonaws.services.kms.model.DescribeCustomKeyStoresResult;
 import com.amazonaws.services.kms.model.DescribeKeyRequest;
 import com.amazonaws.services.kms.model.DescribeKeyResult;
 import com.amazonaws.services.kms.model.DisableKeyRequest;
 import com.amazonaws.services.kms.model.DisableKeyResult;
 import com.amazonaws.services.kms.model.DisableKeyRotationRequest;
 import com.amazonaws.services.kms.model.DisableKeyRotationResult;
+import com.amazonaws.services.kms.model.DisconnectCustomKeyStoreRequest;
+import com.amazonaws.services.kms.model.DisconnectCustomKeyStoreResult;
 import com.amazonaws.services.kms.model.EnableKeyRequest;
 import com.amazonaws.services.kms.model.EnableKeyResult;
 import com.amazonaws.services.kms.model.EnableKeyRotationRequest;
 import com.amazonaws.services.kms.model.EnableKeyRotationResult;
 import com.amazonaws.services.kms.model.EncryptRequest;
 import com.amazonaws.services.kms.model.EncryptResult;
+import com.amazonaws.services.kms.model.GenerateDataKeyPairRequest;
+import com.amazonaws.services.kms.model.GenerateDataKeyPairResult;
+import com.amazonaws.services.kms.model.GenerateDataKeyPairWithoutPlaintextRequest;
+import com.amazonaws.services.kms.model.GenerateDataKeyPairWithoutPlaintextResult;
 import com.amazonaws.services.kms.model.GenerateDataKeyRequest;
 import com.amazonaws.services.kms.model.GenerateDataKeyResult;
 import com.amazonaws.services.kms.model.GenerateDataKeyWithoutPlaintextRequest;
@@ -61,6 +74,8 @@ import com.amazonaws.services.kms.model.GetKeyRotationStatusRequest;
 import com.amazonaws.services.kms.model.GetKeyRotationStatusResult;
 import com.amazonaws.services.kms.model.GetParametersForImportRequest;
 import com.amazonaws.services.kms.model.GetParametersForImportResult;
+import com.amazonaws.services.kms.model.GetPublicKeyRequest;
+import com.amazonaws.services.kms.model.GetPublicKeyResult;
 import com.amazonaws.services.kms.model.ImportKeyMaterialRequest;
 import com.amazonaws.services.kms.model.ImportKeyMaterialResult;
 import com.amazonaws.services.kms.model.KeyListEntry;
@@ -87,14 +102,20 @@ import com.amazonaws.services.kms.model.RevokeGrantRequest;
 import com.amazonaws.services.kms.model.RevokeGrantResult;
 import com.amazonaws.services.kms.model.ScheduleKeyDeletionRequest;
 import com.amazonaws.services.kms.model.ScheduleKeyDeletionResult;
+import com.amazonaws.services.kms.model.SignRequest;
+import com.amazonaws.services.kms.model.SignResult;
 import com.amazonaws.services.kms.model.TagResourceRequest;
 import com.amazonaws.services.kms.model.TagResourceResult;
 import com.amazonaws.services.kms.model.UntagResourceRequest;
 import com.amazonaws.services.kms.model.UntagResourceResult;
 import com.amazonaws.services.kms.model.UpdateAliasRequest;
 import com.amazonaws.services.kms.model.UpdateAliasResult;
+import com.amazonaws.services.kms.model.UpdateCustomKeyStoreRequest;
+import com.amazonaws.services.kms.model.UpdateCustomKeyStoreResult;
 import com.amazonaws.services.kms.model.UpdateKeyDescriptionRequest;
 import com.amazonaws.services.kms.model.UpdateKeyDescriptionResult;
+import com.amazonaws.services.kms.model.VerifyRequest;
+import com.amazonaws.services.kms.model.VerifyResult;
 
 
 public class AmazonKMSClientMock implements AWSKMS {
@@ -335,4 +356,61 @@ public class AmazonKMSClientMock implements AWSKMS {
         throw new UnsupportedOperationException();
     }
 
+    //
+
+
+    @Override
+    public ConnectCustomKeyStoreResult connectCustomKeyStore(ConnectCustomKeyStoreRequest connectCustomKeyStoreRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public CreateCustomKeyStoreResult createCustomKeyStore(CreateCustomKeyStoreRequest createCustomKeyStoreRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public DeleteCustomKeyStoreResult deleteCustomKeyStore(DeleteCustomKeyStoreRequest deleteCustomKeyStoreRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public DescribeCustomKeyStoresResult describeCustomKeyStores(DescribeCustomKeyStoresRequest describeCustomKeyStoresRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public DisconnectCustomKeyStoreResult disconnectCustomKeyStore(DisconnectCustomKeyStoreRequest disconnectCustomKeyStoreRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public GenerateDataKeyPairResult generateDataKeyPair(GenerateDataKeyPairRequest generateDataKeyPairRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public GenerateDataKeyPairWithoutPlaintextResult generateDataKeyPairWithoutPlaintext(GenerateDataKeyPairWithoutPlaintextRequest generateDataKeyPairWithoutPlaintextRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public GetPublicKeyResult getPublicKey(GetPublicKeyRequest getPublicKeyRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public SignResult sign(SignRequest signRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public UpdateCustomKeyStoreResult updateCustomKeyStore(UpdateCustomKeyStoreRequest updateCustomKeyStoreRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public VerifyResult verify(VerifyRequest verifyRequest) {
+        throw new UnsupportedOperationException();
+    }
 }

@@ -43,7 +43,7 @@
     <activemq-version>5.11.0.redhat-630434</activemq-version>
     <activemq-artemis-version>2.11.0.redhat-00004</activemq-artemis-version>
     <aether-version>1.0.2.v20150114</aether-version>
-    <ahc-version>2.4.3</ahc-version>
+    <ahc-version>2.10.5</ahc-version>
     <ant-bundle-version>1.7.0_6</ant-bundle-version>
     <antlr-bundle-version>3.5.2_1</antlr-bundle-version>
     <antlr-runtime-bundle-version>3.5.2_1</antlr-runtime-bundle-version>
@@ -85,8 +85,8 @@
     <avro-bundle-version>1.8.2_1</avro-bundle-version>
     <avro-ipc-bundle-version>1.8.2_1</avro-ipc-bundle-version>
     <awaitility-version>3.0.0</awaitility-version>
-    <aws-java-sdk-bundle-version>1.11.269_1</aws-java-sdk-bundle-version>
-    <aws-java-sdk-version>1.11.269</aws-java-sdk-version>
+    <aws-java-sdk-bundle-version>1.11.714_1</aws-java-sdk-bundle-version>
+    <aws-java-sdk-version>1.11.714</aws-java-sdk-version>
     <aws-xray-version>2.2.1</aws-xray-version>
     <axiom-version>1.2.14</axiom-version>
     <azure-storage-java-sdk-version>7.0.0</azure-storage-java-sdk-version>
@@ -220,7 +220,7 @@
     <elsql-version>1.2</elsql-version>
     <el-api-1.0-version>1.0.1</el-api-1.0-version>
     <embedmongo-version>2.0.3</embedmongo-version>
-    <etcd4j-version>2.14.0</etcd4j-version>
+    <etcd4j-version>2.18.0</etcd4j-version>
     <exec-maven-plugin-version>1.6.0</exec-maven-plugin-version>
     <ezmorph-bundle-version>1.0.6_1</ezmorph-bundle-version>
     <fabric8-maven-plugin-version>3.5.37</fabric8-maven-plugin-version>
@@ -281,9 +281,9 @@
     <google-mail-guava-version>17.0</google-mail-guava-version>
     <google-truth-version>0.30</google-truth-version>
     <grizzly-websockets-version>2.3.25</grizzly-websockets-version>
-    <grpc-version>1.23.0.redhat-00002</grpc-version>
+    <grpc-version>1.25.0.redhat-00003</grpc-version>
     <grpc-community-version>1.23.0</grpc-community-version>
-    <grpc-guava-version>26.0-android</grpc-guava-version>
+    <grpc-guava-version>28.1-android</grpc-guava-version>
     <grpc-google-auth-library-version>0.13.0</grpc-google-auth-library-version>
     <grpc-java-jwt-version>3.7.0</grpc-java-jwt-version>
     <grpc-netty-tcnative-boringssl-static-version>2.0.25.Final</grpc-netty-tcnative-boringssl-static-version>
@@ -305,7 +305,7 @@
     <hawtdb-version>1.6</hawtdb-version>
     <hawtdispatch-version>1.22</hawtdispatch-version>
     <hazelcast-version>3.12</hazelcast-version>
-    <hbase-version>1.2.6</hbase-version>
+    <hbase-version>1.5.0</hbase-version>
     <hessian-version>4.0.51</hessian-version>
     <hibernate-validator-version>5.3.5.Final-redhat-2</hibernate-validator-version>
     <hibernate-version>5.3.13.Final-redhat-00001</hibernate-version>
@@ -537,7 +537,7 @@
     <neoscada-version>0.4.0</neoscada-version>
     <nessus-version>1.0.0.Beta4</nessus-version>
     <netty3-version>3.10.6.Final</netty3-version>
-    <netty-version>4.1.43.Final</netty-version>
+    <netty-version>4.1.45.Final</netty-version>
     <netty40-version>4.0.56.Final</netty40-version>
     <networknt-json-schema-validator-version>0.1.16</networknt-json-schema-validator-version>
     <noggit-bundle-version>0.5_1</noggit-bundle-version>
