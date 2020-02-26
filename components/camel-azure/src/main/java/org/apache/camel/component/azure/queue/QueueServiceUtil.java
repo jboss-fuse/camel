@@ -45,7 +45,7 @@ public final class QueueServiceUtil {
         CloudQueue client = (CloudQueue) getConfiguredClient(cfg);
         if (client == null) {
             URI uri = prepareStorageQueueUri(cfg);
-            StorageCredentials creds = getAccountCredentials(cfg);
+            StorageCredentials creds = cfg.getAccountCredentials();
             client = new CloudQueue(uri, creds);
         }
         return client;
@@ -59,9 +59,7 @@ public final class QueueServiceUtil {
         return client;
     }
     
-    public static StorageCredentials getAccountCredentials(QueueServiceConfiguration cfg) {
-        return cfg.getCredentials();
-    }
+
     
     public static void retrieveMessage(Exchange exchange, QueueServiceConfiguration cfg) throws Exception {
         CloudQueue client = createQueueClient(cfg);

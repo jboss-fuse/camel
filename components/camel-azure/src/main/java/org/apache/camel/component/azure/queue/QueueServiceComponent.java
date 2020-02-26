@@ -71,7 +71,7 @@ public class QueueServiceComponent extends UriEndpointComponent {
 
     private void checkCredentials(QueueServiceConfiguration cfg) {
         CloudQueue client = cfg.getAzureQueueClient();
-        StorageCredentials creds = client == null ? cfg.getCredentials() : client.getServiceClient().getCredentials();
+        StorageCredentials creds = client == null ? cfg.getAccountCredentials() : client.getServiceClient().getCredentials();
         if (creds == null) {
             throw new IllegalArgumentException("Credentials must be specified.");
         }

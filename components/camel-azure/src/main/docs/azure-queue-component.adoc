@@ -75,6 +75,8 @@ with the following path and query parameters:
 | Name | Description | Default | Type
 | *azureQueueClient* (common) | The queue service client |  | CloudQueue
 | *credentials* (common) | Set the storage credentials, required in most cases |  | StorageCredentials
+| *credentialsAccountName* (common) | Set the storage account name used during authentication phase |  | String
+| *credentialsAccountKey* (common) | Set the storage account key used during authentication phase |  | String
 | *bridgeErrorHandler* (consumer) | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | boolean
 | *exceptionHandler* (consumer) | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this options is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. |  | ExceptionHandler
 | *exchangePattern* (consumer) | Sets the exchange pattern when the consumer creates an exchange. |  | ExchangePattern
