@@ -71,10 +71,11 @@ public class BlobServiceComponent extends UriEndpointComponent {
     
     private void checkCredentials(BlobServiceConfiguration cfg) {
         CloudBlob client = cfg.getAzureBlobClient();
-        StorageCredentials creds = client == null ? cfg.getCredentials() 
-            : client.getServiceClient().getCredentials(); 
-        if ((creds == null || creds instanceof StorageCredentialsAnonymous)
-            && !cfg.isPublicForRead()) {
+
+        //if no azureBlobClient is provided fallback to credentials
+        StorageCredentials creds = client == null ? cfg.getAccountCredentials()
+            : client.getServiceClient().getCredentials();
+        if ((creds == null || creds instanceof StorageCredentialsAnonymous) && !cfg.isPublicForRead()) {
             throw new IllegalArgumentException("Credentials must be specified.");
         }
     }
