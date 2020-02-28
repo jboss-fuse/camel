@@ -17,7 +17,6 @@
 package org.apache.camel.component.azure.blob;
 
 import java.util.Map;
-
 import com.microsoft.azure.storage.StorageCredentials;
 import com.microsoft.azure.storage.StorageCredentialsAnonymous;
 import com.microsoft.azure.storage.blob.CloudBlob;

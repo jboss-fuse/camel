@@ -17,8 +17,8 @@
 package org.apache.camel.component.azure.blob;
 
 import java.util.Map;
-
 import com.microsoft.azure.storage.blob.CloudBlob;
+import org.apache.camel.RuntimeCamelException;
 import org.apache.camel.component.azure.common.AbstractConfiguration;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -27,57 +27,57 @@ import org.apache.camel.spi.UriParams;
 public class BlobServiceConfiguration extends AbstractConfiguration {
 
     private String containerName;
-    
+
     private String blobName;
-    
+
     @UriParam
     private CloudBlob azureBlobClient;
-    
+
     @UriParam(defaultValue = "blockblob")
     private BlobType blobType = BlobType.blockblob;
-    
+
     @UriParam(label = "producer", defaultValue = "listBlobs")
     private BlobServiceOperations operation = BlobServiceOperations.listBlobs;
-    
+
     @UriParam(label = "producer")
     private int streamWriteSize;
-    
+
     @UriParam
     private int streamReadSize;
-    
+
     @UriParam(label = "producer")
     private Map<String, String> blobMetadata;
-    
+
     @UriParam(defaultValue = "true")
     private boolean closeStreamAfterRead = true;
-    
+
     @UriParam(label = "producer", defaultValue = "true")
     private boolean closeStreamAfterWrite = true;
-    
+
     @UriParam
     private String fileDir;
-    
+
     @UriParam(defaultValue = "0")
     private Long blobOffset = 0L;
-    
+
     @UriParam
     private Long dataLength;
-    
+
     @UriParam(label = "producer")
     private String blobPrefix;
-    
+
     @UriParam
     private boolean publicForRead;
-    
+
     @UriParam(label = "producer", defaultValue = "true")
     private boolean useFlatListing = true;
-    
+
     public BlobServiceOperations getOperation() {
         return operation;
     }
 
     /**
-     * Blob service operation hint to the producer 
+     * Blob service operation hint to the producer
      */
     public void setOperation(BlobServiceOperations operation) {
         this.operation = operation;
@@ -88,12 +88,12 @@ public class BlobServiceConfiguration extends AbstractConfiguration {
     }
 
     /**
-     * Set the blob service container name 
+     * Set the blob service container name
      */
     public void setContainerName(String containerName) {
         this.containerName = containerName;
     }
-    
+
     public String getBlobName() {
         return blobName;
     }
@@ -115,13 +115,13 @@ public class BlobServiceConfiguration extends AbstractConfiguration {
     public void setBlobType(BlobType blobType) {
         this.blobType = blobType;
     }
-    
+
     public int getStreamWriteSize() {
         return streamWriteSize;
     }
 
     /**
-     * Set the size of the buffer for writing block and page blocks 
+     * Set the size of the buffer for writing block and page blocks
      */
     public void setStreamWriteSize(int streamWriteSize) {
         this.streamWriteSize = streamWriteSize;
@@ -132,7 +132,7 @@ public class BlobServiceConfiguration extends AbstractConfiguration {
     }
 
     /**
-     * Set the minimum read size in bytes when reading the blob content 
+     * Set the minimum read size in bytes when reading the blob content
      */
     public void setStreamReadSize(int streamReadSize) {
         this.streamReadSize = streamReadSize;
@@ -143,18 +143,18 @@ public class BlobServiceConfiguration extends AbstractConfiguration {
     }
 
     /**
-     * Set the blob meta-data 
+     * Set the blob meta-data
      */
     public void setBlobMetadata(Map<String, String> blobMetadata) {
         this.blobMetadata = blobMetadata;
     }
-    
+
     public CloudBlob getAzureBlobClient() {
         return azureBlobClient;
     }
 
     /**
-     * The blob service client 
+     * The blob service client
      */
     public void setAzureBlobClient(CloudBlob azureBlobClient) {
         this.azureBlobClient = azureBlobClient;
@@ -187,7 +187,7 @@ public class BlobServiceConfiguration extends AbstractConfiguration {
     }
 
     /**
-     * Set the file directory where the downloaded blobs will be saved to 
+     * Set the file directory where the downloaded blobs will be saved to
      */
     public void setFileDir(String fileDir) {
         this.fileDir = fileDir;
@@ -198,18 +198,18 @@ public class BlobServiceConfiguration extends AbstractConfiguration {
     }
 
     /**
-     *  Set the blob offset for the upload or download operations, default is 0 
+     * Set the blob offset for the upload or download operations, default is 0
      */
     public void setBlobOffset(Long dataOffset) {
         this.blobOffset = dataOffset;
     }
-    
+
     public Long getDataLength() {
         return dataLength;
     }
 
     /**
-     * Set the data length for the download or page blob upload operations 
+     * Set the data length for the download or page blob upload operations
      */
     public void setDataLength(Long dataLength) {
         this.dataLength = dataLength;
@@ -218,14 +218,14 @@ public class BlobServiceConfiguration extends AbstractConfiguration {
     public String getBlobPrefix() {
         return blobPrefix;
     }
-    
+
     /**
-     * Set a prefix which can be used for listing the blobs 
+     * Set a prefix which can be used for listing the blobs
      */
     public void setBlobPrefix(String blobPrefix) {
         this.blobPrefix = blobPrefix;
     }
-    
+
     public boolean isPublicForRead() {
         return publicForRead;
     }
@@ -243,9 +243,21 @@ public class BlobServiceConfiguration extends AbstractConfiguration {
     }
 
     /**
-     * Specify if the flat or hierarchical blob listing should be used 
+     * Specify if the flat or hierarchical blob listing should be used
      */
     public void setUseFlatListing(boolean useFlatListing) {
         this.useFlatListing = useFlatListing;
+    }
+
+    // *************************************************
+    //
+    // *************************************************
+
+    public BlobServiceConfiguration copy() {
+        try {
+            return (BlobServiceConfiguration) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeCamelException(e);
+        }
     }
 }

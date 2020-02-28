@@ -21,6 +21,7 @@ import org.apache.camel.Consumer;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
 import org.apache.camel.impl.DefaultEndpoint;
+import org.apache.camel.impl.ScheduledPollEndpoint;
 import org.apache.camel.spi.Metadata;
 import org.apache.camel.spi.UriEndpoint;
 import org.apache.camel.spi.UriParam;
@@ -37,7 +38,7 @@ import org.slf4j.LoggerFactory;
              syntax = "azure-blob:containerAndQueueUri", 
              consumerClass = QueueServiceConsumer.class,
              label = "cloud,queue,azure")
-public class QueueServiceEndpoint extends DefaultEndpoint {
+public class QueueServiceEndpoint extends ScheduledPollEndpoint {
 
     private static final Logger LOG = LoggerFactory.getLogger(QueueServiceEndpoint.class);
     

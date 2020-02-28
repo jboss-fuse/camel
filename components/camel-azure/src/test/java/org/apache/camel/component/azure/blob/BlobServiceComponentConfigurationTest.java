@@ -18,7 +18,6 @@ package org.apache.camel.component.azure.blob;
 
 import java.net.URI;
 import java.util.Collections;
-
 import com.microsoft.azure.storage.StorageCredentials;
 import com.microsoft.azure.storage.StorageCredentialsAccountAndKey;
 import com.microsoft.azure.storage.StorageCredentialsAnonymous;
@@ -32,6 +31,8 @@ import org.apache.camel.impl.JndiRegistry;
 import org.apache.camel.impl.PropertyPlaceholderDelegateRegistry;
 import org.apache.camel.test.junit4.CamelTestSupport;
 import org.junit.Test;
+
+
 
 public class BlobServiceComponentConfigurationTest extends CamelTestSupport {
     

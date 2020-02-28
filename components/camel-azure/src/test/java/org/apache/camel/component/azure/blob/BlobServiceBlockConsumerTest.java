@@ -19,7 +19,6 @@ package org.apache.camel.component.azure.blob;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-
 import com.microsoft.azure.storage.StorageCredentialsAccountAndKey;
 import org.apache.camel.EndpointInject;
 import org.apache.camel.Exchange;

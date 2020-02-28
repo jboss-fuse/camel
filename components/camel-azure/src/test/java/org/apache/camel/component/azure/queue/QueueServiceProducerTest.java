@@ -19,16 +19,13 @@ package org.apache.camel.component.azure.queue;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Properties;
-
 import javax.naming.Context;
 import javax.naming.InitialContext;
-
 import com.microsoft.azure.storage.OperationContext;
 import com.microsoft.azure.storage.StorageCredentials;
 import com.microsoft.azure.storage.StorageCredentialsAccountAndKey;
 import com.microsoft.azure.storage.queue.CloudQueue;
 import com.microsoft.azure.storage.queue.CloudQueueMessage;
-
 import org.apache.camel.CamelContext;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.builder.RouteBuilder;
