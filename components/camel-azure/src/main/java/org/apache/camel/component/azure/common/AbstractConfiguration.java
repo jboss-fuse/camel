@@ -18,7 +18,6 @@ package org.apache.camel.component.azure.common;
 
 import com.microsoft.azure.storage.StorageCredentials;
 import com.microsoft.azure.storage.StorageCredentialsAccountAndKey;
-import org.apache.camel.component.azure.blob.BlobServiceConfiguration;
 import org.apache.camel.spi.UriParam;
 
 public abstract class AbstractConfiguration implements Cloneable {
@@ -26,7 +25,6 @@ public abstract class AbstractConfiguration implements Cloneable {
     @UriParam
     private StorageCredentials credentials;
 
-    @UriParam
     private String accountName;
 
     @UriParam
@@ -63,6 +61,9 @@ public abstract class AbstractConfiguration implements Cloneable {
         return credentialsAccountKey;
     }
 
+    /**
+     * Set the storage account key used during authentication phase
+     */
     public void setCredentialsAccountKey(String credentialsAccountKey) {
         this.credentialsAccountKey = credentialsAccountKey;
     }
@@ -71,6 +72,9 @@ public abstract class AbstractConfiguration implements Cloneable {
         return credentialsAccountName;
     }
 
+    /**
+     * Set the storage account name used during authentication phase
+     */
     public void setCredentialsAccountName(String credentialsAccountName) {
         this.credentialsAccountName = credentialsAccountName;
     }
@@ -78,8 +82,8 @@ public abstract class AbstractConfiguration implements Cloneable {
     public  StorageCredentials getAccountCredentials() {
         StorageCredentials creds = credentials;
         //if  credentials is null, fallback to credentialsAccountKey and credentialsAccountName
-        if (creds == null){
-            if(credentialsAccountKey != null && credentialsAccountName != null){
+        if (creds == null) {
+            if (credentialsAccountKey != null && credentialsAccountName != null) {
                 creds = new StorageCredentialsAccountAndKey(credentialsAccountName, credentialsAccountKey);
             }
         }

@@ -19,7 +19,6 @@ package org.apache.camel.component.azure.blob;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-
 import com.microsoft.azure.storage.StorageCredentialsAccountAndKey;
 import org.apache.camel.EndpointInject;
 import org.apache.camel.Exchange;
@@ -33,6 +32,7 @@ import org.apache.camel.test.junit4.CamelTestSupport;
 import org.apache.camel.util.IOHelper;
 import org.junit.Ignore;
 import org.junit.Test;
+
 
 public class BlobServiceAppendConsumerTest extends CamelTestSupport {
     @EndpointInject(uri = "direct:start")

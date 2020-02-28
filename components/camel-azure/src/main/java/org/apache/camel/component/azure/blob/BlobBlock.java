@@ -18,7 +18,6 @@ package org.apache.camel.component.azure.blob;
 
 import java.io.InputStream;
 import java.util.UUID;
-
 import com.microsoft.azure.storage.blob.BlockEntry;
 import com.microsoft.azure.storage.blob.BlockSearchMode;
 import com.microsoft.azure.storage.core.Base64;

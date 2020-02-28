@@ -17,7 +17,6 @@
 package org.apache.camel.component.azure.queue;
 
 import java.net.URI;
-
 import com.microsoft.azure.storage.OperationContext;
 import com.microsoft.azure.storage.StorageCredentials;
 import com.microsoft.azure.storage.queue.CloudQueue;

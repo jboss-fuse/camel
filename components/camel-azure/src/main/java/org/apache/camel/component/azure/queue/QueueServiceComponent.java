@@ -17,10 +17,8 @@
 package org.apache.camel.component.azure.queue;
 
 import java.util.Map;
-
 import com.microsoft.azure.storage.StorageCredentials;
 import com.microsoft.azure.storage.queue.CloudQueue;
-
 import org.apache.camel.CamelContext;
 import org.apache.camel.Endpoint;
 import org.apache.camel.impl.UriEndpointComponent;

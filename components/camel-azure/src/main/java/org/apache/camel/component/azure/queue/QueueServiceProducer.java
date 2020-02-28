@@ -17,7 +17,6 @@
 package org.apache.camel.component.azure.queue;
 
 import java.util.EnumSet;
-
 import com.microsoft.azure.storage.queue.CloudQueue;
 import com.microsoft.azure.storage.queue.CloudQueueMessage;
 import com.microsoft.azure.storage.queue.MessageUpdateFields;
