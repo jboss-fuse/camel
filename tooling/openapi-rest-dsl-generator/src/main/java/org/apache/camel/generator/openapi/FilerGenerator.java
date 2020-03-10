@@ -27,8 +27,8 @@ import io.apicurio.datamodels.openapi.models.OasDocument;
 
 final class FilerGenerator extends RestDslSourceCodeGenerator<Filer> {
 
-    FilerGenerator(final OasDocument openapi) {
-        super(openapi);
+    FilerGenerator(final OasDocument document) {
+        super(document);
     }
 
     @Override

@@ -22,23 +22,24 @@ import org.apache.camel.util.EndpointHelper;
 
 class OperationFilter {
 
-    // operation names to include separated by comma (wildcards can be used, eg find*)
+    // operation names to include separated by comma (wildcards can be used, eg
+    // find*)
     private String includes;
 
     public String getIncludes() {
         return includes;
     }
 
-    public void setIncludes(String includes) {
+    public void setIncludes(final String includes) {
         this.includes = includes;
     }
 
-    boolean accept(String name) {
+    boolean accept(final String name) {
         boolean match = true;
 
         if (includes != null) {
-            String[] patterns = includes.split(",");
-            match = Arrays.stream(patterns).anyMatch(pattern -> EndpointHelper.matchPattern(name, pattern));
+            final String[] patterns = includes.split(",");
+            match = Arrays.stream(patterns).anyMatch(pattern -> PatternHelper.matchPattern(name, pattern));
         }
         return match;
     }
