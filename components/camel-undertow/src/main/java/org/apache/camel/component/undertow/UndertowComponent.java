@@ -73,6 +73,10 @@ public class UndertowComponent extends DefaultComponent implements RestConsumerF
     private boolean useGlobalSslContextParameters;
     @Metadata(label = "advanced")
     private UndertowHostOptions hostOptions;
+    @Metadata(label = "security")
+    private Object securityConfiguration;
+    @Metadata(label = "security")
+    private String allowedRoles;
 
     public UndertowComponent() {
         this(null);
@@ -278,7 +282,7 @@ public class UndertowComponent extends DefaultComponent implements RestConsumerF
         if (!ObjectHelper.isEmpty(uriTemplate)) {
             url += "/" + uriTemplate;
         }
-        
+
         RestConfiguration config = configuration;
         if (config == null) {
             config = camelContext.getRestConfiguration(getComponentName(), true);
@@ -407,5 +411,28 @@ public class UndertowComponent extends DefaultComponent implements RestConsumerF
 
     public Set<HttpHandlerRegistrationInfo> getHandlers() {
         return handlers;
+    }
+
+    public Object getSecurityConfiguration() {
+        return securityConfiguration;
+    }
+
+    /**
+     * Configuration used by UndertowSecurityProvider. Security configuration object for use from UndertowSecurityProvider.
+     * Configuration is UndertowSecurityProvider specific. Each provider decides, whether it accepts configuration.
+     */
+    public void setSecurityConfiguration(Object securityConfiguration) {
+        this.securityConfiguration = securityConfiguration;
+    }
+
+    public String getAllowedRoles() {
+        return allowedRoles;
+    }
+
+    /**
+     * Configuration used by UndertowSecurityProvider. Comma separated list of allowed roles.
+     */
+    public void setAllowedRoles(String allowedRoles) {
+        this.allowedRoles = allowedRoles;
     }
 }

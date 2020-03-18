@@ -57,6 +57,18 @@ public class UndertowComponentConfiguration
      */
     private UndertowHostOptionsNestedConfiguration hostOptions;
     /**
+     * Configuration used by UndertowSecurityProvider. Security configuration
+     * object for use from UndertowSecurityProvider. Configuration is
+     * UndertowSecurityProvider specific. Each provider decides, whether it
+     * accepts configuration. The option is a java.lang.Object type.
+     */
+    private String securityConfiguration;
+    /**
+     * Configuration used by UndertowSecurityProvider. Comma separated list of
+     * allowed roles.
+     */
+    private String allowedRoles;
+    /**
      * Whether the component should resolve property placeholders on itself when
      * starting. Only properties which are of String type can use property
      * placeholders.
@@ -95,6 +107,22 @@ public class UndertowComponentConfiguration
     public void setHostOptions(
             UndertowHostOptionsNestedConfiguration hostOptions) {
         this.hostOptions = hostOptions;
+    }
+
+    public String getSecurityConfiguration() {
+        return securityConfiguration;
+    }
+
+    public void setSecurityConfiguration(String securityConfiguration) {
+        this.securityConfiguration = securityConfiguration;
+    }
+
+    public String getAllowedRoles() {
+        return allowedRoles;
+    }
+
+    public void setAllowedRoles(String allowedRoles) {
+        this.allowedRoles = allowedRoles;
     }
 
     public Boolean getResolvePropertyPlaceholders() {

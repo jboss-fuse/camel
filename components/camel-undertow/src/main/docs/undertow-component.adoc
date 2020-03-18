@@ -43,7 +43,7 @@ You can append query options to the URI in the following format,
 === Options
 
 // component options: START
-The Undertow component supports 5 options, which are listed below.
+The Undertow component supports 7 options, which are listed below.
 
 
 
@@ -54,6 +54,8 @@ The Undertow component supports 5 options, which are listed below.
 | *sslContextParameters* (security) | To configure security using SSLContextParameters |  | SSLContextParameters
 | *useGlobalSslContext Parameters* (security) | Enable usage of global SSL context parameters. | false | boolean
 | *hostOptions* (advanced) | To configure common options, such as thread pools |  | UndertowHostOptions
+| *securityConfiguration* (security) | Configuration used by UndertowSecurityProvider. Security configuration object for use from UndertowSecurityProvider. Configuration is UndertowSecurityProvider specific. Each provider decides, whether it accepts configuration. |  | Object
+| *allowedRoles* (security) | Configuration used by UndertowSecurityProvider. Comma separated list of allowed roles. |  | String
 | *resolveProperty Placeholders* (advanced) | Whether the component should resolve property placeholders on itself when starting. Only properties which are of String type can use property placeholders. | true | boolean
 |===
 // component options: END
@@ -78,7 +80,7 @@ with the following path and query parameters:
 |===
 
 
-==== Query Parameters (24 parameters):
+==== Query Parameters (26 parameters):
 
 
 [width="100%",cols="2,5,^1,2",options="header"]
@@ -107,6 +109,8 @@ with the following path and query parameters:
 | *fireWebSocketChannelEvents* (websocket) | if true, the consumer will post notifications to the route when a new WebSocket peer connects, disconnects, etc. See UndertowConstants.EVENT_TYPE and EventType. | false | boolean
 | *sendTimeout* (websocket) | Timeout in milliseconds when sending to a websocket channel. The default timeout is 30000 (30 seconds). | 30000 | Integer
 | *sendToAll* (websocket) | To send to all websocket subscribers. Can be used to configure on endpoint level, instead of having to use the UndertowConstants.SEND_TO_ALL header on the message. |  | Boolean
+| *allowedRoles* (security) | Configuration used by UndertowSecurityProvider. Comma separated list of allowed roles. |  | String
+| *securityConfiguration* (security) | OConfiguration used by UndertowSecurityProvider. Security configuration object for use from UndertowSecurityProvider. Configuration is UndertowSecurityProvider specific. Each provider decides whether accepts configuration. |  | Object
 | *sslContextParameters* (security) | To configure security using SSLContextParameters |  | SSLContextParameters
 |===
 // endpoint options: END
@@ -114,13 +118,14 @@ with the following path and query parameters:
 === Spring Boot Auto-Configuration
 
 
-The component supports 10 options, which are listed below.
+The component supports 12 options, which are listed below.
 
 
 
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Type
+| *camel.component.undertow.allowed-roles* | Configuration used by UndertowSecurityProvider. Comma separated list of allowed roles. |  | String
 | *camel.component.undertow.enabled* | Enable undertow component | true | Boolean
 | *camel.component.undertow.host-options.buffer-size* | The buffer size of the Undertow host. |  | Integer
 | *camel.component.undertow.host-options.direct-buffers* | Set if the Undertow host should use direct buffers. |  | Boolean
@@ -128,6 +133,7 @@ The component supports 10 options, which are listed below.
 | *camel.component.undertow.host-options.io-threads* | The number of io threads to use in a Undertow host. |  | Integer
 | *camel.component.undertow.host-options.worker-threads* | The number of worker threads to use in a Undertow host. |  | Integer
 | *camel.component.undertow.resolve-property-placeholders* | Whether the component should resolve property placeholders on itself when starting. Only properties which are of String type can use property placeholders. | true | Boolean
+| *camel.component.undertow.security-configuration* | Configuration used by UndertowSecurityProvider. Security configuration object for use from UndertowSecurityProvider. Configuration is UndertowSecurityProvider specific. Each provider decides, whether it accepts configuration. The option is a java.lang.Object type. |  | String
 | *camel.component.undertow.ssl-context-parameters* | To configure security using SSLContextParameters. The option is a org.apache.camel.util.jsse.SSLContextParameters type. |  | String
 | *camel.component.undertow.undertow-http-binding* | To use a custom HttpBinding to control the mapping between Camel message and HttpClient. The option is a org.apache.camel.component.undertow.UndertowHttpBinding type. |  | String
 | *camel.component.undertow.use-global-ssl-context-parameters* | Enable usage of global SSL context parameters. | false | Boolean
@@ -220,3 +226,12 @@ Servlet, you should instead refer to the
 https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=46339[Servlet
 Transport].
 
+== Security provider
+
+To plugin security provider for endpoint authentication, implement SPI interface
+`org.apache.camel.component.undertow.spi.UndertowSecurityProvider`.
+
+Undertow components locates all implementations of `UndertowSecurityProvider` using
+Java SPI (Service Provider Interfaces). If there is an object passed to component
+as parameter `securityConfiguration` and provider accepts it. Provider will be used
+for authentication of all requests.
