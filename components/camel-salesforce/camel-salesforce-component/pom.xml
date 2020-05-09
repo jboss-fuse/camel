@@ -218,6 +218,10 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
+          <systemPropertyVariables>
+            <!-- ENTESB-12869: This is how polymorphic deserialization (a.k.a. "default typing") can be enabled explicitly -->
+            <jackson.deserialization.whitelist.packages>com.fasterxml.jackson.module.jsonSchema.types</jackson.deserialization.whitelist.packages>
+          </systemPropertyVariables>
           <excludes>
             <exclude>**/*IntegrationTest.java</exclude>
           </excludes>
