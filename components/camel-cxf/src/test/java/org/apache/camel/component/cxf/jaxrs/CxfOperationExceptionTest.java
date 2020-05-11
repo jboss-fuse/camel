@@ -17,17 +17,28 @@
 
 package org.apache.camel.component.cxf.jaxrs;
 
+import javax.ws.rs.core.Response;
+import static javax.ws.rs.HttpMethod.POST;
+import static javax.ws.rs.core.Response.Status.NOT_FOUND;
+
 import org.apache.camel.CamelExecutionException;
-import org.apache.camel.Exchange;
 import org.apache.camel.component.cxf.CXFTestSupport;
 import org.apache.camel.component.cxf.jaxrs.testbean.Customer;
 import org.apache.camel.test.spring.CamelSpringTestSupport;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.support.AbstractXmlApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import static org.apache.camel.Exchange.HTTP_METHOD;
+
+
 public class CxfOperationExceptionTest extends CamelSpringTestSupport {
     private static final int PORT1 = CXFTestSupport.getPort1();
+
+    private static final Logger LOG = LoggerFactory.getLogger(CxfOperationExceptionTest.class);
+
 
     @Override
     protected AbstractXmlApplicationContext createApplicationContext() {
@@ -41,7 +52,7 @@ public class CxfOperationExceptionTest extends CamelSpringTestSupport {
 
         // we cannot convert directly to Customer as we need camel-jaxb
         String response = template.requestBodyAndHeader("cxfrs:http://localhost:" + PORT1 + "/CxfOperationExceptionTest/customerservice/customers?throwExceptionOnFailure=true", input,
-            Exchange.HTTP_METHOD, "POST", String.class);
+            HTTP_METHOD, POST, String.class);
 
         assertNotNull(response);
         assertTrue(response.endsWith("<name>Donald Duck</name></Customer>"));
@@ -53,10 +64,12 @@ public class CxfOperationExceptionTest extends CamelSpringTestSupport {
         input.setName("Donald Duck");
 
         // we cannot convert directly to Customer as we need camel-jaxb
-        String response = template.requestBodyAndHeader("cxfrs:bean:rsClient?throwExceptionOnFailure=false", input,
-            Exchange.HTTP_METHOD, "POST", String.class);
+        Response response = template.requestBodyAndHeader("cxfrs:bean:rsClient?throwExceptionOnFailure=false", input,
+                HTTP_METHOD, POST, Response.class);
+
+        LOG.info("***response***: {}", response);
 
         assertNotNull(response);
-        assertTrue(response.contains("Problem accessing /CxfOperationExceptionTest/rest"));
+        assertEquals(NOT_FOUND, response.getStatusInfo().toEnum());
     }
 }
