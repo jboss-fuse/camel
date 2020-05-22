@@ -42,8 +42,9 @@ public class JdbcAggregationRepositoryTest extends AbstractJdbcAggregationTestSu
         actual = repo.get(context, "foo");
         assertEquals("counter:1", actual.getIn().getBody());
 
-        // Change it..
+        // Change it after reading the current exchange with version
         Exchange exchange2 = new DefaultExchange(context);
+        exchange2 = repo.get(context, "foo");
         exchange2.getIn().setBody("counter:2");
         actual = repo.add(context, "foo", exchange2);
         // the old one

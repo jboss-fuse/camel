@@ -58,8 +58,8 @@ sql:select * from table where id=:#myId order by name[?options]
 
 When using named parameters, Camel will lookup the names from, in the
 given precedence: +
- 1. from message body if its a `java.util.Map` +
- 2. from message headers
+1. from message body if its a `java.util.Map` +
+2. from message headers
 
 If a named parameter cannot be resolved, then an exception is thrown.
 
@@ -325,7 +325,7 @@ message headers (*Available as of Camel 2.12.4, 2.13.1*):
 If you insert data using SQL INSERT, then the RDBMS may support auto
 generated keys. You can instruct the SQL producer to return the
 generated keys in headers. +
- To do that set the header `CamelSqlRetrieveGeneratedKeys=true`. Then
+To do that set the header `CamelSqlRetrieveGeneratedKeys=true`. Then
 the generated keys will be provided as headers with the keys listed in
 the table above.
 
@@ -348,10 +348,10 @@ sql:select * from table where id=# order by name?dataSource=myDS
 In the given route below, we want to get all the projects from the
 projects table. Notice the SQL query has 2 named parameters, :#lic and
 :#min. +
- Camel will then lookup for these parameters from the message body or
+Camel will then lookup for these parameters from the message body or
 message headers. Notice in the example above we set two headers with
 constant value +
- for the named parameters:
+for the named parameters:
 
 [source,java]
 ----
@@ -597,9 +597,9 @@ following example aggregation will be used.
 The table structure definition of both table are identical: in both case
 a String value is used as key (*id*) whereas a Blob contains the
 exchange serialized in byte array. +
- However one difference should be remembered: the *id* field does not
+However one difference should be remembered: the *id* field does not
 have the same content depending on the table. +
- In the aggregation table *id* holds the correlation Id used by the
+In the aggregation table *id* holds the correlation Id used by the
 component to aggregate the messages. In the completed table, *id* holds
 the id of the exchange stored in corresponding the blob field.
 
@@ -619,6 +619,28 @@ CREATE TABLE aggregation_completed (
  constraint aggregation_completed_pk PRIMARY KEY (id)
 );
 -----
+
+**Note:** There is a new version called `JdbcAggregationRepositoryNew` which supports the optimistic locking
+also on a dstributed environment (multiple JVMs or independent threads). This new implementation is built on
+top of the old and needs an additional `version` column:
+
+[source,sql]
+-----
+CREATE TABLE aggregation (
+ id varchar(255) NOT NULL,
+ exchange blob NOT NULL,
+ version BIGINT NOT NULL,
+ constraint aggregation_pk PRIMARY KEY (id)
+);
+CREATE TABLE aggregation_completed (
+ id varchar(255) NOT NULL,
+ exchange blob NOT NULL,
+ version BIGINT NOT NULL,
+ constraint aggregation_completed_pk PRIMARY KEY (id)
+);
+-----
+
+
 
 
 === Storing body and headers as text

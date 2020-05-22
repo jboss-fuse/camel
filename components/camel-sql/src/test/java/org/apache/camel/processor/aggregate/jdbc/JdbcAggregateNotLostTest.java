@@ -35,7 +35,7 @@ public class JdbcAggregateNotLostTest extends AbstractJdbcAggregationTestSupport
         template.sendBodyAndHeader("direct:start", "D", "id", 123);
         template.sendBodyAndHeader("direct:start", "E", "id", 123);
 
-        assertMockEndpointsSatisfied(30, TimeUnit.SECONDS);
+        assertMockEndpointsSatisfied(5, TimeUnit.SECONDS);
 
         String exchangeId = getMockEndpoint("mock:aggregated").getReceivedExchanges().get(0).getExchangeId();
 

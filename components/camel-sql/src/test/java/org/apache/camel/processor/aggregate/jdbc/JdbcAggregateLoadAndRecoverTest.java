@@ -38,7 +38,7 @@ public class JdbcAggregateLoadAndRecoverTest extends AbstractJdbcAggregationTest
     public void testLoadAndRecoverJdbcAggregate() throws Exception {
         MockEndpoint mock = getMockEndpoint("mock:result");
         mock.expectedMessageCount(SIZE / 10);
-        mock.setResultWaitTime(50 * 1000);
+        mock.setResultWaitTime(5_000);
 
         LOG.info("Staring to send " + SIZE + " messages.");
 
@@ -73,6 +73,10 @@ public class JdbcAggregateLoadAndRecoverTest extends AbstractJdbcAggregationTest
         return new RouteBuilder() {
             @Override
             public void configure() throws Exception {
+                onException(IllegalStateException.class)
+                        .maximumRedeliveries(3)
+                        .redeliveryDelay(100L);
+
                 from("seda:start?size=" + SIZE)
                         .to("log:input?groupSize=500")
                         .aggregate(header("id"), new MyAggregationStrategy())
