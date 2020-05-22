@@ -64,6 +64,13 @@ public abstract class AbstractJdbcAggregationTestSupport extends CamelSpringTest
         return new ClassPathXmlApplicationContext("org/apache/camel/processor/aggregate/jdbc/JdbcSpringDataSource.xml");
     }
 
+    protected Exchange repoAddAndGet(String key, Exchange exchange) {
+        repo.add(context, key, exchange);
+        // recover the exchange with the new version to be able to add again
+        exchange = repo.get(context, key);
+        return exchange;
+    }
+
     public static class MyAggregationStrategy implements AggregationStrategy {
 
         public Exchange aggregate(Exchange oldExchange, Exchange newExchange) {
