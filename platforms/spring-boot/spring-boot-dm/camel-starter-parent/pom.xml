@@ -58,13 +58,19 @@
   <dependencyManagement>
 
     <dependencies>
-      <!-- The jackson-databind version proposed by Spring Boot 1 should be overridden
-           2.8.11.4 is not provided by Spring Boot 1 at this stage
-           And, there is a chance that we need a productized version of databind later on -->
+      <!-- The jackson versions proposed by Spring Boot 1 should be overridden as we need a productized
+           version of jackson-databind in order to fix polymorphic deserialization CVEs -->
       <dependency>
-        <groupId>com.fasterxml.jackson.core</groupId>
-        <artifactId>jackson-databind</artifactId>
-        <version>2.8.11.4</version>
+        <groupId>com.fasterxml.jackson.dataformat</groupId>
+        <artifactId>jackson-dataformat-cbor</artifactId>
+        <version>2.8.11</version>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson</groupId>
+        <artifactId>jackson-bom</artifactId>
+        <version>2.8.11.20200310-redhat-00001</version>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
 
       <!-- The spring-boot dependencies will be used by end users, so it's ok to use it in the parent -->
