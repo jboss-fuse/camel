@@ -57,6 +57,21 @@
 
     <dependencies>
 
+      <!-- The jackson versions proposed by Spring Boot 2 should be overridden as we need a productized
+           version of jackson-databind in order to fix polymorphic deserialization CVEs -->
+      <dependency>
+        <groupId>com.fasterxml.jackson.module</groupId>
+        <artifactId>jackson-module-scala_2.11</artifactId>
+        <version>2.9.10</version>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson</groupId>
+        <artifactId>jackson-bom</artifactId>
+        <version>2.9.10.20200411-redhat-00001</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
       <!-- The spring-boot dependencies will be used by end users, so it's ok to use it in the parent -->
       <dependency>
         <groupId>org.springframework.boot</groupId>
