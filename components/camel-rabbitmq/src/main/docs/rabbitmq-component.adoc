@@ -61,7 +61,8 @@ with the following path and query parameters:
 | *exchangeName* | *Required* The exchange name determines which exchange produced messages will sent to. In the case of consumers, the exchange name determines which exchange the queue will bind to. |  | String
 |===
 
-=== Query Parameters (63 parameters):
+
+==== Query Parameters (59 parameters):
 
 
 [width="100%",cols="2,5,^1,2",options="header"]
