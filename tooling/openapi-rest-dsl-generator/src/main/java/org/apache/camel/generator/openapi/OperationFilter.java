@@ -39,7 +39,7 @@ class OperationFilter {
 
         if (includes != null) {
             final String[] patterns = includes.split(",");
-            match = Arrays.stream(patterns).anyMatch(pattern -> PatternHelper.matchPattern(name, pattern));
+            match = Arrays.stream(patterns).anyMatch(pattern -> EndpointHelper.matchPattern(name, pattern));
         }
         return match;
     }
