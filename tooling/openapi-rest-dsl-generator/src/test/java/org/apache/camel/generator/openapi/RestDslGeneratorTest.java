@@ -124,15 +124,8 @@ public class RestDslGeneratorTest {
     public void shouldGenerateSourceCodeWithFilter() throws IOException, URISyntaxException {
         final StringBuilder code = new StringBuilder();
 
-        RestDslGenerator.toAppendable(document)
-            .withGeneratedTime(generated)
-            .withClassName("MyRestRoute")
-            .withPackageName("com.example")
-            .withIndent("\t")
-            .withSourceCodeTimestamps()
-            .withOperationFilter("find*,deletePet,updatePet")
-            .withDestinationGenerator(o -> "direct:rest-" + o.operationId)
-            .generate(code);
+        RestDslGenerator.toAppendable(document).withGeneratedTime(generated).withClassName("MyRestRoute").withPackageName("com.example").withIndent("\t").withSourceCodeTimestamps()
+            .withOperationFilter("find*,deletePet,updatePet").withDestinationGenerator(o -> "direct:rest-" + o.operationId).generate(code);
 
         final URI file = RestDslGeneratorTest.class.getResource("/MyRestRouteFilter.txt").toURI();
         final String expectedContent = new String(Files.readAllBytes(Paths.get(file)), StandardCharsets.UTF_8);
@@ -144,12 +137,7 @@ public class RestDslGeneratorTest {
     public void shouldGenerateSourceCodeWithOptions() throws IOException, URISyntaxException {
         final StringBuilder code = new StringBuilder();
 
-        RestDslGenerator.toAppendable(document)
-            .withGeneratedTime(generated)
-            .withClassName("MyRestRoute")
-            .withPackageName("com.example")
-            .withIndent("\t")
-            .withSourceCodeTimestamps()
+        RestDslGenerator.toAppendable(document).withGeneratedTime(generated).withClassName("MyRestRoute").withPackageName("com.example").withIndent("\t").withSourceCodeTimestamps()
             .withDestinationGenerator(o -> "direct:rest-" + o.operationId).generate(code);
 
         final URI file = RestDslGeneratorTest.class.getResource("/MyRestRoute.txt").toURI();
@@ -162,11 +150,7 @@ public class RestDslGeneratorTest {
     public void shouldGenerateSourceCodeWithRestComponent() throws IOException, URISyntaxException {
         final StringBuilder code = new StringBuilder();
 
-        RestDslGenerator.toAppendable(document)
-            .withGeneratedTime(generated)
-            .withRestComponent("servlet")
-            .withRestContextPath("/")
-            .generate(code);
+        RestDslGenerator.toAppendable(document).withGeneratedTime(generated).withRestComponent("servlet").withRestContextPath("/").generate(code);
 
         final URI file = RestDslGeneratorTest.class.getResource("/OpenApiPetstoreWithRestComponent.txt").toURI();
         final String expectedContent = new String(Files.readAllBytes(Paths.get(file)), StandardCharsets.UTF_8);

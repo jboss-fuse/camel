@@ -95,8 +95,8 @@ public abstract class RestDslSourceCodeGenerator<T> extends RestDslGenerator<Res
     }
 
     MethodSpec generateConfigureMethod(final OasDocument document) {
-        final MethodSpec.Builder configure = MethodSpec.methodBuilder("configure").addModifiers(Modifier.PUBLIC)
-            .returns(void.class).addJavadoc("Defines Apache Camel routes using REST DSL fluent API.\n");
+        final MethodSpec.Builder configure = MethodSpec.methodBuilder("configure").addModifiers(Modifier.PUBLIC).returns(void.class)
+            .addJavadoc("Defines Apache Camel routes using REST DSL fluent API.\n");
 
         final MethodBodySourceCodeEmitter emitter = new MethodBodySourceCodeEmitter(configure);
 
@@ -128,16 +128,13 @@ public abstract class RestDslSourceCodeGenerator<T> extends RestDslGenerator<Res
 
         final String classNameToUse = classNameGenerator.apply(document);
 
-        final AnnotationSpec.Builder generatedAnnotation = AnnotationSpec.builder(Generated.class).addMember("value",
-            "$S", getClass().getName());
+        final AnnotationSpec.Builder generatedAnnotation = AnnotationSpec.builder(Generated.class).addMember("value", "$S", getClass().getName());
         if (sourceCodeTimestamps) {
             generatedAnnotation.addMember("date", "$S", generated());
         }
 
-        final TypeSpec.Builder builder = TypeSpec.classBuilder(classNameToUse).superclass(RouteBuilder.class)
-            .addModifiers(Modifier.PUBLIC, Modifier.FINAL).addMethod(methodSpec)
-            .addAnnotation(generatedAnnotation.build())
-            .addJavadoc("Generated from OpenApi specification by Camel REST DSL generator.\n");
+        final TypeSpec.Builder builder = TypeSpec.classBuilder(classNameToUse).superclass(RouteBuilder.class).addModifiers(Modifier.PUBLIC, Modifier.FINAL).addMethod(methodSpec)
+            .addAnnotation(generatedAnnotation.build()).addJavadoc("Generated from OpenApi specification by Camel REST DSL generator.\n");
         if (springComponent) {
             final AnnotationSpec.Builder springAnnotation = AnnotationSpec.builder(ClassName.bestGuess("org.springframework.stereotype.Component"));
             builder.addAnnotation(springAnnotation.build());
@@ -156,7 +153,7 @@ public abstract class RestDslSourceCodeGenerator<T> extends RestDslGenerator<Res
     }
 
     static String generateClassName(final OasDocument document) {
-        final OasInfo info = (OasInfo) document.info;
+        final OasInfo info = (OasInfo)document.info;
         if (info == null) {
             return DEFAULT_CLASS_NAME;
         }
@@ -167,8 +164,7 @@ public abstract class RestDslSourceCodeGenerator<T> extends RestDslGenerator<Res
         }
 
         final String className = title.chars().filter(Character::isJavaIdentifierPart).filter(c -> c < 'z').boxed()
-            .collect(Collector.of(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append,
-                StringBuilder::toString));
+            .collect(Collector.of(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append, StringBuilder::toString));
 
         if (className.isEmpty() || !Character.isJavaIdentifierStart(className.charAt(0))) {
             return DEFAULT_CLASS_NAME;

@@ -16,15 +16,12 @@
  */
 package org.apache.camel.generator.openapi;
 
-
 import java.util.LinkedHashMap;
 import java.util.Map;
-
 
 import io.apicurio.datamodels.openapi.models.OasOperation;
 import io.apicurio.datamodels.openapi.models.OasPathItem;
 import org.apache.camel.util.ObjectHelper;
-
 
 class PathVisitor<T> {
 
@@ -35,13 +32,7 @@ class PathVisitor<T> {
     private final OperationFilter filter;
 
     public enum HttpMethod {
-        DELETE,
-        GET,
-        HEAD,
-        OPTIONS,
-        PATCH,
-        POST,
-        PUT
+        DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT
     }
 
     PathVisitor(final String basePath, final CodeEmitter<T> emitter, final OperationFilter filter, final DestinationGenerator destinationGenerator) {

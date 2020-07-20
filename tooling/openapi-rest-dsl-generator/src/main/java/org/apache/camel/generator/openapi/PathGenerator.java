@@ -23,7 +23,6 @@ import com.squareup.javapoet.JavaFile;
 
 import io.apicurio.datamodels.openapi.models.OasDocument;
 
-
 final class PathGenerator extends RestDslSourceCodeGenerator<Path> {
 
     PathGenerator(final OasDocument document) {

@@ -143,7 +143,7 @@ class MethodBodySourceCodeEmitter implements CodeEmitter<MethodSpec> {
                 arguments.add(arg.getClass());
                 arguments.add(arg);
             } else if (arg instanceof String[]) {
-                arguments.add(Arrays.stream((String[]) arg).collect(Collectors.joining(",")));
+                arguments.add(Arrays.stream((String[])arg).collect(Collectors.joining(",")));
             }
         }
 

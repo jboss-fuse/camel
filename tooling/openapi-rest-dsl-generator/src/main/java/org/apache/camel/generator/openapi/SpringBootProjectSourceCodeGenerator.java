@@ -59,14 +59,11 @@ public class SpringBootProjectSourceCodeGenerator {
         final ClassName req = ClassName.bestGuess("javax.servlet.http.HttpServletRequest");
         final ClassName res = ClassName.bestGuess("javax.servlet.http.HttpServletResponse");
 
-        final AnnotationSpec.Builder reqAnnotation = AnnotationSpec.builder(ClassName.bestGuess("org.springframework.web.bind.annotation.RequestMapping"))
-            .addMember("value", "\"/**\"");
+        final AnnotationSpec.Builder reqAnnotation = AnnotationSpec.builder(ClassName.bestGuess("org.springframework.web.bind.annotation.RequestMapping")).addMember("value",
+                                                                                                                                                                     "\"/**\"");
 
-        final MethodSpec.Builder forward = MethodSpec.methodBuilder("camelServlet").addModifiers(Modifier.PUBLIC)
-            .addParameter(req, "request")
-            .addParameter(res, "response")
-            .addAnnotation(reqAnnotation.build())
-            .returns(void.class);
+        final MethodSpec.Builder forward = MethodSpec.methodBuilder("camelServlet").addModifiers(Modifier.PUBLIC).addParameter(req, "request").addParameter(res, "response")
+            .addAnnotation(reqAnnotation.build()).returns(void.class);
 
         forward.addCode("try {\n");
         forward.addCode("    String path = request.getRequestURI();\n");
@@ -85,14 +82,11 @@ public class SpringBootProjectSourceCodeGenerator {
 
         final String classNameToUse = "CamelRestController";
 
-        final AnnotationSpec.Builder generatedAnnotation = AnnotationSpec.builder(Generated.class).addMember("value",
-            "$S", getClass().getName());
+        final AnnotationSpec.Builder generatedAnnotation = AnnotationSpec.builder(Generated.class).addMember("value", "$S", getClass().getName());
         final AnnotationSpec.Builder restAnnotation = AnnotationSpec.builder(ClassName.bestGuess("org.springframework.web.bind.annotation.RestController"));
 
-        final TypeSpec.Builder builder = TypeSpec.classBuilder(classNameToUse)
-            .addModifiers(Modifier.PUBLIC, Modifier.FINAL).addMethod(methodSpec)
-            .addAnnotation(generatedAnnotation.build())
-            .addAnnotation(restAnnotation.build())
+        final TypeSpec.Builder builder = TypeSpec.classBuilder(classNameToUse).addModifiers(Modifier.PUBLIC, Modifier.FINAL).addMethod(methodSpec)
+            .addAnnotation(generatedAnnotation.build()).addAnnotation(restAnnotation.build())
             .addJavadoc("Forward requests to the Camel servlet so it can service REST requests.\n");
         final TypeSpec generatedRestController = builder.build();
 

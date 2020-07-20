@@ -24,7 +24,6 @@ import com.squareup.javapoet.JavaFile;
 
 import io.apicurio.datamodels.openapi.models.OasDocument;
 
-
 final class FilerGenerator extends RestDslSourceCodeGenerator<Filer> {
 
     FilerGenerator(final OasDocument document) {

@@ -66,12 +66,12 @@ public class RestDslXmlGeneratorV3Test {
         try (CamelContext context = new DefaultCamelContext()) {
             final String xml = RestDslGenerator.toXml(document).generate(context);
 
-            final DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
-            builderFactory.setNamespaceAware(true);
+        final DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
+        builderFactory.setNamespaceAware(true);
 
-            final DocumentBuilder builder = builderFactory.newDocumentBuilder();
+        final DocumentBuilder builder = builderFactory.newDocumentBuilder();
 
-            final Document document = builder.parse(new InputSource(new StringReader(xml)));
+        final Document document = builder.parse(new InputSource(new StringReader(xml)));
 
             assertThat(document.isDefaultNamespace("http://camel.apache.org/schema/spring")).isTrue();
         }
@@ -82,8 +82,8 @@ public class RestDslXmlGeneratorV3Test {
         try (CamelContext context = new DefaultCamelContext()) {
             final String xml = RestDslGenerator.toXml(document).generate(context);
 
-            final URI file = RestDslGeneratorTest.class.getResource("/OpenApiV3PetstoreXml.txt").toURI();
-            final String expectedContent = new String(Files.readAllBytes(Paths.get(file)), StandardCharsets.UTF_8);
+        final URI file = RestDslGeneratorTest.class.getResource("/OpenApiV3PetstoreXml.txt").toURI();
+        final String expectedContent = new String(Files.readAllBytes(Paths.get(file)), StandardCharsets.UTF_8);
 
             assertThat(xml).isXmlEqualTo(expectedContent);
         }
