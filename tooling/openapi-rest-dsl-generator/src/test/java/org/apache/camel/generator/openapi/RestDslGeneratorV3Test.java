@@ -46,12 +46,11 @@ public class RestDslGeneratorV3Test {
 
     @Test
     public void shouldCreateDefinitions() throws IOException {
-        try (CamelContext context = new DefaultCamelContext()) {
+        CamelContext context = new DefaultCamelContext();
             final RestsDefinition definition = RestDslGenerator.toDefinition(document).generate(context);
             assertThat(definition).isNotNull();
             assertThat(definition.getRests()).hasSize(1);
             assertThat(definition.getRests().get(0).getPath()).isEqualTo("/api/v3");
-        }
     }
 
     @Test
