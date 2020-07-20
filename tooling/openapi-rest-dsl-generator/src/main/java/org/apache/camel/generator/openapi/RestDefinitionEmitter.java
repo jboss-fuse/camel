@@ -48,7 +48,7 @@ class RestDefinitionEmitter implements CodeEmitter<RestsDefinition> {
             variable = declaredMethod.invoke(variable, arguments);
         } catch (final Throwable e) {
             if (e instanceof RuntimeException) {
-                throw (RuntimeException) e;
+                throw (RuntimeException)e;
             }
 
             throw new IllegalStateException(e);
@@ -67,7 +67,7 @@ class RestDefinitionEmitter implements CodeEmitter<RestsDefinition> {
 
         for (final Object arg : args) {
             if (arg instanceof String[]) {
-                arguments.add(Arrays.stream((String[]) arg).collect(Collectors.joining(",")));
+                arguments.add(Arrays.stream((String[])arg).collect(Collectors.joining(",")));
             } else {
                 arguments.add(arg);
             }

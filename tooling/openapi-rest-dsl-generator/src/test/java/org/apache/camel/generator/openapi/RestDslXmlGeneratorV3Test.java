@@ -48,62 +48,59 @@ public class RestDslXmlGeneratorV3Test {
     @Test
     public void shouldGenerateBlueprintXml() throws Exception {
         CamelContext context = new DefaultCamelContext();
-            final String xml = RestDslGenerator.toXml(document).withBlueprint().generate(context);
-            assertThat(xml).contains("http://camel.apache.org/schema/blueprint");
+        final String xml = RestDslGenerator.toXml(document).withBlueprint().generate(context);
+        assertThat(xml).contains("http://camel.apache.org/schema/blueprint");
     }
 
     @Test
     public void shouldGenerateSpringXml() throws Exception {
         CamelContext context = new DefaultCamelContext();
-            final String xml = RestDslGenerator.toXml(document).generate(context);
-            assertThat(xml).contains("http://camel.apache.org/schema/spring");
+        final String xml = RestDslGenerator.toXml(document).generate(context);
+        assertThat(xml).contains("http://camel.apache.org/schema/spring");
     }
 
     @Test
     public void shouldGenerateXmlWithDefaultnamespace() throws Exception {
         CamelContext context = new DefaultCamelContext();
-            final String xml = RestDslGenerator.toXml(document).generate(context);
+        final String xml = RestDslGenerator.toXml(document).generate(context);
 
-            final DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
-            builderFactory.setNamespaceAware(true);
+        final DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
+        builderFactory.setNamespaceAware(true);
 
-            final DocumentBuilder builder = builderFactory.newDocumentBuilder();
+        final DocumentBuilder builder = builderFactory.newDocumentBuilder();
 
-            final Document document = builder.parse(new InputSource(new StringReader(xml)));
+        final Document document = builder.parse(new InputSource(new StringReader(xml)));
 
-            assertThat(document.isDefaultNamespace("http://camel.apache.org/schema/spring")).isTrue();
+        assertThat(document.isDefaultNamespace("http://camel.apache.org/schema/spring")).isTrue();
     }
 
     @Test
     public void shouldGenerateXmlWithDefaults() throws Exception {
         CamelContext context = new DefaultCamelContext();
-            final String xml = RestDslGenerator.toXml(document).generate(context);
+        final String xml = RestDslGenerator.toXml(document).generate(context);
 
-            final URI file = RestDslGeneratorTest.class.getResource("/OpenApiV3PetstoreXml.txt").toURI();
-            final String expectedContent = new String(Files.readAllBytes(Paths.get(file)), StandardCharsets.UTF_8);
+        final URI file = RestDslGeneratorTest.class.getResource("/OpenApiV3PetstoreXml.txt").toURI();
+        final String expectedContent = new String(Files.readAllBytes(Paths.get(file)), StandardCharsets.UTF_8);
 
-            assertThat(xml).isXmlEqualTo(expectedContent);
+        assertThat(xml).isXmlEqualTo(expectedContent);
     }
 
     @Test
     public void shouldGenerateXmlWithRestComponent() throws Exception {
         CamelContext context = new DefaultCamelContext();
-            final String xml = RestDslGenerator.toXml(document)
-                .withRestComponent("servlet")
-                .withRestContextPath("/foo")
-                .generate(context);
+        final String xml = RestDslGenerator.toXml(document).withRestComponent("servlet").withRestContextPath("/foo").generate(context);
 
-            final URI file = RestDslGeneratorTest.class.getResource("/OpenApiV3PetstoreWithRestComponentXml.txt").toURI();
-            final String expectedContent = new String(Files.readAllBytes(Paths.get(file)), StandardCharsets.UTF_8);
-            assertThat(xml).isXmlEqualTo(expectedContent);
+        final URI file = RestDslGeneratorTest.class.getResource("/OpenApiV3PetstoreWithRestComponentXml.txt").toURI();
+        final String expectedContent = new String(Files.readAllBytes(Paths.get(file)), StandardCharsets.UTF_8);
+        assertThat(xml).isXmlEqualTo(expectedContent);
     }
 
     @BeforeClass
     public static void readOpenApiDoc() throws Exception {
         final ObjectMapper mapper = new ObjectMapper();
         InputStream is = RestDslXmlGeneratorV3Test.class.getResourceAsStream("openapi-spec.json");
-            final JsonNode node = mapper.readTree(is);
-            document = (OasDocument) Library.readDocument(node);
+        final JsonNode node = mapper.readTree(is);
+        document = (OasDocument)Library.readDocument(node);
     }
 
 }

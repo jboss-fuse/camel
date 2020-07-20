@@ -1,4 +1,4 @@
-/*
+/**
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
@@ -42,12 +42,9 @@ public class OperationVisitorTest {
 
         visitor.emit(parameter);
 
-        assertThat(method.build().toString()).isEqualTo("void configure() {\n"
-            + "      param()\n"
-            + "        .name(\"param\")\n"
-            + "        .type(org.apache.camel.model.rest.RestParamType.query)\n"
-            + "        .required(false)\n"
-            + "      .endParam()}\n");
+        assertThat(method.build().toString())
+            .isEqualTo("void configure() {\n" + "      param()\n" + "        .name(\"param\")\n" + "        .type(org.apache.camel.model.rest.RestParamType.query)\n"
+                       + "        .required(false)\n" + "      .endParam()}\n");
     }
 
     @Test
@@ -61,12 +58,9 @@ public class OperationVisitorTest {
 
         visitor.emit(parameter);
 
-        assertThat(method.build().toString()).isEqualTo("void configure() {\n"
-            + "      param()\n"
-            + "        .name(\"param\")\n"
-            + "        .type(org.apache.camel.model.rest.RestParamType.path)\n"
-            + "        .required(false)\n"
-            + "      .endParam()}\n");
+        assertThat(method.build().toString())
+            .isEqualTo("void configure() {\n" + "      param()\n" + "        .name(\"param\")\n" + "        .type(org.apache.camel.model.rest.RestParamType.path)\n"
+                       + "        .required(false)\n" + "      .endParam()}\n");
     }
 
     @Test
@@ -78,17 +72,13 @@ public class OperationVisitorTest {
         final Oas30Parameter parameter = new Oas30Parameter("param");
         parameter.in = "path";
         parameter.schema = parameter.createSchema();
-        ((Oas30Schema) parameter.schema).default_ = "default";
+        ((Oas30Schema)parameter.schema).default_ = "default";
 
         visitor.emit(parameter);
 
-        assertThat(method.build().toString()).isEqualTo("void configure() {\n"
-            + "      param()\n"
-            + "        .name(\"param\")\n"
-            + "        .type(org.apache.camel.model.rest.RestParamType.path)\n"
-            + "        .defaultValue(\"default\")\n"
-            + "        .required(false)\n"
-            + "      .endParam()}\n");
+        assertThat(method.build().toString())
+            .isEqualTo("void configure() {\n" + "      param()\n" + "        .name(\"param\")\n" + "        .type(org.apache.camel.model.rest.RestParamType.path)\n"
+                       + "        .defaultValue(\"default\")\n" + "        .required(false)\n" + "      .endParam()}\n");
     }
 
     @Test
@@ -100,17 +90,13 @@ public class OperationVisitorTest {
         final Oas30Parameter parameter = new Oas30Parameter("param");
         parameter.in = "query";
         parameter.schema = parameter.createSchema();
-        ((Oas30Schema) parameter.schema).enum_ = Arrays.asList("one", "two", "three");
+        ((Oas30Schema)parameter.schema).enum_ = Arrays.asList("one", "two", "three");
 
         visitor.emit(parameter);
 
-        assertThat(method.build().toString()).isEqualTo("void configure() {\n"
-            + "      param()\n"
-            + "        .name(\"param\")\n"
-            + "        .type(org.apache.camel.model.rest.RestParamType.query)\n"
-            + "        .allowableValues(\"one,two,three\")\n"
-            + "        .required(false)\n"
-            + "      .endParam()}\n");
+        assertThat(method.build().toString())
+            .isEqualTo("void configure() {\n" + "      param()\n" + "        .name(\"param\")\n" + "        .type(org.apache.camel.model.rest.RestParamType.query)\n"
+                       + "        .allowableValues(\"one,two,three\")\n" + "        .required(false)\n" + "      .endParam()}\n");
     }
 
     @Test
@@ -122,17 +108,13 @@ public class OperationVisitorTest {
         final Oas30Parameter parameter = new Oas30Parameter("param");
         parameter.in = "query";
         parameter.schema = parameter.createSchema();
-        ((Oas30Schema) parameter.schema).type = "integer";
+        ((Oas30Schema)parameter.schema).type = "integer";
 
         visitor.emit(parameter);
 
-        assertThat(method.build().toString()).isEqualTo("void configure() {\n"
-            + "      param()\n"
-            + "        .name(\"param\")\n"
-            + "        .type(org.apache.camel.model.rest.RestParamType.query)\n"
-            + "        .dataType(\"integer\")\n"
-            + "        .required(false)\n"
-            + "      .endParam()}\n");
+        assertThat(method.build().toString())
+            .isEqualTo("void configure() {\n" + "      param()\n" + "        .name(\"param\")\n" + "        .type(org.apache.camel.model.rest.RestParamType.query)\n"
+                       + "        .dataType(\"integer\")\n" + "        .required(false)\n" + "      .endParam()}\n");
     }
 
     @Test
@@ -153,11 +135,8 @@ public class OperationVisitorTest {
 
         visitor.emit(parameter);
 
-        assertThat(method.build().toString()).isEqualTo("void configure() {\n"
-            + "      param()\n"
-            + "        .name(\"param\")\n"
-            + "        .type(org.apache.camel.model.rest.RestParamType.query)\n"
-            + "        .required(false)\n"
-            + "      .endParam()}\n");
+        assertThat(method.build().toString())
+            .isEqualTo("void configure() {\n" + "      param()\n" + "        .name(\"param\")\n" + "        .type(org.apache.camel.model.rest.RestParamType.query)\n"
+                       + "        .required(false)\n" + "      .endParam()}\n");
     }
 }

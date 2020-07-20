@@ -32,40 +32,40 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class RestDefinitionEmitterTest {
     @Test
     public void shouldGenerateObjects() throws IOException {
-            DefaultCamelContext context = new DefaultCamelContext();
+        DefaultCamelContext context = new DefaultCamelContext();
 
-            final RestDefinitionEmitter emitter = new RestDefinitionEmitter(context);
+        final RestDefinitionEmitter emitter = new RestDefinitionEmitter(context);
 
-            emitter.emit("rest");
-            emitter.emit("put", "/pet");
-            emitter.emit("consumes", new Object[] {new String[] {"application/json", "application/xml"}});
-            emitter.emit("produces", new Object[] {new String[] {"application/xml", "application/json"}});
-            emitter.emit("param");
-            emitter.emit("name", "body");
-            emitter.emit("type", RestParamType.body);
-            emitter.emit("required", true);
-            emitter.emit("endParam");
+        emitter.emit("rest");
+        emitter.emit("put", "/pet");
+        emitter.emit("consumes", new Object[] {new String[] {"application/json", "application/xml"}});
+        emitter.emit("produces", new Object[] {new String[] {"application/xml", "application/json"}});
+        emitter.emit("param");
+        emitter.emit("name", "body");
+        emitter.emit("type", RestParamType.body);
+        emitter.emit("required", true);
+        emitter.emit("endParam");
 
-            final RestsDefinition result = emitter.result();
-            final List<RestDefinition> rests = result.getRests();
-            assertThat(rests).hasSize(1);
+        final RestsDefinition result = emitter.result();
+        final List<RestDefinition> rests = result.getRests();
+        assertThat(rests).hasSize(1);
 
-            final RestDefinition rest = rests.get(0);
-            final List<VerbDefinition> verbs = rest.getVerbs();
-            assertThat(verbs).hasSize(1);
+        final RestDefinition rest = rests.get(0);
+        final List<VerbDefinition> verbs = rest.getVerbs();
+        assertThat(verbs).hasSize(1);
 
-            final VerbDefinition definition = verbs.get(0);
-            assertThat(definition.asVerb()).isEqualTo("put");
-            assertThat(definition.getUri()).isEqualTo("/pet");
-            assertThat(definition.getConsumes()).isEqualTo("application/json,application/xml");
-            assertThat(definition.getProduces()).isEqualTo("application/xml,application/json");
+        final VerbDefinition definition = verbs.get(0);
+        assertThat(definition.asVerb()).isEqualTo("put");
+        assertThat(definition.getUri()).isEqualTo("/pet");
+        assertThat(definition.getConsumes()).isEqualTo("application/json,application/xml");
+        assertThat(definition.getProduces()).isEqualTo("application/xml,application/json");
 
-            final List<RestOperationParamDefinition> params = definition.getParams();
-            assertThat(params).hasSize(1);
+        final List<RestOperationParamDefinition> params = definition.getParams();
+        assertThat(params).hasSize(1);
 
-            final RestOperationParamDefinition param = params.get(0);
-            assertThat(param.getName()).isEqualTo("body");
-            assertThat(param.getType()).isEqualTo(RestParamType.body);
-            assertThat(param.getRequired()).isEqualTo(true);
+        final RestOperationParamDefinition param = params.get(0);
+        assertThat(param.getName()).isEqualTo("body");
+        assertThat(param.getType()).isEqualTo(RestParamType.body);
+        assertThat(param.getRequired()).isEqualTo(true);
     }
 }

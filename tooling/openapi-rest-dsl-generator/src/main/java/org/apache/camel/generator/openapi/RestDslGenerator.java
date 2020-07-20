@@ -32,7 +32,6 @@ import io.apicurio.datamodels.openapi.v3.models.Oas30Server;
 
 import org.apache.camel.model.rest.RestsDefinition;
 
-
 import static org.apache.camel.util.ObjectHelper.notNull;
 
 /**
@@ -65,7 +64,7 @@ public abstract class RestDslGenerator<G> {
         this.springBootProject = true;
 
         @SuppressWarnings("unchecked")
-        final G that = (G) this;
+        final G that = (G)this;
 
         return that;
     }
@@ -74,7 +73,7 @@ public abstract class RestDslGenerator<G> {
         this.springComponent = true;
 
         @SuppressWarnings("unchecked")
-        final G that = (G) this;
+        final G that = (G)this;
 
         return that;
     }
@@ -83,7 +82,7 @@ public abstract class RestDslGenerator<G> {
         this.apiContextPath = contextPath;
 
         @SuppressWarnings("unchecked")
-        final G that = (G) this;
+        final G that = (G)this;
 
         return that;
     }
@@ -93,7 +92,7 @@ public abstract class RestDslGenerator<G> {
         this.destinationGenerator = directRouteGenerator;
 
         @SuppressWarnings("unchecked")
-        final G that = (G) this;
+        final G that = (G)this;
 
         return that;
     }
@@ -102,7 +101,7 @@ public abstract class RestDslGenerator<G> {
         this.filter = filter;
 
         @SuppressWarnings("unchecked")
-        final G that = (G) this;
+        final G that = (G)this;
 
         return that;
     }
@@ -111,7 +110,7 @@ public abstract class RestDslGenerator<G> {
         this.filter.setIncludes(include);
 
         @SuppressWarnings("unchecked")
-        final G that = (G) this;
+        final G that = (G)this;
 
         return that;
     }
@@ -120,7 +119,7 @@ public abstract class RestDslGenerator<G> {
         this.restComponent = restComponent;
 
         @SuppressWarnings("unchecked")
-        final G that = (G) this;
+        final G that = (G)this;
 
         return that;
     }
@@ -129,7 +128,7 @@ public abstract class RestDslGenerator<G> {
         this.restContextPath = contextPath;
 
         @SuppressWarnings("unchecked")
-        final G that = (G) this;
+        final G that = (G)this;
 
         return that;
     }
@@ -142,16 +141,16 @@ public abstract class RestDslGenerator<G> {
         Objects.requireNonNull(document, "document");
 
         if (document instanceof Oas20Document) {
-            return ((Oas20Document) document).basePath;
+            return ((Oas20Document)document).basePath;
         } else if (document instanceof Oas30Document) {
-            final Oas30Document oas30Document = (Oas30Document) document;
+            final Oas30Document oas30Document = (Oas30Document)document;
             final List<Server> servers = oas30Document.getServers();
 
             if (servers == null || servers.get(0) == null) {
                 return "";
             }
 
-            final Oas30Server firstServer = (Oas30Server) servers.get(0);
+            final Oas30Server firstServer = (Oas30Server)servers.get(0);
             final URI serverUrl = URI.create(resolveVariablesIn(firstServer.url, firstServer));
             String basePath = serverUrl.getPath();
             if (basePath == null || basePath.length() == 0) {
@@ -178,16 +177,16 @@ public abstract class RestDslGenerator<G> {
 
     public static String determineHostFrom(final OasDocument document) {
         if (document instanceof Oas20Document) {
-            return ((Oas20Document) document).host;
+            return ((Oas20Document)document).host;
         } else if (document instanceof Oas30Document) {
-            final Oas30Document oas30Document = (Oas30Document) document;
+            final Oas30Document oas30Document = (Oas30Document)document;
             final List<Server> servers = oas30Document.getServers();
 
             if (servers == null || servers.get(0) == null) {
                 return "";
             }
 
-            final Oas30Server firstServer = (Oas30Server) servers.get(0);
+            final Oas30Server firstServer = (Oas30Server)servers.get(0);
 
             final URI serverUrl = URI.create(resolveVariablesIn(firstServer.url, firstServer));
 
