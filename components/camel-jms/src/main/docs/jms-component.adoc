@@ -427,7 +427,7 @@ with the following path and query parameters:
 === Spring Boot Auto-Configuration
 
 
-The component supports 172 options, which are listed below.
+The component supports 173 options, which are listed below.
 
 
 
@@ -469,6 +469,7 @@ The component supports 172 options, which are listed below.
 | *camel.component.jms.configuration.consumer-type* | The consumer type to use, which can be one of: Simple, Default, or Custom. The consumer type determines which Spring JMS listener to use. Default will use org.springframework.jms.listener.DefaultMessageListenerContainer, Simple will use org.springframework.jms.listener.SimpleMessageListenerContainer. When Custom is specified, the MessageListenerContainerFactory defined by the messageListenerContainerFactory option will determine what org.springframework.jms.listener.AbstractMessageListenerContainer to use. |  | ConsumerType
 | *camel.component.jms.configuration.correlation-property* | Use this JMS property to correlate messages in InOut exchange pattern (request-reply) instead of JMSCorrelationID property. This allows you to exchange messages with systems that do not correlate messages using JMSCorrelationID JMS property. If used JMSCorrelationID will not be used or set by Camel. The value of here named property will be generated if not supplied in the header of the message under the same name. |  | String
 | *camel.component.jms.configuration.default-task-executor-type* | Specifies what default TaskExecutor type to use in the DefaultMessageListenerContainer, for both consumer endpoints and the ReplyTo consumer of producer endpoints. Possible values: SimpleAsync (uses Spring's SimpleAsyncTaskExecutor) or ThreadPool (uses Spring's ThreadPoolTaskExecutor with optimal values - cached threadpool-like). If not set, it defaults to the previous behaviour, which uses a cached thread pool for consumer endpoints and SimpleAsync for reply consumers. The use of ThreadPool is recommended to reduce thread trash in elastic configurations with dynamically increasing and decreasing concurrent consumers. |  | DefaultTaskExecutor Type
+| *camel.component.jms.configuration.delivery-delay* | Sets delivery delay to use for send calls for JMS. | -1 | Long
 | *camel.component.jms.configuration.delivery-mode* | Specifies the delivery mode to be used. Possibles values are those defined by javax.jms.DeliveryMode. NON_PERSISTENT = 1 and PERSISTENT = 2. |  | Integer
 | *camel.component.jms.configuration.delivery-persistent* | Specifies whether persistent delivery is used by default. | true | Boolean
 | *camel.component.jms.configuration.destination-resolver* | A pluggable org.springframework.jms.support.destination.DestinationResolver that allows you to use your own resolver (for example, to lookup the real destination in a JNDI registry). |  | DestinationResolver

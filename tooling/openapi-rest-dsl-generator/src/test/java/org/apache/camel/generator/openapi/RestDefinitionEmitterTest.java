@@ -32,7 +32,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class RestDefinitionEmitterTest {
     @Test
     public void shouldGenerateObjects() throws IOException {
-        try (DefaultCamelContext context = new DefaultCamelContext()) {
+        DefaultCamelContext context = new DefaultCamelContext();
 
         final RestDefinitionEmitter emitter = new RestDefinitionEmitter(context);
 
