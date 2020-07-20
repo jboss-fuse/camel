@@ -36,6 +36,7 @@ public class StringTemplateComponentConfiguration
      * This is enabled by default.
      */
     private Boolean enabled;
+
     /**
      * Whether to allow to use resource template from header or not (default
      * false). Enabling this allows to specify dynamic templates via message
