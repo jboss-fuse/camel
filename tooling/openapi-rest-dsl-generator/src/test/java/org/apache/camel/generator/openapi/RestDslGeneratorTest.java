@@ -52,10 +52,10 @@ public class RestDslGeneratorTest {
     @Test
     public void shouldCreateDefinitions() throws IOException {
         CamelContext context = new DefaultCamelContext();
-            final RestsDefinition definition = RestDslGenerator.toDefinition(document).generate(context);
-            assertThat(definition).isNotNull();
-            assertThat(definition.getRests()).hasSize(1);
-            assertThat(definition.getRests().get(0).getPath()).isEqualTo("/v2");
+        final RestsDefinition definition = RestDslGenerator.toDefinition(document).generate(context);
+        assertThat(definition).isNotNull();
+        assertThat(definition.getRests()).hasSize(1);
+        assertThat(definition.getRests().get(0).getPath()).isEqualTo("/v2");
     }
 
     @Test
@@ -191,8 +191,8 @@ public class RestDslGeneratorTest {
     public static void readOpenApiDoc() throws Exception {
         final ObjectMapper mapper = new ObjectMapper();
         InputStream is = RestDslGeneratorTest.class.getResourceAsStream("openapi-v2.json");
-            final JsonNode node = mapper.readTree(is);
-            document = (OasDocument) Library.readDocument(node);
+        final JsonNode node = mapper.readTree(is);
+        document = (OasDocument)Library.readDocument(node);
     }
 
     private static void addVariableTo(final Oas30Server server, final String name, final String value) {
