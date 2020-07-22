@@ -87,8 +87,7 @@ public class CometdCrossOriginConsumerTest extends CamelTestSupport {
         assertEquals(1, handler.getServletHandler().getFilters().length);
 
         FilterHolder filterHolder = handler.getServletHandler().getFilters()[0];
-        Filter filter = filterHolder.getFilter();
-        assertTrue(filter instanceof CrossOriginFilter);
+        assertEquals(CrossOriginFilter.class.getCanonicalName(),  filterHolder.getClassName());
     }
 
     @Test
