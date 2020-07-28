@@ -2,7 +2,7 @@ Components
 ^^^^^^^^^^
 
 // components: START
-Number of Components: 306 in 207 JAR artifacts (20 deprecated)
+Number of Components: 295 in 207 JAR artifacts (20 deprecated)
 
 [width="100%",cols="4,1,5",options="header"]
 |===
@@ -65,54 +65,6 @@ Number of Components: 306 in 207 JAR artifacts (20 deprecated)
 | link:camel-avro/src/main/docs/avro-component.adoc[Avro] (camel-avro) +
 `avro:transport:host:port/messageName` | 2.10 | Working with Apache Avro for data serialization.
 
-| link:camel-aws/src/main/docs/aws-cw-component.adoc[AWS CloudWatch] (camel-aws) +
-`aws-cw:namespace` | 2.11 | The aws-cw component is used for sending metrics to an Amazon CloudWatch.
-
-| link:camel-aws/src/main/docs/aws-ddb-component.adoc[AWS DynamoDB] (camel-aws) +
-`aws-ddb:tableName` | 2.10 | The aws-ddb component is used for storing and retrieving data from Amazon's DynamoDB service.
-
-| link:camel-aws/src/main/docs/aws-ddbstream-component.adoc[AWS DynamoDB Streams] (camel-aws) +
-`aws-ddbstream:tableName` | 2.17 | The aws-ddbstream component is used for working with Amazon DynamoDB Streams.
-
-| link:camel-aws/src/main/docs/aws-ec2-component.adoc[AWS EC2] (camel-aws) +
-`aws-ec2:label` | 2.16 | The aws-ec2 is used for managing Amazon EC2 instances.
-
-| link:camel-aws/src/main/docs/aws-iam-component.adoc[AWS IAM] (camel-aws) +
-`aws-iam:label` | 2.23 | The aws-iam is used for managing Amazon IAM
-
-| link:camel-aws/src/main/docs/aws-kinesis-component.adoc[AWS Kinesis] (camel-aws) +
-`aws-kinesis:streamName` | 2.17 | The aws-kinesis component is for consuming and producing records from Amazon Kinesis Streams.
-
-| link:camel-aws/src/main/docs/aws-kinesis-firehose-component.adoc[AWS Kinesis Firehose] (camel-aws) +
-`aws-kinesis-firehose:streamName` | 2.19 | The aws-kinesis-firehose component is used for producing Amazon's Kinesis Firehose streams.
-
-| link:camel-aws/src/main/docs/aws-kms-component.adoc[AWS KMS] (camel-aws) +
-`aws-kms:label` | 2.21 | The aws-kms is used for managing Amazon KMS
-
-| link:camel-aws/src/main/docs/aws-lambda-component.adoc[AWS Lambda] (camel-aws) +
-`aws-lambda:function` | 2.20 | The aws-lambda is used for managing and invoking functions from Amazon Lambda.
-
-| link:camel-aws/src/main/docs/aws-mq-component.adoc[AWS MQ] (camel-aws) +
-`aws-mq:label` | 2.21 | The aws-mq is used for managing Amazon MQ instances.
-
-| link:camel-aws/src/main/docs/aws-s3-component.adoc[AWS S3 Storage Service] (camel-aws) +
-`aws-s3:bucketNameOrArn` | 2.8 | The aws-s3 component is used for storing and retrieving objecct from Amazon S3 Storage Service.
-
-| link:camel-aws/src/main/docs/aws-ses-component.adoc[AWS Simple Email Service] (camel-aws) +
-`aws-ses:from` | 2.9 | The aws-ses component is used for sending emails with Amazon's SES service.
-
-| link:camel-aws/src/main/docs/aws-sns-component.adoc[AWS Simple Notification System] (camel-aws) +
-`aws-sns:topicNameOrArn` | 2.8 | The aws-sns component is used for sending messages to an Amazon Simple Notification Topic.
-
-| link:camel-aws/src/main/docs/aws-sqs-component.adoc[AWS Simple Queue Service] (camel-aws) +
-`aws-sqs:queueNameOrArn` | 2.6 | The aws-sqs component is used for sending and receiving messages to Amazon's SQS service.
-
-| link:camel-aws/src/main/docs/aws-swf-component.adoc[AWS Simple Workflow] (camel-aws) +
-`aws-swf:type` | 2.13 | The aws-swf component is used for managing workflows from Amazon Simple Workflow.
-
-| link:camel-aws/src/main/docs/aws-sdb-component.adoc[AWS SimpleDB] (camel-aws) +
-`aws-sdb:domainName` | 2.9 | The aws-sdb component is for storing and retrieving data from/to Amazon's SDB service.
-
 | link:camel-azure/src/main/docs/azure-blob-component.adoc[Azure Storage Blob Service] (camel-azure) +
 `azure-blob:containerOrBlobUri` | 2.19 | The azure-blob component is used for storing and retrieving blobs from Azure Storage Blob Service.
 
@@ -172,9 +124,6 @@ Number of Components: 306 in 207 JAR artifacts (20 deprecated)
 
 | link:camel-coap/src/main/docs/coap-component.adoc[CoAP] (camel-coap) +
 `coap:uri` | 2.16 | The coap component is used for sending and receiving messages from COAP capable devices.
-
-| link:camel-cometd/src/main/docs/cometd-component.adoc[CometD] (camel-cometd) +
-`cometd:host:port/channelName` | 2.0 | The cometd component is a transport for working with the Jetty implementation of the cometd/bayeux protocol.
 
 | link:camel-consul/src/main/docs/consul-component.adoc[Consul] (camel-consul) +
 `consul:apiEndpoint` | 2.18 | The camel consul component allows you to work with Consul, a distributed, highly available, datacenter-aware, service discovery and configuration system.
@@ -308,6 +257,18 @@ Number of Components: 306 in 207 JAR artifacts (20 deprecated)
 | link:camel-google-drive/src/main/docs/google-drive-component.adoc[Google Drive] (camel-google-drive) +
 `google-drive:apiName/methodName` | 2.14 | The google-drive component provides access to Google Drive file storage service.
 
+| link:camel-gae/src/main/docs/gauth-component.adoc[Google GAuth] (camel-gae) +
+`gauth:name` |  | The gauth component is used by web applications to implement a Google-specific OAuth consumer.
+
+| link:camel-gae/src/main/docs/ghttp-component.adoc[Google HTTP] (camel-gae) +
+`ghttp:httpUri` |  | The ghttp component provides HTTP connectivity to the GAE.
+
+| link:camel-gae/src/main/docs/glogin-component.adoc[Google Login] (camel-gae) +
+`glogin:hostName` |  | The glogin component is used by Camel applications outside Google App Engine (GAE) for programmatic login to GAE applications.
+
+| link:camel-gae/src/main/docs/gmail-component.adoc[Google mail] (camel-gae) +
+`gmail:sender` |  | The gmail component is used for sending emails to GAE.
+
 | link:camel-google-mail/src/main/docs/google-mail-component.adoc[Google Mail] (camel-google-mail) +
 `google-mail:apiName/methodName` | 2.15 | The google-mail component provides access to Google Mail.
 
@@ -322,6 +283,9 @@ Number of Components: 306 in 207 JAR artifacts (20 deprecated)
 
 | link:camel-google-sheets/src/main/docs/google-sheets-stream-component.adoc[Google Sheets Stream] (camel-google-sheets) +
 `google-sheets-stream:apiName` | 2.23 | The google-sheets component provides access to Google Sheets.
+
+| link:camel-gae/src/main/docs/gtask-component.adoc[Google Task] (camel-gae) +
+`gtask:queueName` |  | The gtask component is used for sending messages to GAE task queue service.
 
 | link:camel-gora/src/main/docs/gora-component.adoc[Gora] (camel-gora) +
 `gora:name` | 2.14 | The gora component allows you to work with NoSQL databases using the Apache Gora framework.
@@ -433,6 +397,9 @@ Number of Components: 306 in 207 JAR artifacts (20 deprecated)
 
 | link:camel-javaspace/src/main/docs/javaspace-component.adoc[JavaSpace] (camel-javaspace) +
 `javaspace:url` | 2.1 | *deprecated* Sending and receiving messages through JavaSpace.
+
+| link:camel-jbpm/src/main/docs/jbpm-component.adoc[JBPM] (camel-jbpm) +
+`jbpm:connectionURL` |  | The jbpm component provides integration with jBPM (Business Process Management).
 
 | link:camel-jcache/src/main/docs/jcache-component.adoc[JCache] (camel-jcache) +
 `jcache:cacheName` | 2.17 | The jcache component enables you to perform caching operations using JSR107/JCache as cache implementation.
