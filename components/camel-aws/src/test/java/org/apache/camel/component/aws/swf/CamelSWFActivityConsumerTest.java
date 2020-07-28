@@ -46,7 +46,8 @@ public class CamelSWFActivityConsumerTest extends CamelSWFTestSupport {
     }
 
     @Test
-    public void receivesDecisionTask() throws Exception {
+    public void receivesActivityTask() throws Exception {
+        System.setProperty("jackson.deserialization.whitelist.packages", "java.lang.Object");
         result.expectedMinimumMessageCount(1);
         result.expectedMessagesMatches(new Predicate() {
             public boolean matches(Exchange exchange) {
