@@ -28,16 +28,19 @@
         <!-- we define the yaml SnakeYAML data formats to be used -->
         <dataFormats>
             <yaml id="yaml"
-                  library="SnakeYAML"/>
+                  library="SnakeYAML"
+                  maxAliasesForCollections="50"/>
 
             <yaml id="yaml-pojo"
                   library="SnakeYAML"
-                  unmarshalTypeName="org.apache.camel.component.snakeyaml.model.TestPojo"/>
+                  unmarshalTypeName="org.apache.camel.component.snakeyaml.model.TestPojo"
+                  maxAliasesForCollections="50"/>
 
             <yaml id="yaml-pojo-pretty-flow"
                   library="SnakeYAML"
                   unmarshalTypeName="org.apache.camel.component.snakeyaml.model.TestPojo"
-                  prettyFlow="true"/>
+                  prettyFlow="true"
+                  maxAliasesForCollections="50"/>
         </dataFormats>
 
 

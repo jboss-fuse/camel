@@ -27,18 +27,19 @@
 
         <!-- we define the yaml SnakeYAML data formats to be used -->
         <dataFormats>
-            <yaml id="yaml-safe-constructor"/>
+            <yaml id="yaml-safe-constructor"
+                  maxAliasesForCollections="50"/>
 
-            <yaml id="yaml-type-constructor" library="SnakeYAML">
+            <yaml id="yaml-type-constructor" library="SnakeYAML" maxAliasesForCollections="50">
                 <typeFilter value="org.apache.camel.component.snakeyaml.model.TestPojo"/>
             </yaml>
 
-            <yaml id="yaml-type-constructor-strdef" library="SnakeYAML">
+            <yaml id="yaml-type-constructor-strdef" library="SnakeYAML" maxAliasesForCollections="50">
                 <typeFilter value="org.apache.camel.component.snakeyaml.model.TestPojo"/>
                 <typeFilter value="org.apache.camel.component.snakeyaml.model.Rex.*" type="regexp"/>
             </yaml>
 
-            <yaml id="yaml-all-constructor" allowAnyType="true"/>
+            <yaml id="yaml-all-constructor" allowAnyType="true" maxAliasesForCollections="50"/>
         </dataFormats>
 
 
