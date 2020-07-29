@@ -50,6 +50,7 @@ public class PubNubPresenceTest extends PubNubTestBase {
         context.startRoute("presence-route");
         mockResult.expectedMinimumMessageCount(2);
         mockResult.expectedHeaderReceived(PubNubConstants.CHANNEL, "mychannel");
+        mockResult.expectedMessageCount(2);
         assertMockEndpointsSatisfied();
         PNPresenceEventResult presence = mockResult.getReceivedExchanges().get(0).getIn().getBody(PNPresenceEventResult.class);
         assertThat(presence.getEvent(), equalTo("join"));
