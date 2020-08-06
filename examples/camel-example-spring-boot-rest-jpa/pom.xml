@@ -61,10 +61,19 @@
         <groupId>org.hibernate</groupId>
         <artifactId>hibernate-entitymanager</artifactId>
       </dependency>
+
+      <!-- ENTESB-13522: setting dom4j explicitly to fix CVE-2020-10683 -->
+     <dependency>
+        <groupId>org.dom4j</groupId>
+        <artifactId>dom4j</artifactId>
+        <version>${dom4j-version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
   <dependencies>
+
+
 
     <!-- spring-boot -->
     <dependency>
