@@ -601,7 +601,7 @@ public abstract class TestSupport extends Assert {
      * @return <tt>true</tt> if its Java 1.8.0_261 and later, <tt>false</tt> if its not (for
      *         example Java 1.8.0_251)
      */
-    public static boolean isJava18_261_later() {
+    public static boolean isJava18Build261OrLater() {
         boolean ret = false;
         String version = System.getProperty("java.version");
         try {
