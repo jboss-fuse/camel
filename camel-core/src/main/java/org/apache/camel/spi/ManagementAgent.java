@@ -102,34 +102,6 @@ public interface ManagementAgent extends Service {
     String getMBeanObjectDomainName();
 
     /**
-     * Sets the port used by {@link java.rmi.registry.LocateRegistry}.
-     *
-     * @param port the port
-     */
-    void setRegistryPort(Integer port);
-
-    /**
-     * Gets the port used by {@link java.rmi.registry.LocateRegistry}.
-     *
-     * @return the port
-     */
-    Integer getRegistryPort();
-
-    /**
-     * Sets the port clients must use to connect
-     *
-     * @param port the port
-     */
-    void setConnectorPort(Integer port);
-
-    /**
-     * Gets the port clients must use to connect
-     *
-     * @return the port
-     */
-    Integer getConnectorPort();
-
-    /**
      * Sets the default domain on the MBean server
      *
      * @param domain the domain
@@ -149,34 +121,6 @@ public interface ManagementAgent extends Service {
      * @param domainName the object domain name
      */
     void setMBeanObjectDomainName(String domainName);
-
-    /**
-     * Sets the service url
-     *
-     * @param url the service url
-     */
-    void setServiceUrlPath(String url);
-
-    /**
-     * Gets the service url
-     *
-     * @return the url
-     */
-    String getServiceUrlPath();
-
-    /**
-     * Whether connector should be created, allowing clients to connect remotely
-     *
-     * @param createConnector <tt>true</tt> to create connector
-     */
-    void setCreateConnector(Boolean createConnector);
-
-    /**
-     * Whether connector is created, allowing clients to connect remotely
-     *
-     * @return <tt>true</tt> if connector is created
-     */
-    Boolean getCreateConnector();
 
     /**
      * Whether to use the platform MBean Server.

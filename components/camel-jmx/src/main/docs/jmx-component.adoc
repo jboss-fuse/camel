@@ -239,7 +239,7 @@ property. The `MBeanServer` default domain name configuration is ignored
 as it is not applicable.
 
 [CAUTION]
-Starting in next release (1.5), the default
+Starting from the 1.5 release, the default
 value of `usePlatformMBeanServer` will be changed to `true`. You can set
 the property to `false` to disable using platform `MBeanServer`.
 
@@ -260,6 +260,9 @@ Spring configuration:
 ----
 
 ==== Creating JMX RMI Connector Server
+
+[CAUTION]
+Starting from fUSE 7.8, the configuration in this section no longer applies.
 
 JMX connector server enables MBeans to be remotely managed by a JMX
 client such as JConsole; Camel JMX RMI connector server can be
@@ -283,6 +286,9 @@ Spring configuration:
 ----
 
 ==== JMX Service URL
+
+[CAUTION]
+Starting from fUSE 7.8, the configuration in this section no longer applies.
 
 The default JMX Service URL has the format:
 
@@ -442,7 +448,7 @@ Alter the `mbeanServerDefaultDomain` to be `WebSphere`:
 
 [source,xml]
 ----
-<camel:jmxAgent id="agent" createConnector="true" mbeanObjectDomainName="org.yourname" usePlatformMBeanServer="false" mbeanServerDefaultDomain="WebSphere"/>
+<camel:jmxAgent id="agent" mbeanObjectDomainName="org.yourname" usePlatformMBeanServer="false" mbeanServerDefaultDomain="WebSphere"/>
 ----
 
 ===== Oracle OC4j
@@ -473,7 +479,7 @@ information here, like the connector's port or the path name.
 [source,xml]
 ----
 <camelContext id="camel" xmlns="http://camel.apache.org/schema/spring">
-  <jmxAgent id="agent" createConnector="true" registryPort="2000" mbeanServerDefaultDomain="org.apache.camel.test"/>
+  <jmxAgent id="agent" mbeanServerDefaultDomain="org.apache.camel.test"/>
     <route>
       <from uri="seda:start"/>
       <to uri="mock:result"/>
@@ -519,17 +525,17 @@ Camel directly, you'll have to pass these parameters yourself.)
 |`mbeanObjectDomainName` |`org.apache.camel.jmx.mbeanObjectDomainName`
 |`org.apache.camel` |The JMX domain that all object names will use
 
-|`createConnector` |`org.apache.camel.jmx.createRmiConnect` |`false` |If
+|*Removed in Fuse 7.8:* `createConnector` |`org.apache.camel.jmx.createRmiConnect` |`false` |If
 we should create a JMX connector (to allow remote management) for the
 `MBeanServer`
 
-|`registryPort` |`org.apache.camel.jmx.rmiConnector.registryPort`
+|*Removed in Fuse 7.8:* `registryPort` |`org.apache.camel.jmx.rmiConnector.registryPort`
 |`1099` |The port that the JMX RMI registry will use
 
-|`connectorPort` |`org.apache.camel.jmx.rmiConnector.connectorPort` |-1
+|*Removed in Fuse 7.8:* `connectorPort` |`org.apache.camel.jmx.rmiConnector.connectorPort` |-1
 (dynamic) |The port that the JMX RMI server will use
 
-|`serviceUrlPath` |`org.apache.camel.jmx.serviceUrlPath`
+|*Removed in Fuse 7.8:* `serviceUrlPath` |`org.apache.camel.jmx.serviceUrlPath`
 |`/jmxrmi/camel` |The path that JMX connector will be registered under
 
 |`onlyRegisterProcessorWithCustomId`

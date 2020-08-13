@@ -408,8 +408,8 @@ Example using property placeholders in the `<jmxAgent>` tag:
 <camelContext xmlns="http://camel.apache.org/schema/spring">
     <propertyPlaceholder id="properties" location="org/apache/camel/spring/jmx.properties"/>
     <!-- we can use propery placeholders when we define the JMX agent -->
-    <jmxAgent id="agent" registryPort="{{myjmx.port}}" disabled="{{myjmx.disabled}}"
-              usePlatformMBeanServer="{{myjmx.usePlatform}}" createConnector="true"
+    <jmxAgent id="agent"  disabled="{{myjmx.disabled}}"
+              usePlatformMBeanServer="{{myjmx.usePlatform}}"
               statisticsLevel="RoutesOnly" useHostIPAddress="true"/>
     <route id="foo" autoStartup="false">
         <from uri="seda:start"/>

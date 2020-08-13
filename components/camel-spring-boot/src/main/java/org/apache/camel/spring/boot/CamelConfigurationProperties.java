@@ -370,13 +370,6 @@ public class CamelConfigurationProperties {
     private String jmxManagementNamePattern = "#name#";
 
     /**
-     * Whether JMX connector is created, allowing clients to connect remotely
-     *
-     * The default value is false.
-     */
-    private boolean jmxCreateConnector;
-
-    /**
      * Tracer should output message body
      */
     private boolean traceFormatterShowBody = true;
@@ -824,14 +817,6 @@ public class CamelConfigurationProperties {
 
     public void setJmxManagementNamePattern(String jmxManagementNamePattern) {
         this.jmxManagementNamePattern = jmxManagementNamePattern;
-    }
-
-    public boolean isJmxCreateConnector() {
-        return jmxCreateConnector;
-    }
-
-    public void setJmxCreateConnector(boolean jmxCreateConnector) {
-        this.jmxCreateConnector = jmxCreateConnector;
     }
 
     public String getFileConfigurations() {

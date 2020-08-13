@@ -554,23 +554,11 @@ public abstract class AbstractCamelContextFactoryBean<T extends ModelCamelContex
             LOG.info("JMXAgent enabled: {}", camelJMXAgent);
             DefaultManagementAgent agent = new DefaultManagementAgent(getContext());
 
-            if (camelJMXAgent.getConnectorPort() != null) {
-                agent.setConnectorPort(CamelContextHelper.parseInteger(getContext(), camelJMXAgent.getConnectorPort()));
-            }
-            if (camelJMXAgent.getCreateConnector() != null) {
-                agent.setCreateConnector(CamelContextHelper.parseBoolean(getContext(), camelJMXAgent.getCreateConnector()));
-            }
             if (camelJMXAgent.getMbeanObjectDomainName() != null) {
                 agent.setMBeanObjectDomainName(CamelContextHelper.parseText(getContext(), camelJMXAgent.getMbeanObjectDomainName()));
             }
             if (camelJMXAgent.getMbeanServerDefaultDomain() != null) {
                 agent.setMBeanServerDefaultDomain(CamelContextHelper.parseText(getContext(), camelJMXAgent.getMbeanServerDefaultDomain()));
-            }
-            if (camelJMXAgent.getRegistryPort() != null) {
-                agent.setRegistryPort(CamelContextHelper.parseInteger(getContext(), camelJMXAgent.getRegistryPort()));
-            }
-            if (camelJMXAgent.getServiceUrlPath() != null) {
-                agent.setServiceUrlPath(CamelContextHelper.parseText(getContext(), camelJMXAgent.getServiceUrlPath()));
             }
             if (camelJMXAgent.getUsePlatformMBeanServer() != null) {
                 agent.setUsePlatformMBeanServer(CamelContextHelper.parseBoolean(getContext(), camelJMXAgent.getUsePlatformMBeanServer()));
