@@ -15,6 +15,7 @@
  * limitations under the License.
  */
 package org.apache.camel.component.cxf.jms;
+
 import java.io.IOException;
 
 import org.apache.camel.CamelContext;
@@ -32,12 +33,9 @@ import org.apache.hello_world_soap_http.Greeter;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
 import org.springframework.context.support.AbstractXmlApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 
 public class CxfEndpointJMSConsumerTest extends CamelTestSupport {
     protected AbstractXmlApplicationContext applicationContext;
