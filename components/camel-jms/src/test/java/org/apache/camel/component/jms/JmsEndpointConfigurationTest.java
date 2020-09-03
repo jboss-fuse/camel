@@ -214,6 +214,19 @@ public class JmsEndpointConfigurationTest extends CamelTestSupport {
         assertTrue("The transactionManager doesn't get lazily generated!", endpoint.isLazyCreateTransactionManager());
         assertNotNull("The endpoint has no injected TransactionManager!", endpoint.getTransactionManager());
     }
+    
+    @Test
+    public void testSessionTransactedInOut() throws Exception {
+        JmsEndpoint endpoint = resolveMandatoryEndpoint("jms:queue:Foo?transactedInOut=true&lazyCreateTransactionManager=false", JmsEndpoint.class);
+        AbstractMessageListenerContainer container = endpoint.createConsumer(dummyProcessor).getListenerContainer();
+        assertFalse("The transactionManager gets lazily generated!", endpoint.isLazyCreateTransactionManager());
+        assertTrue("The transactedInOut option will be true", endpoint.isTransactedInOut());
+
+        endpoint = resolveMandatoryEndpoint("jms:queue:Foo?transactedInOut=true", JmsEndpoint.class);
+        container = endpoint.createConsumer(dummyProcessor).getListenerContainer();
+        assertTrue("The transactionManager doesn't get lazily generated!", endpoint.isLazyCreateTransactionManager());
+        assertTrue("The transactedInOut option will be true", endpoint.isTransactedInOut());
+    }
 
     @Test
     public void testConcurrentConsumers() throws Exception {
