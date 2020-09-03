@@ -374,7 +374,9 @@
     <jboss-logging-version>3.4.1.Final-redhat-00001</jboss-logging-version>
     <jboss-marshalling-version>1.4.10.Final</jboss-marshalling-version>
     <jboss-transaction-spi.version>7.6.0.Final-redhat-1</jboss-transaction-spi.version>
-    <jboss-xnio-version>3.3.8.Final</jboss-xnio-version>
+    <jboss-xnio-version>3.5.9.Final</jboss-xnio-version>
+    <wildfly-common-version>1.2.0.Final</wildfly-common-version>
+    <wildfly-client-version>1.0.0.Final</wildfly-client-version>
     <jcache-bundle-version>1.1.0_1</jcache-bundle-version>
     <jclouds-version>2.1.1</jclouds-version>
     <!-- jclouds must use this guava version -->
@@ -5015,6 +5017,8 @@
         <artifactId>apicurio-data-models</artifactId>
         <version>${apicurio-version}</version>
       </dependency>
+
+
     </dependencies>
 
   </dependencyManagement>
