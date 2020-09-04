@@ -62,6 +62,21 @@ public class CamelMessagingHeadersExtractAdapterTest {
         assertEquals("-key-1-", entry.getKey());
         assertEquals("value1", entry.getValue());
     }
+    
+    @Test
+    public void bytePropertyStringProperty() {
+        map.put(JMS_DASH + "key" + JMS_DASH + "1" + JMS_DASH, "value1");
+        map.put(JMS_DASH + "key" + JMS_DASH + "2" + JMS_DASH, "value2".getBytes());
+        CamelMessagingHeadersExtractAdapter adapter = new CamelMessagingHeadersExtractAdapter(map, true);
+        for (Iterator iterator = adapter.iterator(); iterator.hasNext();) {
+            Map.Entry<String, String> entry = (Map.Entry<String, String>)iterator.next();
+            if (entry.getKey().equalsIgnoreCase("-key-1-")) {
+                assertEquals("value1", entry.getValue());
+            } else {
+                assertEquals("value2", entry.getValue());
+            }
+        }
+    }
 
     @Test
     public void propertyWithoutDashEncoding() {
