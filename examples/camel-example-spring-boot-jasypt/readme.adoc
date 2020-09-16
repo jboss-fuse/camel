@@ -1,0 +1,14 @@
+# Camel Jasypt Encrypted Properties Example Spring Boot
+
+This example shows how to work with a simple Apache Camel application using Spring Boot and a Jasypt encrypted properties.
+
+## How to run
+
+1. build and run the project:
++
+    mvn clean package spring-boot:run
+
+
+## More information
+
+You can find more information about Apache Camel at the website: http://camel.apache.org/
