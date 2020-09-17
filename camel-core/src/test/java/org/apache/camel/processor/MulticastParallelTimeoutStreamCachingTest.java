@@ -34,8 +34,8 @@ import org.junit.Test;
 public class MulticastParallelTimeoutStreamCachingTest extends ContextTestSupport {
 
     private static final String TARGET_MULTICAST_PARALLEL_TIMEOUT_STREAM_CACHING_TEST_CACHE = "target/MulticastParallelTimeoutStreamCachingTestCache";
-    private static final String bodyString = "message body";
-    private static final byte[] BODY = bodyString.getBytes(StandardCharsets.UTF_8);
+    private static final String BODY_STRING = "message body";
+    private static final byte[] BODY = BODY_STRING.getBytes(StandardCharsets.UTF_8);
 
     protected Endpoint startEndpoint;
     protected MockEndpoint x;
@@ -53,14 +53,14 @@ public class MulticastParallelTimeoutStreamCachingTest extends ContextTestSuppor
 
     @Test
     public void testSendingAMessageUsingMulticastConvertsToReReadable() throws Exception {
-        x.expectedBodiesReceived(bodyString);
+        x.expectedBodiesReceived(BODY_STRING);
 
         template.sendBody("direct:a", "testMessage");
         assertMockEndpointsSatisfied();
 
         File f = new File(TARGET_MULTICAST_PARALLEL_TIMEOUT_STREAM_CACHING_TEST_CACHE);
         assertTrue(f.isDirectory());
-        Thread.sleep(500l); // deletion happens asynchron
+        Thread.sleep(500L); // deletion happens asynchron
         File[] files = f.listFiles();
         assertEquals(0, files.length);
     }
@@ -79,7 +79,7 @@ public class MulticastParallelTimeoutStreamCachingTest extends ContextTestSuppor
             public void process(Exchange exchange) {
                 try {
                     // sleep for one second so that the stream cache is built after the main exchange has finished due to timeout on the multicast
-                    Thread.sleep(1000l);
+                    Thread.sleep(1000L);
                 } catch (InterruptedException e) {
                     throw new IllegalStateException("Unexpected exception", e);
                 }
@@ -97,10 +97,10 @@ public class MulticastParallelTimeoutStreamCachingTest extends ContextTestSuppor
                 context.getStreamCachingStrategy().setSpoolDirectory(TARGET_MULTICAST_PARALLEL_TIMEOUT_STREAM_CACHING_TEST_CACHE);
                 context.getStreamCachingStrategy().setEnabled(true);
                 context.getStreamCachingStrategy().setRemoveSpoolDirectoryWhenStopping(false);
-                context.getStreamCachingStrategy().setSpoolThreshold(1l);
+                context.getStreamCachingStrategy().setSpoolThreshold(1L);
                 context.setStreamCaching(true);
 
-                from("direct:a").multicast().timeout(500l).parallelProcessing().to("direct:x");
+                from("direct:a").multicast().timeout(500L).parallelProcessing().to("direct:x");
 
                 from("direct:x").process(processor1).to("mock:x");
             }

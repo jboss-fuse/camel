@@ -219,7 +219,7 @@ public final class FileInputStreamCache extends InputStream implements StreamCac
                     }
                 };
                 UnitOfWork streamCacheUnitOfWork = exchange.getProperty(Exchange.STREAM_CACHE_UNIT_OF_WORK, UnitOfWork.class);
-                if (streamCacheUnitOfWork != null && streamCacheUnitOfWork.getRouteContext() !=null) {
+                if (streamCacheUnitOfWork != null && streamCacheUnitOfWork.getRouteContext() != null) {
                     // The stream cache must sometimes not be closed when the exchange is deleted. This is for example the
                     // case in the splitter and multi-cast case with AggregationStrategy where the result of the sub-routes
                     // are aggregated later in the main route. Here, the cached streams of the sub-routes must be closed with
