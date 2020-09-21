@@ -26,6 +26,9 @@ import org.knowm.xchange.utils.Assert;
 
 public class XChangeComponent extends DefaultComponent {
 
+    public static final String XCHANGE_API_KEY = "XCHANGE_API_KEY";
+    public static final String XCHANGE_SECRET_KEY = "XCHANGE_SECRET_KEY";
+    
     private XChange exchange;
     
     @Override
@@ -56,8 +59,11 @@ public class XChangeComponent extends DefaultComponent {
             Class<? extends Exchange> exchangeClass = configuration.getXChangeClass();
             Assert.notNull(exchangeClass, "XChange not supported: " + configuration.getName());
             
+            String apiKey = System.getenv(XCHANGE_API_KEY);
+            String secretKey = System.getenv(XCHANGE_SECRET_KEY);
+            
             // Create the XChange and associated Endpoint
-            exchange = new XChange(ExchangeFactory.INSTANCE.createExchange(exchangeClass));
+            exchange = new XChange(ExchangeFactory.INSTANCE.createExchange(exchangeClass, apiKey, secretKey));
         }
         
         return exchange;
