@@ -112,7 +112,7 @@ public class SlackComponentVerifierExtension extends DefaultComponentVerifierExt
 
             try {
                 HttpClient client = HttpClientBuilder.create().useSystemProperties().build();
-                HttpPost httpPost = new HttpPost(parameters.get("serverUrl") + "/api/channels.list");
+                HttpPost httpPost = new HttpPost(parameters.get("serverUrl") + "/api/conversations.list");
 
                 List<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
                 params.add(new BasicNameValuePair("token", token));
