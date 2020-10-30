@@ -29,6 +29,8 @@ import org.apache.commons.net.ftp.FTPFile;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static org.apache.camel.component.file.MoveExistingFileStrategyUtils.completePartialRelativePath;
+
 public class FtpDefaultMoveExistingFileStrategy implements FileMoveExistingStrategy {
 
     private static final Logger LOG = LoggerFactory.getLogger(FtpDefaultMoveExistingFileStrategy.class);
@@ -43,8 +45,8 @@ public class FtpDefaultMoveExistingFileStrategy implements FileMoveExistingStrat
         // create a dummy exchange as Exchange is needed for expression evaluation
         // we support only the following 3 tokens.
         Exchange dummy = endpoint.createExchange();
-        // we only support relative paths for the ftp component, so dont provide any parent
-        String parent = null;
+        // we only support relative paths for the ftp component, so we strip out any leading separator
+        String parent = FileUtil.stripLeadingSeparator(FileUtil.onlyPath(fileName));
         String onlyName = FileUtil.stripPath(fileName);
         dummy.getIn().setHeader(Exchange.FILE_NAME, fileName);
         dummy.getIn().setHeader(Exchange.FILE_NAME_ONLY, onlyName);
@@ -53,11 +55,16 @@ public class FtpDefaultMoveExistingFileStrategy implements FileMoveExistingStrat
         String to = endpoint.getMoveExisting().evaluate(dummy, String.class);
         // we only support relative paths for the ftp component, so strip any leading paths
         to = FileUtil.stripLeadingSeparator(to);
-        // normalize accordingly to configuration
-        to = ((FtpEndpoint<FTPFile>)endpoint).getConfiguration().normalizePath(to);
+
         if (ObjectHelper.isEmpty(to)) {
             throw new GenericFileOperationFailedException("moveExisting evaluated as empty String, cannot move existing file: " + fileName);
         }
+
+        to = completePartialRelativePath(to, onlyName, parent);
+
+        // normalize accordingly to configuration
+        to = ((FtpEndpoint<FTPFile>)endpoint).getConfiguration().normalizePath(to);
+
 
         // do we have a sub directory
         String dir = FileUtil.onlyPath(to);
