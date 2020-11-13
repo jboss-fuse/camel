@@ -67,7 +67,7 @@ class ContentEnricherTest extends ScalaTestSupport {
     // END SNIPPET: def
     
     // START SNIPPET: velocity
-    "direct:c" to ("velocity:org/apache/camel/scala/dsl/enricher.vm") to ("mock:c")   
+    "direct:c" to ("velocity:org/apache/camel/scala/dsl/enricher.vm?allowContextMapAll=true") to ("mock:c")   
     // END SNIPPET: velocity
 
   }
