@@ -186,6 +186,9 @@ public class JmsEndpoint extends DefaultEndpoint implements AsyncEndpoint, Heade
 
     public void configureListenerContainer(AbstractMessageListenerContainer listenerContainer, JmsConsumer consumer) {
         if (destinationName != null) {
+            if (getConfiguration().getArtemisConsumerPriority() != 0) {
+                destinationName += "?consumer-priority=" + getConfiguration().getArtemisConsumerPriority();
+            }
             listenerContainer.setDestinationName(destinationName);
             log.debug("Using destinationName: {} on listenerContainer: {}", destinationName, listenerContainer);
         } else if (destination != null) {

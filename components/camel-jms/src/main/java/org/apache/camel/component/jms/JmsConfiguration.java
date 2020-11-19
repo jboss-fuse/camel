@@ -499,6 +499,15 @@ public class JmsConfiguration implements Cloneable {
          + "This option requires JMS 2.0 compliant broker.")
     private long deliveryDelay = -1;
 
+    @UriParam(label = "consumer", description = "Consumer priorities allow you to ensure that high priority consumers"
+        + " receive messages while they are active. Normally, active consumers connected to a queue receive messages"
+        + " from it in a round-robin fashion. When consumer priorities are in use, messages are delivered round-robin"
+        + " if multiple active consumers exist with the same high priority. Messages will only going to lower priority"
+        + " consumers when the high priority consumers do not have credit available to consume the message, or those"
+        + " high priority consumers have declined to accept the message (for instance because it does not meet the"
+        + " criteria of any selectors associated with the consumer).")
+    private int artemisConsumerPriority;
+
     public JmsConfiguration() {
     }
 
@@ -2263,6 +2272,14 @@ public class JmsConfiguration implements Cloneable {
      */
     public void setDeliveryDelay(long deliveryDelay) {
         this.deliveryDelay = deliveryDelay;
+    }
+
+    public void setArtemisConsumerPriority(int priority) {
+        this.artemisConsumerPriority = priority;
+    }
+
+    public int getArtemisConsumerPriority() {
+        return artemisConsumerPriority;
     }
 
 }
