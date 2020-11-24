@@ -93,6 +93,9 @@ public class SqsConfiguration implements Cloneable {
     @UriParam(label = "queue")
     private String redrivePolicy;
 
+    @UriParam(defaultValue = "false")
+    private boolean useIAMCredentials;    
+    
     /**
      *  Whether or not the queue is a FIFO queue
      */
@@ -447,6 +450,18 @@ public class SqsConfiguration implements Cloneable {
      */
     public void setOperation(SqsOperations operation) {
         this.operation = operation;
+    }
+    
+    /**
+     * Set whether the SQS client should expect to load credentials on an EC2 instance or to
+     * expect static credentials to be passed in.
+     */
+    public void setUseIAMCredentials(Boolean useIAMCredentials) {
+        this.useIAMCredentials = useIAMCredentials;
+    }
+
+    public Boolean isUseIAMCredentials() {
+        return useIAMCredentials;
     }
 
     // *************************************************

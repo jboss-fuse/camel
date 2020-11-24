@@ -19,14 +19,8 @@ package org.apache.camel.component.aws.sqs;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
-import com.amazonaws.ClientConfiguration;
-import com.amazonaws.auth.AWSCredentials;
-import com.amazonaws.auth.AWSCredentialsProvider;
-import com.amazonaws.auth.AWSStaticCredentialsProvider;
-import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.sqs.AmazonSQS;
-import com.amazonaws.services.sqs.AmazonSQSClientBuilder;
 import com.amazonaws.services.sqs.model.CreateQueueRequest;
 import com.amazonaws.services.sqs.model.CreateQueueResult;
 import com.amazonaws.services.sqs.model.GetQueueUrlRequest;
@@ -42,6 +36,8 @@ import org.apache.camel.ExchangePattern;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.component.aws.s3.client.S3ClientFactory;
+import org.apache.camel.component.aws.sqs.client.SQSClientFactory;
 import org.apache.camel.impl.DefaultScheduledPollConsumerScheduler;
 import org.apache.camel.impl.ScheduledPollEndpoint;
 import org.apache.camel.spi.HeaderFilterStrategy;
@@ -113,8 +109,8 @@ public class SqsEndpoint extends ScheduledPollEndpoint implements HeaderFilterSt
 
     @Override
     protected void doStart() throws Exception {
-        client = getConfiguration().getAmazonSQSClient() != null
-            ? getConfiguration().getAmazonSQSClient() : getClient();
+    	client = configuration.getAmazonSQSClient() != null ? configuration.getAmazonSQSClient()
+                : SQSClientFactory.getAWSSQSClient(configuration).getSQSClient();
 
         // check the setting the headerFilterStrategy
         if (headerFilterStrategy == null) {
@@ -276,51 +272,11 @@ public class SqsEndpoint extends ScheduledPollEndpoint implements HeaderFilterSt
     }
 
     public AmazonSQS getClient() {
-        if (client == null) {
-            client = createClient();
-        }
         return client;
     }
 
     public void setClient(AmazonSQS client) {
         this.client = client;
-    }
-
-    /**
-     * Provide the possibility to override this method for an mock implementation
-     * @return AmazonSQSClient
-     */
-    AmazonSQS createClient() {
-        AmazonSQS client = null;
-        AmazonSQSClientBuilder clientBuilder = null;
-        ClientConfiguration clientConfiguration = null;
-        boolean isClientConfigFound = false;
-        if (ObjectHelper.isNotEmpty(configuration.getProxyHost()) && ObjectHelper.isNotEmpty(configuration.getProxyPort())) {
-            clientConfiguration = new ClientConfiguration();
-            clientConfiguration.setProxyHost(configuration.getProxyHost());
-            clientConfiguration.setProxyPort(configuration.getProxyPort());
-            isClientConfigFound = true;
-        }
-        if (configuration.getAccessKey() != null && configuration.getSecretKey() != null) {
-            AWSCredentials credentials = new BasicAWSCredentials(configuration.getAccessKey(), configuration.getSecretKey());
-            AWSCredentialsProvider credentialsProvider = new AWSStaticCredentialsProvider(credentials);
-            if (isClientConfigFound) {
-                clientBuilder = AmazonSQSClientBuilder.standard().withClientConfiguration(clientConfiguration).withCredentials(credentialsProvider);
-            } else {
-                clientBuilder = AmazonSQSClientBuilder.standard().withCredentials(credentialsProvider);
-            }
-        } else {
-            if (isClientConfigFound) {
-                clientBuilder = AmazonSQSClientBuilder.standard();
-            } else {
-                clientBuilder = AmazonSQSClientBuilder.standard().withClientConfiguration(clientConfiguration);
-            }
-        }
-        if (ObjectHelper.isNotEmpty(configuration.getRegion())) {
-            clientBuilder = clientBuilder.withRegion(Regions.valueOf(configuration.getRegion()));
-        }
-        client = clientBuilder.build();
-        return client;
     }
 
     protected String getQueueUrl() {
