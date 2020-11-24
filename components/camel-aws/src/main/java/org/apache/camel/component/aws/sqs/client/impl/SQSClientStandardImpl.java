@@ -52,8 +52,8 @@ public class SQSClientStandardImpl implements SQSClient {
      * Getting the sqs aws client that is used.
      * @return Amazon SQS Client.
      */
-	@Override
-	public AmazonSQS getSQSClient() {
+    @Override
+    public AmazonSQS getSQSClient() {
         AmazonSQS client = null;
         AmazonSQSClientBuilder clientBuilder = null;
         ClientConfiguration clientConfiguration = null;
@@ -84,5 +84,5 @@ public class SQSClientStandardImpl implements SQSClient {
         }
         client = clientBuilder.build();
         return client;
-	}
+    }
 }

@@ -27,5 +27,5 @@ public interface SQSClient {
      * Returns an SQS client after a factory method determines which one to return.
      * @return AmazonSQS AmazonSQS
      */
-	AmazonSQS getSQSClient();
+    AmazonSQS getSQSClient();
 }

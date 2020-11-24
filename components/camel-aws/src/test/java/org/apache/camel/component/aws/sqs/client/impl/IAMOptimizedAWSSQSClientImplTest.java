@@ -40,7 +40,7 @@ public class IAMOptimizedAWSSQSClientImplTest {
     }
 
     private SqsConfiguration getSQSConfiguration() {
-    	SqsConfiguration sqsConfiguration = mock(SqsConfiguration.class);
+        SqsConfiguration sqsConfiguration = mock(SqsConfiguration.class);
         when(sqsConfiguration.getRegion()).thenReturn("US_EAST_1");
         return sqsConfiguration;
     }
