@@ -20,6 +20,11 @@ import org.apache.camel.impl.DefaultHeaderFilterStrategy;
 
 public class KafkaHeaderFilterStrategy extends DefaultHeaderFilterStrategy {
 
+    /**
+     * A filter pattern that only accepts keys starting with <tt>Camel</tt> or <tt>org.apache.camel.</tt>
+     */
+    public static final String CAMEL_KAFKA_FILTER_PATTERN = "(?i)(Camel|org\\.apache\\.camel|kafka\\.)[\\.|a-z|A-z|0-9]*";
+
     public KafkaHeaderFilterStrategy() {
         initialize();
     }
@@ -28,8 +33,8 @@ public class KafkaHeaderFilterStrategy extends DefaultHeaderFilterStrategy {
         // filter out kafka record metadata
         getInFilter().add("org.apache.kafka.clients.producer.RecordMetadata");
 
-        // filter headers begin with "Camel" or "org.apache.camel"
-        setOutFilterPattern("(?i)(Camel|org\\.apache\\.camel)[\\.|a-z|A-z|0-9]*");
-        setInFilterPattern("(?i)(Camel|org\\.apache\\.camel)[\\.|a-z|A-z|0-9]*");
+        // filter headers beginning with "Camel" or "org.apache.camel" or "kafka."
+        setOutFilterPattern(CAMEL_KAFKA_FILTER_PATTERN);
+        setInFilterPattern(CAMEL_KAFKA_FILTER_PATTERN);
     }
 }

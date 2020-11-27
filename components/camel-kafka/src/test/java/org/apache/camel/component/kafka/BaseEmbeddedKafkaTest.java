@@ -25,6 +25,8 @@ import org.apache.camel.component.properties.PropertiesComponent;
 import org.apache.camel.impl.JndiRegistry;
 import org.apache.camel.test.AvailablePortFinder;
 import org.apache.camel.test.junit4.CamelTestSupport;
+import org.apache.kafka.clients.admin.AdminClient;
+import org.apache.kafka.clients.admin.KafkaAdminClient;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.junit.BeforeClass;
 import org.junit.ClassRule;
@@ -39,12 +41,16 @@ public class BaseEmbeddedKafkaTest extends CamelTestSupport {
     @ClassRule
     public static EmbeddedKafkaBroker kafkaBroker = new EmbeddedKafkaBroker(0, AvailablePortFinder.getNextAvailable(24000), zookeeper.getConnection(), new Properties());
 
+    protected static AdminClient kafkaAdminClient;
+
     private static final Logger LOG = LoggerFactory.getLogger(BaseEmbeddedKafkaTest.class);
+
 
     @BeforeClass
     public static void beforeClass() {
         LOG.info("### Embedded Zookeeper connection: " + zookeeper.getConnection());
         LOG.info("### Embedded Kafka cluster broker list: " + kafkaBroker.getBrokerList());
+        kafkaAdminClient = createAdminClient();
     }
 
     protected Properties getDefaultProperties() {
@@ -87,6 +93,13 @@ public class BaseEmbeddedKafkaTest extends CamelTestSupport {
 
     protected static int getKafkaPort() {
         return kafkaBroker.getPort();
+    }
+
+    private static AdminClient createAdminClient() {
+        final Properties properties = new Properties();
+        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaBroker.getBrokerList());
+
+        return KafkaAdminClient.create(properties);
     }
 
 }
