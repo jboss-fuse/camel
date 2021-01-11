@@ -2706,7 +2706,10 @@ public class DefaultCamelContext extends ServiceSupport implements ModelCamelCon
     }
 
     public void addLifecycleStrategy(LifecycleStrategy lifecycleStrategy) {
-        this.lifecycleStrategies.add(lifecycleStrategy);
+        // avoid adding double which can happen with spring xml on spring boot
+        if (!getLifecycleStrategies().contains(lifecycleStrategy)) {
+            getLifecycleStrategies().add(lifecycleStrategy);
+        }
     }
 
     public void setupRoutes(boolean done) {
@@ -2839,18 +2842,21 @@ public class DefaultCamelContext extends ServiceSupport implements ModelCamelCon
     }
 
     public void addInterceptStrategy(InterceptStrategy interceptStrategy) {
-        getInterceptStrategies().add(interceptStrategy);
+        // avoid adding double which can happen with spring xml on spring boot
+        if (!getInterceptStrategies().contains(interceptStrategy)) {
+            getInterceptStrategies().add(interceptStrategy);
 
-        // for backwards compatible or if user add them here instead of the setXXX methods
+            // for backwards compatible or if user add them here instead of the setXXX methods
 
-        if (interceptStrategy instanceof Tracer) {
-            setTracing(true);
-        } else if (interceptStrategy instanceof HandleFault) {
-            setHandleFault(true);
-        } else if (interceptStrategy instanceof StreamCaching) {
-            setStreamCaching(true);
-        } else if (interceptStrategy instanceof Delayer) {
-            setDelayer(((Delayer)interceptStrategy).getDelay());
+            if (interceptStrategy instanceof Tracer) {
+                setTracing(true);
+            } else if (interceptStrategy instanceof HandleFault) {
+                setHandleFault(true);
+            } else if (interceptStrategy instanceof StreamCaching) {
+                setStreamCaching(true);
+            } else if (interceptStrategy instanceof Delayer) {
+                setDelayer(((Delayer) interceptStrategy).getDelay());
+            }
         }
     }
 
@@ -2863,7 +2869,10 @@ public class DefaultCamelContext extends ServiceSupport implements ModelCamelCon
     }
 
     public void addRoutePolicyFactory(RoutePolicyFactory routePolicyFactory) {
-        getRoutePolicyFactories().add(routePolicyFactory);
+        // avoid adding double which can happen with spring xml on spring boot
+        if (!getRoutePolicyFactories().contains(routePolicyFactory)) {
+            getRoutePolicyFactories().add(routePolicyFactory);
+        }
     }
 
     public Set<LogListener> getLogListeners() {
@@ -2871,7 +2880,10 @@ public class DefaultCamelContext extends ServiceSupport implements ModelCamelCon
     }
 
     public void addLogListener(LogListener listener) {
-        logListeners.add(listener);
+        // avoid adding double which can happen with spring xml on spring boot
+        if (!logListeners.contains(listener)) {
+            logListeners.add(listener);
+        }
     }
 
     public void setStreamCaching(Boolean cache) {
