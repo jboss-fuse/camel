@@ -26,7 +26,7 @@ pipeline {
     }
 
     tools {
-        jdk 'jdk8'
+        jdk 'java-1.8'
     }
 
     options {
