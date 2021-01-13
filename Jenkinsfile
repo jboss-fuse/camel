@@ -54,7 +54,7 @@ pipeline {
             }
             post {
                 always {
-                    checkstyle pattern: '**/checkstyle-result.xml', canRunOnFailed: true
+                    recordIssues enabledForFailure: true, tool: checkStyle()
                 }
             }
         }
@@ -84,6 +84,7 @@ pipeline {
 
     post {
         always {
+            recordIssues enabledForFailure: true, tools: [mavenConsole(), java(), javaDoc()]
             emailext(
                 subject: '${DEFAULT_SUBJECT}',
                 body: '${DEFAULT_CONTENT}',

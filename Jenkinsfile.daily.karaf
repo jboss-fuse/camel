@@ -77,10 +77,10 @@ pipeline {
 
     post {
         always {
+            recordIssues enabledForFailure: true, tools: [mavenConsole(), java(), javaDoc()]
             script {
                 currentBuild.result = karaf_itests_result == 0 ? 'SUCCESS' : 'FAILURE'
             }
         }
     }
 }
-

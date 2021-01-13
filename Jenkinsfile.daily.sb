@@ -71,6 +71,7 @@ pipeline {
 
     post {
         always {
+            recordIssues enabledForFailure: true, tools: [mavenConsole(), java(), javaDoc()]
             script {
                 currentBuild.result = spring_boot_itests_result == 0 ? 'SUCCESS' : 'FAILURE'
             }
