@@ -32,6 +32,7 @@ import org.apache.camel.NoSuchLanguageException;
 import org.apache.camel.Processor;
 import org.apache.camel.builder.ExpressionBuilder;
 import org.apache.camel.processor.SendDynamicProcessor;
+import org.apache.camel.spi.AsEndpointUri;
 import org.apache.camel.spi.Language;
 import org.apache.camel.spi.Metadata;
 import org.apache.camel.spi.RouteContext;
@@ -141,6 +142,15 @@ public class ToDynamicDefinition extends NoOutputDefinition<ToDynamicDefinition>
 
     // Fluent API
     // -------------------------------------------------------------------------
+
+    /**
+     * The uri of the endpoint to send to. The uri can be dynamic computed using the
+     * {@link org.apache.camel.language.simple.SimpleLanguage} expression.
+     */
+    public ToDynamicDefinition uri(@AsEndpointUri String uri) {
+        setUri(uri);
+        return this;
+    }
 
     /**
      * Sets the optional {@link ExchangePattern} used to invoke this endpoint
