@@ -48,13 +48,17 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh "./mvnw $MAVEN_PARAMS -Dmaven.test.skip.exec=true clean install"
+                configFileProvider([configFile(fileId: 'fuse-maven-settings', variable: 'MAVEN_SETTINGS')]) {
+                    sh "./mvnw $MAVEN_PARAMS -s $MAVEN_SETTINGS -Dnoassembly -Dmaven.test.skip.exec=true clean install"
+                }
             }
         }
 
         stage('Checks') {
             steps {
-                sh "./mvnw $MAVEN_PARAMS -Psourcecheck checkstyle:check"
+                configFileProvider([configFile(fileId: 'fuse-maven-settings', variable: 'MAVEN_SETTINGS')]) {
+                    sh "./mvnw $MAVEN_PARAMS -s $MAVEN_SETTINGS -Psourcecheck checkstyle:check"
+                }
             }
             post {
                 always {
@@ -66,7 +70,9 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    tests_result = sh script: "./mvnw $MAVEN_PARAMS -Dmaven.test.failure.ignore=true test", returnStatus: true
+                    configFileProvider([configFile(fileId: 'fuse-maven-settings', variable: 'MAVEN_SETTINGS')]) {
+                        tests_result = sh script: "./mvnw $MAVEN_PARAMS -s $MAVEN_SETTINGS -Dmaven.test.failure.ignore=true test", returnStatus: true
+                    }
                 }
             }
             post {
@@ -79,7 +85,9 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh "./mvnw $MAVEN_PARAMS -Pdeploy -Dnoassembly -Dmaven.test.skip.exec=true install"
+                configFileProvider([configFile(fileId: 'fuse-maven-settings', variable: 'MAVEN_SETTINGS')]) {
+                    sh "./mvnw $MAVEN_PARAMS -s $MAVEN_SETTINGS -Pdeploy -Dnoassembly -Dmaven.test.skip.exec=true install"
+                }
             }
         }
 

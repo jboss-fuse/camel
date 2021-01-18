@@ -48,7 +48,9 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh "./mvnw $MAVEN_PARAMS -Dmaven.test.skip.exec=true clean install"
+                configFileProvider([configFile(fileId: 'fuse-maven-settings', variable: 'MAVEN_SETTINGS')]) {
+                    sh "./mvnw $MAVEN_PARAMS -s $MAVEN_SETTINGS -Dmaven.test.skip.exec=true clean install"
+                }
             }
         }
 
@@ -56,7 +58,9 @@ pipeline {
             steps {
                 dir("platforms/karaf/features") {
                     script {
-                        sh "../../../mvnw $MAVEN_PARAMS clean install"
+                        configFileProvider([configFile(fileId: 'fuse-maven-settings', variable: 'MAVEN_SETTINGS')]) {
+                            sh "../../../mvnw $MAVEN_PARAMS -s $MAVEN_SETTINGS clean install"
+                        }
                     }
                 }
                 dir("tests/camel-itest-karaf/") {
