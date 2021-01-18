@@ -109,7 +109,6 @@ public class SubscriptionHelperTest {
     @Test
     public void shouldDetermineChannelNames() {
         assertThat(SubscriptionHelper.getChannelName("topic1")).isEqualTo("/topic/topic1");
-        assertThat(SubscriptionHelper.getChannelName("event/Test")).isEqualTo("/event/Test__e");
-        assertThat(SubscriptionHelper.getChannelName("event/Test__e")).isEqualTo("/event/Test__e");
+        assertThat(SubscriptionHelper.getChannelName("event/Test")).isEqualTo("/event/Test");
     }
 }
