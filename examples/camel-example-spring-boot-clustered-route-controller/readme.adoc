@@ -18,7 +18,7 @@ This example shows how to work with a simple Apache Camel application using Spri
 
 4. in a separate shell, run the second camel node
 +
-    mvn -pl cluster-node spring-boot:run
+    mvn -pl cluster-node spring-boot:run -Dspring-boot.run.arguments=--server.port=8081
 
 ## More information
 

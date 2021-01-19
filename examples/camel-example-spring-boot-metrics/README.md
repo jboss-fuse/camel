@@ -14,7 +14,7 @@ You will need to compile this example first:
 ### Run
 To run the example type
 
-	java -jar target/camel-example-spring-boot-metrics.jar
+	mvn spring-boot:run
 
 
 
