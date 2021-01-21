@@ -638,7 +638,7 @@
     <servicemix-specs-activation-version>1.2.1_2</servicemix-specs-activation-version>
     <servlet-api-3.0-version>1.0</servlet-api-3.0-version>
     <servlet-version-range>[3.1,5)</servlet-version-range>
-    <shiro-version>1.6.0</shiro-version>
+    <shiro-version>1.7.0</shiro-version>
     <shrinkwrap-descriptors-version>2.0.0</shrinkwrap-descriptors-version>
     <shrinkwrap-resolver-version>3.1.3</shrinkwrap-resolver-version>
     <shrinkwrap-version>1.2.6</shrinkwrap-version>
