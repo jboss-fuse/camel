@@ -42,13 +42,17 @@
       <exclusions>
         <exclusion>
           <groupId>org.apache.kafka</groupId>
-          <artifactId>kafka_2.11</artifactId>
+          <artifactId>kafka_2.12</artifactId>
         </exclusion>
         <exclusion>
           <groupId>org.apache.kafka</groupId>
           <artifactId>kafka-clients</artifactId>
         </exclusion>
       </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>kafka-clients</artifactId>
     </dependency>
     <!--START OF GENERATED CODE-->
     <dependency>
