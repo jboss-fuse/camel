@@ -1976,6 +1976,19 @@ public class JmsComponentConfiguration
          * Sets delivery delay to use for send calls for JMS.
          */
         private Long deliveryDelay = -1L;
+        /**
+         * Consumer priorities allow you to ensure that high priority consumers
+         * receive messages while they are active. Normally, active consumers
+         * connected to a queue receive messages from it in a round-robin
+         * fashion. When consumer priorities are in use, messages are delivered
+         * round-robin if multiple active consumers exist with the same high
+         * priority. Messages will only going to lower priority consumers when
+         * the high priority consumers do not have credit available to consume
+         * the message, or those high priority consumers have declined to accept
+         * the message (for instance because it does not meet the criteria of
+         * any selectors associated with the consumer).
+         */
+        private Integer artemisConsumerPriority;
 
         public ConsumerType getConsumerType() {
             return consumerType;
@@ -2743,6 +2756,14 @@ public class JmsComponentConfiguration
 
         public void setDeliveryDelay(Long deliveryDelay) {
             this.deliveryDelay = deliveryDelay;
+        }
+
+        public Integer getArtemisConsumerPriority() {
+            return artemisConsumerPriority;
+        }
+
+        public void setArtemisConsumerPriority(Integer artemisConsumerPriority) {
+            this.artemisConsumerPriority = artemisConsumerPriority;
         }
     }
 }
