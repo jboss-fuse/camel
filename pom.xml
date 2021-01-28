@@ -246,7 +246,6 @@
     <module>platforms</module>
     <module>connectors</module>
     <module>tests</module>
-    <module>examples</module>
   </modules>
 
   <scm>
@@ -474,6 +473,17 @@
       </activation>
       <modules>
         <module>docs</module>
+      </modules>
+    </profile>
+    <profile>
+      <id>examples</id>
+      <activation>
+        <property>
+          <name>!noexamples</name>
+        </property>
+      </activation>
+      <modules>
+        <module>examples</module>
       </modules>
     </profile>
     <profile>
