@@ -73,13 +73,6 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
-            steps {
-                configFileProvider([configFile(fileId: 'fuse-maven-settings', variable: 'MAVEN_SETTINGS')]) {
-                    sh "./mvnw $MAVEN_PARAMS -s $MAVEN_SETTINGS -Pdeploy -Dnoassembly -Dmaven.test.skip.exec=true install"
-                }
-            }
-        }
     }
 
     post {
