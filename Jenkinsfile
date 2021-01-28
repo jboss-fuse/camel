@@ -17,7 +17,7 @@
  * under the License.
  */
 
-def MAVEN_PARAMS = '-B -e -fae -V -Dmaven.repo.local=$WORKSPACE/.maven-repository -Dmaven.compiler.fork=true -Dsurefire.rerunFailingTestsCount=2 --no-transfer-progress -s $MAVEN_SETTINGS'
+def MAVEN_PARAMS = '-B -e -fae -V -Dmaven.repo.local=$WORKSPACE/.maven-repository -Dmaven.compiler.fork=true -Dsurefire.rerunFailingTestsCount=2 --no-transfer-progress -s $MAVEN_SETTINGS -Dnoassembly'
 
 pipeline {
 
@@ -41,7 +41,7 @@ pipeline {
         stage('Build') {
             steps {
                 configFileProvider([configFile(fileId: 'fuse-maven-settings', variable: 'MAVEN_SETTINGS')]) {
-                    sh "./mvnw $MAVEN_PARAMS -Dnoassembly -Dmaven.test.skip.exec=true clean install"
+                    sh "./mvnw $MAVEN_PARAMS -Dmaven.test.skip.exec=true -Dinvoker.skip=true clean install"
                 }
             }
         }
@@ -62,7 +62,7 @@ pipeline {
         stage('Test') {
             steps {
                 configFileProvider([configFile(fileId: 'fuse-maven-settings', variable: 'MAVEN_SETTINGS')]) {
-                    sh "./mvnw $MAVEN_PARAMS -Dnoassembly -Dmaven.test.failure.ignore=true test"
+                    sh "./mvnw $MAVEN_PARAMS -Dmaven.test.failure.ignore=true test"
                 }
             }
             post {
