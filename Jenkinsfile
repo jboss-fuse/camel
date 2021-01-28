@@ -17,7 +17,7 @@
  * under the License.
  */
 
-def MAVEN_PARAMS = '-B -e -fae -V -Dmaven.repo.local=$WORKSPACE/.maven-repository -Dmaven.compiler.fork=true -Dsurefire.rerunFailingTestsCount=2 --no-transfer-progress -s $MAVEN_SETTINGS -Dnoassembly'
+def MAVEN_PARAMS = '-B -e -fae -V -Dmaven.repo.local=$WORKSPACE/.maven-repository -Dmaven.compiler.fork=true -Dsurefire.rerunFailingTestsCount=2 --no-transfer-progress -s $MAVEN_SETTINGS -Dnoassembly -Dnoarchetypes'
 
 pipeline {
 

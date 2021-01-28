@@ -242,7 +242,6 @@
     <module>buildingtools</module>
     <module>camel-core</module>
     <module>components</module>
-    <module>archetypes</module>
     <module>tooling</module>
     <module>platforms</module>
     <module>connectors</module>
@@ -454,6 +453,17 @@
       </activation>
       <modules>
         <module>apache-camel</module>
+      </modules>
+    </profile>
+    <profile>
+      <id>archetypes</id>
+      <activation>
+        <property>
+          <name>!noarchetypes</name>
+        </property>
+      </activation>
+      <modules>
+        <module>archetypes</module>
       </modules>
     </profile>
     <profile>
