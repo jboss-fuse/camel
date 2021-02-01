@@ -19,7 +19,7 @@
 
 def AGENT_LABEL = 'checkin'
 
-def MAVEN_PARAMS = '-U -B -e -fae -V -Dmaven.repo.local=/home/jenkins/.m2/repository -Dmaven.compiler.fork=true -Dsurefire.rerunFailingTestsCount=2'
+def MAVEN_PARAMS = '-B -e -fae -V -Dmaven.repo.local=$WORKSPACE/.maven-repository -Dmaven.compiler.fork=true -Dsurefire.rerunFailingTestsCount=2 --no-transfer-progress -s $MAVEN_SETTINGS -Dnoassembly -Dnoarchetypes -Dnodocs -Dnoexamples'
 
 def spring_boot_itests_result
 
@@ -49,7 +49,7 @@ pipeline {
         stage('Build') {
             steps {
                 configFileProvider([configFile(fileId: 'fuse-maven-settings', variable: 'MAVEN_SETTINGS')]) {
-                    sh "./mvnw $MAVEN_PARAMS -s $MAVEN_SETTINGS -Dmaven.test.skip.exec=true clean install"
+                    sh "./mvnw $MAVEN_PARAMS -Dmaven.test.skip.exec=true -Dinvoker.skip=true clean install"
                 }
             }
         }
@@ -59,7 +59,7 @@ pipeline {
                 dir("tests/camel-itest-spring-boot/") {
                     script {
                         configFileProvider([configFile(fileId: 'fuse-maven-settings', variable: 'MAVEN_SETTINGS')]) {
-                            spring_boot_itests_result = sh script: "../../mvnw $MAVEN_PARAMS -s $MAVEN_SETTINGS -Dmaven.test.failure.ignore=true clean install", returnStatus: true
+                            spring_boot_itests_result = sh script: "../../mvnw $MAVEN_PARAMS -Dmaven.test.failure.ignore=true clean install", returnStatus: true
                         }
                     }
                 }
