@@ -32,7 +32,6 @@ import org.apache.camel.converter.IOConverter;
 import org.apache.camel.converter.NIOConverter;
 import org.apache.camel.util.ObjectHelper;
 import org.apache.xmlbeans.XmlObject;
-import org.apache.xmlbeans.impl.piccolo.xml.XMLStreamReader;
 
 /**
  * A <a href="http://camel.apache.org/type-coverter.html">Type Converter</a>
@@ -93,15 +92,6 @@ public final class XmlBeansConverter {
     @Converter
     public static XmlObject toXmlObject(ByteBuffer value, Exchange exchange) throws Exception {
         return toXmlObject(NIOConverter.toInputStream(value), exchange);
-    }
-
-    @Converter
-    public static XmlObject toXmlObject(final XMLStreamReader value, Exchange exchange) throws Exception {
-        return (XmlObject) ObjectHelper.callWithTCCL(new Callable<XmlObject>() {
-            public XmlObject call() throws Exception {
-                return XmlObject.Factory.parse(value);
-            }
-        }, exchange);    
     }
 
     @Converter
