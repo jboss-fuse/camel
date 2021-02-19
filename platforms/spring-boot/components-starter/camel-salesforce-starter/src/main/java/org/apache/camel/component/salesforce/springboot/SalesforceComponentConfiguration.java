@@ -673,6 +673,12 @@ public class SalesforceComponentConfiguration
          */
         private Boolean updateTopic = false;
         /**
+         * Query Locator provided by salesforce for use when a query results in
+         * more records than can be retrieved in a single call. Use this value
+         * in a subsequent call to retrieve additional records.
+         */
+        private String queryLocator;
+        /**
          * Notify for fields, options are ALL, REFERENCED, SELECT, WHERE
          */
         private NotifyForFieldsEnum notifyForFields;
@@ -976,6 +982,14 @@ public class SalesforceComponentConfiguration
 
         public void setUpdateTopic(Boolean updateTopic) {
             this.updateTopic = updateTopic;
+        }
+
+        public String getQueryLocator() {
+            return queryLocator;
+        }
+
+        public void setQueryLocator(String queryLocator) {
+            this.queryLocator = queryLocator;
         }
 
         public NotifyForFieldsEnum getNotifyForFields() {
