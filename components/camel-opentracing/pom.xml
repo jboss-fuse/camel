@@ -69,8 +69,8 @@
 
     <!-- test dependencies -->
     <dependency>
-      <groupId>io.opentracing.contrib</groupId>
-      <artifactId>opentracing-agent</artifactId>
+      <groupId>io.opentracing.contrib.specialagent</groupId>
+      <artifactId>opentracing-specialagent</artifactId>
       <scope>test</scope>
       <version>${opentracing-java-agent-version}</version>
     </dependency>
@@ -138,11 +138,11 @@
             <configuration>
               <artifactItems>
                 <artifactItem>
-                  <groupId>io.opentracing.contrib</groupId>
-                  <artifactId>opentracing-agent</artifactId>
+                  <groupId>io.opentracing.contrib.specialagent</groupId>
+                  <artifactId>opentracing-specialagent</artifactId>
                   <overWrite>true</overWrite>
                   <outputDirectory>${opentracing-agent.lib}</outputDirectory>
-                  <destFileName>opentracing-agent.jar</destFileName>
+                  <destFileName>opentracing-specialagent-${opentracing-java-agent-version}.jar</destFileName>
                 </artifactItem>
               </artifactItems>
             </configuration>
@@ -154,7 +154,7 @@
         <artifactId>maven-failsafe-plugin</artifactId>
         <configuration>
           <argLine>
-            -javaagent:${opentracing-agent.lib}/opentracing-agent.jar
+            -javaagent:${opentracing-agent.lib}/opentracing-specialagent-${opentracing-java-agent-version}.jar
             -Dorg.jboss.byteman.verbose ${camel.surefire.fork.vmargs}
           </argLine>
         </configuration>

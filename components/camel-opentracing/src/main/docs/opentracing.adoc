@@ -93,13 +93,13 @@ The third approach is to use a Java Agent to automatically configure the OpenTra
 
 Include the `camel-opentracing` component in your POM, along with any specific dependencies associated with the chosen OpenTracing compliant Tracer.
 
-The OpenTracing Java Agent is associated with the following dependency:
+The https://github.com/opentracing-contrib/java-specialagent[OpenTracing Java Special Agent] is associated with the following dependency:
 
 [source,xml]
 ---------------------------------------------------------------------------------------------------------
     <dependency>
-      <groupId>io.opentracing.contrib</groupId>
-      <artifactId>opentracing-agent</artifactId>
+      <groupId>io.opentracing.contrib.specialagent</groupId>
+      <artifactId>opentracing-specialagent</artifactId>
     </dependency>
 ---------------------------------------------------------------------------------------------------------
 

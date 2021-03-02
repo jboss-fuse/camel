@@ -94,8 +94,8 @@
       <version>${project.version}</version>
     </dependency>
     <dependency>
-      <groupId>io.opentracing.contrib</groupId>
-      <artifactId>opentracing-agent</artifactId>
+      <groupId>io.opentracing.contrib.specialagent</groupId>
+      <artifactId>opentracing-specialagent</artifactId>
       <version>${opentracing-java-agent-version}</version>
       <scope>provided</scope>
     </dependency>
@@ -118,11 +118,11 @@
             <configuration>
               <artifactItems>
                 <artifactItem>
-                  <groupId>io.opentracing.contrib</groupId>
-                  <artifactId>opentracing-agent</artifactId>
+                  <groupId>io.opentracing.contrib.specialagent</groupId>
+                  <artifactId>opentracing-specialagent</artifactId>
                   <overWrite>true</overWrite>
                   <outputDirectory>${opentracing-agent.lib}</outputDirectory>
-                  <destFileName>opentracing-agent.jar</destFileName>
+                  <destFileName>opentracing-specialagent-${opentracing-java-agent-version}.jar</destFileName>
                 </artifactItem>
               </artifactItems>
             </configuration>
@@ -135,7 +135,7 @@
         <configuration>
           <executable>java</executable>
           <arguments>
-            <argument>-javaagent:${opentracing-agent.lib}/opentracing-agent.jar</argument>
+            <argument>-javaagent:${opentracing-agent.lib}/opentracing-specialagent-${opentracing-java-agent-version}.jar</argument>
             <argument>-classpath</argument>
             <classpath />
             <argument>sample.camel.Service2Application</argument>
