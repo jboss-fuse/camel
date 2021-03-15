@@ -731,9 +731,8 @@
     <urlrewritefilter-bundle-version>4.0.4_1</urlrewritefilter-bundle-version>
     <validation-1-api-version>1.1.0.Final-redhat-1</validation-1-api-version>
     <validation-api-version>2.0.1.Final</validation-api-version>
-    <velocity-bundle-version>1.7_6</velocity-bundle-version>
     <velocity-tools-version>2.0</velocity-tools-version>
-    <velocity-version>2.0</velocity-version>
+    <velocity-version>2.3</velocity-version>
     <vertx-version>3.5.4</vertx-version>
     <vysper-version>0.7</vysper-version>
     <web3j-version>3.6.0</web3j-version>
@@ -799,7 +798,7 @@
       org.apache.qpid.*;version="[0.20,1)",
       org.apache.abdera.*;version="[0.4,2)",
       org.apache.commons.httpclient.*;version="[3.1,4.0)",
-      org.apache.velocity.*;version="[1.6.2,2)",
+      org.apache.velocity.*;version="[2,3)",
       org.apache.xmlbeans.*;version="[3,4)",
       org.eclipse.jetty.*;version="[9.3,10)",
       com.thoughtworks.xstream.*;version="[1.4.7,2)",
@@ -4670,6 +4669,12 @@
         <groupId>httpunit</groupId>
         <artifactId>httpunit</artifactId>
         <version>${httpunit-version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.velocity</groupId>
+        <artifactId>velocity-engine-core</artifactId>
+        <version>${velocity-version}</version>
       </dependency>
 
       <!-- default JPA support -->
