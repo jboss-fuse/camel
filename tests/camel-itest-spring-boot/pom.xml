@@ -214,7 +214,10 @@
               <name>itest.springboot.springBootVersion</name>
               <value>${spring-boot-version}</value>
             </property>
-
+            <property>
+              <name>itest.springboot.mavenSettings</name>
+              <value>${env.MAVEN_SETTINGS}</value>
+            </property>
           </systemProperties>
         </configuration>
       </plugin>

@@ -75,6 +75,8 @@ public class ITestConfig implements Serializable {
 
     private String springBootVersion;
 
+    private String mavenSettings;
+
     public ITestConfig() {
     }
 
@@ -270,6 +272,14 @@ public class ITestConfig implements Serializable {
         this.springBootVersion = springBootVersion;
     }
 
+    public String getMavenSettings() {
+      return mavenSettings;
+    }
+
+    public void setMavenSettings(final String mavenSettings) {
+      this.mavenSettings = mavenSettings;
+    }
+
     @Override
     public String toString() {
         return "ITestConfig{"
@@ -296,6 +306,7 @@ public class ITestConfig implements Serializable {
                 + ", ignoreLibraryMismatch=" + ignoreLibraryMismatch
                 + ", testLibraryVersions=" + testLibraryVersions
                 + ", springBootVersion=" + springBootVersion
+                + ", mavenSettings=" + mavenSettings 
                 + '}';
     }
 }

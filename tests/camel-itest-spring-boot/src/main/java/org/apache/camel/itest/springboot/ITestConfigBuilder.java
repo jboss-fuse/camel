@@ -170,6 +170,11 @@ public class ITestConfigBuilder {
         return this;
     }
 
+    public ITestConfigBuilder mavenSettings(String mavenSettings) {
+        config.setMavenSettings(mavenSettings);
+        return this;
+    }
+
     public ITestConfig build() {
 
         // Checking conditions
@@ -260,6 +265,10 @@ public class ITestConfigBuilder {
 
         if (config.getSpringBootVersion() == null) {
             config.setSpringBootVersion(propertyOr("springBootVersion", null));
+        }
+
+        if (config.getMavenSettings() == null) {
+            config.setMavenSettings(propertyOr("mavenSettings", null));
         }
 
         return config;

@@ -519,7 +519,13 @@ public final class ArquillianPackager {
 
 
     private static ConfigurableMavenResolverSystem resolver(ITestConfig config) {
-        return Maven.configureResolver().workOffline(config.getMavenOfflineResolution());
+        final ConfigurableMavenResolverSystem maven = Maven.configureResolver().workOffline(config.getMavenOfflineResolution());
+        final String mavenSettings = config.getMavenSettings();
+        if (mavenSettings != null) {
+          maven.fromFile(mavenSettings);
+        }
+
+        return maven;
     }
 
     private static ClassLoader getExtensionClassloader() {
