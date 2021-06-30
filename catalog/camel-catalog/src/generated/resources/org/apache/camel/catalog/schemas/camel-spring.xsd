@@ -5993,14 +5993,14 @@ Default value: true
             ]]></xs:documentation>
           </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="unmarshalTypeName" type="xs:string">
+        <xs:attribute name="unmarshalType" type="xs:string">
           <xs:annotation>
             <xs:documentation xml:lang="en"><![CDATA[
 Class name of the java type to use when unmarshalling.
             ]]></xs:documentation>
           </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="jsonViewTypeName" type="xs:string">
+        <xs:attribute name="jsonView" type="xs:string">
           <xs:annotation>
             <xs:documentation xml:lang="en"><![CDATA[
 When marshalling a POJO to JSON you might want to exclude certain fields from
@@ -6026,7 +6026,7 @@ FQN classname to use to unmarshal to. Default value: false
             ]]></xs:documentation>
           </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="collectionTypeName" type="xs:string">
+        <xs:attribute name="collectionType" type="xs:string">
           <xs:annotation>
             <xs:documentation xml:lang="en"><![CDATA[
 Refers to a custom collection type to lookup in the registry to use. This option
@@ -6340,14 +6340,14 @@ Default value: true
             ]]></xs:documentation>
           </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="unmarshalTypeName" type="xs:string">
+        <xs:attribute name="unmarshalType" type="xs:string">
           <xs:annotation>
             <xs:documentation xml:lang="en"><![CDATA[
 Class name of the java type to use when unmarshalling.
             ]]></xs:documentation>
           </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="collectionTypeName" type="xs:string">
+        <xs:attribute name="collectionType" type="xs:string">
           <xs:annotation>
             <xs:documentation xml:lang="en"><![CDATA[
 Refers to a custom collection type to lookup in the registry to use. This option
@@ -7068,14 +7068,14 @@ value: false
             ]]></xs:documentation>
           </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="unmarshalTypeName" type="xs:string">
+        <xs:attribute name="unmarshalType" type="xs:string">
           <xs:annotation>
             <xs:documentation xml:lang="en"><![CDATA[
 Class name of the java type to use when unmarshalling.
             ]]></xs:documentation>
           </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="jsonViewTypeName" type="xs:string">
+        <xs:attribute name="jsonView" type="xs:string">
           <xs:annotation>
             <xs:documentation xml:lang="en"><![CDATA[
 When marshalling a POJO to JSON you might want to exclude certain fields from
@@ -7101,7 +7101,7 @@ FQN classname to use to unmarshal to. Default value: false
             ]]></xs:documentation>
           </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="collectionTypeName" type="xs:string">
+        <xs:attribute name="collectionType" type="xs:string">
           <xs:annotation>
             <xs:documentation xml:lang="en"><![CDATA[
 Refers to a custom collection type to lookup in the registry to use. This option
@@ -7391,14 +7391,14 @@ Which json library to use. Default value: Jackson
             ]]></xs:documentation>
           </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="unmarshalTypeName" type="xs:string">
+        <xs:attribute name="unmarshalType" type="xs:string">
           <xs:annotation>
             <xs:documentation xml:lang="en"><![CDATA[
 Class name of the java type to use when unmarshalling.
             ]]></xs:documentation>
           </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="jsonViewTypeName" type="xs:string">
+        <xs:attribute name="jsonView" type="xs:string">
           <xs:annotation>
             <xs:documentation xml:lang="en"><![CDATA[
 When marshalling a POJO to JSON you might want to exclude certain fields from
@@ -7424,7 +7424,7 @@ FQN classname to use to unmarshal to. Default value: false
             ]]></xs:documentation>
           </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="collectionTypeName" type="xs:string">
+        <xs:attribute name="collectionType" type="xs:string">
           <xs:annotation>
             <xs:documentation xml:lang="en"><![CDATA[
 Refers to a custom collection type to lookup in the registry to use. This option
@@ -7703,14 +7703,14 @@ Default value: true
             ]]></xs:documentation>
           </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="unmarshalTypeName" type="xs:string">
+        <xs:attribute name="unmarshalType" type="xs:string">
           <xs:annotation>
             <xs:documentation xml:lang="en"><![CDATA[
 Class name of the java type to use when unmarshalling.
             ]]></xs:documentation>
           </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="jsonViewTypeName" type="xs:string">
+        <xs:attribute name="jsonView" type="xs:string">
           <xs:annotation>
             <xs:documentation xml:lang="en"><![CDATA[
 When marshalling a POJO to JSON you might want to exclude certain fields from
@@ -7736,7 +7736,7 @@ FQN classname to use to unmarshal to. Default value: false
             ]]></xs:documentation>
           </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="collectionTypeName" type="xs:string">
+        <xs:attribute name="collectionType" type="xs:string">
           <xs:annotation>
             <xs:documentation xml:lang="en"><![CDATA[
 Refers to a custom collection type to lookup in the registry to use. This option
@@ -8615,7 +8615,7 @@ Which yaml library to use. By default it is SnakeYAML. Default value: SnakeYAML
             ]]></xs:documentation>
           </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="unmarshalTypeName" type="xs:string">
+        <xs:attribute name="unmarshalType" type="xs:string">
           <xs:annotation>
             <xs:documentation xml:lang="en"><![CDATA[
 Class name of the java type to use when unmarshalling.

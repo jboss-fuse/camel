@@ -21,6 +21,25 @@ then a single-threaded worker pool is created and used by the aggregator.
 Camels routing engine works better when a dedicated worker pool that eliminates a _hack_ that otherwise was needed in other EIPs that
 was affected if using the aggregator in some special configurations.
 
+=== Data Formats
+
+The `camel-asn1` data format has renamed the option `clazzName` to `unmarshalType`.
+The `camel-avro` data format has renamed the option `collectionTypeName` to `collectionType`.
+The `camel-avro` data format has renamed the option `jsonViewTypeName` to `jsonView`.
+The `camel-avro` data format has renamed the option `unmarshalTypeName` to `unmarshalType`.
+The `camel-cbor` data format has renamed the option `collectionTypeName` to `collectionType`.
+The `camel-cbor` data format has renamed the option `unmarshalTypeName` to `unmarshalType`.
+The `camel-jacksonxml` data format has renamed the option `collectionTypeName` to `collectionType`.
+The `camel-jacksonxml` data format has renamed the option `jsonViewTypeName` to `jsonView`.
+The `camel-jacksonxml` data format has renamed the option `unmarshalTypeName` to `unmarshalType`.
+The `camel-json` data format has renamed the option `collectionTypeName` to `collectionType`.
+The `camel-json` data format has renamed the option `jsonViewTypeName` to `jsonView`.
+The `camel-json` data format has renamed the option `unmarshalTypeName` to `unmarshalType`.
+The `camel-protobuf` data format has renamed the option `collectionTypeName` to `collectionType`.
+The `camel-protobuf` data format has renamed the option `jsonViewTypeName` to `jsonView`.
+The `camel-protobuf` data format has renamed the option `unmarshalTypeName` to `unmarshalType`.
+The `camel-yaml` data format has renamed the option `unmarshalTypeName` to `unmarshalType`.
+
 === RemoveHeader EIP
 
 In XML and YAML DSL the `headerName` attribute has been deprecated, and you should use `name` instead.
