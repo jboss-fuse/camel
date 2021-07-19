@@ -34,6 +34,8 @@ import org.apache.camel.model.HystrixDefinition;
 import org.apache.camel.spi.RouteContext;
 import org.apache.camel.util.IntrospectionSupport;
 import org.apache.camel.util.function.Suppliers;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static org.apache.camel.util.CamelContextHelper.lookup;
 import static org.apache.camel.util.CamelContextHelper.mandatoryLookup;
@@ -42,6 +44,7 @@ import static org.apache.camel.util.CamelContextHelper.mandatoryLookup;
  * To integrate camel-hystrix with the Camel routes using the Hystrix EIP.
  */
 public class HystrixProcessorFactory extends TypedProcessorFactory<HystrixDefinition> {
+    private static final Logger LOG = LoggerFactory.getLogger(HystrixProcessorFactory.class);
 
     public HystrixProcessorFactory() {
         super(HystrixDefinition.class);
@@ -122,7 +125,7 @@ public class HystrixProcessorFactory extends TypedProcessorFactory<HystrixDefini
             command.withCircuitBreakerEnabled(config.getCircuitBreakerEnabled());
         }
         if (config.getCircuitBreakerErrorThresholdPercentage() != null) {
-            command.withCircuitBreakerErrorThresholdPercentage(config.getCircuitBreakerErrorThresholdPercentage());
+            command.withCircuitBreakerErrorThresholdPercentage(Integer.parseInt(config.getCircuitBreakerErrorThresholdPercentage()));
         }
         if (config.getCircuitBreakerForceClosed() != null) {
             command.withCircuitBreakerForceClosed(config.getCircuitBreakerForceClosed());
@@ -131,13 +134,13 @@ public class HystrixProcessorFactory extends TypedProcessorFactory<HystrixDefini
             command.withCircuitBreakerForceOpen(config.getCircuitBreakerForceOpen());
         }
         if (config.getCircuitBreakerRequestVolumeThreshold() != null) {
-            command.withCircuitBreakerRequestVolumeThreshold(config.getCircuitBreakerRequestVolumeThreshold());
+            command.withCircuitBreakerRequestVolumeThreshold(Integer.parseInt(config.getCircuitBreakerRequestVolumeThreshold()));
         }
         if (config.getCircuitBreakerSleepWindowInMilliseconds() != null) {
-            command.withCircuitBreakerSleepWindowInMilliseconds(config.getCircuitBreakerSleepWindowInMilliseconds());
+            command.withCircuitBreakerSleepWindowInMilliseconds(Integer.parseInt(config.getCircuitBreakerSleepWindowInMilliseconds()));
         }
         if (config.getExecutionIsolationSemaphoreMaxConcurrentRequests() != null) {
-            command.withExecutionIsolationSemaphoreMaxConcurrentRequests(config.getExecutionIsolationSemaphoreMaxConcurrentRequests());
+            command.withExecutionIsolationSemaphoreMaxConcurrentRequests(Integer.parseInt(config.getExecutionIsolationSemaphoreMaxConcurrentRequests()));
         }
         if (config.getExecutionIsolationStrategy() != null) {
             command.withExecutionIsolationStrategy(HystrixCommandProperties.ExecutionIsolationStrategy.valueOf(config.getExecutionIsolationStrategy()));
@@ -146,61 +149,61 @@ public class HystrixProcessorFactory extends TypedProcessorFactory<HystrixDefini
             command.withExecutionIsolationThreadInterruptOnTimeout(config.getExecutionIsolationThreadInterruptOnTimeout());
         }
         if (config.getExecutionTimeoutInMilliseconds() != null) {
-            command.withExecutionTimeoutInMilliseconds(config.getExecutionTimeoutInMilliseconds());
+            command.withExecutionTimeoutInMilliseconds(Integer.parseInt(config.getExecutionTimeoutInMilliseconds()));
         }
         if (config.getExecutionTimeoutEnabled() != null) {
             command.withExecutionTimeoutEnabled(config.getExecutionTimeoutEnabled());
         }
         if (config.getFallbackIsolationSemaphoreMaxConcurrentRequests() != null) {
-            command.withFallbackIsolationSemaphoreMaxConcurrentRequests(config.getFallbackIsolationSemaphoreMaxConcurrentRequests());
+            command.withFallbackIsolationSemaphoreMaxConcurrentRequests(Integer.parseInt(config.getFallbackIsolationSemaphoreMaxConcurrentRequests()));
         }
         if (config.getFallbackEnabled() != null) {
             command.withFallbackEnabled(config.getFallbackEnabled());
         }
         if (config.getMetricsHealthSnapshotIntervalInMilliseconds() != null) {
-            command.withMetricsHealthSnapshotIntervalInMilliseconds(config.getMetricsHealthSnapshotIntervalInMilliseconds());
+            command.withMetricsHealthSnapshotIntervalInMilliseconds(Integer.parseInt(config.getMetricsHealthSnapshotIntervalInMilliseconds()));
         }
         if (config.getMetricsRollingPercentileBucketSize() != null) {
-            command.withMetricsRollingPercentileBucketSize(config.getMetricsRollingPercentileBucketSize());
+            command.withMetricsRollingPercentileBucketSize(Integer.parseInt(config.getMetricsRollingPercentileBucketSize()));
         }
         if (config.getMetricsRollingPercentileEnabled() != null) {
             command.withMetricsRollingPercentileEnabled(config.getMetricsRollingPercentileEnabled());
         }
         if (config.getMetricsRollingPercentileWindowInMilliseconds() != null) {
-            command.withMetricsRollingPercentileWindowInMilliseconds(config.getMetricsRollingPercentileWindowInMilliseconds());
+            command.withMetricsRollingPercentileWindowInMilliseconds(Integer.parseInt(config.getMetricsRollingPercentileWindowInMilliseconds()));
         }
         if (config.getMetricsRollingPercentileWindowBuckets() != null) {
-            command.withMetricsRollingPercentileWindowBuckets(config.getMetricsRollingPercentileWindowBuckets());
+            command.withMetricsRollingPercentileWindowBuckets(Integer.parseInt(config.getMetricsRollingPercentileWindowBuckets()));
         }
         if (config.getMetricsRollingStatisticalWindowInMilliseconds() != null) {
-            command.withMetricsRollingStatisticalWindowInMilliseconds(config.getMetricsRollingStatisticalWindowInMilliseconds());
+            command.withMetricsRollingStatisticalWindowInMilliseconds(Integer.parseInt(config.getMetricsRollingStatisticalWindowInMilliseconds()));
         }
         if (config.getMetricsRollingStatisticalWindowBuckets() != null) {
-            command.withMetricsRollingStatisticalWindowBuckets(config.getMetricsRollingStatisticalWindowBuckets());
+            command.withMetricsRollingStatisticalWindowBuckets(Integer.parseInt(config.getMetricsRollingStatisticalWindowBuckets()));
         }
         if (config.getRequestLogEnabled() != null) {
             command.withRequestLogEnabled(config.getRequestLogEnabled());
         }
         if (config.getCorePoolSize() != null) {
-            threadPool.withCoreSize(config.getCorePoolSize());
+            threadPool.withCoreSize(Integer.parseInt(config.getCorePoolSize()));
         }
         if (config.getMaximumSize() != null) {
-            threadPool.withMaximumSize(config.getMaximumSize());
+            threadPool.withMaximumSize(Integer.parseInt(config.getMaximumSize()));
         }
         if (config.getKeepAliveTime() != null) {
-            threadPool.withKeepAliveTimeMinutes(config.getKeepAliveTime());
+            threadPool.withKeepAliveTimeMinutes(Integer.parseInt(config.getKeepAliveTime()));
         }
         if (config.getMaxQueueSize() != null) {
-            threadPool.withMaxQueueSize(config.getMaxQueueSize());
+            threadPool.withMaxQueueSize(Integer.parseInt(config.getMaxQueueSize()));
         }
         if (config.getQueueSizeRejectionThreshold() != null) {
-            threadPool.withQueueSizeRejectionThreshold(config.getQueueSizeRejectionThreshold());
+            threadPool.withQueueSizeRejectionThreshold(Integer.parseInt(config.getQueueSizeRejectionThreshold()));
         }
         if (config.getThreadPoolRollingNumberStatisticalWindowInMilliseconds() != null) {
-            threadPool.withMetricsRollingStatisticalWindowInMilliseconds(config.getThreadPoolRollingNumberStatisticalWindowInMilliseconds());
+            threadPool.withMetricsRollingStatisticalWindowInMilliseconds(Integer.parseInt(config.getThreadPoolRollingNumberStatisticalWindowInMilliseconds()));
         }
         if (config.getThreadPoolRollingNumberStatisticalWindowBuckets() != null) {
-            threadPool.withMetricsRollingStatisticalWindowBuckets(config.getThreadPoolRollingNumberStatisticalWindowBuckets());
+            threadPool.withMetricsRollingStatisticalWindowBuckets(Integer.parseInt(config.getThreadPoolRollingNumberStatisticalWindowBuckets()));
         }
         if (config.getAllowMaximumSizeToDivergeFromCoreSize() != null) {
             threadPool.withAllowMaximumSizeToDivergeFromCoreSize(config.getAllowMaximumSizeToDivergeFromCoreSize());
@@ -237,6 +240,17 @@ public class HystrixProcessorFactory extends TypedProcessorFactory<HystrixDefini
 
         // Extract properties from definition
         IntrospectionSupport.getProperties(definition, properties, null, false);
+
+        properties.forEach((key, value) -> {
+            if (value instanceof String) {
+                try {
+                    properties.replace(key, camelContext.resolvePropertyPlaceholders((String) value));
+                } catch (Exception e) {
+                    LOG.debug(
+                            String.format("Error resolving property placeholder with key {} value {} and message", key, value, e.getMessage()), e);
+                }
+            }
+        });
 
         HystrixConfigurationDefinition config = new HystrixConfigurationDefinition();
 
