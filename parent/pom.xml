@@ -2814,6 +2814,11 @@
                 <artifactId>camel-route-parser</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>dummy-component</artifactId>
+                <version>${camel-dependencies-catalog-version}</version>
+            </dependency>
 
             <!-- camel misc -->
             <dependency>
