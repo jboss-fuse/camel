@@ -280,7 +280,6 @@
                         <excludeSubProjects>false</excludeSubProjects>
                         <excludes>
                             <exclude>**/generated/**</exclude>
-                            <exclude>**/camel-dependencies/**</exclude>
                             <exclude>**/generated.txt</exclude>
                             <exclude>**/*.json</exclude>
                             <exclude>**/README</exclude>
