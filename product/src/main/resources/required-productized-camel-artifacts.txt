@@ -21,6 +21,7 @@ camel-core-engine
 camel-core-languages
 camel-core-processor
 camel-cron
+camel-dependencies-generator
 camel-direct
 camel-elasticsearch-rest
 camel-endpointdsl
@@ -69,3 +70,4 @@ camel-xml-io
 camel-xml-io-dsl
 camel-xpath
 camel-yaml-dsl
+sync-properties-maven-plugin
