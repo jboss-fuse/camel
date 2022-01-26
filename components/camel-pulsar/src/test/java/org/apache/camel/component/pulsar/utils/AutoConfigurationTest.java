@@ -49,8 +49,6 @@ public class AutoConfigurationTest {
 
     @Test
     public void noAdminConfiguration() {
-        when(pulsarAdmin.getClientConfigData()).thenReturn(null);
-
         AutoConfiguration autoConfiguration = new AutoConfiguration(null, clusters);
         autoConfiguration.ensureNameSpaceAndTenant("tn1/ns1/topic");
 

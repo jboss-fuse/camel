@@ -68,8 +68,9 @@ public class AutoConfiguration {
         Tenants tenants = pulsarAdmin.tenants();
         List<String> tenantNames = tenants.getTenants();
         if (!tenantNames.contains(tenant)) {
-            TenantInfo tenantInfo = new TenantInfo();
-            tenantInfo.setAllowedClusters(clusters);
+            TenantInfo tenantInfo = TenantInfo.builder()
+                .allowedClusters(clusters)
+                .build();
             pulsarAdmin.tenants().createTenant(tenant, tenantInfo);
         }
     }

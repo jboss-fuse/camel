@@ -30,8 +30,6 @@ import org.apache.camel.test.junit4.CamelTestSupport;
 import org.apache.pulsar.client.api.PulsarClient;
 import org.apache.pulsar.client.api.PulsarClientException;
 import org.apache.pulsar.client.impl.ClientBuilderImpl;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.testcontainers.containers.PulsarContainer;
@@ -42,7 +40,7 @@ public class PulsarProducerInTest extends CamelTestSupport {
     private static final String PRODUCER = "camel-producer";
 
     @Rule
-    public PulsarContainer pulsarContainer = new PulsarContainer();
+    public PulsarContainer pulsarContainer = new PulsarContainer("2.9.1");
 
     @Produce(uri = "direct:start")
     private ProducerTemplate producerTemplate;

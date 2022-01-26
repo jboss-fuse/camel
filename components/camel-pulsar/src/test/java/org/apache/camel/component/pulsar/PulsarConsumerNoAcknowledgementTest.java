@@ -17,7 +17,6 @@
 package org.apache.camel.component.pulsar;
 
 import java.util.concurrent.TimeUnit;
-import org.apache.camel.CamelContext;
 import org.apache.camel.Endpoint;
 import org.apache.camel.EndpointInject;
 import org.apache.camel.builder.RouteBuilder;
@@ -40,7 +39,7 @@ public class PulsarConsumerNoAcknowledgementTest extends CamelTestSupport {
     private static final String PRODUCER = "camel-producer-1";
     
     @Rule
-    public PulsarContainer pulsarContainer = new PulsarContainer();
+    public PulsarContainer pulsarContainer = new PulsarContainer("2.9.1");
 
     @EndpointInject(uri = "pulsar:" + TOPIC_URI
             + "?numberOfConsumers=1&subscriptionType=Exclusive"

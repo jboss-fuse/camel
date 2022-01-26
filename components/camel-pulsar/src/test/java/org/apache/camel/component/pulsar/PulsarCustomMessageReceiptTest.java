@@ -52,7 +52,7 @@ public class PulsarCustomMessageReceiptTest extends CamelTestSupport {
     private static final String PRODUCER = "camel-producer-1";
     
     @Rule
-    public PulsarContainer pulsarContainer = new PulsarContainer();
+    public PulsarContainer pulsarContainer = new PulsarContainer("2.9.1");
 
     private PulsarMessageReceiptFactory mockPulsarMessageReceiptFactory = mock(PulsarMessageReceiptFactory.class);
 

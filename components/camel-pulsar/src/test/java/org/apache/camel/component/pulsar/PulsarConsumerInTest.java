@@ -46,7 +46,7 @@ public class PulsarConsumerInTest extends CamelTestSupport {
     private static final String PRODUCER = "camel-producer-1";
 
     @Rule
-    public PulsarContainer pulsarContainer = new PulsarContainer();
+    public PulsarContainer pulsarContainer = new PulsarContainer("2.9.1");
 
     @EndpointInject(uri = "pulsar:" + TOPIC_URI + "?numberOfConsumers=1&subscriptionType=Exclusive"
                           + "&subscriptionName=camel-subscription&consumerQueueSize=1&consumerName=camel-consumer")

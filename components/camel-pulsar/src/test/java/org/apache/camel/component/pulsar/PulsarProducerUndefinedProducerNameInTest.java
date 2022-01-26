@@ -38,7 +38,7 @@ public class PulsarProducerUndefinedProducerNameInTest extends CamelTestSupport 
     private static final String TOPIC_URI = "persistent://public/default/camel-producer-topic";
 
     @Rule
-    public PulsarContainer pulsarContainer = new PulsarContainer();
+    public PulsarContainer pulsarContainer = new PulsarContainer("2.9.1");
     
     @Produce(uri = "direct:start1")
     private ProducerTemplate producerTemplate1;

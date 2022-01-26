@@ -47,7 +47,7 @@ public class PulsarConcurrentConsumerInTest extends CamelTestSupport {
     private static final int NUMBER_OF_CONSUMERS = 5;
 
     @Rule
-    public PulsarContainer pulsarContainer = new PulsarContainer();
+    public PulsarContainer pulsarContainer = new PulsarContainer("2.9.1");
 
     @EndpointInject(uri = "pulsar:" + TOPIC_URI + "?numberOfConsumers=5&subscriptionType=Shared"
                           + "&subscriptionName=camel-subscription&consumerQueueSize=1&consumerNamePrefix=camel-consumer-")

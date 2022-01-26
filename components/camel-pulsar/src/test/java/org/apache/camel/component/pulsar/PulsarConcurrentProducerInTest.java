@@ -42,7 +42,7 @@ public class PulsarConcurrentProducerInTest extends CamelTestSupport {
     private static final String PRODUCER = "camel-producer";
 
     @Rule
-    public PulsarContainer pulsarContainer = new PulsarContainer();
+    public PulsarContainer pulsarContainer = new PulsarContainer("2.9.1");
 
     @Produce(uri = "direct:start")
     private ProducerTemplate producerTemplate;
