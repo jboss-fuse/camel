@@ -77,6 +77,8 @@ public class MongoDbEndpoint extends DefaultEndpoint {
     @UriParam
     private String hosts;
     @UriParam
+    private String authSource;
+    @UriParam
     private String database;
     @UriParam
     private String collection;
@@ -341,7 +343,9 @@ public class MongoDbEndpoint extends DefaultEndpoint {
                 credentials += this.password == null ? "@" : ":" + password + "@";
             }
 
-            mongoClient = MongoClients.create(String.format("mongodb://%s%s", credentials, hosts));
+            String connectionOptions = authSource == null ? "" : "/?authSource=" + authSource;
+
+            mongoClient = MongoClients.create(String.format("mongodb://%s%s%s", credentials, hosts, connectionOptions));
             LOG.debug("Connection created using provided credentials");
         } else {
             mongoClient = CamelContextHelper.mandatoryLookup(getCamelContext(), connectionBean, MongoClient.class);
@@ -741,4 +745,16 @@ public class MongoDbEndpoint extends DefaultEndpoint {
         this.hosts = hosts;
     }
 
+    public String getAuthSource() {
+        return authSource;
+    }
+
+    /**
+     * The database name associated with the user's credentials.
+     * 
+     * @param authSource
+     */
+    public void setAuthSource(String authSource) {
+        this.authSource = authSource;
+    }
 }

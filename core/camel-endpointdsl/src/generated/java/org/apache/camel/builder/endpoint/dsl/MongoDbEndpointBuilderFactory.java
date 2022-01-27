@@ -42,6 +42,20 @@ public interface MongoDbEndpointBuilderFactory {
             return (AdvancedMongoDbEndpointConsumerBuilder) this;
         }
         /**
+         * The database name associated with the user's credentials.
+         * 
+         * The option is a: &lt;code&gt;java.lang.String&lt;/code&gt; type.
+         * 
+         * Group: common
+         * 
+         * @param authSource the value to set
+         * @return the dsl builder
+         */
+        default MongoDbEndpointConsumerBuilder authSource(String authSource) {
+            doSetProperty("authSource", authSource);
+            return this;
+        }
+        /**
          * Sets the name of the MongoDB collection to bind to this endpoint.
          * 
          * The option is a: &lt;code&gt;java.lang.String&lt;/code&gt; type.
@@ -720,6 +734,20 @@ public interface MongoDbEndpointBuilderFactory {
             return (AdvancedMongoDbEndpointProducerBuilder) this;
         }
         /**
+         * The database name associated with the user's credentials.
+         * 
+         * The option is a: &lt;code&gt;java.lang.String&lt;/code&gt; type.
+         * 
+         * Group: common
+         * 
+         * @param authSource the value to set
+         * @return the dsl builder
+         */
+        default MongoDbEndpointProducerBuilder authSource(String authSource) {
+            doSetProperty("authSource", authSource);
+            return this;
+        }
+        /**
          * Sets the name of the MongoDB collection to bind to this endpoint.
          * 
          * The option is a: &lt;code&gt;java.lang.String&lt;/code&gt; type.
@@ -1177,6 +1205,20 @@ public interface MongoDbEndpointBuilderFactory {
                 MongoDbEndpointProducerBuilder {
         default AdvancedMongoDbEndpointBuilder advanced() {
             return (AdvancedMongoDbEndpointBuilder) this;
+        }
+        /**
+         * The database name associated with the user's credentials.
+         * 
+         * The option is a: &lt;code&gt;java.lang.String&lt;/code&gt; type.
+         * 
+         * Group: common
+         * 
+         * @param authSource the value to set
+         * @return the dsl builder
+         */
+        default MongoDbEndpointBuilder authSource(String authSource) {
+            doSetProperty("authSource", authSource);
+            return this;
         }
         /**
          * Sets the name of the MongoDB collection to bind to this endpoint.

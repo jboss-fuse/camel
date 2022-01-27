@@ -108,12 +108,13 @@ with the following path and query parameters:
 |===
 
 
-=== Query Parameters (27 parameters):
+=== Query Parameters (28 parameters):
 
 
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Type
+| *authSource* (common) | The database name associated with the user's credentials. |  | String
 | *collection* (common) | Sets the name of the MongoDB collection to bind to this endpoint |  | String
 | *collectionIndex* (common) | Sets the collection index (JSON FORMAT : { field1 : order1, field2 : order2}) |  | String
 | *createCollection* (common) | Create collection during initialisation if it doesn't exist. Default is true. | true | boolean
