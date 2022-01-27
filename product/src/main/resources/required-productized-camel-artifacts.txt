@@ -21,6 +21,8 @@ camel-core-engine
 camel-core-languages
 camel-core-processor
 camel-cron
+camel-dependencies
+camel-dependencies-generator
 camel-direct
 camel-elasticsearch-rest
 camel-endpointdsl
