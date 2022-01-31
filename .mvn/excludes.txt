@@ -365,10 +365,7 @@
 :camel-test-infra-solr
 :camel-test-infra-xmpp
 :camel-test-infra-zookeeper
-:camel-test-junit5
-:camel-test-parent
 :camel-test-spring
-:camel-test-spring-junit5
 :camel-testcontainers
 :camel-testcontainers-junit5
 :camel-testcontainers-spring
