@@ -58,7 +58,7 @@
         <module>camel-xslt</module>
 
         <!-- we want to test these modules first to catch any errors early as possible -->
-        <!-- <module>camel-test</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-test</module>
         <!-- <module>camel-spring</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-spring-main</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-spring-xml</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->

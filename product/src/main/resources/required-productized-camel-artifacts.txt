@@ -65,6 +65,7 @@ camel-slack
 camel-soap
 camel-sql
 camel-telegram
+camel-test-spring-junit5
 camel-timer
 camel-webhook
 camel-xml-io
