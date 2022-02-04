@@ -573,7 +573,8 @@
             <karafVersion>${karaf-version}</karafVersion>
           </systemPropertyVariables>
           <classpathDependencyExcludes>
-            org.ops4j.pax.logging:pax-logging-api,org.apache.activemq:activemq-all
+              <exclude>org.ops4j.pax.logging:pax-logging-api</exclude>
+              <exclude>org.apache.activemq:activemq-all</exclude>
           </classpathDependencyExcludes>
           <rerunFailingTestsCount>0</rerunFailingTestsCount>
           <forkedProcessTimeoutInSeconds>0</forkedProcessTimeoutInSeconds>
