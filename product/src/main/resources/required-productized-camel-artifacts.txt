@@ -70,3 +70,4 @@ camel-xml-io
 camel-xml-io-dsl
 camel-xpath
 camel-yaml-dsl
+camel-yaml-dsl-maven-plugin
