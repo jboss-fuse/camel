@@ -140,6 +140,7 @@
         <groovy-version>3.0.9</groovy-version>
 
         <camel.javadoc.offline>false</camel.javadoc.offline>
+        <camel-community.version>3.14.2</camel-community.version>
     </properties>
 
     <!-- Comment out the snapshot repositories as we don't need them now -->
