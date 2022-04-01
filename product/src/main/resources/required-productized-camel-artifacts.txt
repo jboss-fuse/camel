@@ -11,6 +11,7 @@ camel-azure-storage-blob
 camel-azure-storage-queue
 camel-base
 camel-bean
+camel-bean-validator
 camel-bindy
 camel-cassandraql
 camel-catalog
@@ -22,14 +23,15 @@ camel-core-languages
 camel-core-processor
 camel-cron
 camel-direct
-camel-elasticsearch-rest
 camel-endpointdsl
+camel-fhir
 camel-file
 camel-ftp
 camel-gson
 camel-hl7
 camel-http
 camel-http-common
+camel-infinispan
 camel-jackson
 camel-jackson-avro
 camel-jackson-protobuf
@@ -44,9 +46,11 @@ camel-kafka
 camel-kamelet
 camel-kubernetes
 camel-log
+camel-mail
 camel-main
 camel-master
 camel-microprofile-config
+camel-microprofile-fault-tolerance
 camel-microprofile-health
 camel-microprofile-metrics
 camel-mllp
@@ -54,7 +58,9 @@ camel-mock
 camel-mongodb
 camel-netty
 camel-openapi-java
+camel-paho
 camel-platform-http-vertx
+camel-quartz
 camel-rest
 camel-salesforce
 camel-saxon
@@ -71,3 +77,4 @@ camel-xml-io-dsl
 camel-xpath
 camel-yaml-dsl
 camel-yaml-dsl-maven-plugin
+camel-zipfile
