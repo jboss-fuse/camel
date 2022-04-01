@@ -102,7 +102,7 @@
         <module>camel-azure</module>
         <!-- <module>camel-barcode</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-base64</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-bean-validator</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-bean-validator</module>
         <!-- <module>camel-beanio</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-beanstalk</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-bindy</module>
@@ -138,7 +138,7 @@
         <!-- <module>camel-drill</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-dropbox</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-ehcache</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <module>camel-elasticsearch-rest</module>
+        <!-- <module>camel-elasticsearch-rest</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-elsql</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-elytron</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-etcd</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
@@ -146,7 +146,7 @@
         <!-- <module>camel-exec</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-facebook</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-fastjson</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-fhir</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-fhir</module>
         <!-- <module>camel-file-watch</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-flatpack</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-flink</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
@@ -174,7 +174,7 @@
         <!-- <module>camel-ical</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-iec60870</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-ignite</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-infinispan</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-infinispan</module>
         <!-- <module>camel-influxdb</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-iota</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-irc</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
@@ -225,7 +225,7 @@
         <!-- <module>camel-lucene</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-lumberjack</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-lzf</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-mail</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-mail</module>
         <!-- <module>camel-metrics</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-micrometer</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-microprofile</module>
@@ -253,7 +253,7 @@
         <!-- <module>camel-opentracing</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-opentelemetry</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-optaplanner</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-paho</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-paho</module>
         <!-- <module>camel-paho-mqtt5</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-pdf</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-pg-replication-slot</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
@@ -264,7 +264,7 @@
         <!-- <module>camel-protobuf</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-pubnub</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-pulsar</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-quartz</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-quartz</module>
         <!-- <module>camel-quickfix</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-rabbitmq</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-reactive-executor-vertx</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
@@ -349,7 +349,7 @@
         <!-- <module>camel-yammer</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-zendesk</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-zip-deflater</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-zipfile</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-zipfile</module>
         <!-- <module>camel-zipkin</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-zookeeper-master</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-zookeeper</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
