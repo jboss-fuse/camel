@@ -329,7 +329,7 @@
       <dependency>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-bean-validator</artifactId>
-        <version>3.14.2</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.camel</groupId>
@@ -680,7 +680,7 @@
       <dependency>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-elasticsearch-rest</artifactId>
-        <version>${project.version}</version>
+        <version>3.14.2</version>
       </dependency>
       <dependency>
         <groupId>org.apache.camel</groupId>
@@ -725,17 +725,17 @@
       <dependency>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-fhir</artifactId>
-        <version>3.14.2</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-fhir-api</artifactId>
-        <version>3.14.2</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-fhir-parent</artifactId>
-        <version>3.14.2</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.camel</groupId>
@@ -995,12 +995,12 @@
       <dependency>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-infinispan</artifactId>
-        <version>3.14.2</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-infinispan-common</artifactId>
-        <version>3.14.2</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.camel</groupId>
@@ -1010,7 +1010,7 @@
       <dependency>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-infinispan-parent</artifactId>
-        <version>3.14.2</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.camel</groupId>
@@ -1310,7 +1310,7 @@
       <dependency>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-mail</artifactId>
-        <version>3.14.2</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.camel</groupId>
@@ -1356,7 +1356,7 @@
       <dependency>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-microprofile-fault-tolerance</artifactId>
-        <version>3.14.2</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.camel</groupId>
@@ -1526,7 +1526,7 @@
       <dependency>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-paho</artifactId>
-        <version>3.14.2</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.camel</groupId>
@@ -1581,7 +1581,7 @@
       <dependency>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-quartz</artifactId>
-        <version>3.14.2</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.camel</groupId>
@@ -2251,7 +2251,7 @@
       <dependency>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-zipfile</artifactId>
-        <version>3.14.2</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.camel</groupId>

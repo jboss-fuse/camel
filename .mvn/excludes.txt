@@ -6,7 +6,6 @@
 :camel-ahc-ws
 :camel-amqp
 :camel-any23
-:camel-api-component-maven-plugin
 :camel-arangodb
 :camel-archetype-api-component
 :camel-archetype-cdi
@@ -50,7 +49,6 @@
 :camel-azure-storage-datalake
 :camel-barcode
 :camel-base64
-:camel-bean-validator
 :camel-beanio
 :camel-beanstalk
 :camel-bonita
@@ -103,6 +101,7 @@
 :camel-dropbox
 :camel-ehcache
 :camel-eip-documentation-enricher-maven-plugin
+:camel-elasticsearch-rest
 :camel-elsql
 :camel-elytron
 :camel-etc
@@ -111,9 +110,6 @@
 :camel-exec
 :camel-facebook
 :camel-fastjson
-:camel-fhir
-:camel-fhir-api
-:camel-fhir-parent
 :camel-file-watch
 :camel-flatpack
 :camel-flink
@@ -159,10 +155,7 @@
 :camel-ical
 :camel-iec60870
 :camel-ignite
-:camel-infinispan
-:camel-infinispan-common
 :camel-infinispan-embedded
-:camel-infinispan-parent
 :camel-influxdb
 :camel-iota
 :camel-ipfs
@@ -215,12 +208,10 @@
 :camel-lucene
 :camel-lumberjack
 :camel-lzf
-:camel-mail
 :camel-management
 :camel-maven-plugin
 :camel-metrics
 :camel-micrometer
-:camel-microprofile-fault-tolerance
 :camel-milo
 :camel-mina
 :camel-minio
@@ -247,7 +238,6 @@
 :camel-opentelemetry
 :camel-opentracing
 :camel-optaplanner
-:camel-paho
 :camel-paho-mqtt5
 :camel-partial-classpath-test
 :camel-pdf
@@ -257,7 +247,6 @@
 :camel-protobuf
 :camel-pubnub
 :camel-pulsar
-:camel-quartz
 :camel-quickfix
 :camel-rabbitmq
 :camel-reactive-executor-vertx
@@ -412,7 +401,6 @@
 :camel-yammer
 :camel-zendesk
 :camel-zip-deflater
-:camel-zipfile
 :camel-zipkin
 :camel-zookeeper
 :camel-zookeeper-master
