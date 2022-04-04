@@ -79,7 +79,7 @@
         <module>components</module>
         <!-- <module>archetypes</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>catalog</module>
-        <!-- <module>camel-dependencies</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-dependencies</module>
         <module>dsl</module>
         <!-- <module>tests</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>docs</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->

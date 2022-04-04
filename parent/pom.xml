@@ -2099,7 +2099,7 @@
 			<dependency>
 				<groupId>org.apache.camel</groupId>
 				<artifactId>camel-paho-mqtt5</artifactId>
-				<version>${camel-community.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.camel</groupId>
