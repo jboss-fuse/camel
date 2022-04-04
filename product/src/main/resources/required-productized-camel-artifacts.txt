@@ -22,6 +22,7 @@ camel-core-engine
 camel-core-languages
 camel-core-processor
 camel-cron
+camel-dependencies-generator
 camel-direct
 camel-endpointdsl
 camel-fhir
@@ -59,6 +60,7 @@ camel-mongodb
 camel-netty
 camel-openapi-java
 camel-paho
+camel-paho-mqtt5
 camel-platform-http-vertx
 camel-quartz
 camel-rest

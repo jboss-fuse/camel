@@ -254,7 +254,7 @@
         <!-- <module>camel-opentelemetry</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-optaplanner</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-paho</module>
-        <!-- <module>camel-paho-mqtt5</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-paho-mqtt5</module>
         <!-- <module>camel-pdf</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-pg-replication-slot</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-pgevent</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
