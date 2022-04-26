@@ -476,11 +476,7 @@ public class UndertowEndpoint extends DefaultEndpoint implements AsyncEndpoint, 
         // create options map
         if (options != null && !options.isEmpty()) {
 
-            // favor to use the classloader that loaded the user application
-            ClassLoader cl = getComponent().getCamelContext().getApplicationContextClassLoader();
-            if (cl == null) {
-                cl = Options.class.getClassLoader();
-            }
+            ClassLoader cl = Options.class.getClassLoader();
 
             OptionMap.Builder builder = OptionMap.builder();
             for (Map.Entry<String, Object> entry : options.entrySet()) {
