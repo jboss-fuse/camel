@@ -285,7 +285,7 @@
         <javax-activation-version-range>[0,2)</javax-activation-version-range>
         <javax-activation-version>1.2.0</javax-activation-version>
         <javax-annotation-api-version>1.3.2</javax-annotation-api-version>
-        <jakarta-mail-version>1.6.6</jakarta-mail-version>
+        <jakarta-mail-version>1.6.7</jakarta-mail-version>
         <javax-servlet-api-version>3.1.0</javax-servlet-api-version>
         <jakarta-api-version>2.1.5</jakarta-api-version>
         <jakarta.el-version>3.0.3</jakarta.el-version>
@@ -334,7 +334,7 @@
         <jsendnsca-version>2.1.1</jsendnsca-version>
         <jslt-version>0.1.11</jslt-version>
         <jsmpp-version>2.3.11</jsmpp-version>
-        <jsch-version>0.1.55</jsch-version>
+        <jsch-version>0.2.0</jsch-version>
         <json-api>1.0</json-api>
         <jsonassert-version>1.5.0</jsonassert-version>
         <json-path-version>2.6.0</json-path-version>
@@ -519,7 +519,7 @@
         <sql-maven-plugin-version>1.5</sql-maven-plugin-version>
         <squareup-okhttp-version>3.14.7</squareup-okhttp-version>
         <squareup-okio-version>1.17.2</squareup-okio-version>
-        <sshd-version>2.7.0</sshd-version>
+        <sshd-version>2.8.0</sshd-version>
         <stompjms-version>1.19</stompjms-version>
         <swagger-java-version>1.6.2</swagger-java-version>
         <swagger-openapi3-version>2.1.11</swagger-openapi3-version>
