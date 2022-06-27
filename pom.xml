@@ -142,6 +142,8 @@
         <groovy-version>3.0.11</groovy-version>
 
         <camel.javadoc.offline>false</camel.javadoc.offline>
+        <camel-community.version>3.14.2</camel-community.version>
+        <cq-plugin.version>2.32.1-SNAPSHOT</cq-plugin.version>
     </properties>
 
     <!-- Comment out the snapshot repositories as we don't need them now -->
@@ -444,6 +446,30 @@
                         <mavenOpts>-Xmx64m -XshowSettings</mavenOpts>
                         <showVersion>true</showVersion>
                     </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.l2x6.cq</groupId>
+                    <artifactId>cq-camel-prod-maven-plugin</artifactId>
+                    <version>${cq-plugin.version}</version>
+                    <configuration>
+                        <requiredProductizedCamelArtifacts>${maven.multiModuleProjectDirectory}/product/src/main/resources/required-productized-camel-artifacts.txt</requiredProductizedCamelArtifacts>
+                        <simpleElementWhitespace>SPACE</simpleElementWhitespace>
+                        <additionalProductizedArtifactIds>
+                            <additionalProductizedArtifactId>camel</additionalProductizedArtifactId>
+                            <additionalProductizedArtifactId>camel-bom</additionalProductizedArtifactId>
+                            <additionalProductizedArtifactId>camel-core</additionalProductizedArtifactId>
+                            <additionalProductizedArtifactId>camel-dependencies</additionalProductizedArtifactId>
+                            <additionalProductizedArtifactId>camel-parent</additionalProductizedArtifactId>
+                        </additionalProductizedArtifactIds>
+                    </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.apache.camel</groupId>
+                            <artifactId>camel-package-maven-plugin</artifactId>
+                            <version>${camel-community.version}</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
 
             </plugins>
