@@ -235,7 +235,7 @@
         <hapi-fhir-version>4.1.0</hapi-fhir-version>
         <hawtbuf-version>1.11</hawtbuf-version>
         <hawtdispatch-version>1.22</hawtdispatch-version>
-        <hazelcast-version>4.2.2</hazelcast-version>
+        <hazelcast-version>5.1.2</hazelcast-version>
         <hbase-version>2.3.1</hbase-version>
         <hdrhistrogram-version>2.1.11</hdrhistrogram-version>
         <hibernate-validator-version>6.2.0.Final</hibernate-validator-version>
@@ -309,7 +309,7 @@
         <jedis-client-version>3.7.0</jedis-client-version>
         <jersey-version>2.35</jersey-version>
         <jetcd-version>0.5.10</jetcd-version>
-        <jetty9-version>9.4.43.v20210629</jetty9-version>
+        <jetty9-version>9.4.48.v20220622</jetty9-version>
         <jetty-version>${jetty9-version}</jetty-version>
         <jetty-plugin-version>${jetty-version}</jetty-plugin-version>
         <jetty-runner-groupId>org.eclipse.jetty</jetty-runner-groupId>
@@ -351,7 +351,7 @@
         <jython-version>2.5.3</jython-version>
         <jython-standalone-version>2.5.3</jython-standalone-version>
         <jzlib-version>1.1.3</jzlib-version>
-        <kafka-version>2.8.1</kafka-version>
+        <kafka-version>3.1.1</kafka-version>
         <kotlin-version>1.5.31</kotlin-version>
         <kubernetes-client-version>5.10.1</kubernetes-client-version>
         <kubernetes-model-version>5.10.1</kubernetes-model-version>
@@ -394,7 +394,7 @@
         <maven-surefire-report-plugin-version>3.0.0-M4</maven-surefire-report-plugin-version>
         <maven-war-plugin-version>3.3.1</maven-war-plugin-version>
         <metrics-version>4.2.3</metrics-version>
-        <micrometer-version>1.7.6</micrometer-version>
+        <micrometer-version>1.9.1</micrometer-version>
         <microprofile-config-version>2.0</microprofile-config-version>
         <microprofile-metrics-version>3.0</microprofile-metrics-version>
         <microprofile-health-version>3.1</microprofile-health-version>
@@ -419,7 +419,7 @@
         <nessus-weka-version>1.0.1</nessus-weka-version>
         <nsq-client-version>1.0.0.RC4</nsq-client-version>
         <neoscada-version>0.4.0</neoscada-version>
-        <netty-version>4.1.70.Final</netty-version>
+        <netty-version>4.1.78.Final</netty-version>
         <netty-reactive-streams-version>2.0.5</netty-reactive-streams-version>
         <networknt-json-schema-validator-version>1.0.64</networknt-json-schema-validator-version>
         <nimbus-jose-jwt>8.9</nimbus-jose-jwt>
@@ -500,21 +500,21 @@
         <snakeyaml-engine-version>2.3</snakeyaml-engine-version>
         <snmp4j-version>2.6.3_1</snmp4j-version>
         <!-- solr version aligned with lucene -->
-        <solr-version>8.11.1</solr-version>
+        <solr-version>8.11.2</solr-version>
         <solr-version-range>[8,9)</solr-version-range>
         <solr-zookeeper-version>3.6.2</solr-zookeeper-version>
         <spark-version>3.1.2</spark-version>
         <splunk-version>1.6.5.0_1</splunk-version>
         <spock-version>2.0-M4-groovy-3.0</spock-version>
-        <spring-batch-version>4.3.4</spring-batch-version>
+        <spring-batch-version>4.3.6</spring-batch-version>
         <spring-data-redis-version>2.5.6</spring-data-redis-version>
-        <spring-integration-version>5.5.6</spring-integration-version>
-        <spring-ldap-version>2.3.6.RELEASE</spring-ldap-version>
+        <spring-integration-version>5.5.13</spring-integration-version>
+        <spring-ldap-version>2.4.1</spring-ldap-version>
         <spring-version-range>[5,6)</spring-version-range>
         <spring-version>${spring5-version}</spring-version>
-        <spring5-version>5.3.18</spring5-version>
+        <spring5-version>5.3.21</spring5-version>
         <spring-rabbitmq-version>2.4.0</spring-rabbitmq-version>
-        <spring-security-version>5.6.2</spring-security-version>
+        <spring-security-version>5.7.2</spring-security-version>
         <spring-ws-version>3.1.1</spring-ws-version>
         <sql-maven-plugin-version>1.5</sql-maven-plugin-version>
         <squareup-okhttp-version>3.14.7</squareup-okhttp-version>
@@ -534,7 +534,7 @@
         <tika-version>1.27</tika-version>
         <twilio-version>7.55.3</twilio-version>
         <twitter4j-version>4.0.7</twitter4j-version>
-        <undertow-version>2.2.10.Final</undertow-version>
+        <undertow-version>2.2.18.Final</undertow-version>
         <univocity-parsers-version>2.9.1</univocity-parsers-version>
         <validation-api-version>2.0.1.Final</validation-api-version>
         <vavr-version>0.10.2</vavr-version>
