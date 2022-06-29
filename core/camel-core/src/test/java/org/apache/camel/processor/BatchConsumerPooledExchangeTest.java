@@ -16,6 +16,7 @@
  */
 package org.apache.camel.processor;
 
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -29,12 +30,14 @@ import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.impl.engine.PooledExchangeFactory;
 import org.apache.camel.impl.engine.PooledProcessorExchangeFactory;
 import org.apache.camel.spi.PooledObjectFactory;
+import org.awaitility.Awaitility;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 
-public class PooledExchangeTest extends ContextTestSupport {
+public class BatchConsumerPooledExchangeTest extends ContextTestSupport {
 
     private final AtomicInteger counter = new AtomicInteger();
     private final AtomicReference<Exchange> ref = new AtomicReference<>();
@@ -42,6 +45,7 @@ public class PooledExchangeTest extends ContextTestSupport {
     @Override
     protected CamelContext createCamelContext() throws Exception {
         ExtendedCamelContext ecc = (ExtendedCamelContext) super.createCamelContext();
+
         ecc.setExchangeFactory(new PooledExchangeFactory());
         ecc.setProcessorExchangeFactory(new PooledProcessorExchangeFactory());
         ecc.getExchangeFactory().setStatisticsEnabled(true);
@@ -50,8 +54,17 @@ public class PooledExchangeTest extends ContextTestSupport {
         return ecc;
     }
 
+    @Override
+    @BeforeEach
+    public void setUp() throws Exception {
+        super.setUp();
+        template.sendBodyAndHeader(fileUri(), "aaa", Exchange.FILE_NAME, "aaa.txt");
+        template.sendBodyAndHeader(fileUri(), "bbb", Exchange.FILE_NAME, "bbb.txt");
+        template.sendBodyAndHeader(fileUri(), "ccc", Exchange.FILE_NAME, "ccc.txt");
+    }
+
     @Test
-    public void testSameExchange() throws Exception {
+    public void testNotSameExchange() throws Exception {
         MockEndpoint mock = getMockEndpoint("mock:result");
         mock.expectedMessageCount(3);
         mock.expectedPropertyValuesReceivedInAnyOrder("myprop", 1, 3, 5);
@@ -64,12 +77,14 @@ public class PooledExchangeTest extends ContextTestSupport {
 
         assertMockEndpointsSatisfied();
 
-        PooledObjectFactory.Statistics stat
-                = context.adapt(ExtendedCamelContext.class).getExchangeFactoryManager().getStatistics();
-        assertEquals(1, stat.getCreatedCounter());
-        assertEquals(2, stat.getAcquiredCounter());
-        assertEquals(3, stat.getReleasedCounter());
-        assertEquals(0, stat.getDiscardedCounter());
+        Awaitility.waitAtMost(2, TimeUnit.SECONDS).untilAsserted(() -> {
+            PooledObjectFactory.Statistics stat
+                    = context.adapt(ExtendedCamelContext.class).getExchangeFactoryManager().getStatistics();
+            assertEquals(1, stat.getCreatedCounter());
+            assertEquals(2, stat.getAcquiredCounter());
+            assertEquals(3, stat.getReleasedCounter());
+            assertEquals(0, stat.getDiscardedCounter());
+        });
     }
 
     @Override
@@ -77,7 +92,8 @@ public class PooledExchangeTest extends ContextTestSupport {
         return new RouteBuilder() {
             @Override
             public void configure() throws Exception {
-                from("timer:foo?period=1&delay=1&repeatCount=3").noAutoStartup()
+                // maxMessagesPerPoll=1 to force polling 3 times to use pooled exchanges
+                from(fileUri("?initialDelay=0&delay=10&maxMessagesPerPoll=1")).noAutoStartup()
                         .setProperty("myprop", counter::incrementAndGet)
                         .setHeader("myheader", counter::incrementAndGet)
                         .process(new Processor() {
