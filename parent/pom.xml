@@ -1193,13 +1193,38 @@
 			</dependency>
 			<dependency>
 				<groupId>org.apache.camel</groupId>
+				<artifactId>camel-cxf-rest</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.camel</groupId>
+				<artifactId>camel-cxf-soap</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.camel</groupId>
+				<artifactId>camel-cxf-spring-rest</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.camel</groupId>
+				<artifactId>camel-cxf-spring-soap</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.camel</groupId>
+				<artifactId>camel-cxf-spring-transport</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.camel</groupId>
 				<artifactId>camel-cxf-transport</artifactId>
-				<version>${camel-community.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.camel</groupId>
 				<artifactId>camel-cxf</artifactId>
-				<version>${camel-community.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.camel</groupId>
@@ -2766,6 +2791,16 @@
 				<artifactId>camel-zookeeper</artifactId>
 				<version>${camel-community.version}</version>
 			</dependency>
+			<dependency>
+                        	<groupId>org.apache.camel</groupId>
+                        	<artifactId>camel-cxf-spring-common</artifactId>
+                                <version>${project.version}</version>
+                	</dependency>
+			<dependency>
+                                <groupId>org.apache.camel</groupId>
+                        	<artifactId>camel-cxf-common</artifactId>
+                                <version>${project.version}</version>
+                	</dependency>
 			<!-- camel components: END -->
 
 			<!-- camel dsl -->

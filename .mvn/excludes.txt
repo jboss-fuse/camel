@@ -79,8 +79,6 @@
 :camel-csimple-joor
 :camel-csimple-maven-plugin
 :camel-csv
-:camel-cxf
-:camel-cxf-transport
 :camel-datasonnet
 :camel-debezium-common
 :camel-debezium-common-parent

@@ -3370,13 +3370,13 @@ public class StaticEndpointBuilders {
         return org.apache.camel.builder.endpoint.dsl.DigitalSignatureEndpointBuilderFactory.endpointBuilder(componentName, path);
     }
     /**
-     * CXF (camel-cxf)
+     * CXF (camel-cxf-soap)
      * Expose SOAP WebServices using Apache CXF or connect to external
      * WebServices using CXF WS client.
      * 
      * Category: soap,webservice
      * Since: 1.0
-     * Maven coordinates: org.apache.camel:camel-cxf
+     * Maven coordinates: org.apache.camel:camel-cxf-soap
      * 
      * Syntax: <code>cxf:beanId:address</code>
      * 
@@ -3394,13 +3394,13 @@ public class StaticEndpointBuilders {
         return org.apache.camel.builder.endpoint.dsl.CxfEndpointBuilderFactory.endpointBuilder("cxf", path);
     }
     /**
-     * CXF (camel-cxf)
+     * CXF (camel-cxf-soap)
      * Expose SOAP WebServices using Apache CXF or connect to external
      * WebServices using CXF WS client.
      * 
      * Category: soap,webservice
      * Since: 1.0
-     * Maven coordinates: org.apache.camel:camel-cxf
+     * Maven coordinates: org.apache.camel:camel-cxf-soap
      * 
      * Syntax: <code>cxf:beanId:address</code>
      * 
@@ -3421,13 +3421,13 @@ public class StaticEndpointBuilders {
         return org.apache.camel.builder.endpoint.dsl.CxfEndpointBuilderFactory.endpointBuilder(componentName, path);
     }
     /**
-     * CXF-RS (camel-cxf)
+     * CXF-RS (camel-cxf-rest)
      * Expose JAX-RS REST services using Apache CXF or connect to external REST
      * services using CXF REST client.
      * 
      * Category: rest
      * Since: 2.0
-     * Maven coordinates: org.apache.camel:camel-cxf
+     * Maven coordinates: org.apache.camel:camel-cxf-rest
      * 
      * Syntax: <code>cxfrs:beanId:address</code>
      * 
@@ -3446,13 +3446,13 @@ public class StaticEndpointBuilders {
         return org.apache.camel.builder.endpoint.dsl.CxfRsEndpointBuilderFactory.endpointBuilder("cxfrs", path);
     }
     /**
-     * CXF-RS (camel-cxf)
+     * CXF-RS (camel-cxf-rest)
      * Expose JAX-RS REST services using Apache CXF or connect to external REST
      * services using CXF REST client.
      * 
      * Category: rest
      * Since: 2.0
-     * Maven coordinates: org.apache.camel:camel-cxf
+     * Maven coordinates: org.apache.camel:camel-cxf-rest
      * 
      * Syntax: <code>cxfrs:beanId:address</code>
      * 

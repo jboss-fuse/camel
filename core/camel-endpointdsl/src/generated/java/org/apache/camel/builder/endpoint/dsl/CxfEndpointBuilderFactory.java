@@ -48,8 +48,7 @@ public interface CxfEndpointBuilderFactory {
          * The data type messages supported by the CXF endpoint.
          * 
          * The option is a:
-         * &lt;code&gt;org.apache.camel.component.cxf.DataFormat&lt;/code&gt;
-         * type.
+         * &lt;code&gt;org.apache.camel.component.cxf.common.DataFormat&lt;/code&gt; type.
          * 
          * Default: POJO
          * Group: common
@@ -65,8 +64,7 @@ public interface CxfEndpointBuilderFactory {
          * The data type messages supported by the CXF endpoint.
          * 
          * The option will be converted to a
-         * &lt;code&gt;org.apache.camel.component.cxf.DataFormat&lt;/code&gt;
-         * type.
+         * &lt;code&gt;org.apache.camel.component.cxf.common.DataFormat&lt;/code&gt; type.
          * 
          * Default: POJO
          * Group: common
@@ -588,8 +586,7 @@ public interface CxfEndpointBuilderFactory {
          * Message and CXF Message.
          * 
          * The option is a:
-         * &lt;code&gt;org.apache.camel.component.cxf.CxfBinding&lt;/code&gt;
-         * type.
+         * &lt;code&gt;org.apache.camel.component.cxf.common.CxfBinding&lt;/code&gt; type.
          * 
          * Group: advanced
          * 
@@ -605,8 +602,7 @@ public interface CxfEndpointBuilderFactory {
          * Message and CXF Message.
          * 
          * The option will be converted to a
-         * &lt;code&gt;org.apache.camel.component.cxf.CxfBinding&lt;/code&gt;
-         * type.
+         * &lt;code&gt;org.apache.camel.component.cxf.common.CxfBinding&lt;/code&gt; type.
          * 
          * Group: advanced
          * 
@@ -625,8 +621,7 @@ public interface CxfEndpointBuilderFactory {
          * method of CxfEndpointConfigurer.
          * 
          * The option is a:
-         * &lt;code&gt;org.apache.camel.component.cxf.CxfConfigurer&lt;/code&gt;
-         * type.
+         * &lt;code&gt;org.apache.camel.component.cxf.jaxws.CxfConfigurer&lt;/code&gt; type.
          * 
          * Group: advanced
          * 
@@ -646,8 +641,7 @@ public interface CxfEndpointBuilderFactory {
          * method of CxfEndpointConfigurer.
          * 
          * The option will be converted to a
-         * &lt;code&gt;org.apache.camel.component.cxf.CxfConfigurer&lt;/code&gt;
-         * type.
+         * &lt;code&gt;org.apache.camel.component.cxf.jaxws.CxfConfigurer&lt;/code&gt; type.
          * 
          * Group: advanced
          * 
@@ -889,8 +883,7 @@ public interface CxfEndpointBuilderFactory {
          * The data type messages supported by the CXF endpoint.
          * 
          * The option is a:
-         * &lt;code&gt;org.apache.camel.component.cxf.DataFormat&lt;/code&gt;
-         * type.
+         * &lt;code&gt;org.apache.camel.component.cxf.common.DataFormat&lt;/code&gt; type.
          * 
          * Default: POJO
          * Group: common
@@ -906,8 +899,7 @@ public interface CxfEndpointBuilderFactory {
          * The data type messages supported by the CXF endpoint.
          * 
          * The option will be converted to a
-         * &lt;code&gt;org.apache.camel.component.cxf.DataFormat&lt;/code&gt;
-         * type.
+         * &lt;code&gt;org.apache.camel.component.cxf.common.DataFormat&lt;/code&gt; type.
          * 
          * Default: POJO
          * Group: common
@@ -1557,8 +1549,7 @@ public interface CxfEndpointBuilderFactory {
          * Message and CXF Message.
          * 
          * The option is a:
-         * &lt;code&gt;org.apache.camel.component.cxf.CxfBinding&lt;/code&gt;
-         * type.
+         * &lt;code&gt;org.apache.camel.component.cxf.common.CxfBinding&lt;/code&gt; type.
          * 
          * Group: advanced
          * 
@@ -1574,8 +1565,7 @@ public interface CxfEndpointBuilderFactory {
          * Message and CXF Message.
          * 
          * The option will be converted to a
-         * &lt;code&gt;org.apache.camel.component.cxf.CxfBinding&lt;/code&gt;
-         * type.
+         * &lt;code&gt;org.apache.camel.component.cxf.common.CxfBinding&lt;/code&gt; type.
          * 
          * Group: advanced
          * 
@@ -1594,8 +1584,7 @@ public interface CxfEndpointBuilderFactory {
          * method of CxfEndpointConfigurer.
          * 
          * The option is a:
-         * &lt;code&gt;org.apache.camel.component.cxf.CxfConfigurer&lt;/code&gt;
-         * type.
+         * &lt;code&gt;org.apache.camel.component.cxf.jaxws.CxfConfigurer&lt;/code&gt; type.
          * 
          * Group: advanced
          * 
@@ -1615,8 +1604,7 @@ public interface CxfEndpointBuilderFactory {
          * method of CxfEndpointConfigurer.
          * 
          * The option will be converted to a
-         * &lt;code&gt;org.apache.camel.component.cxf.CxfConfigurer&lt;/code&gt;
-         * type.
+         * &lt;code&gt;org.apache.camel.component.cxf.jaxws.CxfConfigurer&lt;/code&gt; type.
          * 
          * Group: advanced
          * 
@@ -1859,8 +1847,7 @@ public interface CxfEndpointBuilderFactory {
          * The data type messages supported by the CXF endpoint.
          * 
          * The option is a:
-         * &lt;code&gt;org.apache.camel.component.cxf.DataFormat&lt;/code&gt;
-         * type.
+         * &lt;code&gt;org.apache.camel.component.cxf.common.DataFormat&lt;/code&gt; type.
          * 
          * Default: POJO
          * Group: common
@@ -1876,8 +1863,7 @@ public interface CxfEndpointBuilderFactory {
          * The data type messages supported by the CXF endpoint.
          * 
          * The option will be converted to a
-         * &lt;code&gt;org.apache.camel.component.cxf.DataFormat&lt;/code&gt;
-         * type.
+         * &lt;code&gt;org.apache.camel.component.cxf.common.DataFormat&lt;/code&gt; type.
          * 
          * Default: POJO
          * Group: common
@@ -2279,8 +2265,7 @@ public interface CxfEndpointBuilderFactory {
          * Message and CXF Message.
          * 
          * The option is a:
-         * &lt;code&gt;org.apache.camel.component.cxf.CxfBinding&lt;/code&gt;
-         * type.
+         * &lt;code&gt;org.apache.camel.component.cxf.common.CxfBinding&lt;/code&gt; type.
          * 
          * Group: advanced
          * 
@@ -2296,8 +2281,7 @@ public interface CxfEndpointBuilderFactory {
          * Message and CXF Message.
          * 
          * The option will be converted to a
-         * &lt;code&gt;org.apache.camel.component.cxf.CxfBinding&lt;/code&gt;
-         * type.
+         * &lt;code&gt;org.apache.camel.component.cxf.common.CxfBinding&lt;/code&gt; type.
          * 
          * Group: advanced
          * 
@@ -2316,8 +2300,7 @@ public interface CxfEndpointBuilderFactory {
          * method of CxfEndpointConfigurer.
          * 
          * The option is a:
-         * &lt;code&gt;org.apache.camel.component.cxf.CxfConfigurer&lt;/code&gt;
-         * type.
+         * &lt;code&gt;org.apache.camel.component.cxf.jaxws.CxfConfigurer&lt;/code&gt; type.
          * 
          * Group: advanced
          * 
@@ -2336,8 +2319,7 @@ public interface CxfEndpointBuilderFactory {
          * method of CxfEndpointConfigurer.
          * 
          * The option will be converted to a
-         * &lt;code&gt;org.apache.camel.component.cxf.CxfConfigurer&lt;/code&gt;
-         * type.
+         * &lt;code&gt;org.apache.camel.component.cxf.jaxws.CxfConfigurer&lt;/code&gt; type.
          * 
          * Group: advanced
          * 
@@ -2562,8 +2544,8 @@ public interface CxfEndpointBuilderFactory {
     }
 
     /**
-     * Proxy enum for <code>org.apache.camel.component.cxf.DataFormat</code>
-     * enum.
+     * Proxy enum for
+     * <code>org.apache.camel.component.cxf.common.DataFormat</code> enum.
      */
     enum DataFormat {
         PAYLOAD,
@@ -2575,13 +2557,13 @@ public interface CxfEndpointBuilderFactory {
 
     public interface CxfBuilders {
         /**
-         * CXF (camel-cxf)
+         * CXF (camel-cxf-soap)
          * Expose SOAP WebServices using Apache CXF or connect to external
          * WebServices using CXF WS client.
          * 
          * Category: soap,webservice
          * Since: 1.0
-         * Maven coordinates: org.apache.camel:camel-cxf
+         * Maven coordinates: org.apache.camel:camel-cxf-soap
          * 
          * Syntax: <code>cxf:beanId:address</code>
          * 
@@ -2599,13 +2581,13 @@ public interface CxfEndpointBuilderFactory {
             return CxfEndpointBuilderFactory.endpointBuilder("cxf", path);
         }
         /**
-         * CXF (camel-cxf)
+         * CXF (camel-cxf-soap)
          * Expose SOAP WebServices using Apache CXF or connect to external
          * WebServices using CXF WS client.
          * 
          * Category: soap,webservice
          * Since: 1.0
-         * Maven coordinates: org.apache.camel:camel-cxf
+         * Maven coordinates: org.apache.camel:camel-cxf-soap
          * 
          * Syntax: <code>cxf:beanId:address</code>
          * 
