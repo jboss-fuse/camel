@@ -56,8 +56,6 @@ public final class EndpointConsumerDeserializersResolver implements YamlDeserial
             case "couchdb":
             case "cql":
             case "cron":
-            case "cxf":
-            case "cxfrs":
             case "dataset":
             case "debezium-mongodb":
             case "debezium-mysql":
