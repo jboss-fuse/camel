@@ -34,7 +34,7 @@
 
     <modules>
         <module>camel-servicenow-component</module>
-        <module>camel-servicenow-maven-plugin</module>
+        <!--<module>camel-servicenow-maven-plugin</module>-->
     </modules>
 
     <properties>
