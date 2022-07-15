@@ -562,6 +562,7 @@ public class PrepareCatalogMojo extends AbstractMojo {
                 case "camel-core-model":
                 case "camel-core-xml":
                 case "camel-box":
+                case "camel-cxf":
                 case "camel-http-base":
                 case "camel-http-common":
                 case "camel-jetty-common":
