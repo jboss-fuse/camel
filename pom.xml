@@ -143,7 +143,7 @@
 
         <camel.javadoc.offline>false</camel.javadoc.offline>
         <camel-community.version>3.18.0</camel-community.version>
-        <cq-plugin.version>2.32.1-SNAPSHOT</cq-plugin.version>
+        <cq-plugin.version>3.0.0</cq-plugin.version>
     </properties>
 
     <!-- Comment out the snapshot repositories as we don't need them now -->
