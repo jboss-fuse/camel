@@ -92,6 +92,9 @@ public class PrepareComponentMojo extends AbstractGeneratorMojo {
     @Parameter(defaultValue = "${project.basedir}/src/generated/resources")
     protected File schemaOutDir;
 
+    @Parameter(property = "camel.skip.parent.sync", defaultValue = "false")
+    protected boolean skipParentSync;
+
     /**
      * The project build directory
      */
@@ -193,6 +196,9 @@ public class PrepareComponentMojo extends AbstractGeneratorMojo {
     }
 
     private void syncParentPomFile() throws MojoExecutionException {
+        if (skipParentSync) {
+            return;
+        }
         Path root = findCamelDirectory(project.getBasedir(), "parent").toPath();
         Path pomFile = root.resolve("pom.xml");
 
