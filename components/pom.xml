@@ -386,6 +386,7 @@
                 <configuration>
                     <!-- set to true to make build fail fast if missing documentation in docs files -->
                     <failFast>false</failFast>
+                    <camel.skip.parent.sync>false</camel.skip.parent.sync>
                 </configuration>
                 <executions>
                     <execution>
