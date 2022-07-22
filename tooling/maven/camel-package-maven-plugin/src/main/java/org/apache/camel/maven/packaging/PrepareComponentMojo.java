@@ -163,7 +163,7 @@ public class PrepareComponentMojo extends AbstractGeneratorMojo {
         boolean core = project.getParentArtifact() != null && project.getParentArtifact().getArtifactId().equals("core");
         if (!core && count > 0 && (val == null || val.equals("true"))) {
             // Update all component pom sync point
-            syncParentPomFile();
+            //syncParentPomFile();
             syncAllComponentsPomFile();
         }
     }

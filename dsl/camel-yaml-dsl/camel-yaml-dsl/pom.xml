@@ -271,6 +271,7 @@
             <plugin>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-package-maven-plugin</artifactId>
+                <version>${camel-community.version}</version>
                 <executions>
                     <execution>
                         <id>generate-spi</id>
