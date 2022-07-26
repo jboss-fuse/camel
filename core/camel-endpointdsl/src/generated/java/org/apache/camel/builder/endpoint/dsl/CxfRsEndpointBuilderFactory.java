@@ -2254,13 +2254,13 @@ public interface CxfRsEndpointBuilderFactory {
 
     public interface CxfRsBuilders {
         /**
-         * CXF-RS (camel-cxf)
+         * CXF-RS (camel-cxf-rest)
          * Expose JAX-RS REST services using Apache CXF or connect to external
          * REST services using CXF REST client.
          * 
          * Category: rest
          * Since: 2.0
-         * Maven coordinates: org.apache.camel:camel-cxf
+         * Maven coordinates: org.apache.camel:camel-cxf-rest
          * 
          * Syntax: <code>cxfrs:beanId:address</code>
          * 
@@ -2278,13 +2278,13 @@ public interface CxfRsEndpointBuilderFactory {
             return CxfRsEndpointBuilderFactory.endpointBuilder("cxfrs", path);
         }
         /**
-         * CXF-RS (camel-cxf)
+         * CXF-RS (camel-cxf-rest)
          * Expose JAX-RS REST services using Apache CXF or connect to external
          * REST services using CXF REST client.
          * 
          * Category: rest
          * Since: 2.0
-         * Maven coordinates: org.apache.camel:camel-cxf
+         * Maven coordinates: org.apache.camel:camel-cxf-rest
          * 
          * Syntax: <code>cxfrs:beanId:address</code>
          * 

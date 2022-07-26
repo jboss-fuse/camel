@@ -72,8 +72,7 @@
         <!-- <module>camel-jetty-common</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-jetty</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-undertow</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-cxf</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-cxf-transport</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-cxf</module>
         <module>camel-jms</module>
         <module>camel-master</module>
         <!-- <module>camel-service</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->

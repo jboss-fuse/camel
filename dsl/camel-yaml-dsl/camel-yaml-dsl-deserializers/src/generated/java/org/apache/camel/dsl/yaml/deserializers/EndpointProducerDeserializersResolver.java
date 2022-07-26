@@ -87,8 +87,6 @@ public final class EndpointProducerDeserializersResolver implements YamlDeserial
             case "couchdb":
             case "cql":
             case "crypto":
-            case "cxf":
-            case "cxfrs":
             case "dataformat":
             case "dataset":
             case "dataset-test":
