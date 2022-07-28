@@ -220,7 +220,7 @@
         <!-- <module>camel-ldif</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-leveldb-legacy</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-leveldb</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-lra</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-lra</module>
         <!-- <module>camel-lucene</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-lumberjack</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-lzf</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->

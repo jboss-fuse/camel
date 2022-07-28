@@ -56,6 +56,7 @@ camel-kafka
 camel-kamelet
 camel-kubernetes
 camel-log
+camel-lra
 camel-mail
 camel-main
 camel-master
@@ -73,6 +74,7 @@ camel-paho-mqtt5
 camel-platform-http-vertx
 camel-quartz
 camel-rest
+camel-saga
 camel-salesforce
 camel-saxon
 camel-seda
