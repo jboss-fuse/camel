@@ -201,7 +201,6 @@
 :camel-ldif
 :camel-leveldb
 :camel-leveldb-legacy
-:camel-lra
 :camel-lucene
 :camel-lumberjack
 :camel-lzf
