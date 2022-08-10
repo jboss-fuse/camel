@@ -151,23 +151,24 @@ public class JpaProducer extends DefaultProducer {
     }
 
     public void process(final Exchange exchange) {
-        // resolve the entity manager before evaluating the expression
-        final EntityManager entityManager = getTargetEntityManager(exchange, entityManagerFactory,
-                getEndpoint().isUsePassedInEntityManager(), getEndpoint().isSharedEntityManager(), true);
-
         if (getQueryFactory() != null) {
-            processQuery(exchange, entityManager);
+            processQuery(exchange);
         } else {
-            processEntity(exchange, entityManager);
+            processEntity(exchange);
         }
     }
 
-    protected void processQuery(Exchange exchange, EntityManager entityManager) {
-        Query query = getQueryFactory().createQuery(entityManager);
-        configureParameters(query, exchange);
+    protected void processQuery(Exchange exchange ) {
 
         transactionTemplate.execute(new TransactionCallback<Object>() {
             public Object doInTransaction(TransactionStatus status) {
+                // resolve the entity manager before evaluating the expression
+                final EntityManager entityManager = getTargetEntityManager(exchange, entityManagerFactory,
+                        getEndpoint().isUsePassedInEntityManager(), getEndpoint().isSharedEntityManager(), true);
+
+                Query query = getQueryFactory().createQuery(entityManager);
+                configureParameters(query, exchange);
+
                 if (getEndpoint().isJoinTransaction()) {
                     entityManager.joinTransaction();
                 }
@@ -209,11 +210,15 @@ public class JpaProducer extends DefaultProducer {
         }
     }
 
-    protected void processEntity(Exchange exchange, EntityManager entityManager) {
+    protected void processEntity(Exchange exchange) {
         final Object values = expression.evaluate(exchange, Object.class);
 
         if (values != null) {
             transactionTemplate.execute(new TransactionCallback<Object>() {
+                // resolve the entity manager before evaluating the expression
+                final EntityManager entityManager = getTargetEntityManager(exchange, entityManagerFactory,
+                        getEndpoint().isUsePassedInEntityManager(), getEndpoint().isSharedEntityManager(), true);
+
                 public Object doInTransaction(TransactionStatus status) {
                     if (getEndpoint().isJoinTransaction()) {
                         entityManager.joinTransaction();

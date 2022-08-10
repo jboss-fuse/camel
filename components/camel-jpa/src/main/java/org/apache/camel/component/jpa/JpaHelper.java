@@ -20,7 +20,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
 import org.apache.camel.Exchange;
+import org.springframework.orm.jpa.EntityManagerHolder;
 import org.springframework.orm.jpa.SharedEntityManagerCreator;
+import org.springframework.transaction.support.TransactionSynchronizationManager;
 
 /**
  * Helper for JPA.
@@ -53,6 +55,14 @@ public final class JpaHelper {
         if (em == null && exchange != null) {
             em = exchange.getProperty(JpaConstants.ENTITY_MANAGER, EntityManager.class);
         }
+
+        if (em == null && TransactionSynchronizationManager.hasResource(entityManagerFactory)) {
+            EntityManagerHolder emHolder = (EntityManagerHolder) TransactionSynchronizationManager.getResource(entityManagerFactory);
+            if (emHolder != null) {
+                em = emHolder.getEntityManager();
+            }
+        }
+
 
         if (em == null && useSharedEntityManager) {
             em = SharedEntityManagerCreator.createSharedEntityManager(entityManagerFactory);
