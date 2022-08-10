@@ -158,8 +158,7 @@ public class JpaProducer extends DefaultProducer {
         }
     }
 
-    protected void processQuery(Exchange exchange ) {
-
+    protected void processQuery(Exchange exchange) {
         transactionTemplate.execute(new TransactionCallback<Object>() {
             public Object doInTransaction(TransactionStatus status) {
                 // resolve the entity manager before evaluating the expression
