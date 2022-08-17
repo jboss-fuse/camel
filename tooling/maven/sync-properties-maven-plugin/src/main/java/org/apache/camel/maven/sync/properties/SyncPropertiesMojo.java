@@ -29,6 +29,9 @@ import org.apache.camel.tooling.util.FileUtil;
 import org.apache.camel.tooling.util.PackageHelper;
 import org.apache.camel.util.IOHelper;
 import org.apache.camel.util.OrderedProperties;
+import org.apache.maven.artifact.Artifact;
+import org.apache.maven.artifact.DefaultArtifact;
+import org.apache.maven.artifact.handler.DefaultArtifactHandler;
 import org.apache.maven.model.Model;
 import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
 import org.apache.maven.model.io.xpp3.MavenXpp3Writer;
@@ -58,18 +61,25 @@ public class SyncPropertiesMojo extends AbstractMojo {
     @Parameter(defaultValue = "${project}", readonly = true, required = true)
     protected MavenProject project;
 
+    /**
+     * The pom file.
+     */
+    @Parameter(defaultValue = "${basedir}/../../../camel-dependencies/target/camel-dependencies-pom-template.xml")
+    protected File targetPom;
+
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
         File dir = PackageHelper.findCamelDirectory(baseDir, "parent");
         File sourcePom = new File(dir, "pom.xml");
         dir = PackageHelper.findCamelDirectory(baseDir, "camel-dependencies");
-        File targetPom = new File(dir, "pom.xml");
         dir = PackageHelper.findCamelDirectory(baseDir, "etc");
         File licenseHeader = new File(dir, "apache-header.xml");
 
+        String generatedVersion;
+        String artifactId = "camel-dependencies";
+
         try {
             Properties parentProp;
-            String generatedVersion;
 
             if (getLog().isDebugEnabled()) {
                 getLog().debug("Reading source file " + sourcePom.toPath());
@@ -129,6 +139,23 @@ public class SyncPropertiesMojo extends AbstractMojo {
             if (updated) {
                 getLog().info("Updated: " + targetPom);
             }
+
+            // attach the modified pom to the build
+            getLog().info("Attaching BOM artifact ...");
+            getLog().info("Artifact: " + project.getGroupId() + ":" + artifactId + ":" + project.getVersion());
+            DefaultArtifactHandler artifactHandler = new DefaultArtifactHandler("pom");
+            Artifact artifact = new DefaultArtifact(
+                    project.getGroupId(),
+                    artifactId,
+                    project.getVersion(),
+                    "provided",
+                    "pom",
+                    null,
+                    artifactHandler);
+            artifact.setFile(targetPom);
+
+            project.addAttachedArtifact(artifact);
+
             getLog().debug("Finished.");
         } catch (Exception ex) {
             throw new MojoExecutionException("Cannot copy the properties between POMs", ex);
