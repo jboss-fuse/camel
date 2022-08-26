@@ -17,19 +17,16 @@
  * under the License.
  */
 
-def AGENT_LABEL = env.AGENT_LABEL ?: 'ubuntu'
-def JDK_NAME = env.JDK_NAME ?: 'adoptopenjdk_hotspot_8u282'
-
-def MAVEN_PARAMS = "-U -B -e -fae -V -Dnoassembly -Dmaven.compiler.fork=true -Dsurefire.rerunFailingTestsCount=2"
+def MAVEN_PARAMS = '-U -B -e -fae -V -Dnoassembly -Dmaven.compiler.fork=true -Dsurefire.rerunFailingTestsCount=2'
 
 pipeline {
 
     agent {
-        label AGENT_LABEL
+        label 'checkin'
     }
 
     tools {
-        jdk JDK_NAME
+        jdk 'java-11'
     }
 
     environment {
@@ -59,8 +56,11 @@ pipeline {
         }
 
         stage('Build & Deploy') {
+            when {
+                branch 'main'
+            }
             steps {
-                sh "./mvnw $MAVEN_PARAMS -Pdeploy -Dmaven.test.skip.exec=true clean install"
+                sh "./mvnw $MAVEN_PARAMS -Pdeploy -Dmaven.test.skip.exec=true clean deploy"
             }
         }
 
@@ -77,7 +77,7 @@ pipeline {
 
         stage('Checks') {
             steps {
-                sh "./mvnw $MAVEN_PARAMS -pl :camel-buildtools install"
+                // we use community camel-buildtools in the prod branch sh "./mvnw $MAVEN_PARAMS -pl :camel-buildtools install"
                 sh "./mvnw $MAVEN_PARAMS -Psourcecheck -Dcheckstyle.failOnViolation=false checkstyle:check"
             }
         }
@@ -106,4 +106,3 @@ pipeline {
         }
     }
 }
-
