@@ -91,4 +91,5 @@ camel-xml-io-dsl
 camel-xpath
 camel-xslt
 camel-yaml-dsl
+camel-yaml-dsl-maven-plugin
 camel-zipfile
