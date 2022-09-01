@@ -218,6 +218,9 @@ public class PrepareCatalogMojo extends AbstractMojo {
      */
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
+        if (skip) {
+            getLog().info("Skipped as per user request");
+        }
         try {
             allJsonFiles = new TreeSet<>();
             allPropertiesFiles = new TreeSet<>();
