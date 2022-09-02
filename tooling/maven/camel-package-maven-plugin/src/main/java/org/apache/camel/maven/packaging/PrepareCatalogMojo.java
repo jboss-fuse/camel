@@ -184,6 +184,12 @@ public class PrepareCatalogMojo extends AbstractMojo {
     protected File mainDir;
 
     /**
+     * Skip the execution of this mojo
+     */
+    @Parameter(defaultValue = "false", property = "camel.prepare-catalog.skip")
+    private boolean skip;
+
+    /**
      * Maven ProjectHelper.
      */
     @Component
