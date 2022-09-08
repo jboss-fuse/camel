@@ -172,6 +172,23 @@ public final class AvailablePortFinder {
     }
 
     /**
+     * Checks to see if a specific port is available.
+     *
+     * @param port the port to check for availability
+     */
+    public static boolean isAvailable(int port) {
+        try {
+            int probedPort = probePort(port);
+            if (probedPort == port) {
+                return true;
+            }
+        } catch (Throwable e) {
+            /*do nothing*/
+        }
+        return false;
+    }
+
+    /**
      * Probe a port to see if it is free
      *
      * @param  port                  an integer port number to be tested. If port is 0, then the next available port is

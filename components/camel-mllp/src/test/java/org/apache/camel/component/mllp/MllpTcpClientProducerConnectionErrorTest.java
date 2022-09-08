@@ -214,6 +214,11 @@ public class MllpTcpClientProducerConnectionErrorTest extends CamelTestSupport {
 
         mllpServer.shutdown();
 
+        //Be sure that the server is down
+        while (!AvailablePortFinder.isAvailable(mllpServer.getListenPort())) {
+            TimeUnit.SECONDS.sleep(1);
+        }
+
         source.sendBody(Hl7TestMessageGenerator.generateMessage());
 
         assertTrue(done.matches(5, TimeUnit.SECONDS), "Should have completed an exchange");
