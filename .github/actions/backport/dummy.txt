@@ -1,1 +1,0 @@
-This is a dummy textfile so that we create a backport directory to deal with https://issues.redhat.com/browse/NCLSUP-743
