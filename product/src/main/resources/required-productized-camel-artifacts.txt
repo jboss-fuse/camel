@@ -24,7 +24,14 @@ camel-core-engine
 camel-core-languages
 camel-core-processor
 camel-cron
+camel-cxf-common
+camel-cxf-spring-transport
+camel-cxf-rest
+camel-cxf-transport
 camel-cxf-soap
+camel-cxf-spring-common
+camel-cxf-spring-rest
+camel-cxf-spring-soap
 camel-dataset
 camel-dependencies-generator
 camel-direct

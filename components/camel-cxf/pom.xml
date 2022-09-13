@@ -35,12 +35,12 @@
     <modules>
         <module>camel-cxf-common</module>
         <module>camel-cxf-transport</module>
-        <!-- <module>camel-cxf-rest</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-cxf-rest</module>
         <module>camel-cxf-soap</module>
-        <!-- <module>camel-cxf-spring-soap</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-cxf-spring-common</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-cxf-spring-rest</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-cxf-spring-transport</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-cxf-spring-soap</module>
+        <module>camel-cxf-spring-common</module>
+        <module>camel-cxf-spring-rest</module>
+        <module>camel-cxf-spring-transport</module>
     </modules>
 
 
