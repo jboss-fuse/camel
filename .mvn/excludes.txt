@@ -79,11 +79,6 @@
 :camel-csimple-joor
 :camel-csimple-maven-plugin
 :camel-csv
-:camel-cxf-rest
-:camel-cxf-spring-common
-:camel-cxf-spring-rest
-:camel-cxf-spring-soap
-:camel-cxf-spring-transport
 :camel-datasonnet
 :camel-debezium-common
 :camel-debezium-common-parent
