@@ -269,7 +269,6 @@
 :camel-servicenow
 :camel-servicenow-maven-plugin
 :camel-servicenow-parent
-:camel-servlet
 :camel-shiro
 :camel-sip
 :camel-sjms
