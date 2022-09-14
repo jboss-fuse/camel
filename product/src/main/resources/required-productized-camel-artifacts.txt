@@ -78,6 +78,7 @@ camel-saga
 camel-salesforce
 camel-saxon
 camel-seda
+camel-servlet
 camel-slack
 camel-soap
 camel-sql

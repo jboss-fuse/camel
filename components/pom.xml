@@ -285,7 +285,7 @@
         <module>camel-scheduler</module>
         <!-- <module>camel-schematron</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-servicenow</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-servlet</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-servlet</module>
         <!-- <module>camel-shiro</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-sip</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-sjms2</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
