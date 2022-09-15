@@ -85,6 +85,7 @@ camel-salesforce
 camel-saxon
 camel-scheduler
 camel-seda
+camel-servlet
 camel-slack
 camel-soap
 camel-sql
