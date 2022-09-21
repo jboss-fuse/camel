@@ -37,6 +37,7 @@ camel-dataformat
 camel-dataset
 camel-dependencies-generator
 camel-direct
+camel-elasticsearch
 camel-endpointdsl
 camel-fhir
 camel-file
