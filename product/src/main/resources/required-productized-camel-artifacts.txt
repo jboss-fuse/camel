@@ -81,6 +81,7 @@ camel-platform-http-vertx
 camel-quartz
 camel-ref
 camel-rest
+camel-rest-openapi
 camel-salesforce
 camel-saxon
 camel-scheduler
