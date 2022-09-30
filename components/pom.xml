@@ -338,7 +338,7 @@
         <!-- <module>camel-zookeeper-master</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-zookeeper</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- build rest-openapi/rest-swagger at end as it uses all the http based components -->
-        <!-- <module>camel-rest-openapi</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-rest-openapi</module>
         <!-- <module>camel-rest-swagger</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- build jooq last as it cause component builds to be slower afterwards -->
         <!-- <module>camel-jooq</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
