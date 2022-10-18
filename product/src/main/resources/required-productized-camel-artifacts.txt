@@ -32,6 +32,7 @@ camel-cxf-soap
 camel-cxf-spring-common
 camel-cxf-spring-rest
 camel-cxf-spring-soap
+camel-dataformat
 camel-dataset
 camel-dependencies-generator
 camel-direct
