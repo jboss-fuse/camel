@@ -332,7 +332,7 @@
         <!-- <module>camel-xslt-saxon</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-xstream</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-zendesk</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-zip-deflater</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-zip-deflater</module>
         <module>camel-zipfile</module>
         <!-- <module>camel-zipkin</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-zookeeper-master</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
