@@ -17,7 +17,7 @@
  * under the License.
  */
 
-def MAVEN_PARAMS = '-U -B -e -fae -V -Dnoassembly -Dmaven.compiler.fork=true -Dsurefire.rerunFailingTestsCount=2'
+def MAVEN_PARAMS = '-U -B -e -fae -V -Dnoassembly -Dmaven.compiler.fork=true -Dsurefire.rerunFailingTestsCount=2 -Djdk.xml.xpathExprGrpLimit=100 -Djdk.xml.xpathExprOpLimit=2000'
 
 pipeline {
 
