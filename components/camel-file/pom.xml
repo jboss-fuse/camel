@@ -66,8 +66,8 @@
                         </goals>
                         <configuration>
                             <tasks>
-                                <replace token="Private-Package: org.apache.camel.resume" value="Private-Package: !*" dir="target/classes">
-                                    <include name="**/MANIFEST.MF" />
+                                <replace dir="target/classes" token="Private-Package: org.apache.camel.resume" value="Private-Package: !*">
+                                    <include name="**/MANIFEST.MF"/>
                                 </replace>
                             </tasks>
                         </configuration>
