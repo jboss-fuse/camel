@@ -17,6 +17,7 @@ camel-browse
 camel-cassandraql
 camel-catalog
 camel-cloud
+camel-cloudevents
 camel-componentdsl
 camel-controlbus
 camel-core-catalog
