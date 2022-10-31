@@ -110,7 +110,7 @@
         <!-- <module>camel-cdi-jta</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-chatscript</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-chunk</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-cloudevents</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-cloudevents</module>
         <!-- <module>camel-cm-sms</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-cmis</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-coap</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
