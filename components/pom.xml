@@ -220,6 +220,7 @@
         <!-- <module>camel-lumberjack</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-lzf</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-mail</module>
+        <module>camel-mail-microsoft-oauth</module>
         <!-- <module>camel-metrics</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-micrometer</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-microprofile</module>
