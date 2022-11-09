@@ -62,6 +62,8 @@ camel-jsonpath
 camel-jta
 camel-kafka
 camel-kamelet
+camel-knative
+camel-knative-http
 camel-kubernetes
 camel-log
 camel-mail
