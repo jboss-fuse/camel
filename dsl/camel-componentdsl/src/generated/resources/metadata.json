@@ -4185,7 +4185,7 @@
     "supportLevel": "Stable",
     "groupId": "org.apache.camel",
     "artifactId": "camel-knative",
-    "version": "3.18.3",
+    "version": "3.18.3-SNAPSHOT",
     "scheme": "knative",
     "extendsScheme": "",
     "syntax": "knative:type\/typeId",

@@ -1321,17 +1321,17 @@
       <dependency>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-knative</artifactId>
-        <version>3.18.3</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-knative-api</artifactId>
-        <version>3.18.3</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-knative-http</artifactId>
-        <version>3.18.3</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.camel</groupId>

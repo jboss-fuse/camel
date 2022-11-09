@@ -65,7 +65,6 @@
 :camel-cdi-main
 :camel-chatscript
 :camel-chunk
-:camel-cloudevents
 :camel-cm-sms
 :camel-cmis
 :camel-coap
@@ -195,10 +194,6 @@
 :camel-jsonb
 :camel-jt400
 :camel-kamelet-main
-:camel-knative
-:camel-knative-api
-:camel-knative-http
-:camel-knative-parent
 :camel-kotlin-dsl
 :camel-kudu
 :camel-ldap
