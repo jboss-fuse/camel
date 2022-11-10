@@ -1,4 +1,5 @@
 camel-attachments
+camel-amqp
 camel-avro
 camel-aws2-cw
 camel-aws2-ddb
@@ -71,6 +72,7 @@ camel-microprofile-config
 camel-microprofile-fault-tolerance
 camel-microprofile-health
 camel-microprofile-metrics
+camel-minio
 camel-mllp
 camel-mock
 camel-mongodb
@@ -79,6 +81,7 @@ camel-openapi-java
 camel-opentelemetry
 camel-paho
 camel-paho-mqtt5
+camel-platform-http
 camel-platform-http-vertx
 camel-quartz
 camel-ref
@@ -90,6 +93,7 @@ camel-scheduler
 camel-seda
 camel-servlet
 camel-slack
+camel-spring-xml
 camel-soap
 camel-sql
 camel-telegram
