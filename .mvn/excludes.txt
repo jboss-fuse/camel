@@ -4,7 +4,6 @@
 :camel-activemq
 :camel-ahc
 :camel-ahc-ws
-:camel-amqp
 :camel-any23
 :camel-arangodb
 :camel-archetype-api-component
@@ -101,7 +100,6 @@
 :camel-dsl-modeline
 :camel-dynamic-router
 :camel-ehcache
-:camel-eip-documentation-enricher-maven-plugin
 :camel-elasticsearch-rest
 :camel-elytron
 :camel-endpointdsl-support
@@ -208,7 +206,6 @@
 :camel-micrometer
 :camel-milo
 :camel-mina
-:camel-minio
 :camel-mongodb-gridfs
 :camel-mustache
 :camel-mvel
@@ -283,7 +280,6 @@
 :camel-spring-redis
 :camel-spring-security
 :camel-spring-ws
-:camel-spring-xml
 :camel-ssh
 :camel-stax
 :camel-stitch

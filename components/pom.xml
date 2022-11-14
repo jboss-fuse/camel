@@ -61,7 +61,7 @@
         <module>camel-test</module>
         <!-- <module>camel-spring</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-spring-main</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-spring-xml</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-spring-xml</module>
         <!-- <module>camel-groovy</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-attachments</module>
         <module>camel-http-base</module>
@@ -80,7 +80,7 @@
         <!-- <module>camel-activemq</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-ahc-ws</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-ahc</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-amqp</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-amqp</module>
         <!-- <module>camel-any23</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-arangodb</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-as2</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
@@ -224,7 +224,7 @@
         <module>camel-microprofile</module>
         <!-- <module>camel-milo</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-mina</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-minio</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-minio</module>
         <module>camel-mllp</module>
         <!-- <module>camel-mongodb-gridfs</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-mongodb</module>
