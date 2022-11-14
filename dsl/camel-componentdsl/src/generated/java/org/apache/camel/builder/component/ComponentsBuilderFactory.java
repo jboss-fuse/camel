@@ -1283,6 +1283,19 @@ public interface ComponentsBuilderFactory {
         return org.apache.camel.builder.component.dsl.EhcacheComponentBuilderFactory.ehcache();
     }
     /**
+     * Elasticsearch (camel-elasticsearch)
+     * Send requests to ElasticSearch via Java Client API.
+     * 
+     * Category: search,monitoring
+     * Since: 3.18.3
+     * Maven coordinates: org.apache.camel:camel-elasticsearch
+     * 
+     * @return the dsl builder
+     */
+    static org.apache.camel.builder.component.dsl.ElasticsearchComponentBuilderFactory.ElasticsearchComponentBuilder elasticsearch() {
+        return org.apache.camel.builder.component.dsl.ElasticsearchComponentBuilderFactory.elasticsearch();
+    }
+    /**
      * Elasticsearch Rest (camel-elasticsearch-rest)
      * Send requests to ElasticSearch via REST API
      * 
