@@ -135,6 +135,7 @@
 	    <!-- <module>camel-dropbox</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
 	    <!-- <module>camel-dynamic-router</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-ehcache</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-elasticsearch</module>
         <!-- <module>camel-elasticsearch-rest</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-elytron</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-etcd3</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
