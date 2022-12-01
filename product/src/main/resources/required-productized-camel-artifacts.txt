@@ -88,6 +88,7 @@ camel-platform-http
 camel-platform-http-vertx
 camel-quartz
 camel-ref
+camel-resilience4j
 camel-rest
 camel-rest-openapi
 camel-salesforce

@@ -241,7 +241,6 @@
 :camel-reactor
 :camel-redis
 :camel-report-maven-plugin
-:camel-resilience4j
 :camel-resourceresolver-github
 :camel-resources-plugin
 :camel-rest-swagger
