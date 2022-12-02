@@ -34,6 +34,7 @@
 
     <properties>
         <firstVersion>3.18.3</firstVersion>
+        <maven.javadoc.skip>true</maven.javadoc.skip>
     </properties>
 
     <dependencies>
