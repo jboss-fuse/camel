@@ -264,7 +264,7 @@
         <!-- <module>camel-reactive-streams</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-reactor</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-redis</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-resilience4j</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-resilience4j</module>
         <!-- <module>camel-resourceresolver-github</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-resteasy</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-robotframework</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->

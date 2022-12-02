@@ -1697,7 +1697,7 @@
       <dependency>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-resilience4j</artifactId>
-        <version>3.18.3</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.camel</groupId>
