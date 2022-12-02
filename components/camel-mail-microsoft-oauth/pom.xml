@@ -22,7 +22,7 @@
     <parent>
         <groupId>org.apache.camel</groupId>
         <artifactId>components</artifactId>
-        <version>3.18.4-SNAPSHOT</version>
+        <version>3.18.3-SNAPSHOT</version>
     </parent>
 
     <artifactId>camel-mail-microsoft-oauth</artifactId>
@@ -33,7 +33,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
-        <firstVersion>3.18.4</firstVersion>
+        <firstVersion>3.18.3</firstVersion>
     </properties>
 
     <dependencies>
