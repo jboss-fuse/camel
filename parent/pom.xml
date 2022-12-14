@@ -509,7 +509,7 @@
         <sql-maven-plugin-version>1.5</sql-maven-plugin-version>
         <squareup-okhttp-version>3.14.9</squareup-okhttp-version>
         <squareup-okio-version>1.17.2</squareup-okio-version>
-        <sshd-version>2.8.0</sshd-version>
+        <sshd-version>2.9.2</sshd-version>
         <stompjms-version>1.19</stompjms-version>
         <swagger-java-version>1.6.4</swagger-java-version>
         <swagger-openapi3-version>2.1.13</swagger-openapi3-version>
@@ -4122,6 +4122,13 @@
                 <groupId>net.minidev</groupId>
                 <artifactId>json-smart</artifactId>
                 <version>${json-smart-version}</version>
+            </dependency>
+
+            <!-- CVE-2022-45047 -->
+	    <dependency>
+                <groupId>org.apache.sshd</groupId>
+                <artifactId>sshd-common</artifactId>
+                <version>${sshd-version}</version>
             </dependency>
 
         </dependencies>
