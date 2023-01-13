@@ -333,7 +333,9 @@ public class PrepareComponentMojo extends AbstractGeneratorMojo {
         public int hashCode() {
             int result = groupId.hashCode();
             result = 31 * result + artifactId.hashCode();
-            result = 31 * result + version.hashCode();
+            if (version != null) {
+                result = 31 * result + version.hashCode();
+            }
             result = 31 * result + (type != null ? type.hashCode() : 0);
             return result;
         }
@@ -359,7 +361,11 @@ public class PrepareComponentMojo extends AbstractGeneratorMojo {
             if (n == 0) {
                 n = artifactId.compareTo(o.artifactId);
             }
-            if (n == 0) {
+            if ((n == 0) && (version == null)) {
+                if (o.version != null) {
+                    n = 1;
+                }
+            } else if (n == 0) {
                 n = version.compareTo(o.version);
             }
             return n;
