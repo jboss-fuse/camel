@@ -1374,7 +1374,7 @@
       <dependency>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-mail-microsoft-oauth</artifactId>
-        <version>3.20.1</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.camel</groupId>

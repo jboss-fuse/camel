@@ -204,7 +204,6 @@
 :camel-lucene
 :camel-lumberjack
 :camel-lzf
-:camel-mail-microsoft-oauth
 :camel-mapstruct
 :camel-maven-plugin
 :camel-metrics
