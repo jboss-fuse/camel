@@ -188,7 +188,7 @@
         <module>camel-tracing</module>
         <!-- <module>camel-jcr</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-jdbc</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-jfr</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-jfr</module>
         <!-- <module>camel-jgroups-raft</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-jgroups</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-jira</module>
@@ -222,7 +222,7 @@
         <!-- <module>camel-lzf</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-mail</module>
         <module>camel-mail-microsoft-oauth</module>
-        <!-- <module>camel-mapstruct</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-mapstruct</module>
         <!-- <module>camel-metrics</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-micrometer</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-microprofile</module>
@@ -235,7 +235,7 @@
         <!-- <module>camel-mustache</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-mvel</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-mybatis</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-nats</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-nats</module>
         <!-- <module>camel-netty-http</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-netty</module>
         <!-- <module>camel-nitrite</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->

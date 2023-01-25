@@ -42,7 +42,6 @@
 :camel-azure-cosmosdb
 :camel-azure-eventhubs
 :camel-azure-key-vault
-:camel-azure-servicebus
 :camel-azure-storage-datalake
 :camel-barcode
 :camel-base64
@@ -54,8 +53,6 @@
 :camel-buildtools
 :camel-caffeine
 :camel-caffeine-lrucache
-:camel-catalog-console
-:camel-catalog-lucene
 :camel-catalog-maven
 :camel-cbor
 :camel-cdi
@@ -63,7 +60,6 @@
 :camel-cdi-main
 :camel-chatscript
 :camel-chunk
-:camel-cli-connector
 :camel-cm-sms
 :camel-cmis
 :camel-coap
@@ -97,12 +93,10 @@
 :camel-dozer
 :camel-drill
 :camel-dropbox
-:camel-dsl-modeline
 :camel-dynamic-router
 :camel-ehcache
 :camel-elasticsearch-rest
 :camel-elytron
-:camel-endpointdsl-support
 :camel-etc
 :camel-etcd3
 :camel-exec
@@ -176,7 +170,6 @@
 :camel-jdbc
 :camel-jetty
 :camel-jetty-common
-:camel-jfr
 :camel-jgroups
 :camel-jgroups-raft
 :camel-jmx
@@ -194,7 +187,6 @@
 :camel-jsonata
 :camel-jsonb
 :camel-jt400
-:camel-kamelet-main
 :camel-kotlin-dsl
 :camel-kudu
 :camel-ldap
@@ -204,7 +196,6 @@
 :camel-lucene
 :camel-lumberjack
 :camel-lzf
-:camel-mapstruct
 :camel-maven-plugin
 :camel-metrics
 :camel-micrometer
@@ -214,7 +205,6 @@
 :camel-mustache
 :camel-mvel
 :camel-mybatis
-:camel-nats
 :camel-netty-http
 :camel-nitrite
 :camel-oaipmh
@@ -357,7 +347,6 @@
 :camel-univocity-parsers
 :camel-validator-test-resources
 :camel-vertx
-:camel-vertx-http
 :camel-vertx-kafka
 :camel-vertx-kafka-maven-plugin
 :camel-vertx-kafka-parent
