@@ -8,6 +8,7 @@ camel-aws2-lambda
 camel-aws2-s3
 camel-aws2-sns
 camel-aws2-sqs
+camel-azure-servicebus
 camel-azure-storage-blob
 camel-azure-storage-queue
 camel-base
@@ -17,6 +18,7 @@ camel-bindy
 camel-browse
 camel-cassandraql
 camel-catalog
+camel-cli-connector
 camel-cloud
 camel-cloudevents
 camel-componentdsl
@@ -38,8 +40,10 @@ camel-dataformat
 camel-dataset
 camel-dependencies-generator
 camel-direct
+camel-dsl-support
 camel-elasticsearch
 camel-endpointdsl
+camel-endpointdsl-support
 camel-fhir
 camel-file
 camel-ftp
@@ -64,6 +68,7 @@ camel-jsonpath
 camel-jta
 camel-kafka
 camel-kamelet
+camel-kamelet-main
 camel-knative
 camel-knative-http
 camel-kubernetes
@@ -71,6 +76,7 @@ camel-log
 camel-mail
 camel-mail-microsoft-oauth
 camel-main
+camel-mapstruct
 camel-master
 camel-microprofile-config
 camel-microprofile-fault-tolerance
@@ -80,6 +86,7 @@ camel-minio
 camel-mllp
 camel-mock
 camel-mongodb
+camel-nats
 camel-netty
 camel-openapi-java
 camel-opentelemetry
@@ -100,6 +107,7 @@ camel-servlet
 camel-slack
 camel-spring-xml
 camel-soap
+camel-stub
 camel-sql
 camel-telegram
 camel-test-spring-junit5
