@@ -58,9 +58,6 @@ public class CamelSourceAction extends ActionBaseCommand {
 
     @Override
     public Integer call() throws Exception {
-        // configure logging first
-        configureLoggingOff();
-
         List<Row> rows = new ArrayList<>();
 
         List<Long> pids = findPids(name);

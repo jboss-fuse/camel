@@ -16,36 +16,42 @@
  */
 package org.apache.camel.dsl.jbang.core.commands.action;
 
-import java.io.File;
-import java.util.List;
-
 import org.apache.camel.dsl.jbang.core.commands.CamelJBangMain;
-import org.apache.camel.util.IOHelper;
-import org.apache.camel.util.json.JsonObject;
+import org.fusesource.jansi.Ansi;
+import org.fusesource.jansi.AnsiConsole;
 import picocli.CommandLine;
 
-@CommandLine.Command(name = "reset-stats",
-                     description = "Reset performance statistics")
-public class CamelResetStatsAction extends ActionBaseCommand {
+abstract class ActionWatchCommand extends ActionBaseCommand {
 
-    @CommandLine.Parameters(description = "Name or pid of running Camel integration. (default selects all)", arity = "0..1")
-    String name = "*";
+    @CommandLine.Option(names = { "--watch" },
+                        description = "Execute periodically and showing output fullscreen")
+    boolean watch;
 
-    public CamelResetStatsAction(CamelJBangMain main) {
+    public ActionWatchCommand(CamelJBangMain main) {
         super(main);
     }
 
     @Override
     public Integer call() throws Exception {
-        List<Long> pids = findPids(name);
-        for (long pid : pids) {
-            JsonObject root = new JsonObject();
-            root.put("action", "reset-stats");
-            File f = getActionFile("" + pid);
-            IOHelper.writeText(root.toJson(), f);
+        int exit;
+        if (watch) {
+            do {
+                exit = doCall();
+                if (exit == 0) {
+                    // use 2-sec delay in watch mode
+                    Thread.sleep(2000);
+                }
+            } while (exit == 0);
+        } else {
+            exit = doCall();
         }
-
-        return 0;
+        return exit;
     }
+
+    protected void clearScreen() {
+        AnsiConsole.out().print(Ansi.ansi().eraseScreen().cursor(1, 1));
+    }
+
+    protected abstract Integer doCall() throws Exception;
 
 }

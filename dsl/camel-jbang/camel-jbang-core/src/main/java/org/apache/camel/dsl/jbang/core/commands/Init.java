@@ -59,7 +59,7 @@ class Init extends CamelCommand {
     private String fromKamelet;
 
     @Option(names = {
-            "--kamelets-version" }, description = "Apache Camel Kamelets version", defaultValue = "3.20.0")
+            "--kamelets-version" }, description = "Apache Camel Kamelets version", defaultValue = "3.20.1.1")
     private String kameletsVersion;
 
     @Option(names = {
@@ -73,8 +73,6 @@ class Init extends CamelCommand {
 
     @Override
     public Integer call() throws Exception {
-        // configure logging first
-        configureLoggingOff();
 
         // is the file referring to an existing file on github/gist
         // then we should download the file to local for use
@@ -107,9 +105,6 @@ class Init extends CamelCommand {
             } else {
                 ext = "kamelet-action.yaml";
             }
-        } else if (ext != null && ext.startsWith("camel.yaml")) {
-            // we allow xxx.camel.yaml
-            ext = ext.substring(6);
         }
 
         if (is == null) {

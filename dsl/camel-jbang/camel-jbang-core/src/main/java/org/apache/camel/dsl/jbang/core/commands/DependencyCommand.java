@@ -14,37 +14,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.camel.dsl.jbang.core.commands.action;
+package org.apache.camel.dsl.jbang.core.commands;
 
-import java.io.File;
-import java.util.List;
-
-import org.apache.camel.dsl.jbang.core.commands.CamelJBangMain;
-import org.apache.camel.util.IOHelper;
-import org.apache.camel.util.json.JsonObject;
 import picocli.CommandLine;
 
-@CommandLine.Command(name = "reset-stats",
-                     description = "Reset performance statistics")
-public class CamelResetStatsAction extends ActionBaseCommand {
+@CommandLine.Command(name = "dependency",
+                     description = "Displays all Camel dependencies required to run (use dependency --help to see sub commands)")
+public class DependencyCommand extends CamelCommand {
 
-    @CommandLine.Parameters(description = "Name or pid of running Camel integration. (default selects all)", arity = "0..1")
-    String name = "*";
-
-    public CamelResetStatsAction(CamelJBangMain main) {
+    public DependencyCommand(CamelJBangMain main) {
         super(main);
     }
 
     @Override
     public Integer call() throws Exception {
-        List<Long> pids = findPids(name);
-        for (long pid : pids) {
-            JsonObject root = new JsonObject();
-            root.put("action", "reset-stats");
-            File f = getActionFile("" + pid);
-            IOHelper.writeText(root.toJson(), f);
-        }
-
+        // default to list
+        new CommandLine(new DependencyList(getMain())).execute();
         return 0;
     }
 

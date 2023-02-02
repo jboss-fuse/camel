@@ -44,9 +44,6 @@ public class Jolokia extends ProcessBaseCommand {
 
     @Override
     public Integer call() throws Exception {
-        // configure logging first
-        configureLoggingOff();
-
         List<Long> pids = findPids(name);
         if (pids.isEmpty()) {
             return 0;

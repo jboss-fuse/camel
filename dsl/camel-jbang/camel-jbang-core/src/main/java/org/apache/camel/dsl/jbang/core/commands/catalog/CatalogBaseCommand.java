@@ -28,6 +28,7 @@ import org.apache.camel.catalog.CamelCatalog;
 import org.apache.camel.catalog.DefaultCamelCatalog;
 import org.apache.camel.dsl.jbang.core.commands.CamelCommand;
 import org.apache.camel.dsl.jbang.core.commands.CamelJBangMain;
+import org.apache.camel.dsl.jbang.core.common.VersionHelper;
 import org.apache.camel.main.download.MavenGav;
 import org.apache.camel.tooling.model.ArtifactModel;
 import picocli.CommandLine;
@@ -68,9 +69,6 @@ public abstract class CatalogBaseCommand extends CamelCommand {
 
     @Override
     public Integer call() throws Exception {
-        // configure logging first
-        configureLoggingOff();
-
         List<Row> rows = collectRows();
 
         if (filterName != null) {
