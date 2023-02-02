@@ -44,9 +44,6 @@ public class StopProcess extends ProcessBaseCommand {
 
     @Override
     public Integer call() throws Exception {
-        // configure logging first
-        configureLoggingOff();
-
         if (!all && name == null) {
             return 0;
         } else if (all) {
@@ -60,12 +57,12 @@ public class StopProcess extends ProcessBaseCommand {
             File dir = new File(System.getProperty("user.home"), ".camel");
             File pidFile = new File(dir, "" + pid);
             if (pidFile.exists()) {
-                System.out.println("Shutting down Camel integration (pid: " + pid + ")");
+                System.out.println("Shutting down Camel integration (PID: " + pid + ")");
                 FileUtil.deleteFile(pidFile);
             }
             if (kill) {
                 ProcessHandle.of(pid).ifPresent(ph -> {
-                    System.out.println("Killing Camel integration (pid: " + pid + ")");
+                    System.out.println("Killing Camel integration (PID: " + pid + ")");
                     ph.destroyForcibly();
                 });
             }
