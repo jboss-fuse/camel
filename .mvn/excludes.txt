@@ -266,12 +266,10 @@
 :camel-spark
 :camel-splunk
 :camel-splunk-hec
-:camel-spring
 :camel-spring-batch
 :camel-spring-integration
 :camel-spring-jdbc
 :camel-spring-ldap
-:camel-spring-main
 :camel-spring-rabbitmq
 :camel-spring-redis
 :camel-spring-security
