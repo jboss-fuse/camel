@@ -68,6 +68,9 @@ public abstract class CatalogBaseCommand extends CamelCommand {
 
     @Override
     public Integer call() throws Exception {
+        // configure logging first
+        configureLoggingOff();
+
         List<Row> rows = collectRows();
 
         if (filterName != null) {
