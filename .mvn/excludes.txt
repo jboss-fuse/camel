@@ -167,7 +167,6 @@
 :camel-jcache
 :camel-jclouds
 :camel-jcr
-:camel-jdbc
 :camel-jetty
 :camel-jetty-common
 :camel-jgroups
@@ -238,7 +237,6 @@
 :camel-redis
 :camel-report-maven-plugin
 :camel-resourceresolver-github
-:camel-resources-plugin
 :camel-rest-swagger
 :camel-restdsl-openapi-plugin
 :camel-restdsl-swagger-plugin
@@ -266,14 +264,7 @@
 :camel-spark
 :camel-splunk
 :camel-splunk-hec
-:camel-spring-batch
 :camel-spring-integration
-:camel-spring-jdbc
-:camel-spring-ldap
-:camel-spring-rabbitmq
-:camel-spring-redis
-:camel-spring-security
-:camel-spring-ws
 :camel-ssh
 :camel-stax
 :camel-stitch
@@ -340,8 +331,6 @@
 :camel-twilio
 :camel-twitter
 :camel-typeconverterscan-test
-:camel-undertow
-:camel-undertow-spring-security
 :camel-univocity-parsers
 :camel-validator-test-resources
 :camel-vertx
@@ -369,7 +358,6 @@
 :camel-xml-jaxb-dsl-test-swagger
 :camel-xmlsecurity
 :camel-xmpp
-:camel-xslt-saxon
 :camel-xstream
 :camel-zendesk
 :camel-zipkin

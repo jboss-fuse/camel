@@ -42,7 +42,7 @@
         <!-- <module>camel-restdsl-swagger-plugin</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-restdsl-openapi-plugin</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-javadoc-plugin</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-resources-plugin</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-resources-plugin</module>
         <module>sync-properties-maven-plugin</module>
         <!-- <module>camel-component-maven-plugin</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
     </modules>
