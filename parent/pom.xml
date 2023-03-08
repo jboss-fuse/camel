@@ -1683,7 +1683,7 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-jdbc</artifactId>
-                <version>${camel-community.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>
@@ -2343,7 +2343,7 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-spring-batch</artifactId>
-                <version>${camel-community.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>
@@ -2353,12 +2353,12 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-spring-jdbc</artifactId>
-                <version>${camel-community.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-spring-ldap</artifactId>
-                <version>${camel-community.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>
@@ -2368,22 +2368,22 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-spring-rabbitmq</artifactId>
-                <version>${camel-community.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-spring-redis</artifactId>
-                <version>${camel-community.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-spring-security</artifactId>
-                <version>${camel-community.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-spring-ws</artifactId>
-                <version>${camel-community.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>
@@ -2528,12 +2528,12 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-undertow</artifactId>
-                <version>${camel-community.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-undertow-spring-security</artifactId>
-                <version>${camel-community.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>
@@ -2663,7 +2663,7 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-xslt-saxon</artifactId>
-                <version>${camel-community.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>

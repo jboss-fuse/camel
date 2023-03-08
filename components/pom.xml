@@ -70,7 +70,7 @@
         <!-- <module>camel-ipfs</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-jetty-common</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-jetty</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-undertow</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-undertow</module>
         <module>camel-cxf</module>
         <module>camel-jms</module>
         <module>camel-master</module>
@@ -187,7 +187,7 @@
         <!-- <module>camel-jclouds</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-tracing</module>
         <!-- <module>camel-jcr</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-jdbc</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-jdbc</module>
         <module>camel-jfr</module>
         <!-- <module>camel-jgroups-raft</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-jgroups</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
@@ -295,14 +295,14 @@
         <!-- <module>camel-spark</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-splunk</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-splunk-hec</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-spring-batch</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-spring-batch</module>
         <!-- <module>camel-spring-integration</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-spring-jdbc</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-spring-ldap</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-spring-rabbitmq</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-spring-redis</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-spring-security</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-spring-ws</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-spring-jdbc</module>
+        <module>camel-spring-ldap</module>
+        <module>camel-spring-rabbitmq</module>
+        <module>camel-spring-redis</module>
+        <module>camel-spring-security</module>
+        <module>camel-spring-ws</module>
         <module>camel-sql</module>
         <!-- <module>camel-ssh</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-stax</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
@@ -321,7 +321,7 @@
         <!-- <module>camel-tika</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-twilio</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-twitter</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-undertow-spring-security</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-undertow-spring-security</module>
         <!-- <module>camel-univocity-parsers</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-velocity</module>
         <module>camel-vertx</module>
@@ -339,7 +339,7 @@
         <!-- <module>camel-xj</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-xmlsecurity</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-xmpp</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-xslt-saxon</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-xslt-saxon</module>
         <!-- <module>camel-xstream</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-zendesk</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-zip-deflater</module>

@@ -106,8 +106,16 @@ camel-seda
 camel-servlet
 camel-slack
 camel-spring
+camel-spring-batch
+camel-spring-jdbc
+camel-spring-ldap
 camel-spring-main
+camel-spring-rabbitmq
+camel-spring-redis
+camel-spring-security
+camel-spring-ws
 camel-spring-xml
+camel-undertow-spring-security
 camel-soap
 camel-stub
 camel-sql
