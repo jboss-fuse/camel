@@ -145,7 +145,7 @@
 
 
         <camel-community.version>4.0.0-M1</camel-community.version>
-        <cq-plugin.version>3.4.1-SNAPSHOT</cq-plugin.version>
+        <cq-plugin.version>3.5.5</cq-plugin.version>
 
         <camel.javadoc.offline>false</camel.javadoc.offline>
     </properties>
