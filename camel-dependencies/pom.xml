@@ -27,7 +27,7 @@
   </parent>
   <groupId>org.apache.camel</groupId>
   <artifactId>camel-dependencies-generator</artifactId>
-  <version>4.0.0-M1-SNAPSHOT</version>
+  <version>4.0.0-M2-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Camel :: Dependencies :: Generator</name>
   <description>Camel Dependencies Generator</description>
