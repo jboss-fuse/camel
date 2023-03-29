@@ -127,12 +127,11 @@ public interface MiloClientEndpointBuilderFactory {
             return this;
         }
         /**
-         * Data change trigger for data change monitor filter type.
+         * Daata change trigger for data change monitor filter type.
          * 
          * The option is a:
          * &lt;code&gt;org.eclipse.milo.opcua.stack.core.types.enumerated.DataChangeTrigger&lt;/code&gt; type.
          * 
-         * Default: StatusValueTimestamp
          * Group: common
          * 
          * @param dataChangeFilterTrigger the value to set
@@ -144,12 +143,11 @@ public interface MiloClientEndpointBuilderFactory {
             return this;
         }
         /**
-         * Data change trigger for data change monitor filter type.
+         * Daata change trigger for data change monitor filter type.
          * 
          * The option will be converted to a
          * &lt;code&gt;org.eclipse.milo.opcua.stack.core.types.enumerated.DataChangeTrigger&lt;/code&gt; type.
          * 
-         * Default: StatusValueTimestamp
          * Group: common
          * 
          * @param dataChangeFilterTrigger the value to set
@@ -941,12 +939,11 @@ public interface MiloClientEndpointBuilderFactory {
             return this;
         }
         /**
-         * Data change trigger for data change monitor filter type.
+         * Daata change trigger for data change monitor filter type.
          * 
          * The option is a:
          * &lt;code&gt;org.eclipse.milo.opcua.stack.core.types.enumerated.DataChangeTrigger&lt;/code&gt; type.
          * 
-         * Default: StatusValueTimestamp
          * Group: common
          * 
          * @param dataChangeFilterTrigger the value to set
@@ -958,12 +955,11 @@ public interface MiloClientEndpointBuilderFactory {
             return this;
         }
         /**
-         * Data change trigger for data change monitor filter type.
+         * Daata change trigger for data change monitor filter type.
          * 
          * The option will be converted to a
          * &lt;code&gt;org.eclipse.milo.opcua.stack.core.types.enumerated.DataChangeTrigger&lt;/code&gt; type.
          * 
-         * Default: StatusValueTimestamp
          * Group: common
          * 
          * @param dataChangeFilterTrigger the value to set
@@ -1690,12 +1686,11 @@ public interface MiloClientEndpointBuilderFactory {
             return this;
         }
         /**
-         * Data change trigger for data change monitor filter type.
+         * Daata change trigger for data change monitor filter type.
          * 
          * The option is a:
          * &lt;code&gt;org.eclipse.milo.opcua.stack.core.types.enumerated.DataChangeTrigger&lt;/code&gt; type.
          * 
-         * Default: StatusValueTimestamp
          * Group: common
          * 
          * @param dataChangeFilterTrigger the value to set
@@ -1707,12 +1702,11 @@ public interface MiloClientEndpointBuilderFactory {
             return this;
         }
         /**
-         * Data change trigger for data change monitor filter type.
+         * Daata change trigger for data change monitor filter type.
          * 
          * The option will be converted to a
          * &lt;code&gt;org.eclipse.milo.opcua.stack.core.types.enumerated.DataChangeTrigger&lt;/code&gt; type.
          * 
-         * Default: StatusValueTimestamp
          * Group: common
          * 
          * @param dataChangeFilterTrigger the value to set
