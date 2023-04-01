@@ -62,6 +62,11 @@ public class ManagedBacklogTracer implements ManagedBacklogTracerMBean {
     }
 
     @Override
+    public boolean isStandby() {
+        return backlogTracer.isStandby();
+    }
+
+    @Override
     public void setEnabled(boolean enabled) {
         backlogTracer.setEnabled(enabled);
     }
@@ -119,6 +124,11 @@ public class ManagedBacklogTracer implements ManagedBacklogTracerMBean {
     @Override
     public void resetTraceCounter() {
         backlogTracer.resetTraceCounter();
+    }
+
+    @Override
+    public long getQueueSize() {
+        return backlogTracer.getQueueSize();
     }
 
     @Override

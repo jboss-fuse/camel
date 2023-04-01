@@ -29,6 +29,9 @@ public interface ManagedBacklogTracerMBean {
     @ManagedAttribute(description = "Camel ManagementName")
     String getCamelManagementName();
 
+    @ManagedAttribute(description = "Is tracing standby")
+    boolean isStandby();
+
     @ManagedAttribute(description = "Is tracing enabled")
     boolean isEnabled();
 
@@ -64,6 +67,9 @@ public interface ManagedBacklogTracerMBean {
 
     @ManagedOperation(description = "Resets the trace counter")
     void resetTraceCounter();
+
+    @ManagedAttribute(description = "Number of traced messages in the backlog")
+    long getQueueSize();
 
     @ManagedAttribute(description = "Number of maximum chars in the message body in the trace message. Use zero or negative value to have unlimited size.")
     int getBodyMaxChars();
