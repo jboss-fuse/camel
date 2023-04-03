@@ -347,7 +347,6 @@
 :camel-univocity-parsers
 :camel-validator-test-resources
 :camel-vertx
-:camel-vertx-http
 :camel-vertx-kafka
 :camel-vertx-kafka-maven-plugin
 :camel-vertx-kafka-parent

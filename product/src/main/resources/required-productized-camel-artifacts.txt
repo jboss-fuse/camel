@@ -105,6 +105,7 @@ camel-test-spring-junit5
 camel-timer
 camel-validator
 camel-velocity
+camel-vertx-http
 camel-webhook
 camel-xml-io
 camel-xml-io-dsl
