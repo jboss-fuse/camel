@@ -185,7 +185,7 @@
         <!-- <module>camel-jclouds</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-tracing</module>
         <!-- <module>camel-jcr</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-jdbc</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-jdbc</module>
         <!-- <module>camel-jfr</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-jgroups-raft</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-jgroups</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->

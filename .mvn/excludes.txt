@@ -170,7 +170,6 @@
 :camel-jcache
 :camel-jclouds
 :camel-jcr
-:camel-jdbc
 :camel-jetty
 :camel-jetty-common
 :camel-jfr
