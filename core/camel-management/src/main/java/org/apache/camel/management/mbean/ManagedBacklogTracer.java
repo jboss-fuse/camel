@@ -62,11 +62,6 @@ public class ManagedBacklogTracer implements ManagedBacklogTracerMBean {
     }
 
     @Override
-    public boolean isStandby() {
-        return backlogTracer.isStandby();
-    }
-
-    @Override
     public void setEnabled(boolean enabled) {
         backlogTracer.setEnabled(enabled);
     }
