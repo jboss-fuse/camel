@@ -109,7 +109,7 @@ public class BacklogTracerFilterTest extends ManagementTestSupport {
             @Override
             public void configure() throws Exception {
                 context.setUseBreadcrumb(false);
-                context.setBacklogTracingStandby(true);
+                context.setBacklogTracing(true);
 
                 from("direct:start")
                         .to("mock:foo").id("foo")
