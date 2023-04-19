@@ -283,7 +283,7 @@
         <module>camel-slack</module>
         <!-- <module>camel-smpp</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-snakeyaml</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-snmp</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-snmp</module>
         <module>camel-soap</module>
         <!-- <module>camel-solr</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-spark</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->

@@ -263,7 +263,6 @@
 :camel-sjms2
 :camel-smpp
 :camel-snakeyaml
-:camel-snmp
 :camel-solr
 :camel-spark
 :camel-splunk

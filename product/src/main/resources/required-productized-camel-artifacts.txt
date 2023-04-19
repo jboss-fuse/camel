@@ -99,6 +99,7 @@ camel-scheduler
 camel-seda
 camel-servlet
 camel-slack
+camel-snmp
 camel-spring-xml
 camel-soap
 camel-sql
