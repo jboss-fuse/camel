@@ -69,6 +69,7 @@ camel-knative-http
 camel-kubernetes
 camel-log
 camel-mail
+camel-mail-microsoft-oauth
 camel-main
 camel-master
 camel-microprofile-config
