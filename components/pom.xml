@@ -195,7 +195,7 @@
         <!-- <module>camel-jolt</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-joor</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-jpa</module>
-        <!-- <module>camel-jq</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-jq</module>
         <!-- <module>camel-jsch</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-jslt</module>
         <!-- <module>camel-json-validator</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->

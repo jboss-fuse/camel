@@ -60,6 +60,7 @@ camel-jdbc
 camel-jira
 camel-jms
 camel-jpa
+camel-jq
 camel-jslt
 camel-jsonpath
 camel-jta
