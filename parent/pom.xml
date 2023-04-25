@@ -337,7 +337,8 @@
         <jsch-version>0.2.1</jsch-version>
         <json-api>1.0</json-api>
         <jsonassert-version>1.5.0</jsonassert-version>
-        <json-path-version>2.6.0</json-path-version>
+        <json-path-version>2.8.0</json-path-version>
+        <json-smart-version>2.4.10</json-smart-version>
         <json-patch-version>1.13</json-patch-version>
         <json-simple-version>1.1.1</json-simple-version>
         <jsonata4java-version>1.5.8</jsonata4java-version>
@@ -4024,6 +4025,12 @@
                 <scope>import</scope>
             </dependency>
 
+            <!-- CVE-2023-1370 - CSB-1539 -->
+            <dependency>
+                <groupId>net.minidev</groupId>
+                <artifactId>json-smart</artifactId>
+                <version>${json-smart-version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
