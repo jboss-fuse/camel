@@ -171,7 +171,6 @@
 :camel-jt400
 :camel-kotlin-dsl
 :camel-kudu
-:camel-ldap
 :camel-ldif
 :camel-leveldb
 :camel-lra
