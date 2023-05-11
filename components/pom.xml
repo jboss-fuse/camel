@@ -233,7 +233,7 @@
         <!-- <module>camel-mvel</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-mybatis</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-nats</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-netty-http</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-netty-http</module>
         <module>camel-netty</module>
         <!-- <module>camel-nitrite</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-oaipmh</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->

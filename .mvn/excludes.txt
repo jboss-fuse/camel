@@ -210,7 +210,6 @@
 :camel-mvel
 :camel-mybatis
 :camel-nats
-:camel-netty-http
 :camel-nitrite
 :camel-oaipmh
 :camel-ognl
