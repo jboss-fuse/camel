@@ -312,7 +312,7 @@
         <jetty-version>${jetty9-version}</jetty-version>
         <jetty-plugin-version>${jetty-version}</jetty-plugin-version>
         <jetty-runner-groupId>org.eclipse.jetty</jetty-runner-groupId>
-        <jettison-version>1.5.2</jettison-version>
+        <jettison-version>1.5.4</jettison-version>
         <jgit-version>6.1.0.202203080745-r</jgit-version>
         <jgroups-version>4.2.17.Final</jgroups-version>
         <jgroups-raft-version>0.5.3.Final</jgroups-raft-version>
@@ -509,7 +509,7 @@
         <sql-maven-plugin-version>1.5</sql-maven-plugin-version>
         <squareup-okhttp-version>3.14.9</squareup-okhttp-version>
         <squareup-okio-version>1.17.2</squareup-okio-version>
-        <sshd-version>2.8.0</sshd-version>
+        <sshd-version>2.9.2</sshd-version>
         <stompjms-version>1.19</stompjms-version>
         <swagger-java-version>1.6.4</swagger-java-version>
         <swagger-openapi3-version>2.1.13</swagger-openapi3-version>
@@ -536,7 +536,7 @@
         <wildfly-elytron>1.11.4.Final</wildfly-elytron>
         <wiremock-version>2.32.0</wiremock-version>
         <woodstox-version>4.4.1</woodstox-version>
-        <woodstox-core-version>6.1.1</woodstox-core-version>
+        <woodstox-core-version>6.4.0</woodstox-core-version>
         <xbean-spring-version>4.21</xbean-spring-version>
         <xbean-asm5-shaded-version>4.5</xbean-asm5-shaded-version>
         <xchange-version>5.0.13</xchange-version>
@@ -4122,6 +4122,13 @@
                 <groupId>net.minidev</groupId>
                 <artifactId>json-smart</artifactId>
                 <version>${json-smart-version}</version>
+            </dependency>
+
+            <!-- CVE-2022-45047 -->
+	    <dependency>
+                <groupId>org.apache.sshd</groupId>
+                <artifactId>sshd-common</artifactId>
+                <version>${sshd-version}</version>
             </dependency>
 
         </dependencies>
