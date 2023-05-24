@@ -433,7 +433,7 @@
     <nessus-ipfs-version>1.0.0.Beta4</nessus-ipfs-version>
     <nessus-weka-version>1.0.1</nessus-weka-version>
     <netty-reactive-streams-version>2.0.5</netty-reactive-streams-version>
-    <netty-version>4.1.91.Final</netty-version>
+    <netty-version>4.1.92.Final</netty-version>
     <networknt-json-schema-validator-version>1.0.73</networknt-json-schema-validator-version>
     <nimbus-jose-jwt>9.22</nimbus-jose-jwt>
     <nitrite-version>3.4.4</nitrite-version>
@@ -513,8 +513,8 @@
     <splunk-version>1.9.0_1</splunk-version>
     <spock-version>2.1-groovy-3.0</spock-version>
     <spring-batch-version>4.3.8</spring-batch-version>
-    <spring-data-redis-version>2.6.2</spring-data-redis-version>
-    <spring-integration-version>5.5.17</spring-integration-version>
+    <spring-data-redis-version>2.7.12</spring-data-redis-version>
+    <spring-integration-version>5.5.18</spring-integration-version>
     <spring-ldap-version>2.4.1</spring-ldap-version>
     <spring-rabbitmq-version>2.4.12</spring-rabbitmq-version>
     <spring-security-version>5.7.8</spring-security-version>
