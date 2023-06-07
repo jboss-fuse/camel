@@ -28,6 +28,7 @@ camel-core-engine
 camel-core-languages
 camel-core-processor
 camel-cron
+camel-crypto
 camel-cxf-common
 camel-cxf-spring-transport
 camel-cxf-rest

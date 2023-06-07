@@ -106,7 +106,7 @@
         <!-- <module>camel-corda</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-couchbase</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-couchdb</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-crypto</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-crypto</module>
         <!-- <module>camel-csimple-joor</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-csv</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-datasonnet</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->

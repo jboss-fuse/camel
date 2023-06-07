@@ -60,7 +60,6 @@
 :camel-corda
 :camel-couchbase
 :camel-couchdb
-:camel-crypto
 :camel-csimple-joor
 :camel-csimple-maven-plugin
 :camel-csv

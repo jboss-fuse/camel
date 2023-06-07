@@ -495,7 +495,7 @@
       <dependency>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-crypto</artifactId>
-        <version>4.0.0-M3</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.camel</groupId>
