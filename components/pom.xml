@@ -206,7 +206,7 @@
         <module>camel-mail-microsoft-oauth</module>
         <module>camel-mapstruct</module>
         <!-- <module>camel-metrics</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-micrometer</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-micrometer</module>
         <module>camel-microprofile</module>
         <!-- <module>camel-mina</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-minio</module>
@@ -217,7 +217,7 @@
         <!-- <module>camel-mvel</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-mybatis</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-nats</module>
-        <!-- <module>camel-netty-http</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-netty-http</module>
         <module>camel-netty</module>
         <!-- <module>camel-nitrite</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-oaipmh</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->

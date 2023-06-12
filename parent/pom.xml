@@ -851,7 +851,7 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-azure-eventhubs</artifactId>
-                <version>${camel-community.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>
@@ -1456,7 +1456,7 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-infinispan-embedded</artifactId>
-                <version>${camel-community.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>
@@ -1751,7 +1751,7 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-micrometer</artifactId>
-                <version>${camel-community.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>
@@ -1826,7 +1826,7 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-netty-http</artifactId>
-                <version>${camel-community.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>
@@ -2341,7 +2341,7 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-vertx-websocket</artifactId>
-                <version>${camel-community.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>

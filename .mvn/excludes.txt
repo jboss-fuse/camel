@@ -36,7 +36,6 @@
 :camel-aws2-sts
 :camel-aws2-translate
 :camel-azure-cosmosdb
-:camel-azure-eventhubs
 :camel-azure-key-vault
 :camel-azure-storage-datalake
 :camel-barcode
@@ -135,7 +134,6 @@
 :camel-ical
 :camel-iec60870
 :camel-ignite
-:camel-infinispan-embedded
 :camel-influxdb
 :camel-influxdb2
 :camel-irc
@@ -178,13 +176,11 @@
 :camel-lzf
 :camel-maven-plugin
 :camel-metrics
-:camel-micrometer
 :camel-mina
 :camel-mongodb-gridfs
 :camel-mustache
 :camel-mvel
 :camel-mybatis
-:camel-netty-http
 :camel-nitrite
 :camel-oaipmh
 :camel-observation
@@ -299,7 +295,6 @@
 :camel-univocity-parsers
 :camel-validator-test-resources
 :camel-vertx
-:camel-vertx-websocket
 :camel-wal
 :camel-weather
 :camel-web3j
