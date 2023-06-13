@@ -36,7 +36,6 @@
 :camel-aws2-sts
 :camel-aws2-translate
 :camel-azure-cosmosdb
-:camel-azure-eventhubs
 :camel-azure-key-vault
 :camel-azure-storage-datalake
 :camel-barcode
@@ -116,7 +115,6 @@
 :camel-groovy-dsl-common
 :camel-groovy-dsl-parent
 :camel-groovy-dsl-test
-:camel-grpc
 :camel-guava-eventbus
 :camel-hashicorp-vault
 :camel-hazelcast
@@ -135,7 +133,6 @@
 :camel-ical
 :camel-iec60870
 :camel-ignite
-:camel-infinispan-embedded
 :camel-influxdb
 :camel-influxdb2
 :camel-irc
@@ -178,13 +175,11 @@
 :camel-lzf
 :camel-maven-plugin
 :camel-metrics
-:camel-micrometer
 :camel-mina
 :camel-mongodb-gridfs
 :camel-mustache
 :camel-mvel
 :camel-mybatis
-:camel-netty-http
 :camel-nitrite
 :camel-oaipmh
 :camel-observation
@@ -192,9 +187,6 @@
 :camel-olingo2
 :camel-olingo2-api
 :camel-olingo2-parent
-:camel-olingo4
-:camel-olingo4-api
-:camel-olingo4-parent
 :camel-openapi-rest-dsl-generator
 :camel-openstack
 :camel-optaplanner
@@ -299,7 +291,6 @@
 :camel-univocity-parsers
 :camel-validator-test-resources
 :camel-vertx
-:camel-vertx-websocket
 :camel-wal
 :camel-weather
 :camel-web3j
