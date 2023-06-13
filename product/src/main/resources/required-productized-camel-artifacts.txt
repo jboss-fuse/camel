@@ -51,6 +51,7 @@ camel-file
 camel-ftp
 camel-google-bigquery
 camel-google-pubsub
+camel-grpc
 camel-gson
 camel-hl7
 camel-http
@@ -95,6 +96,9 @@ camel-mongodb
 camel-nats
 camel-netty
 camel-netty-http
+camel-olingo4
+camel-olingo4-api
+camel-olingo4-component
 camel-openapi-java
 camel-opentelemetry
 camel-paho

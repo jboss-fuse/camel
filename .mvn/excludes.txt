@@ -115,7 +115,6 @@
 :camel-groovy-dsl-common
 :camel-groovy-dsl-parent
 :camel-groovy-dsl-test
-:camel-grpc
 :camel-guava-eventbus
 :camel-hashicorp-vault
 :camel-hazelcast
@@ -188,9 +187,6 @@
 :camel-olingo2
 :camel-olingo2-api
 :camel-olingo2-parent
-:camel-olingo4
-:camel-olingo4-api
-:camel-olingo4-parent
 :camel-openapi-rest-dsl-generator
 :camel-openstack
 :camel-optaplanner

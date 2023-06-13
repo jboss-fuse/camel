@@ -142,7 +142,7 @@
         <!-- <module>camel-grape</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-graphql</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-grok</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-grpc</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-grpc</module>
         <module>camel-gson</module>
         <!-- <module>camel-guava-eventbus</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-hashicorp-vault</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
@@ -224,7 +224,7 @@
         <!-- <module>camel-observation</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-ognl</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-olingo2</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-olingo4</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-olingo4</module>
         <!-- <module>camel-openstack</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-opentelemetry</module>
         <module>camel-paho</module>
