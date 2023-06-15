@@ -117,7 +117,7 @@
         <corda-version>4.10</corda-version>
         <couchbase-client-version>3.4.5</couchbase-client-version>
         <curator-version>5.4.0</curator-version>
-        <cxf-version>4.0.0</cxf-version>
+        <cxf-version>4.0.0.fuse-redhat-00006</cxf-version>
         <cxf-codegen-plugin-version>4.0.0</cxf-codegen-plugin-version>
         <!-- cxf-xjc is not released as often -->
         <cxf-xjc-plugin-version>4.0.0</cxf-xjc-plugin-version>
