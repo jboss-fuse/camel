@@ -46,6 +46,11 @@ public interface MicrometerExchangeEventNotifierNamingStrategy {
     }
 
     default Tags getTags(ExchangeEvent event, Endpoint endpoint) {
+        String uri = "";
+        if (endpoint != null) {
+            // use sanitized uri to not reveal sensitive information
+            uri = endpoint.toString();
+        }
         return Tags.of(
                 CAMEL_CONTEXT_TAG, event.getExchange().getContext().getName(),
                 SERVICE_NAME, MicrometerEventNotifierService.class.getSimpleName(),
