@@ -570,6 +570,10 @@ public final class DefaultConfigurationConfigurer {
                 devConsoleRegistry.register(console);
             }
         }
+
+        // set the default thread pool profile if defined
+        initThreadPoolProfiles(registry, camelContext);
+
         // vaults
         AwsVaultConfiguration aws = getSingleBeanOfType(registry, AwsVaultConfiguration.class);
         if (aws != null) {
@@ -592,9 +596,6 @@ public final class DefaultConfigurationConfigurer {
             vault.setHashicorpVaultConfiguration(hashicorp);
         }
         configureVault(camelContext);
-
-        // set the default thread pool profile if defined
-        initThreadPoolProfiles(registry, camelContext);
     }
 
     /**
