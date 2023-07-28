@@ -149,6 +149,14 @@
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
+            <artifactId>camel-aws2-iam</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-aws2-kinesis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
             <artifactId>camel-aws2-kms</artifactId>
         </dependency>
         <dependency>
@@ -194,6 +202,10 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-azure-eventhubs</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-azure-files</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
@@ -277,6 +289,10 @@
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
+            <artifactId>camel-cloudevents</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
             <artifactId>camel-cm-sms</artifactId>
         </dependency>
         <dependency>
@@ -306,6 +322,10 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-couchdb</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-cron</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
@@ -461,6 +481,14 @@
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
+            <artifactId>camel-facebook</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-fhir</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
             <artifactId>camel-fhir-api</artifactId>
         </dependency>
         <dependency>
@@ -482,6 +510,14 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-fop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-freemarker</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-ftp</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
@@ -545,11 +581,31 @@
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
+            <artifactId>camel-grpc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-gson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
             <artifactId>camel-guava-eventbus</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-hashicorp-vault</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-hazelcast</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-hdfs</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-hl7</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
@@ -729,11 +785,27 @@
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
+            <artifactId>camel-jsch</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-jslt</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
             <artifactId>camel-json-patch</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-json-validator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-jsonata</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-jsonpath</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
@@ -794,6 +866,18 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-lra</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-lucene</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-lumberjack</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-mail</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
@@ -1046,6 +1130,10 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-rss</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-saga</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>

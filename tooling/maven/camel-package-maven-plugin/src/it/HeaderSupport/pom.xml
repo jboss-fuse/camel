@@ -36,7 +36,7 @@
                 <!-- Testing against @project.version@ would cause a circular dependency -->
                 <!-- between camel-package-maven-plugin and camel-core. -->
                 <!-- Hence we have to use some recent enough public release here -->
-                <version>4.0.0-M3</version>
+                <version>4.0.0-RC2</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
