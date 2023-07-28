@@ -24,7 +24,7 @@
     <parent>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-olingo2-parent</artifactId>
-        <version>4.0.0-RC2</version>
+        <version>4.0.0-RC2-SNAPSHOT</version>
     </parent>
 
     <artifactId>camel-olingo2</artifactId>
@@ -299,6 +299,7 @@
                                 <configuration>
                                     <outputDirectory>${project.build.directory}</outputDirectory>
                                     <interactiveMode>false</interactiveMode>
+                                    <archetypeCatalog>local</archetypeCatalog>
                                     <archetypeGroupId>org.apache.olingo</archetypeGroupId>
                                     <archetypeArtifactId>olingo-odata2-sample-cars-annotation-archetype
                                     </archetypeArtifactId>
