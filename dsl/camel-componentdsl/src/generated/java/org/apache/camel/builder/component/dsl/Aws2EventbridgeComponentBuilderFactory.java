@@ -85,9 +85,6 @@ public interface Aws2EventbridgeComponentBuilderFactory {
         /**
          * EventPattern File.
          * 
-         * This option can also be loaded from an existing file, by prefixing
-         * with file: or classpath: followed by the location of the file.
-         * 
          * The option is a: &lt;code&gt;java.lang.String&lt;/code&gt; type.
          * 
          * Group: producer

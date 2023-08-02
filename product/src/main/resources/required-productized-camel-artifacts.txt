@@ -93,6 +93,7 @@ camel-minio
 camel-mllp
 camel-mock
 camel-mongodb
+camel-mybatis
 camel-nats
 camel-netty
 camel-netty-http
@@ -138,6 +139,7 @@ camel-velocity
 camel-vertx-common
 camel-vertx-websocket
 camel-webhook
+camel-xj
 camel-xml-io
 camel-xml-io-dsl
 camel-xpath
