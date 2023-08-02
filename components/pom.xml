@@ -215,7 +215,7 @@
         <module>camel-mongodb</module>
         <!-- <module>camel-mustache</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-mvel</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-mybatis</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-mybatis</module>
         <module>camel-nats</module>
         <module>camel-netty-http</module>
         <module>camel-netty</module>
@@ -311,7 +311,7 @@
         <!-- <module>camel-wordpress</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-workday</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-xchange</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-xj</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-xj</module>
         <!-- <module>camel-xmlsecurity</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-xmpp</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-xslt-saxon</module>

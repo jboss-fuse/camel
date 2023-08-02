@@ -182,7 +182,6 @@
 :camel-mongodb-gridfs
 :camel-mustache
 :camel-mvel
-:camel-mybatis
 :camel-nitrite
 :camel-oaipmh
 :camel-observation
@@ -305,7 +304,6 @@
 :camel-wordpress
 :camel-workday
 :camel-xchange
-:camel-xj
 :camel-xml-jaxb-dsl
 :camel-xml-jaxb-dsl-test
 :camel-xml-jaxb-dsl-test-definition
