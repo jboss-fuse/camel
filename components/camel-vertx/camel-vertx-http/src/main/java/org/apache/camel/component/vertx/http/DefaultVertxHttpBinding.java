@@ -146,6 +146,9 @@ public class DefaultVertxHttpBinding implements VertxHttpBinding {
     @Override
     public void handleResponse(VertxHttpEndpoint endpoint, Exchange exchange, AsyncResult<HttpResponse<Buffer>> response)
             throws Exception {
+
+        Message message = exchange.getMessage();
+
         HttpResponse<Buffer> result = response.result();
         if (response.succeeded()) {
             Message message = exchange.getMessage();
@@ -169,24 +172,34 @@ public class DefaultVertxHttpBinding implements VertxHttpBinding {
         message.setHeader(VertxHttpConstants.HTTP_RESPONSE_TEXT, response.statusMessage());
 
         MultiMap headers = response.headers();
-        headers.forEach(new Consumer<Map.Entry<String, String>>() {
-            boolean found;
+        if (headers != null && !headers.isEmpty()) {
 
-            @Override
-            public void accept(Map.Entry<String, String> entry) {
-                String name = entry.getKey();
-                String value = entry.getValue();
-                if (!found && name.equalsIgnoreCase("content-type")) {
-                    found = true;
-                    name = VertxHttpConstants.CONTENT_TYPE;
-                    exchange.setProperty(ExchangePropertyKey.CHARSET_NAME, IOHelper.getCharsetNameFromContentType(value));
+            // avoid duplicate headers by keeping copy of old headers
+            Map<String, Object> copy = new HashMap<>(exchange.getMessage().getHeaders());
+            exchange.getMessage().getHeaders().clear();
+
+            headers.forEach(new Consumer<Map.Entry<String, String>>() {
+                boolean found;
+
+                @Override
+                public void accept(Map.Entry<String, String> entry) {
+                    String name = entry.getKey();
+                    String value = entry.getValue();
+                    if (!found && name.equalsIgnoreCase("content-type")) {
+                        found = true;
+                        name = VertxHttpConstants.CONTENT_TYPE;
+                        exchange.setProperty(ExchangePropertyKey.CHARSET_NAME, IOHelper.getCharsetNameFromContentType(value));
+                    }
+                    Object extracted = HttpHelper.extractHttpParameterValue(value);
+                    if (strategy != null && !strategy.applyFilterToExternalHeaders(name, extracted, exchange)) {
+                        HttpHelper.appendHeader(message.getHeaders(), name, extracted);
+                    }
                 }
-                Object extracted = HttpHelper.extractHttpParameterValue(value);
-                if (strategy != null && !strategy.applyFilterToExternalHeaders(name, extracted, exchange)) {
-                    HttpHelper.appendHeader(message.getHeaders(), name, extracted);
-                }
-            }
-        });
+            });
+
+            // and only add back old headers if they are not in the HTTP response
+            copy.forEach((k, v) -> exchange.getMessage().getHeaders().putIfAbsent(k, v));
+        }
     }
 
     @Override
