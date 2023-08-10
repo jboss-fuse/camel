@@ -1581,7 +1581,7 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-jq</artifactId>
-                <version>${camel-community.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>
@@ -2126,7 +2126,7 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-snmp</artifactId>
-                <version>${camel-community.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>

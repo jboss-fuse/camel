@@ -1,5 +1,5 @@
-camel-attachments
 camel-amqp
+camel-attachments
 camel-avro
 camel-aws2-cw
 camel-aws2-ddb
@@ -68,6 +68,7 @@ camel-jdbc
 camel-jira
 camel-jms
 camel-jpa
+camel-jq
 camel-jslt
 camel-jsonpath
 camel-jta
@@ -77,11 +78,13 @@ camel-kamelet-main
 camel-knative
 camel-knative-http
 camel-kubernetes
+camel-language
 camel-ldap
 camel-log
 camel-mail
 camel-mail-microsoft-oauth
 camel-main
+camel-management
 camel-mapstruct
 camel-master
 camel-micrometer
@@ -117,6 +120,7 @@ camel-scheduler
 camel-seda
 camel-servlet
 camel-slack
+camel-snmp
 camel-spring
 camel-spring-batch
 camel-spring-jdbc
@@ -137,11 +141,13 @@ camel-timer
 camel-validator
 camel-velocity
 camel-vertx-common
+camel-vertx-http
 camel-vertx-websocket
 camel-webhook
 camel-xj
 camel-xml-io
 camel-xml-io-dsl
+camel-xml-jaxb
 camel-xpath
 camel-xslt
 camel-xslt-saxon
