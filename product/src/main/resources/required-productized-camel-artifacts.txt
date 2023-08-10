@@ -149,3 +149,4 @@ camel-yaml-dsl
 camel-yaml-dsl-maven-plugin
 camel-zip-deflater
 camel-zipfile
+camel-jq
