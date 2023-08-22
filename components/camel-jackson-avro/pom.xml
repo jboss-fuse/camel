@@ -35,6 +35,16 @@
         <firstVersion>3.10.0</firstVersion>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+	    <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-compress</artifactId>
+            <version>${commons-compress-version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
 
         <dependency>
