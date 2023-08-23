@@ -421,6 +421,7 @@
         <smallrye-fault-tolerance-version>6.2.6</smallrye-fault-tolerance-version>
         <snakeyaml-version>2.0</snakeyaml-version>
         <snakeyaml-engine-version>2.6</snakeyaml-engine-version>
+        <snappy-java-version>1.1.10.3</snappy-java-version>
         <snmp4j-version>3.7.7</snmp4j-version>
         <splunk-version>1.9.5_1</splunk-version>
         <spock-version>2.3-groovy-4.0</spock-version>
@@ -2795,6 +2796,12 @@
                 <groupId>io.micrometer</groupId>
                 <artifactId>micrometer-tracing</artifactId>
                 <version>${micrometer-tracing-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.xerial.snappy</groupId>
+                <artifactId>snappy-java</artifactId>
+                <version>${snappy-java-version}</version>
             </dependency>
 
             <dependency>
