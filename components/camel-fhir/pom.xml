@@ -38,6 +38,16 @@
         <skipITs.s390x>true</skipITs.s390x>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava-version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <modules>
         <module>camel-fhir-api</module>
         <module>camel-fhir-component</module>

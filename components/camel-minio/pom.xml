@@ -32,6 +32,16 @@
     <name>Camel :: MinIO</name>
     <description>Store and retrieve objects from Minio Storage Service</description>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava-version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
 
         <dependency>
