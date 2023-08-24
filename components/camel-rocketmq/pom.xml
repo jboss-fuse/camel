@@ -32,6 +32,14 @@
     <name>Camel :: RocketMQ</name>
     <description>Camel RocketMQ Component</description>
 
+    <properties>
+        <!-- RocketMQ container is only available on x86 -->
+        <skipTests.ppc64le>true</skipTests.ppc64le>
+        <skipTests.s390x>true</skipTests.s390x>
+        <skipTests.aarch64>true</skipTests.aarch64>
+    </properties>
+
+
     <dependencies>
         <dependency>
             <groupId>org.apache.camel</groupId>
@@ -46,6 +54,13 @@
             <groupId>org.apache.rocketmq</groupId>
             <artifactId>rocketmq-acl</artifactId>
             <version>${rocketmq-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback-version}</version>
+            <scope>test</scope>
         </dependency>
 
         <dependency>

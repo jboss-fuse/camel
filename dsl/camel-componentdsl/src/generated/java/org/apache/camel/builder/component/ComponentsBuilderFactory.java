@@ -190,7 +190,7 @@ public interface ComponentsBuilderFactory {
     }
     /**
      * AWS CloudWatch (camel-aws2-cw)
-     * Sending metrics to AWS CloudWatch using AWS SDK version 2.x.
+     * Sending metrics to AWS CloudWatch.
      * 
      * Category: cloud,monitoring
      * Since: 3.1
@@ -203,8 +203,7 @@ public interface ComponentsBuilderFactory {
     }
     /**
      * AWS DynamoDB (camel-aws2-ddb)
-     * Store and retrieve data from AWS DynamoDB service using AWS SDK version
-     * 2.x.
+     * Store and retrieve data from AWS DynamoDB.
      * 
      * Category: cloud,database
      * Since: 3.1
@@ -217,8 +216,7 @@ public interface ComponentsBuilderFactory {
     }
     /**
      * AWS DynamoDB Streams (camel-aws2-ddb)
-     * Receive messages from AWS DynamoDB Stream service using AWS SDK version
-     * 2.x.
+     * Receive messages from AWS DynamoDB Stream.
      * 
      * Category: cloud,messaging
      * Since: 3.1
@@ -296,8 +294,7 @@ public interface ComponentsBuilderFactory {
     }
     /**
      * AWS Kinesis (camel-aws2-kinesis)
-     * Consume and produce records from and to AWS Kinesis Streams using AWS SDK
-     * version 2.x.
+     * Consume and produce records from and to AWS Kinesis Streams.
      * 
      * Category: cloud,messaging
      * Since: 3.2
@@ -310,7 +307,7 @@ public interface ComponentsBuilderFactory {
     }
     /**
      * AWS Kinesis Firehose (camel-aws2-kinesis)
-     * Produce data to AWS Kinesis Firehose streams using AWS SDK version 2.x.
+     * Produce data to AWS Kinesis Firehose streams.
      * 
      * Category: cloud,messaging
      * Since: 3.2
@@ -336,7 +333,7 @@ public interface ComponentsBuilderFactory {
     }
     /**
      * AWS Lambda (camel-aws2-lambda)
-     * Manage and invoke AWS Lambda functions using AWS SDK version 2.x.
+     * Manage and invoke AWS Lambda functions.
      * 
      * Category: cloud,serverless
      * Since: 3.2
@@ -375,8 +372,7 @@ public interface ComponentsBuilderFactory {
     }
     /**
      * AWS S3 Storage Service (camel-aws2-s3)
-     * Store and retrieve objects from AWS S3 Storage Service using AWS SDK
-     * version 2.x.
+     * Store and retrieve objects from AWS S3 Storage Service.
      * 
      * Category: cloud,file
      * Since: 3.2
@@ -402,8 +398,7 @@ public interface ComponentsBuilderFactory {
     }
     /**
      * AWS Simple Notification System (SNS) (camel-aws2-sns)
-     * Send messages to an AWS Simple Notification Topic using AWS SDK version
-     * 2.x.
+     * Send messages to AWS Simple Notification Topic.
      * 
      * Category: cloud,messaging,mobile
      * Since: 3.1
@@ -416,8 +411,7 @@ public interface ComponentsBuilderFactory {
     }
     /**
      * AWS Simple Queue Service (SQS) (camel-aws2-sqs)
-     * Send and receive messages to/from AWS SQS service using AWS SDK version
-     * 2.x.
+     * Send and receive messages to/from AWS SQS.
      * 
      * Category: cloud,messaging
      * Since: 3.1
@@ -453,6 +447,19 @@ public interface ComponentsBuilderFactory {
      */
     static org.apache.camel.builder.component.dsl.Aws2StsComponentBuilderFactory.Aws2StsComponentBuilder aws2Sts() {
         return org.apache.camel.builder.component.dsl.Aws2StsComponentBuilderFactory.aws2Sts();
+    }
+    /**
+     * AWS Timestream (camel-aws2-timestream)
+     * A Camel Amazon Web Services TimeStream component
+     * 
+     * Category: cloud,database
+     * Since: 4.1
+     * Maven coordinates: org.apache.camel:camel-aws2-timestream
+     * 
+     * @return the dsl builder
+     */
+    static org.apache.camel.builder.component.dsl.Aws2TimestreamComponentBuilderFactory.Aws2TimestreamComponentBuilder aws2Timestream() {
+        return org.apache.camel.builder.component.dsl.Aws2TimestreamComponentBuilderFactory.aws2Timestream();
     }
     /**
      * AWS Translate (camel-aws2-translate)
