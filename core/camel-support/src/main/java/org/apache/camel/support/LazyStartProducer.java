@@ -50,7 +50,7 @@ public final class LazyStartProducer extends DefaultAsyncProducer implements Del
                     }
                 }
             }
-        } catch (Exception e) {
+        } catch (Throwable e) {
             // error creating or starting delegated failed, so allow to re-create on next call
             delegate = null;
             exchange.setException(e);

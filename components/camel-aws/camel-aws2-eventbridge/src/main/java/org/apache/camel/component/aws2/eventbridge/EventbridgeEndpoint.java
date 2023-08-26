@@ -31,7 +31,7 @@ import org.apache.camel.util.ObjectHelper;
 import software.amazon.awssdk.services.eventbridge.EventBridgeClient;
 
 /**
- * Send events to AWS Eventbridge cluster instances.
+ * Manage AWS Eventbridge cluster instances using AWS SDK version 2.x.
  */
 @UriEndpoint(firstVersion = "3.6.0", scheme = "aws2-eventbridge", title = "AWS Eventbridge",
              syntax = "aws2-eventbridge://eventbusNameOrArn", producerOnly = true, category = {

@@ -21,7 +21,6 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Objects;
 
 import org.apache.camel.dsl.jbang.core.commands.CamelJBangMain;
 import org.apache.camel.support.PatternHelper;
@@ -36,7 +35,7 @@ import picocli.CommandLine.Command;
 
 import static org.apache.camel.support.LoggerHelper.stripSourceLocationLineNumber;
 
-@Command(name = "route-dump", description = "Dump Camel route in XML or YAML format", sortOptions = false)
+@Command(name = "route-dump", description = "Dump Camel route in XML or YAML format")
 public class CamelRouteDumpAction extends ActionBaseCommand {
 
     public static class NameIdCompletionCandidates implements Iterable<String> {
@@ -119,6 +118,7 @@ public class CamelRouteDumpAction extends ActionBaseCommand {
                 Row row = new Row();
                 row.location = extractSourceName(o.getString("source"));
                 row.routeId = o.getString("routeId");
+                // if there are 2+ routes in the same source then we would have duplicates
                 if (!rows.contains(row)) {
                     List<JsonObject> lines = o.getCollection("code");
                     if (lines != null) {
@@ -249,21 +249,21 @@ public class CamelRouteDumpAction extends ActionBaseCommand {
 
         @Override
         public boolean equals(Object o) {
-            if (this == o)
+            if (this == o) {
                 return true;
-            if (o == null || getClass() != o.getClass())
+            }
+            if (o == null || getClass() != o.getClass()) {
                 return false;
+            }
 
             Row row = (Row) o;
 
-            if (!Objects.equals(location, row.location))
-                return false;
-            return routeId.equals(row.routeId);
+            return location.equals(row.location);
         }
 
         @Override
         public int hashCode() {
-            return routeId.hashCode();
+            return location.hashCode();
         }
     }
 

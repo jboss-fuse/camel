@@ -69,7 +69,7 @@ public class ChoiceProcessor extends AsyncProcessorSupport implements Navigate<P
             boolean matches = false;
             try {
                 matches = filter.matches(exchange);
-            } catch (Exception e) {
+            } catch (Throwable e) {
                 exchange.setException(e);
             }
 

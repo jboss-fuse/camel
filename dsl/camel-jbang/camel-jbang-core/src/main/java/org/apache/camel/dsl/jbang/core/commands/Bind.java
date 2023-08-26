@@ -44,14 +44,8 @@ import static org.apache.camel.dsl.yaml.common.YamlDeserializerSupport.asStringS
 import static org.apache.camel.dsl.yaml.common.YamlDeserializerSupport.asText;
 import static org.apache.camel.dsl.yaml.common.YamlDeserializerSupport.nodeAt;
 
-@Command(name = "bind", description = "Bind source and sink Kamelets as a new Camel integration",
-         sortOptions = false)
+@Command(name = "bind", description = "Bind source and sink Kamelets as a new Camel integration")
 public class Bind extends CamelCommand {
-
-    @CommandLine.Parameters(description = "Name of binding file to be saved", arity = "1",
-                            paramLabel = "<file>", parameterConsumer = FileConsumer.class)
-    Path filePath; // Defined only for file path completion; the field never used
-    String file;
 
     @CommandLine.Option(names = { "--source" }, description = "Source (from) such as a Kamelet or Camel endpoint uri",
                         required = true)
@@ -64,6 +58,12 @@ public class Bind extends CamelCommand {
                         required = true)
     String sink;
 
+    @CommandLine.Parameters(description = "Name of binding file to be saved", arity = "1",
+                            paramLabel = "<file>", parameterConsumer = FileConsumer.class)
+    Path filePath; // Defined only for file path completion; the field never used
+
+    String file;
+
     public Bind(CamelJBangMain main) {
         super(main);
     }
@@ -71,7 +71,7 @@ public class Bind extends CamelCommand {
     @Override
     public Integer doCall() throws Exception {
 
-        // the pipe source and sink can either be a kamelet or an uri
+        // the kamelet binding source and sink can either be a kamelet or an uri
         String in = "kamelet";
         String out = "kamelet";
         if (source.contains(":")) {
@@ -81,7 +81,7 @@ public class Bind extends CamelCommand {
             out = "uri";
         }
 
-        InputStream is = Bind.class.getClassLoader().getResourceAsStream("templates/pipe-" + in + "-" + out + ".yaml.tmpl");
+        InputStream is = Bind.class.getClassLoader().getResourceAsStream("templates/binding-" + in + "-" + out + ".yaml.tmpl");
         String context = IOHelper.loadText(is);
         IOHelper.close(is);
 

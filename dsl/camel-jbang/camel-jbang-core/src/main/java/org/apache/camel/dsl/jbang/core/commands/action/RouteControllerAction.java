@@ -39,8 +39,7 @@ import org.apache.camel.util.json.Jsoner;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
-@Command(name = "route-controller", description = "List status of route controller in a running Camel integration",
-         sortOptions = false)
+@Command(name = "route-controller", description = "List status of route controller in a running Camel integration")
 public class RouteControllerAction extends ActionWatchCommand {
 
     public static class IdStateCompletionCandidates implements Iterable<String> {
@@ -148,9 +147,7 @@ public class RouteControllerAction extends ActionWatchCommand {
         // sort rows
         rows.sort(this::sortRow);
 
-        if (watch) {
-            clearScreen();
-        }
+        clearScreen();
         if (!rows.isEmpty()) {
             if (supervising) {
                 if (header) {

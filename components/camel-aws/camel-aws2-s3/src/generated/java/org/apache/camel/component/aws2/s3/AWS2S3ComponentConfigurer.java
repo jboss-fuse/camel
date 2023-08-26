@@ -48,8 +48,6 @@ public class AWS2S3ComponentConfigurer extends PropertyConfigurerSupport impleme
         case "batchSize": getOrCreateConfiguration(target).setBatchSize(property(camelContext, int.class, value)); return true;
         case "bridgeerrorhandler":
         case "bridgeErrorHandler": target.setBridgeErrorHandler(property(camelContext, boolean.class, value)); return true;
-        case "buffersize":
-        case "bufferSize": getOrCreateConfiguration(target).setBufferSize(property(camelContext, int.class, value)); return true;
         case "configuration": target.setConfiguration(property(camelContext, org.apache.camel.component.aws2.s3.AWS2S3Configuration.class, value)); return true;
         case "customeralgorithm":
         case "customerAlgorithm": getOrCreateConfiguration(target).setCustomerAlgorithm(property(camelContext, java.lang.String.class, value)); return true;
@@ -168,8 +166,6 @@ public class AWS2S3ComponentConfigurer extends PropertyConfigurerSupport impleme
         case "batchSize": return int.class;
         case "bridgeerrorhandler":
         case "bridgeErrorHandler": return boolean.class;
-        case "buffersize":
-        case "bufferSize": return int.class;
         case "configuration": return org.apache.camel.component.aws2.s3.AWS2S3Configuration.class;
         case "customeralgorithm":
         case "customerAlgorithm": return java.lang.String.class;
@@ -284,8 +280,6 @@ public class AWS2S3ComponentConfigurer extends PropertyConfigurerSupport impleme
         case "batchSize": return getOrCreateConfiguration(target).getBatchSize();
         case "bridgeerrorhandler":
         case "bridgeErrorHandler": return target.isBridgeErrorHandler();
-        case "buffersize":
-        case "bufferSize": return getOrCreateConfiguration(target).getBufferSize();
         case "configuration": return target.getConfiguration();
         case "customeralgorithm":
         case "customerAlgorithm": return getOrCreateConfiguration(target).getCustomerAlgorithm();

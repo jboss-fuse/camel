@@ -34,7 +34,6 @@
             <excludes>**/*MyCoolRoute*</excludes>
             <excludes>*contextscan*</excludes>
         </packageScan>
-        <jmxAgent id="jmx" disabled="true"/>
     </camelContext>
 
 </beans>

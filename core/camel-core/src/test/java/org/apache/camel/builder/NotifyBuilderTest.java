@@ -23,17 +23,21 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class NotifyBuilderTest extends ContextTestSupport {
 
     @Test
-    public void testMustBeCreated() {
+    public void testMustBeCreated() throws Exception {
         NotifyBuilder notify = new NotifyBuilder(context).whenDone(1);
 
-        Exception e = assertThrows(IllegalStateException.class, notify::matches, "Should have thrown an exception");
-        assertEquals("NotifyBuilder has not been created. Invoke the create() method before matching.", e.getMessage());
+        try {
+            notify.matches();
+            fail("Should have thrown an exception");
+        } catch (IllegalStateException e) {
+            assertEquals("NotifyBuilder has not been created. Invoke the create() method before matching.", e.getMessage());
+        }
     }
 
     @Test
@@ -49,25 +53,33 @@ public class NotifyBuilderTest extends ContextTestSupport {
     }
 
     @Test
-    public void testDestroyResetsBuilder() {
-        // Given:
-        NotifyBuilder notify = new NotifyBuilder(context).whenDone(1).create();
-        // When:
-        notify.destroy();
-        //Then
-        Exception e = assertThrows(IllegalStateException.class, notify::matches, "Should have thrown an exception");
-        assertEquals("NotifyBuilder has not been created. Invoke the create() method before matching.", e.getMessage());
-    }
-
-    @Test
-    public void testDestroyedBuilderCannotBeRecreated() {
+    public void testDestroyResetsBuilder() throws Exception {
         // Given:
         NotifyBuilder notify = new NotifyBuilder(context).whenDone(1).create();
         // When:
         notify.destroy();
         // Then:
-        Exception e = assertThrows(IllegalStateException.class, notify::create, "Should have thrown an exception");
-        assertEquals("A destroyed NotifyBuilder cannot be re-created.", e.getMessage());
+        try {
+            notify.matches();
+            fail("Should have thrown an exception");
+        } catch (IllegalStateException e) {
+            assertEquals("NotifyBuilder has not been created. Invoke the create() method before matching.", e.getMessage());
+        }
+    }
+
+    @Test
+    public void testDestroyedBuilderCannotBeRecreated() throws Exception {
+        // Given:
+        NotifyBuilder notify = new NotifyBuilder(context).whenDone(1).create();
+        // When:
+        notify.destroy();
+        // Then:
+        try {
+            notify.create();
+            fail("Should have thrown an exception");
+        } catch (IllegalStateException e) {
+            assertEquals("A destroyed NotifyBuilder cannot be re-created.", e.getMessage());
+        }
     }
 
     @Test
@@ -315,7 +327,12 @@ public class NotifyBuilderTest extends ContextTestSupport {
 
         assertFalse(notify.matches());
 
-        assertThrows(Exception.class, () -> template.sendBody("direct:fail", "E"), "Should have thrown exception");
+        try {
+            template.sendBody("direct:fail", "E");
+            fail("Should have thrown exception");
+        } catch (Exception e) {
+            // ignore
+        }
 
         assertTrue(notify.matches());
     }
@@ -334,7 +351,12 @@ public class NotifyBuilderTest extends ContextTestSupport {
 
         assertTrue(notify.matches());
 
-        assertThrows(Exception.class, () -> template.sendBody("direct:fail", "G"), "Should have thrown exception");
+        try {
+            template.sendBody("direct:fail", "G");
+            fail("Should have thrown exception");
+        } catch (Exception e) {
+            // ignore
+        }
 
         assertFalse(notify.matches());
     }
@@ -430,8 +452,19 @@ public class NotifyBuilderTest extends ContextTestSupport {
         template.sendBody("direct:foo", "B");
         template.sendBody("direct:bar", "C");
 
-        assertThrows(Exception.class, () -> template.sendBody("direct:fail", "D"), "Should have thrown exception");
-        assertThrows(Exception.class, () -> template.sendBody("direct:fail", "E"), "Should have thrown exception");
+        try {
+            template.sendBody("direct:fail", "D");
+            fail("Should have thrown exception");
+        } catch (Exception e) {
+            // ignore
+        }
+
+        try {
+            template.sendBody("direct:fail", "E");
+            fail("Should have thrown exception");
+        } catch (Exception e) {
+            // ignore
+        }
 
         // should NOT be completed as it only counts successful exchanges
         assertFalse(notify.matches());
@@ -494,19 +527,33 @@ public class NotifyBuilderTest extends ContextTestSupport {
         template.sendBody("direct:foo", "B");
         template.sendBody("direct:foo", "C");
 
-        assertThrows(Exception.class, () -> template.sendBody("direct:fail", "D"), "Should have thrown exception");
+        try {
+            template.sendBody("direct:fail", "D");
+            fail("Should have thrown exception");
+        } catch (Exception e) {
+            // ignore
+        }
 
         template.sendBody("direct:bar", "E");
         assertFalse(notify.matches());
 
-        assertThrows(Exception.class, () -> template.sendBody("direct:fail", "F"), "Should have thrown exception");
-
+        try {
+            template.sendBody("direct:fail", "F");
+            fail("Should have thrown exception");
+        } catch (Exception e) {
+            // ignore
+        }
         assertTrue(notify.matches());
 
         template.sendBody("direct:bar", "G");
         assertTrue(notify.matches());
 
-        assertThrows(Exception.class, () -> template.sendBody("direct:fail", "H"), "Should have thrown exception");
+        try {
+            template.sendBody("direct:fail", "H");
+            fail("Should have thrown exception");
+        } catch (Exception e) {
+            // ignore
+        }
         assertFalse(notify.matches());
     }
 
@@ -872,11 +919,13 @@ public class NotifyBuilderTest extends ContextTestSupport {
     }
 
     @Test
-    public void testOneNonAbstractPredicate() {
-        Exception e = assertThrows(IllegalArgumentException.class, () -> new NotifyBuilder(context)
-                .wereSentTo("mock:foo")
-                .create(), "Should throw exception");
-        assertEquals("NotifyBuilder must contain at least one non-abstract predicate (such as whenDone)", e.getMessage());
+    public void testOneNonAbstractPredicate() throws Exception {
+        try {
+            new NotifyBuilder(context).wereSentTo("mock:foo").create();
+            fail("Should throw exception");
+        } catch (IllegalArgumentException e) {
+            assertEquals("NotifyBuilder must contain at least one non-abstract predicate (such as whenDone)", e.getMessage());
+        }
     }
 
     @Test
@@ -978,8 +1027,12 @@ public class NotifyBuilderTest extends ContextTestSupport {
         template.sendBody("direct:foo", "Hello World");
         assertFalse(notify.matches());
 
-        assertThrows(CamelExecutionException.class, () -> template.sendBody("direct:fail", "Bye World"),
-                "Should have thrown exception");
+        try {
+            template.sendBody("direct:fail", "Bye World");
+            fail("Should have thrown exception");
+        } catch (CamelExecutionException e) {
+            // expected
+        }
         assertTrue(notify.matches());
     }
 

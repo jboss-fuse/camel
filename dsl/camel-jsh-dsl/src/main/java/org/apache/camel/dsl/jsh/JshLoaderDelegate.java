@@ -52,7 +52,7 @@ final class JshLoaderDelegate implements LoaderDelegate {
 
                 loaded[i] = true;
             }
-        } catch (Exception ex) {
+        } catch (Throwable ex) {
             throw new ExecutionControl.ClassInstallException("load: " + ex.getMessage(), loaded);
         }
     }

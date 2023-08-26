@@ -14,32 +14,41 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.camel.maven.htmlxlsx.model;
+package org.apache.camel.component.whatsapp.model;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+public class TempalteMessage {
 
-public class Routes {
+    private String name;
+    private Language language;
+    private List<Component> components;
 
-    @JsonProperty("route")
-    private List<Route> routeList;
-
-    public List<Route> getRouteList() {
-
-        return routeList;
+    public TempalteMessage() {
     }
 
-    public void setRouteList(List<Route> routeList) {
-
-        this.routeList = routeList;
+    public String getName() {
+        return name;
     }
 
-    @Override
-    public String toString() {
-
-        return "Routes{" +
-               "routeList=" + routeList +
-               '}';
+    public void setName(String name) {
+        this.name = name;
     }
+
+    public Language getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(Language language) {
+        this.language = language;
+    }
+
+    public List<Component> getComponents() {
+        return components;
+    }
+
+    public void setComponents(List<Component> components) {
+        this.components = components;
+    }
+
 }

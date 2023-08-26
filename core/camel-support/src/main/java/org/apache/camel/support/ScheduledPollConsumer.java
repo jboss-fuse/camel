@@ -237,10 +237,13 @@ public abstract class ScheduledPollConsumer extends DefaultConsumer
                         cause = e;
                         done = true;
                     }
-                } catch (Exception t) {
+                } catch (Throwable t) {
                     cause = t;
                     done = true;
                 }
+            } catch (Throwable t) {
+                cause = t;
+                done = true;
             }
 
             if (cause != null && isRunAllowed()) {
@@ -250,7 +253,7 @@ public abstract class ScheduledPollConsumer extends DefaultConsumer
                     getExceptionHandler().handleException("Failed polling endpoint: " + getEndpoint()
                                                           + ". Will try again at next poll",
                             cause);
-                } catch (Exception e) {
+                } catch (Throwable e) {
                     LOG.warn("Error handling exception. This exception will be ignored.", e);
                 }
             }

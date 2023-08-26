@@ -36,8 +36,7 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
 @Command(name = "context",
-         description = "Get status of Camel integrations",
-         sortOptions = false)
+         description = "Get status of Camel integrations")
 public class CamelContextStatus extends ProcessWatchCommand {
 
     @CommandLine.Parameters(description = "Name or pid of running Camel integration", arity = "0..1")

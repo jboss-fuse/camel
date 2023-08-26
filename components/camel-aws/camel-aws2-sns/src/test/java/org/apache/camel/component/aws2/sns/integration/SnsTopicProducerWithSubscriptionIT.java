@@ -26,6 +26,7 @@ import org.apache.camel.component.aws2.sns.Sns2Constants;
 import org.apache.camel.test.infra.aws2.clients.AWSSDKClientUtils;
 import org.apache.camel.test.infra.common.SharedNameGenerator;
 import org.apache.camel.test.infra.common.TestEntityNameGenerator;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
@@ -35,7 +36,6 @@ import software.amazon.awssdk.services.sqs.model.CreateQueueRequest;
 import software.amazon.awssdk.services.sqs.model.GetQueueUrlRequest;
 import software.amazon.awssdk.services.sqs.model.GetQueueUrlResponse;
 import software.amazon.awssdk.services.sqs.model.Message;
-import software.amazon.awssdk.services.sqs.model.QueueAttributeName;
 import software.amazon.awssdk.services.sqs.model.QueueDoesNotExistException;
 import software.amazon.awssdk.services.sqs.model.ReceiveMessageRequest;
 import software.amazon.awssdk.services.sqs.model.ReceiveMessageResponse;
@@ -43,6 +43,7 @@ import software.amazon.awssdk.services.sqs.model.ReceiveMessageResponse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+@Disabled("Need to review this later for localstack 2.x upgrade")
 public class SnsTopicProducerWithSubscriptionIT extends Aws2SNSBase {
     @RegisterExtension
     public static SharedNameGenerator sharedNameGenerator = new TestEntityNameGenerator();
@@ -50,7 +51,6 @@ public class SnsTopicProducerWithSubscriptionIT extends Aws2SNSBase {
     private static final Logger LOG = LoggerFactory.getLogger(SnsTopicProducerWithSubscriptionIT.class);
 
     private String sqsQueueUrl;
-    private String sqsQueueArn;
     private SqsClient client;
 
     public List<Message> receive() {
@@ -102,9 +102,6 @@ public class SnsTopicProducerWithSubscriptionIT extends Aws2SNSBase {
 
             sqsQueueUrl = client.createQueue(createQueueRequest).queueUrl();
         }
-        sqsQueueArn = client.getQueueAttributes(b -> b.queueUrl(sqsQueueUrl)
-                .attributeNames(QueueAttributeName.QUEUE_ARN))
-                .attributes().get(QueueAttributeName.QUEUE_ARN);
     }
 
     @Test
@@ -131,8 +128,8 @@ public class SnsTopicProducerWithSubscriptionIT extends Aws2SNSBase {
             @Override
             public void configure() {
                 from("direct:start")
-                        .toF("aws2-sns://%s?subject=The+subject+message&autoCreateTopic=true&subscribeSNStoSQS=true&queueArn=%s",
-                                sharedNameGenerator.getName(), sqsQueueArn);
+                        .toF("aws2-sns://%s?subject=The+subject+message&autoCreateTopic=true&subscribeSNStoSQS=true&queueUrl=%s",
+                                sharedNameGenerator.getName(), sqsQueueUrl);
             }
         };
     }

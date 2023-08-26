@@ -103,7 +103,7 @@ public class DefaultConsumerCache extends ServiceSupport implements ConsumerCach
                 statistics.onHit(endpoint.getEndpointUri());
             }
             return consumer;
-        } catch (Exception e) {
+        } catch (Throwable e) {
             throw new FailedToCreateConsumerException(endpoint, e);
         }
     }

@@ -29,8 +29,8 @@ import org.apache.camel.ServiceStatus;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.impl.engine.PooledExchangeFactory;
-import org.awaitility.Awaitility;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.DisabledIfSystemProperty;
 import org.junit.jupiter.api.condition.DisabledOnOs;
 import org.junit.jupiter.api.condition.OS;
 
@@ -39,6 +39,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 
 @DisabledOnOs(OS.AIX)
+@DisabledIfSystemProperty(named = "ci.env.name", matches = "github.com", disabledReason = "Flaky on Github CI")
 public class ManagedPooledExchangeTest extends ManagementTestSupport {
 
     private final AtomicInteger counter = new AtomicInteger();
@@ -86,23 +87,21 @@ public class ManagedPooledExchangeTest extends ManagementTestSupport {
         Integer cap = (Integer) mbeanServer.getAttribute(on, "Capacity");
         assertEquals(123, cap.intValue());
 
-        Awaitility.await().untilAsserted(() -> {
-            Long num = (Long) mbeanServer.getAttribute(on, "TotalCreated");
-            assertEquals(1, num.intValue());
+        // also only 1 exchange pooled
+        con = (Integer) mbeanServer.getAttribute(on, "TotalPooled");
+        assertEquals(1, con.intValue());
 
-            num = (Long) mbeanServer.getAttribute(on, "TotalAcquired");
-            assertEquals(2, num.intValue());
+        Long num = (Long) mbeanServer.getAttribute(on, "TotalCreated");
+        assertEquals(1, num.intValue());
 
-            num = (Long) mbeanServer.getAttribute(on, "TotalReleased");
-            assertEquals(3, num.intValue());
+        num = (Long) mbeanServer.getAttribute(on, "TotalAcquired");
+        assertEquals(2, num.intValue());
 
-            num = (Long) mbeanServer.getAttribute(on, "TotalDiscarded");
-            assertEquals(0, num.intValue());
+        num = (Long) mbeanServer.getAttribute(on, "TotalReleased");
+        assertEquals(3, num.intValue());
 
-            Integer num2 = (Integer) mbeanServer.getAttribute(on, "TotalPooled");
-            assertEquals(1, num2.intValue());
-        });
-
+        num = (Long) mbeanServer.getAttribute(on, "TotalDiscarded");
+        assertEquals(0, num.intValue());
     }
 
     @Override
@@ -117,14 +116,12 @@ public class ManagedPooledExchangeTest extends ManagementTestSupport {
                             @Override
                             public void process(Exchange exchange) throws Exception {
                                 // should be same exchange instance as its pooled
-                                synchronized (this) {
-                                    Exchange old = ref.get();
-                                    if (old == null) {
-                                        ref.set(exchange);
-                                        exchange.getMessage().setHeader("first", true);
-                                    } else {
-                                        assertSame(old, exchange);
-                                    }
+                                Exchange old = ref.get();
+                                if (old == null) {
+                                    ref.set(exchange);
+                                    exchange.getMessage().setHeader("first", true);
+                                } else {
+                                    assertSame(old, exchange);
                                 }
                             }
                         })

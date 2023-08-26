@@ -158,9 +158,11 @@ final class IntrospectionSupport {
 
         String name = method.getName();
         if (name.startsWith("get")) {
-            name = StringHelper.decapitalize(name.substring(3));
+            name = name.substring(3);
+            name = name.substring(0, 1).toLowerCase(Locale.ENGLISH) + name.substring(1);
         } else if (name.startsWith("is")) {
-            name = StringHelper.decapitalize(name.substring(2));
+            name = name.substring(2);
+            name = name.substring(0, 1).toLowerCase(Locale.ENGLISH) + name.substring(1);
         }
 
         return name;
@@ -333,7 +335,7 @@ final class IntrospectionSupport {
         ObjectHelper.notNull(target, "target");
         ObjectHelper.notNull(propertyName, "property");
 
-        propertyName = StringHelper.capitalize(propertyName);
+        propertyName = propertyName.substring(0, 1).toUpperCase(Locale.ENGLISH) + propertyName.substring(1);
 
         Class<?> clazz = target.getClass();
         Method method = getPropertyGetter(clazz, propertyName);

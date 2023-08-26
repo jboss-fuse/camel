@@ -25,9 +25,7 @@ import org.apache.camel.builder.ProxyBuilder;
 import org.apache.camel.builder.RouteBuilder;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BeanProxyTest extends ContextTestSupport {
 
@@ -93,9 +91,12 @@ public class BeanProxyTest extends ContextTestSupport {
         Endpoint endpoint = context.getEndpoint("direct:start");
         OrderService service = ProxyHelper.createProxy(endpoint, OrderService.class);
 
-        assertThrows(Exception.class,
-                () -> service.submitOrderStringReturnString("Hello World"),
-                "Should have thrown exception");
+        try {
+            service.submitOrderStringReturnString("Hello World");
+            fail("Should have thrown exception");
+        } catch (Exception e) {
+            // expected
+        }
     }
 
     @Test
@@ -111,12 +112,14 @@ public class BeanProxyTest extends ContextTestSupport {
         Endpoint endpoint = context.getEndpoint("direct:start");
         OrderService service = ProxyHelper.createProxy(endpoint, OrderService.class);
 
-        Exception e = assertThrows(Exception.class,
-                () -> service.invalidReturnType("<order type=\"beer\">Carlsberg</order>"),
-                "Should have thrown exception");
-
-        InvalidPayloadException cause = assertIsInstanceOf(InvalidPayloadException.class, e.getCause());
-        assertEquals(Integer.class, cause.getType());
+        try {
+            service.invalidReturnType("<order type=\"beer\">Carlsberg</order>");
+            fail("Should have thrown exception");
+        } catch (Exception e) {
+            // expected
+            InvalidPayloadException cause = assertIsInstanceOf(InvalidPayloadException.class, e.getCause());
+            assertEquals(Integer.class, cause.getType());
+        }
     }
 
     @Test

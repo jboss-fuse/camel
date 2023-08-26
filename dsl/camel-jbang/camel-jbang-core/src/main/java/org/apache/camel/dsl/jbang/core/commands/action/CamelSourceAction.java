@@ -34,7 +34,7 @@ import picocli.CommandLine.Command;
 
 import static org.apache.camel.support.LoggerHelper.stripSourceLocationLineNumber;
 
-@Command(name = "source", description = "Display Camel route source code", sortOptions = false)
+@Command(name = "source", description = "Display Camel route source code")
 public class CamelSourceAction extends ActionBaseCommand {
 
     // TODO: strip license header

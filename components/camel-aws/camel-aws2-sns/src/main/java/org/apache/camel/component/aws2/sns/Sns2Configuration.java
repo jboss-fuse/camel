@@ -45,7 +45,7 @@ public class Sns2Configuration implements Cloneable {
     @UriParam(label = "proxy")
     private Integer proxyPort;
     @UriParam
-    private String queueArn;
+    private String queueUrl;
     @UriParam
     private boolean subscribeSNStoSQS;
     @UriParam
@@ -217,15 +217,15 @@ public class Sns2Configuration implements Cloneable {
         this.region = region;
     }
 
-    public String getQueueArn() {
-        return queueArn;
+    public String getQueueUrl() {
+        return queueUrl;
     }
 
     /**
-     * The ARN endpoint to subscribe to
+     * The queueUrl to subscribe to
      */
-    public void setQueueArn(String queueArn) {
-        this.queueArn = queueArn;
+    public void setQueueUrl(String queueUrl) {
+        this.queueUrl = queueUrl;
     }
 
     public boolean isSubscribeSNStoSQS() {

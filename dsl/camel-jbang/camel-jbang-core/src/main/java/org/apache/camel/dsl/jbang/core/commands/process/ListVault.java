@@ -34,7 +34,7 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
 @Command(name = "vault",
-         description = "List secrets from security vaults used by running Camel integrations", sortOptions = false)
+         description = "List secrets from security vaults used by running Camel integrations")
 public class ListVault extends ProcessWatchCommand {
 
     public static class PidNameCompletionCandidates implements Iterable<String> {

@@ -98,7 +98,7 @@ And in Spring Boot:
 
 [source,properties]
 ----
-camel.springboot.routeControllerSuperviseEnabled = true
+camel.springboot.route-controller-enabled = true
 
 # and you can configure more options
 camel.springboot.routeControllerBackoffDelay = 5000

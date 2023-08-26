@@ -25,7 +25,6 @@
     ">
 
     <camelContext xmlns="http://camel.apache.org/schema/spring">
-    <jmxAgent id="jmx" disabled="true"/>
 
         <!-- dead letter channel -->
         <errorHandler id="myDLC" deadLetterUri="mock:error" type="DeadLetterChannel"/>

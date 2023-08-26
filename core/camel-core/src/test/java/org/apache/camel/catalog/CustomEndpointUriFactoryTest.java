@@ -89,11 +89,13 @@ public class CustomEndpointUriFactoryTest extends ContextTestSupport {
         params.put("port", 4444);
         params.put("amount", "123");
 
-        IllegalArgumentException e = Assertions.assertThrows(IllegalArgumentException.class,
-                () -> assembler.buildUri("acme", params),
-                "Should have thrown an exception");
-        Assertions.assertEquals("Option name is required when creating endpoint uri with syntax acme:name:port",
-                e.getMessage());
+        try {
+            assembler.buildUri("acme", params);
+            Assertions.fail();
+        } catch (IllegalArgumentException e) {
+            Assertions.assertEquals("Option name is required when creating endpoint uri with syntax acme:name:port",
+                    e.getMessage());
+        }
     }
 
     @Test

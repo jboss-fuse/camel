@@ -226,7 +226,7 @@ public class PollEnricher extends AsyncProcessorSupport implements IdAware, Rout
             }
             // acquire the consumer from the cache
             consumer = consumerCache.acquirePollingConsumer(endpoint);
-        } catch (Exception e) {
+        } catch (Throwable e) {
             if (isIgnoreInvalidEndpoint()) {
                 LOG.debug("Endpoint uri is invalid: {}. This exception will be ignored.", recipient, e);
             } else {
@@ -339,7 +339,7 @@ public class PollEnricher extends AsyncProcessorSupport implements IdAware, Rout
             // set property with the uri of the endpoint enriched so we can use that for tracing etc
             exchange.setProperty(ExchangePropertyKey.TO_ENDPOINT, consumer.getEndpoint().getEndpointUri());
 
-        } catch (Exception e) {
+        } catch (Throwable e) {
             exchange.setException(new CamelExchangeException("Error occurred during aggregation", exchange, e));
             callback.done(true);
             return true;

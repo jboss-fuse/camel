@@ -51,7 +51,7 @@ import software.amazon.awssdk.services.sns.model.SubscribeResponse;
 import software.amazon.awssdk.services.sns.model.Topic;
 
 /**
- * Send messages to AWS Simple Notification Topic.
+ * Send messages to an AWS Simple Notification Topic using AWS SDK version 2.x.
  */
 @UriEndpoint(firstVersion = "3.1.0", scheme = "aws2-sns", title = "AWS Simple Notification System (SNS)",
              syntax = "aws2-sns:topicNameOrArn", producerOnly = true,
@@ -178,9 +178,9 @@ public class Sns2Endpoint extends DefaultEndpoint implements HeaderFilterStrateg
         }
 
         if (configuration.isSubscribeSNStoSQS()) {
-            if (ObjectHelper.isNotEmpty(ObjectHelper.isNotEmpty(configuration.getQueueArn()))) {
+            if (ObjectHelper.isNotEmpty(ObjectHelper.isNotEmpty(configuration.getQueueUrl()))) {
                 SubscribeResponse resp = snsClient.subscribe(SubscribeRequest.builder().topicArn(configuration.getTopicArn())
-                        .protocol("sqs").endpoint(configuration.getQueueArn())
+                        .protocol("sqs").endpoint(configuration.getQueueUrl())
                         .returnSubscriptionArn(true).build());
                 LOG.trace("Subscription of SQS Queue to SNS Topic done with Amazon resource name: {}", resp.subscriptionArn());
             } else {

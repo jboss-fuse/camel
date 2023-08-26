@@ -21,8 +21,7 @@ import org.apache.camel.dsl.jbang.core.commands.CamelJBangMain;
 import picocli.CommandLine;
 
 @CommandLine.Command(name = "top",
-                     description = "Top status of Camel integrations (use top --help to see sub commands)",
-                     sortOptions = false)
+                     description = "Top status of Camel integrations (use top --help to see sub commands)")
 public class CamelTop extends CamelCommand {
 
     @CommandLine.Option(names = { "--watch" },

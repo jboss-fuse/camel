@@ -34,7 +34,7 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
 @Command(name = "metric",
-         description = "Get metrics (micrometer) of running Camel integrations", sortOptions = false)
+         description = "Get metrics (micrometer) of running Camel integrations")
 public class ListMetric extends ProcessWatchCommand {
 
     @CommandLine.Parameters(description = "Name or pid of running Camel integration", arity = "0..1")

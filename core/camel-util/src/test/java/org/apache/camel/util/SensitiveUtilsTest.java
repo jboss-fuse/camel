@@ -35,7 +35,6 @@ class SensitiveUtilsTest {
         assertTrue(SensitiveUtils.containsSensitive("sasljaasconfig"));
         assertTrue(SensitiveUtils.containsSensitive("sasl-jaas-config"));
         assertTrue(SensitiveUtils.containsSensitive("saslJaasConfig"));
-        assertTrue(SensitiveUtils.containsSensitive("secret"));
         assertTrue(SensitiveUtils.containsSensitive("secretkey"));
         assertTrue(SensitiveUtils.containsSensitive("secret-key"));
         assertTrue(SensitiveUtils.containsSensitive("secretKey"));

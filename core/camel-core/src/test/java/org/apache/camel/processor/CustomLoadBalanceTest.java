@@ -85,7 +85,7 @@ public class CustomLoadBalanceTest extends ContextTestSupport {
                 } else {
                     getProcessors().get(2).process(exchange);
                 }
-            } catch (Exception e) {
+            } catch (Throwable e) {
                 exchange.setException(e);
             }
             callback.done(true);

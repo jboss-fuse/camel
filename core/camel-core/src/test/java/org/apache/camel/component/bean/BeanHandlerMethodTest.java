@@ -24,10 +24,7 @@ import org.apache.camel.Header;
 import org.apache.camel.support.DefaultExchange;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BeanHandlerMethodTest extends ContextTestSupport {
 
@@ -54,15 +51,17 @@ public class BeanHandlerMethodTest extends ContextTestSupport {
     }
 
     @Test
-    public void testAmbigiousMethod() {
+    public void testAmbigiousMethod() throws Exception {
         BeanInfo info = new BeanInfo(context, MyAmbigiousBean.class);
 
         Exchange exchange = new DefaultExchange(context);
         MyAmbigiousBean pojo = new MyAmbigiousBean();
-        AmbiguousMethodCallException e = assertThrows(AmbiguousMethodCallException.class,
-                () -> info.createInvocation(pojo, exchange),
-                "Should have thrown an exception");
-        assertEquals(2, e.getMethods().size());
+        try {
+            info.createInvocation(pojo, exchange);
+            fail("Should have thrown an exception");
+        } catch (AmbiguousMethodCallException e) {
+            assertEquals(2, e.getMethods().size());
+        }
     }
 
     @Test
@@ -88,28 +87,31 @@ public class BeanHandlerMethodTest extends ContextTestSupport {
     }
 
     @Test
-    public void testHandleAmbigious() {
+    public void testHandleAmbigious() throws Exception {
         BeanInfo info = new BeanInfo(context, MyReallyDummyBean.class);
 
         Exchange exchange = new DefaultExchange(context);
         MyReallyDummyBean pojo = new MyReallyDummyBean();
-
-        AmbiguousMethodCallException e = assertThrows(AmbiguousMethodCallException.class,
-                () -> info.createInvocation(pojo, exchange),
-                "Should have thrown an exception");
-        assertEquals(2, e.getMethods().size());
+        try {
+            info.createInvocation(pojo, exchange);
+            fail("Should throw exception");
+        } catch (AmbiguousMethodCallException e) {
+            assertEquals(2, e.getMethods().size());
+        }
     }
 
     @Test
-    public void testNoHandlerAmbigious() {
+    public void testNoHandlerAmbigious() throws Exception {
         BeanInfo info = new BeanInfo(context, MyNoHandlerBean.class);
 
         Exchange exchange = new DefaultExchange(context);
         MyNoHandlerBean pojo = new MyNoHandlerBean();
-        AmbiguousMethodCallException e = assertThrows(AmbiguousMethodCallException.class,
-                () -> info.createInvocation(pojo, exchange),
-                "Should have thrown an exception");
-        assertEquals(3, e.getMethods().size());
+        try {
+            info.createInvocation(pojo, exchange);
+            fail("Should throw exception");
+        } catch (AmbiguousMethodCallException e) {
+            assertEquals(3, e.getMethods().size());
+        }
     }
 
     public interface MyBaseInterface {

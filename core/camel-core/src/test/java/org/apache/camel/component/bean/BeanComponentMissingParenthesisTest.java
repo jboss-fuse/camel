@@ -23,7 +23,7 @@ import org.apache.camel.spi.Registry;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class BeanComponentMissingParenthesisTest extends ContextTestSupport {
 
@@ -64,12 +64,13 @@ public class BeanComponentMissingParenthesisTest extends ContextTestSupport {
         });
         context.start();
 
-        CamelExecutionException e = assertThrows(CamelExecutionException.class,
-                () -> template.sendBodyAndHeader("direct:start", "Hello", "foo", "Camel"),
-                "Should throw exception");
-
-        IllegalArgumentException iae = assertIsInstanceOf(IllegalArgumentException.class, e.getCause());
-        assertEquals("Method should end with parenthesis, was concat(${body}, ${header.foo}", iae.getMessage());
+        try {
+            template.sendBodyAndHeader("direct:start", "Hello", "foo", "Camel");
+            fail("Should throw exception");
+        } catch (CamelExecutionException e) {
+            IllegalArgumentException iae = assertIsInstanceOf(IllegalArgumentException.class, e.getCause());
+            assertEquals("Method should end with parenthesis, was concat(${body}, ${header.foo}", iae.getMessage());
+        }
     }
 
     @Test
@@ -82,11 +83,12 @@ public class BeanComponentMissingParenthesisTest extends ContextTestSupport {
         });
         context.start();
 
-        CamelExecutionException e = assertThrows(CamelExecutionException.class,
-                () -> template.sendBodyAndHeader("direct:start", "Hello", "foo", "Camel"),
-                "Should throw exception");
-
-        assertIsInstanceOf(MethodNotFoundException.class, e.getCause());
+        try {
+            template.sendBodyAndHeader("direct:start", "Hello", "foo", "Camel");
+            fail("Should throw exception");
+        } catch (CamelExecutionException e) {
+            assertIsInstanceOf(MethodNotFoundException.class, e.getCause());
+        }
     }
 
     public String doSomething(String body, String header) {

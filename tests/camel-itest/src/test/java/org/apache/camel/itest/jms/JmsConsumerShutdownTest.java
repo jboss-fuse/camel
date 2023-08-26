@@ -16,7 +16,6 @@
  */
 package org.apache.camel.itest.jms;
 
-import org.apache.camel.CamelContext;
 import org.apache.camel.EndpointInject;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
@@ -28,7 +27,6 @@ import org.apache.camel.itest.utils.extensions.JmsServiceExtension;
 import org.apache.camel.test.spring.junit5.CamelSpringTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 
@@ -37,9 +35,6 @@ import org.springframework.test.context.ContextConfiguration;
 public class JmsConsumerShutdownTest {
     @RegisterExtension
     public static JmsServiceExtension jmsServiceExtension = JmsServiceExtension.createExtension();
-
-    @Autowired
-    CamelContext camelContext;
 
     @Produce("jms:start")
     protected ProducerTemplate activemq;
@@ -56,10 +51,8 @@ public class JmsConsumerShutdownTest {
     @Test
     @DirtiesContext
     void testJmsConsumerShutdownWithMessageInFlight() throws InterruptedException {
-        camelContext.getShutdownStrategy().setTimeout(3);
-
         end.expectedMessageCount(0);
-        end.setResultWaitTime(1000);
+        end.setResultWaitTime(2000);
 
         // direct:dir route always fails
         exception.whenAnyExchangeReceived(new Processor() {
@@ -78,10 +71,8 @@ public class JmsConsumerShutdownTest {
     @Test
     @DirtiesContext
     void testSedaConsumerShutdownWithMessageInFlight() throws InterruptedException {
-        camelContext.getShutdownStrategy().setTimeout(3);
-
         end.expectedMessageCount(0);
-        end.setResultWaitTime(1000);
+        end.setResultWaitTime(2000);
 
         // direct:dir route always fails
         exception.whenAnyExchangeReceived(new Processor() {
@@ -109,7 +100,7 @@ public class JmsConsumerShutdownTest {
 
             from("direct:dir")
                     .onException(Exception.class)
-                    .redeliveryDelay(500)
+                    .redeliveryDelay(1000)
                     .maximumRedeliveries(-1) // forever
                     .end()
                     .to("mock:exception");

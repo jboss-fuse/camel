@@ -67,7 +67,7 @@ public class SetBodyProcessor extends AsyncProcessorSupport implements Traceable
                 old.setBody(newBody);
             }
 
-        } catch (Exception e) {
+        } catch (Throwable e) {
             exchange.setException(e);
         }
 

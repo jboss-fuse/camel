@@ -34,8 +34,7 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
 @Command(name = "count",
-         description = "Get total and failed exchanges for running integrations",
-         sortOptions = false)
+         description = "Get total and failed exchanges for running integrations")
 public class CamelCount extends ProcessWatchCommand {
 
     @CommandLine.Parameters(description = "Name or pid of running Camel integration", arity = "0..1")

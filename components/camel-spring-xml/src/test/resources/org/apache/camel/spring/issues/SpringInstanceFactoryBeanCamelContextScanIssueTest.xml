@@ -32,7 +32,6 @@
         <packageScan>
             <package>org.apache.camel.spring.issues.contextscan3</package>
         </packageScan>
-        <jmxAgent id="jmx" disabled="true"/>
     </camelContext>
 
 </beans>

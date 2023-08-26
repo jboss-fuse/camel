@@ -25,7 +25,6 @@
     ">
 
   <camelContext xmlns="http://camel.apache.org/schema/spring">
-    <jmxAgent id="jmx" disabled="true"/>
   </camelContext>
 
   <bean name="foo:bar" class="org.apache.camel.component.mock.MockEndpoint"/>

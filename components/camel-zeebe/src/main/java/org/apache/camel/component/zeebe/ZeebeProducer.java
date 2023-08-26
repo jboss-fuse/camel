@@ -96,7 +96,6 @@ public class ZeebeProducer extends DefaultProducer {
             case COMPLETE_JOB:
             case FAIL_JOB:
             case UPDATE_JOB_RETRIES:
-            case THROW_ERROR:
                 return true;
             default:
                 return false;

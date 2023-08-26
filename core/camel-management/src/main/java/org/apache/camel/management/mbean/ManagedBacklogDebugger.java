@@ -460,7 +460,7 @@ public class ManagedBacklogDebugger implements ManagedBacklogDebuggerMBean {
                             // must always xml encode
                             sb.append(StringHelper.xmlEncode(xml));
                         }
-                    } catch (Exception e) {
+                    } catch (Throwable e) {
                         // ignore as the body is for logging purpose
                     }
                 }

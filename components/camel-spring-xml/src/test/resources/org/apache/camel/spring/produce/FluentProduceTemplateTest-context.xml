@@ -28,7 +28,6 @@
     ">
 
   <camelContext xmlns="http://camel.apache.org/schema/spring">
-    <jmxAgent id="jmx" disabled="true"/>
   	<fluentTemplate id="camelTemplate" />
   	<route>
   	   <from uri="direct:start"/>

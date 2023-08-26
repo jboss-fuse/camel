@@ -32,7 +32,7 @@ import org.apache.camel.util.json.Jsoner;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
-@Command(name = "source", description = "List top processors (source) in a running Camel integration", sortOptions = false)
+@Command(name = "source", description = "List top processors (source) in a running Camel integration")
 public class CamelSourceTop extends ActionWatchCommand {
 
     @CommandLine.Parameters(description = "Name or pid of running Camel integration", arity = "0..1")
@@ -140,9 +140,7 @@ public class CamelSourceTop extends ActionWatchCommand {
         // sort rows
         rows.sort(this::sortRow);
 
-        if (watch) {
-            clearScreen();
-        }
+        clearScreen();
         if (!rows.isEmpty()) {
             printSource(rows);
         }

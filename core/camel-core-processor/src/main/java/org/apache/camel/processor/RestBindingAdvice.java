@@ -478,7 +478,7 @@ public class RestBindingAdvice implements CamelInternalProcessorAdvice<Map<Strin
                     }
                 }
             }
-        } catch (Exception e) {
+        } catch (Throwable e) {
             exchange.setException(e);
         }
     }

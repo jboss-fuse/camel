@@ -98,11 +98,10 @@ public class YamlRoutesBuilderLoader extends YamlRoutesBuilderLoaderSupport {
 
     private static final Logger LOG = LoggerFactory.getLogger(YamlRoutesBuilderLoader.class);
 
-    // API versions for Camel-K Integration and Pipe
+    // API versions for Camel-K Integration and Kamelet Binding
     // we are lenient so lets just assume we can work with any of the v1 even if they evolve
     private static final String INTEGRATION_VERSION = "camel.apache.org/v1";
-    private static final String BINDING_VERSION = "camel.apache.org/v1alpha1";
-    private static final String PIPE_VERSION = "camel.apache.org/v1";
+    private static final String BINDING_VERSION = "camel.apache.org/v1";
     private static final String STRIMZI_VERSION = "kafka.strimzi.io/v1";
     private static final String KNATIVE_VERSION = "messaging.knative.dev/v1";
 
@@ -298,16 +297,13 @@ public class YamlRoutesBuilderLoader extends YamlRoutesBuilderLoaderSupport {
             // camel-k: integration
             boolean integration = anyTupleMatches(mn.getValue(), "apiVersion", v -> v.startsWith(INTEGRATION_VERSION)) &&
                     anyTupleMatches(mn.getValue(), "kind", "Integration");
-            // camel-k: kamelet binding
+            // camel-k: kamelet binding are still at v1alpha1
             boolean binding = anyTupleMatches(mn.getValue(), "apiVersion", v -> v.startsWith(BINDING_VERSION)) &&
                     anyTupleMatches(mn.getValue(), "kind", "KameletBinding");
-            // camel-k: pipe
-            boolean pipe = anyTupleMatches(mn.getValue(), "apiVersion", v -> v.startsWith(PIPE_VERSION)) &&
-                    anyTupleMatches(mn.getValue(), "kind", "Pipe");
             if (integration) {
                 target = preConfigureIntegration(root, ctx, target, preParse);
-            } else if (binding || pipe) {
-                target = preConfigurePipe(root, ctx, target, preParse);
+            } else if (binding) {
+                target = preConfigureKameletBinding(root, ctx, target, preParse);
             }
         }
 
@@ -603,9 +599,9 @@ public class YamlRoutesBuilderLoader extends YamlRoutesBuilderLoaderSupport {
     }
 
     /**
-     * Camel K Pipe file
+     * Camel K Kamelet Binding file
      */
-    private Object preConfigurePipe(Node root, YamlDeserializationContext ctx, Object target, boolean preParse) {
+    private Object preConfigureKameletBinding(Node root, YamlDeserializationContext ctx, Object target, boolean preParse) {
         // when in pre-parse phase then we only want to gather /metadata/annotations
 
         List<Object> answer = new ArrayList<>();
@@ -631,7 +627,7 @@ public class YamlRoutesBuilderLoader extends YamlRoutesBuilderLoaderSupport {
                 route.routeId(routeId);
             }
 
-            // Pipe is a bit more complex, so grab the source and sink
+            // kamelet binding is a bit more complex, so grab the source and sink
             // and map those to Camel route definitions
             MappingNode source = asMappingNode(nodeAt(root, "/spec/source"));
             MappingNode sink = asMappingNode(nodeAt(root, "/spec/sink"));

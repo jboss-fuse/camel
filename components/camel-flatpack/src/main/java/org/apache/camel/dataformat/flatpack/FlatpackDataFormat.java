@@ -120,6 +120,17 @@ public class FlatpackDataFormat extends ServiceSupport implements DataFormat, Da
         }
     }
 
+    @Override
+    protected void doStart() throws Exception {
+        // noop
+    }
+
+    @Override
+    protected void doStop() throws Exception {
+        // noop
+
+    }
+
     // Properties
     //-------------------------------------------------------------------------
 

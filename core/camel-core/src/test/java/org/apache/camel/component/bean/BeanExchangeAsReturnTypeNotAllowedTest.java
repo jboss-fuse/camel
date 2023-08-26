@@ -24,7 +24,8 @@ import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.spi.Registry;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 /**
  * Unit test to demonstrate that bean invocation must no return Exchange.
@@ -36,11 +37,15 @@ public class BeanExchangeAsReturnTypeNotAllowedTest extends ContextTestSupport {
         MockEndpoint result = getMockEndpoint("mock:result");
         result.expectedMessageCount(0);
 
-        RuntimeCamelException e = assertThrows(RuntimeCamelException.class,
-                () -> template.sendBody("direct:in", "Hello World"),
-                "Should have thrown IllegalStateException");
+        try {
+            template.sendBody("direct:in", "Hello World");
+            fail("Should have thrown IllegalStateException");
+        } catch (RuntimeCamelException e) {
+            boolean b = e.getCause() instanceof IllegalStateException;
+            assertTrue(b);
+            // expected
+        }
 
-        assertIsInstanceOf(IllegalStateException.class, e.getCause());
         result.assertIsSatisfied();
     }
 

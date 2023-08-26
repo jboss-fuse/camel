@@ -60,8 +60,7 @@ public final class CatalogLoader {
         try {
             main.setRepos(repos);
             // enable stub in silent mode so we do not use real components
-            main.setSilent(true);
-            main.setStubPattern("*");
+            main.setStub(true);
             main.start();
 
             // wrap downloaded catalog files in an isolated classloader

@@ -19,18 +19,17 @@ package org.apache.camel.component.stub;
 import java.util.Map;
 import java.util.concurrent.BlockingQueue;
 
-import org.apache.camel.CamelContext;
 import org.apache.camel.Component;
 import org.apache.camel.Exchange;
 import org.apache.camel.component.seda.BlockingQueueFactory;
 import org.apache.camel.component.seda.SedaComponent;
 import org.apache.camel.spi.EndpointRegistry;
 import org.apache.camel.spi.Metadata;
-import org.apache.camel.support.EndpointHelper;
 import org.apache.camel.support.NormalizedUri;
 
 /**
- * The stub component is for stubbing out endpoints while developing or testing.
+ * The <a href="http://camel.apache.org/stub.html">Stub Component</a> is for stubbing out endpoints while developing or
+ * testing.
  *
  * Allows you to easily stub out a middleware transport by prefixing the URI with "stub:" which is handy for testing out
  * routes, or isolating bits of middleware.
@@ -40,8 +39,6 @@ public class StubComponent extends SedaComponent {
 
     @Metadata
     private boolean shadow;
-    @Metadata
-    private String shadowPattern;
 
     public StubComponent() {
     }
@@ -92,20 +89,6 @@ public class StubComponent extends SedaComponent {
         this.shadow = shadow;
     }
 
-    public String getShadowPattern() {
-        return shadowPattern;
-    }
-
-    /**
-     * If shadow is enabled then this pattern can be used to filter which components to match. Multiple patterns can be
-     * separated by comma.
-     *
-     * @see org.apache.camel.support.EndpointHelper#matchEndpoint(CamelContext, String, String)
-     */
-    public void setShadowPattern(String shadowPattern) {
-        this.shadowPattern = shadowPattern;
-    }
-
     @Override
     protected void doInit() throws Exception {
         super.doInit();
@@ -113,15 +96,12 @@ public class StubComponent extends SedaComponent {
         if (shadow) {
             final EndpointRegistry registry = getCamelContext().getEndpointRegistry();
             getCamelContext().getCamelContextExtension().registerEndpointCallback((uri, endpoint) -> {
-                boolean match = shadowPattern == null || EndpointHelper.matchEndpoint(getCamelContext(), uri, shadowPattern);
-                if (match) {
-                    String shadowUri = resolveShadowUri(uri);
-                    if (!uri.equals(shadowUri)) {
-                        NormalizedUri nuri = NormalizedUri.newNormalizedUri(shadowUri, false);
-                        // put the shadow uri directly into the endpoint registry,
-                        // so we can lookup the stubbed endpoint using its actual uri
-                        registry.put(nuri, endpoint);
-                    }
+                String shadowUri = resolveShadowUri(uri);
+                if (!uri.equals(shadowUri)) {
+                    NormalizedUri nuri = NormalizedUri.newNormalizedUri(shadowUri, false);
+                    // put the shadow uri directly into the endpoint registry,
+                    // so we can lookup the stubbed endpoint using its actual uri
+                    registry.put(nuri, endpoint);
                 }
                 return endpoint;
             });

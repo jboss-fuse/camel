@@ -34,8 +34,7 @@ import org.apache.camel.util.json.JsonObject;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
-@Command(name = "route", description = "Get status of Camel routes",
-         sortOptions = false)
+@Command(name = "route", description = "Get status of Camel routes")
 public class CamelRouteStatus extends ProcessWatchCommand {
 
     @CommandLine.Parameters(description = "Name or pid of running Camel integration", arity = "0..1")

@@ -307,7 +307,7 @@ public class StreamResequencer extends AsyncProcessorSupport
                 }
                 try {
                     engine.deliver();
-                } catch (Exception t) {
+                } catch (Throwable t) {
                     // a fail-safe to handle all exceptions being thrown
                     getExceptionHandler().handleException(t);
                 }

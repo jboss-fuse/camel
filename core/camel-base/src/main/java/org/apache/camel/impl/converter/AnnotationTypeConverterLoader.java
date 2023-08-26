@@ -184,7 +184,7 @@ public class AnnotationTypeConverterLoader implements TypeConverterLoader {
                             // class found, so no need to load it with another class loader
                         }
                         break;
-                    } catch (Exception e) {
+                    } catch (Throwable e) {
                         // do nothing here
                     }
                 }

@@ -74,7 +74,7 @@ public class TransformProcessor extends AsyncProcessorSupport implements Traceab
                 }
             }
 
-        } catch (Exception e) {
+        } catch (Throwable e) {
             exchange.setException(e);
         }
 
