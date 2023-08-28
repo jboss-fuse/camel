@@ -502,14 +502,14 @@
         <spark-version>3.2.2</spark-version>
         <splunk-version>1.9.0_1</splunk-version>
         <spock-version>2.1-groovy-3.0</spock-version>
-        <spring-batch-version>4.3.8</spring-batch-version>
+        <spring-batch-version>4.3.9</spring-batch-version>
         <spring-data-redis-version>2.6.2</spring-data-redis-version>
         <spring-integration-version>5.5.18</spring-integration-version>
         <spring-ldap-version>2.4.1</spring-ldap-version>
         <spring-vault-core-version>2.3.2</spring-vault-core-version>
         <spring-version-range>[5,6)</spring-version-range>
         <spring-version>${spring5-version}</spring-version>
-        <spring5-version>5.3.26</spring5-version>
+        <spring5-version>5.3.29</spring5-version>
         <spring-rabbitmq-version>2.4.12</spring-rabbitmq-version>
         <spring-security-version>5.7.10</spring-security-version>
         <spring-ws-version>3.1.6</spring-ws-version>
