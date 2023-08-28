@@ -63,8 +63,8 @@ public class DelegateSyncProcessor extends ServiceSupport
         // force calling the sync method
         try {
             processor.process(exchange);
-        } catch (Exception | LinkageError e) {
-            // we catch all exceptions and try to catch relatively manageable low-level errors
+        } catch (Throwable e) {
+            // must catch throwable so we catch all
             exchange.setException(e);
         } finally {
             // we are bridging a sync processor as async so callback with true

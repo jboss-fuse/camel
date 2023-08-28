@@ -163,7 +163,7 @@ public class Pipeline extends AsyncProcessorSupport implements Navigate<Processo
                 reactiveExecutor.scheduleMain(task);
             }
             return false;
-        } catch (Exception e) {
+        } catch (Throwable e) {
             exchange.setException(e);
             callback.done(true);
             return true;

@@ -557,7 +557,11 @@ public final class TestSupport {
      */
     public static int getJavaMajorVersion() {
         String javaSpecVersion = System.getProperty("java.specification.version");
-        return Integer.parseInt(javaSpecVersion);
+        if (javaSpecVersion.contains(".")) { // before jdk 9
+            return Integer.parseInt(javaSpecVersion.split("\\.")[1]);
+        } else {
+            return Integer.parseInt(javaSpecVersion);
+        }
     }
 
     /**

@@ -67,7 +67,7 @@ class ModelJSonSchemaResolver implements JSonSchemaResolver {
                     return inputStream;
                 }
             }
-        } catch (Exception e) {
+        } catch (Throwable e) {
             // ignore
         }
         return null;

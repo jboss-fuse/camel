@@ -36,6 +36,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.stream.Collectors;
 
 import org.apache.camel.CamelContext;
 import org.apache.camel.CamelContextAware;
@@ -224,7 +225,7 @@ public class LocalCliConnector extends ServiceSupport implements CliConnector, C
                             }
                             return false;
                         })
-                        .toList();
+                        .collect(Collectors.toList());
                 for (String id : ids) {
                     try {
                         String command = root.getString("command");
@@ -321,19 +322,6 @@ public class LocalCliConnector extends ServiceSupport implements CliConnector, C
                 if (dc != null) {
                     String stacktrace = root.getString("stacktrace");
                     JsonObject json = (JsonObject) dc.call(DevConsole.MediaType.JSON, Map.of("stacktrace", stacktrace));
-                    LOG.trace("Updating output file: {}", outputFile);
-                    IOHelper.writeText(json.toJson(), outputFile);
-                }
-            } else if ("stub".equals(action)) {
-                String filter = root.getString("filter");
-                String limit = root.getString("limit");
-                String browse = root.getString("browse");
-
-                DevConsole dc = camelContext.getCamelContextExtension().getContextPlugin(DevConsoleRegistry.class)
-                        .resolveById("stub");
-                if (dc != null) {
-                    JsonObject json = (JsonObject) dc.call(DevConsole.MediaType.JSON,
-                            Map.of("filter", filter, "limit", limit, "browse", browse));
                     LOG.trace("Updating output file: {}", outputFile);
                     IOHelper.writeText(json.toJson(), outputFile);
                 }
@@ -469,9 +457,11 @@ public class LocalCliConnector extends ServiceSupport implements CliConnector, C
             // action done so delete file
             FileUtil.deleteFile(actionFile);
 
-        } catch (Exception e) {
+        } catch (Throwable e) {
             // ignore
-            LOG.debug("Error executing action file: {} due to: {}. This exception is ignored.", actionFile, e.getMessage(),
+            LOG.debug(
+                    "Error executing action file: " + actionFile + " due to: " + e.getMessage()
+                      + ". This exception is ignored.",
                     e);
         }
     }
@@ -486,7 +476,7 @@ public class LocalCliConnector extends ServiceSupport implements CliConnector, C
                     return (JsonObject) Jsoner.deserialize(text);
                 }
             }
-        } catch (Exception e) {
+        } catch (Throwable e) {
             // ignore
         }
         return null;
@@ -650,10 +640,11 @@ public class LocalCliConnector extends ServiceSupport implements CliConnector, C
             }
             LOG.trace("Updating status file: {}", statusFile);
             IOHelper.writeText(root.toJson(), statusFile);
-        } catch (Exception e) {
+        } catch (Throwable e) {
             // ignore
-            LOG.trace("Error updating status file: {} due to: {}. This exception is ignored.",
-                    statusFile, e.getMessage(), e);
+            LOG.trace(
+                    "Error updating status file: " + statusFile + " due to: " + e.getMessage() + ". This exception is ignored.",
+                    e);
         }
     }
 

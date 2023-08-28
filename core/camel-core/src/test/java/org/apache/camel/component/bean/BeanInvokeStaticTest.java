@@ -22,7 +22,7 @@ import org.apache.camel.component.mock.MockEndpoint;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class BeanInvokeStaticTest extends ContextTestSupport {
 
@@ -52,13 +52,15 @@ public class BeanInvokeStaticTest extends ContextTestSupport {
                 from("direct:a").bean(MyStaticClass.class, "doSomething").to("mock:a");
             }
         });
-
-        Exception e = assertThrows(Exception.class, () -> context.start(), "Should have thrown exception");
-
-        assertIsInstanceOf(MethodNotFoundException.class, e.getCause());
-        assertEquals(
-                "Static method with name: doSomething not found on class: org.apache.camel.component.bean.MyStaticClass",
-                e.getCause().getMessage());
+        try {
+            context.start();
+            fail("Should have thrown exception");
+        } catch (Exception e) {
+            assertIsInstanceOf(MethodNotFoundException.class, e.getCause());
+            assertEquals(
+                    "Static method with name: doSomething not found on class: org.apache.camel.component.bean.MyStaticClass",
+                    e.getCause().getMessage());
+        }
     }
 
     @Override

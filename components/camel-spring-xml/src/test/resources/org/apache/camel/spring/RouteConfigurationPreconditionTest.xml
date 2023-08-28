@@ -25,7 +25,6 @@
 
     <camelContext xmlns="http://camel.apache.org/schema/spring">
         <propertyPlaceholder id="properties" location="classpath:org/apache/camel/spring/PreconditionTest.properties"/>
-        <jmxAgent id="jmx" disabled="true"/>
         <routeConfiguration>
             <onException>
                 <exception>java.lang.Exception</exception>

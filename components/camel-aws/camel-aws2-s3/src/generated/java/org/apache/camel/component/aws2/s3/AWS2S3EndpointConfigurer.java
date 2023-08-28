@@ -45,8 +45,6 @@ public class AWS2S3EndpointConfigurer extends PropertyConfigurerSupport implemen
         case "batchSize": target.getConfiguration().setBatchSize(property(camelContext, int.class, value)); return true;
         case "bridgeerrorhandler":
         case "bridgeErrorHandler": target.setBridgeErrorHandler(property(camelContext, boolean.class, value)); return true;
-        case "buffersize":
-        case "bufferSize": target.getConfiguration().setBufferSize(property(camelContext, int.class, value)); return true;
         case "customeralgorithm":
         case "customerAlgorithm": target.getConfiguration().setCustomerAlgorithm(property(camelContext, java.lang.String.class, value)); return true;
         case "customerkeyid":
@@ -195,8 +193,6 @@ public class AWS2S3EndpointConfigurer extends PropertyConfigurerSupport implemen
         case "batchSize": return int.class;
         case "bridgeerrorhandler":
         case "bridgeErrorHandler": return boolean.class;
-        case "buffersize":
-        case "bufferSize": return int.class;
         case "customeralgorithm":
         case "customerAlgorithm": return java.lang.String.class;
         case "customerkeyid":
@@ -341,8 +337,6 @@ public class AWS2S3EndpointConfigurer extends PropertyConfigurerSupport implemen
         case "batchSize": return target.getConfiguration().getBatchSize();
         case "bridgeerrorhandler":
         case "bridgeErrorHandler": return target.isBridgeErrorHandler();
-        case "buffersize":
-        case "bufferSize": return target.getConfiguration().getBufferSize();
         case "customeralgorithm":
         case "customerAlgorithm": return target.getConfiguration().getCustomerAlgorithm();
         case "customerkeyid":

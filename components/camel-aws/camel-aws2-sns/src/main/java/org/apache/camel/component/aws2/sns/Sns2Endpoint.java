@@ -178,9 +178,9 @@ public class Sns2Endpoint extends DefaultEndpoint implements HeaderFilterStrateg
         }
 
         if (configuration.isSubscribeSNStoSQS()) {
-            if (ObjectHelper.isNotEmpty(ObjectHelper.isNotEmpty(configuration.getQueueArn()))) {
+            if (ObjectHelper.isNotEmpty(ObjectHelper.isNotEmpty(configuration.getQueueUrl()))) {
                 SubscribeResponse resp = snsClient.subscribe(SubscribeRequest.builder().topicArn(configuration.getTopicArn())
-                        .protocol("sqs").endpoint(configuration.getQueueArn())
+                        .protocol("sqs").endpoint(configuration.getQueueUrl())
                         .returnSubscriptionArn(true).build());
                 LOG.trace("Subscription of SQS Queue to SNS Topic done with Amazon resource name: {}", resp.subscriptionArn());
             } else {

@@ -57,7 +57,6 @@ import org.apache.camel.spi.CamelEvent;
 import org.apache.camel.spi.ContextReloadStrategy;
 import org.apache.camel.spi.DataFormat;
 import org.apache.camel.spi.Language;
-import org.apache.camel.spi.LifecycleStrategy;
 import org.apache.camel.spi.PackageScanClassResolver;
 import org.apache.camel.spi.PeriodTaskScheduler;
 import org.apache.camel.spi.PropertiesComponent;
@@ -587,20 +586,13 @@ public abstract class BaseMainSupport extends BaseService {
         return configurer;
     }
 
-    /**
-     * A specialized {@link LifecycleStrategy} that can handle autowiring of Camel components, dataformats, languages.
-     */
-    protected LifecycleStrategy createLifecycleStrategy(CamelContext camelContext) {
-        return new MainAutowiredLifecycleStrategy(camelContext);
-    }
-
     protected void postProcessCamelContext(CamelContext camelContext) throws Exception {
         // gathers the properties (key=value) that was used as property placeholders during bootstrap
         final OrderedLocationProperties propertyPlaceholders = new OrderedLocationProperties();
 
         // use the main autowired lifecycle strategy instead of the default
         camelContext.getLifecycleStrategies().removeIf(s -> s instanceof AutowiredLifecycleStrategy);
-        camelContext.addLifecycleStrategy(createLifecycleStrategy(camelContext));
+        camelContext.addLifecycleStrategy(new MainAutowiredLifecycleStrategy(camelContext));
 
         // setup properties
         configurePropertiesService(camelContext);

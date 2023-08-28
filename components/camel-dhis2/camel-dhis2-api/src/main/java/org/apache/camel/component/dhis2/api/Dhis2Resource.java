@@ -14,32 +14,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.camel.maven.htmlxlsx.model;
+package org.apache.camel.component.dhis2.api;
 
-import java.util.List;
+import java.util.HashMap;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-public class Routes {
-
-    @JsonProperty("route")
-    private List<Route> routeList;
-
-    public List<Route> getRouteList() {
-
-        return routeList;
-    }
-
-    public void setRouteList(List<Route> routeList) {
-
-        this.routeList = routeList;
-    }
-
-    @Override
-    public String toString() {
-
-        return "Routes{" +
-               "routeList=" + routeList +
-               '}';
-    }
+public class Dhis2Resource extends HashMap<String, Object> {
 }

@@ -26,7 +26,6 @@
 
     <!-- this is our camel -->
     <camelContext xmlns="http://camel.apache.org/schema/spring">
-    <jmxAgent id="jmx" disabled="true"/>
         <routeBuilder ref="myBuilder"/>
     </camelContext>
 

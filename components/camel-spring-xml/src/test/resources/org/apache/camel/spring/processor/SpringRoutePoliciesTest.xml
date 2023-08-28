@@ -33,7 +33,6 @@
     </bean>
 
     <camelContext xmlns="http://camel.apache.org/schema/spring">
-    <jmxAgent id="jmx" disabled="true"/>
         <route routePolicyRef="policy-a, policy-b">
             <from uri="direct:start"/>
             <to uri="mock:result"/>

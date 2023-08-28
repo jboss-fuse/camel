@@ -28,7 +28,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.apache.camel.spring.processor.SpringTestHelper.createSpringCamelContext;
-import static org.awaitility.Awaitility.await;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class FileConsumerIdempotentTest extends ContextTestSupport {
@@ -74,7 +73,7 @@ public class FileConsumerIdempotentTest extends ContextTestSupport {
         assertMockEndpointsSatisfied();
 
         String name = FileUtil.normalizePath(testFile("report.txt").toAbsolutePath().toString());
-        await().untilAsserted(() -> assertTrue(repo.contains(name), "Should contain file: " + name));
+        assertTrue(repo.contains(name), "Should contain file: " + name);
     }
 
 }

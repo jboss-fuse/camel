@@ -401,9 +401,6 @@ public class MessageTableHelper {
         }
 
         String exchangeIdAsValue() {
-            if (value == null) {
-                return "";
-            }
             String s = value.toString();
             if (loggingColor) {
                 Ansi.Color color = exchangeIdColorChooser != null ? exchangeIdColorChooser.color(s) : Ansi.Color.DEFAULT;

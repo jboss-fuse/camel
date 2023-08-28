@@ -148,9 +148,7 @@ public class RouteControllerAction extends ActionWatchCommand {
         // sort rows
         rows.sort(this::sortRow);
 
-        if (watch) {
-            clearScreen();
-        }
+        clearScreen();
         if (!rows.isEmpty()) {
             if (supervising) {
                 if (header) {

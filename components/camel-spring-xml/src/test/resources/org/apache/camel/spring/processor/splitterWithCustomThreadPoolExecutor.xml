@@ -26,7 +26,6 @@
 
   <!-- START SNIPPET: example -->
   <camelContext xmlns="http://camel.apache.org/schema/spring">
-    <jmxAgent id="jmx" disabled="true"/>
     <route>
       <from uri="direct:parallel-custom-pool"/>
       <split executorService="myThreadPoolExecutor">

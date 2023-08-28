@@ -176,7 +176,7 @@ public class ClaimCheckProcessor extends AsyncProcessorSupport implements IdAwar
                     }
                 }
             }
-        } catch (Exception e) {
+        } catch (Throwable e) {
             exchange.setException(e);
         }
 

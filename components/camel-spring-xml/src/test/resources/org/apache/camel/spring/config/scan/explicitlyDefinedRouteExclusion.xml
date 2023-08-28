@@ -28,7 +28,6 @@
            http://www.springframework.org/schema/context/spring-context.xsd">
 
   <camelContext xmlns="http://camel.apache.org/schema/spring">
-    <jmxAgent id="jmx" disabled="true"/>
     <endpoint id="start" uri="direct:start"/>
     <endpoint id="result" uri="mock:end"/>
   </camelContext>

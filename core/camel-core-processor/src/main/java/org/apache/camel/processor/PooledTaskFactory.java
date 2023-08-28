@@ -49,7 +49,7 @@ public abstract class PooledTaskFactory extends PooledObjectFactorySupport<Poole
         }
         try {
             task.prepare(exchange, callback);
-        } catch (Exception e) {
+        } catch (Throwable e) {
             // if error during prepare then we need to discard this task
             if (statisticsEnabled) {
                 statistics.discarded.increment();
@@ -72,7 +72,7 @@ public abstract class PooledTaskFactory extends PooledObjectFactorySupport<Poole
                 }
             }
             return inserted;
-        } catch (Exception e) {
+        } catch (Throwable e) {
             if (statisticsEnabled) {
                 statistics.discarded.increment();
             }

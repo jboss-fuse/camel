@@ -62,7 +62,7 @@ public class SimpleMainShutdownStrategy implements MainShutdownStrategy {
                 try {
                     LOG.trace("ShutdownEventListener: {}", l);
                     l.onShutdown();
-                } catch (Exception e) {
+                } catch (Throwable e) {
                     // ignore as we must continue
                     LOG.debug("Error during ShutdownEventListener: {}. This exception is ignored.", l, e);
                 }

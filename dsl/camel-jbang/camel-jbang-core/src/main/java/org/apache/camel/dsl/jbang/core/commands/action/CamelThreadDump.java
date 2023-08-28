@@ -145,9 +145,7 @@ public class CamelThreadDump extends ActionWatchCommand {
         // sort rows
         rows.sort(this::sortRow);
 
-        if (watch) {
-            clearScreen();
-        }
+        clearScreen();
         if (!rows.isEmpty()) {
             int total = jo.getInteger("threadCount");
             int peak = jo.getInteger("peakThreadCount");

@@ -11598,13 +11598,9 @@ should be included or not.
     </xs:complexContent>
   </xs:complexType>
   <xs:complexType name="routeConfigurationsDefinition">
-    <xs:complexContent>
-      <xs:extension base="tns:optionalIdentifiedDefinition">
-        <xs:sequence>
-          <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:routeConfiguration"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:routeConfiguration"/>
+    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="routeContextRefDefinition">
     <xs:sequence/>

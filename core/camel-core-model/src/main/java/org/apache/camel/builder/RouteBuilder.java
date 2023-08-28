@@ -273,6 +273,7 @@ public abstract class RouteBuilder extends BuilderSupport implements RoutesBuild
         if (restConfiguration == null) {
             restConfiguration = new RestConfigurationDefinition();
         }
+
         return restConfiguration;
     }
 
@@ -307,9 +308,6 @@ public abstract class RouteBuilder extends BuilderSupport implements RoutesBuild
      */
     public RestDefinition rest() {
         getRestCollection().setCamelContext(getContext());
-        if (resource != null) {
-            getRestCollection().setResource(resource);
-        }
         RestDefinition answer = getRestCollection().rest();
         configureRest(answer);
         return answer;
@@ -323,9 +321,6 @@ public abstract class RouteBuilder extends BuilderSupport implements RoutesBuild
      */
     public RestDefinition rest(String path) {
         getRestCollection().setCamelContext(getContext());
-        if (resource != null) {
-            getRestCollection().setResource(resource);
-        }
         RestDefinition answer = getRestCollection().rest(path);
         configureRest(answer);
         return answer;
@@ -729,8 +724,6 @@ public abstract class RouteBuilder extends BuilderSupport implements RoutesBuild
 
             // remember the source resource
             getRouteCollection().setResource(getResource());
-            getRestCollection().setResource(getResource());
-            getRouteTemplateCollection().setResource(getResource());
 
             for (RouteDefinition route : getRouteCollection().getRoutes()) {
                 // ensure the route is prepared after configure method is complete

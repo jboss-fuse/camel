@@ -14,16 +14,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.camel.maven.htmlxlsx.process;
+package org.apache.camel.component.dhis2;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.camel.Converter;
+import org.apache.camel.Exchange;
+import org.apache.camel.component.dhis2.api.Dhis2Resource;
+import org.apache.camel.spi.TypeConverterRegistry;
 
-public class TestJsonProcessingException extends JsonProcessingException {
+@Converter(generateLoader = true)
+public final class Dhis2Converters {
+    private static ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
-    private static final String DONTCARE = "dontcare";
-
-    public TestJsonProcessingException() {
-
-        super(DONTCARE);
+    @Converter(fallback = true)
+    public static <T> T convertTo(Class<T> type, Exchange exchange, Object resource, TypeConverterRegistry registry) {
+        if (resource instanceof Dhis2Resource && type.getName().startsWith("org.hisp.dhis.api.model")) {
+            return OBJECT_MAPPER.convertValue(resource, type);
+        } else {
+            return null;
+        }
     }
 }

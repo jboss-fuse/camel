@@ -26,7 +26,6 @@
 
   <!-- START SNIPPET: example -->
   <camelContext xmlns="http://camel.apache.org/schema/spring">
-    <jmxAgent id="jmx" disabled="true"/>
     <interceptFrom>
       <to uri="mock:middle1"/>
       <stop/>

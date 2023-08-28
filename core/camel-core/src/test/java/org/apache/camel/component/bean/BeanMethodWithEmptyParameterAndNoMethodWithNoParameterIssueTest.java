@@ -24,7 +24,7 @@ import org.apache.camel.spi.Registry;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.fail;
 
 /**
  * CAMEL-6455
@@ -43,12 +43,13 @@ public class BeanMethodWithEmptyParameterAndNoMethodWithNoParameterIssueTest ext
     public void testBean() throws Exception {
         getMockEndpoint("mock:result").expectedMessageCount(0);
 
-        CamelExecutionException e = assertThrows(CamelExecutionException.class,
-                () -> template.sendBody("direct:start", "Camel"),
-                "Should have thrown exception");
-
-        MethodNotFoundException cause = assertIsInstanceOf(MethodNotFoundException.class, e.getCause());
-        assertEquals("doSomething()", cause.getMethodName());
+        try {
+            template.sendBody("direct:start", "Camel");
+            fail("Should have thrown exception");
+        } catch (CamelExecutionException e) {
+            MethodNotFoundException cause = assertIsInstanceOf(MethodNotFoundException.class, e.getCause());
+            assertEquals("doSomething()", cause.getMethodName());
+        }
 
         assertMockEndpointsSatisfied();
     }
@@ -57,12 +58,13 @@ public class BeanMethodWithEmptyParameterAndNoMethodWithNoParameterIssueTest ext
     public void testOtherBean() throws Exception {
         getMockEndpoint("mock:result").expectedMessageCount(0);
 
-        CamelExecutionException e = assertThrows(CamelExecutionException.class,
-                () -> template.sendBody("direct:other", "Camel"),
-                "Should have thrown exception");
-
-        MethodNotFoundException cause = assertIsInstanceOf(MethodNotFoundException.class, e.getCause());
-        assertEquals("doSomething()", cause.getMethodName());
+        try {
+            template.sendBody("direct:other", "Camel");
+            fail("Should have thrown exception");
+        } catch (CamelExecutionException e) {
+            MethodNotFoundException cause = assertIsInstanceOf(MethodNotFoundException.class, e.getCause());
+            assertEquals("doSomething()", cause.getMethodName());
+        }
 
         assertMockEndpointsSatisfied();
     }

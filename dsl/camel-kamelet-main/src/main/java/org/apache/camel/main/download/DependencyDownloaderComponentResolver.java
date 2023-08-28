@@ -40,20 +40,17 @@ import org.apache.camel.tooling.model.ComponentModel;
  */
 public final class DependencyDownloaderComponentResolver extends DefaultComponentResolver {
 
-    private static final String ACCEPTED_STUB_NAMES
-            = "stub,bean,class,direct,kamelet,log,platform-http,rest,rest-api,seda,vertx-http";
+    private static final String ACCEPTED_STUB_NAMES = "stub,bean,class,kamelet,rest,rest-api,platform-http,vertx-http";
 
     private final CamelCatalog catalog = new DefaultCamelCatalog();
     private final CamelContext camelContext;
     private final DependencyDownloader downloader;
-    private final String stubPattern;
-    private final boolean silent;
+    private final boolean stub;
 
-    public DependencyDownloaderComponentResolver(CamelContext camelContext, String stubPattern, boolean silent) {
+    public DependencyDownloaderComponentResolver(CamelContext camelContext, boolean stub) {
         this.camelContext = camelContext;
         this.downloader = camelContext.hasService(DependencyDownloader.class);
-        this.stubPattern = stubPattern;
-        this.silent = silent;
+        this.stub = stub;
     }
 
     @Override
@@ -72,11 +69,10 @@ public final class DependencyDownloaderComponentResolver extends DefaultComponen
         } else {
             answer = super.resolveComponent("stub", context);
         }
-        if ((silent || stubPattern != null) && answer instanceof StubComponent) {
+        if (stub && answer instanceof StubComponent) {
             StubComponent sc = (StubComponent) answer;
             // enable shadow mode on stub component
             sc.setShadow(true);
-            sc.setShadowPattern(stubPattern);
         }
         if (answer instanceof PlatformHttpComponent) {
             // setup a default http server on port 8080 if not already done
@@ -85,8 +81,7 @@ public final class DependencyDownloaderComponentResolver extends DefaultComponen
                 // need to capture we use http-server
                 HttpServerConfigurationProperties config = new HttpServerConfigurationProperties(null);
                 CamelJBangSettingsHelper.writeSettings("camel.jbang.platform-http.port", String.valueOf(config.getPort()));
-                if (!silent) {
-                    // enable http server if not silent
+                if (!stub) {
                     MainHttpServerFactory factory = new DefaultMainHttpServerFactory();
                     Service httpServer = factory.newHttpServer(config);
                     try {
@@ -109,7 +104,7 @@ public final class DependencyDownloaderComponentResolver extends DefaultComponen
 
     private boolean accept(String name) {
         // kamelet component must not be stubbed
-        if (stubPattern == null) {
+        if (!stub) {
             return true;
         }
 

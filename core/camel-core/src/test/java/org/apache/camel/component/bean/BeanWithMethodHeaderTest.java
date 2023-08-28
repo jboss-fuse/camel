@@ -25,10 +25,7 @@ import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.spi.Registry;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BeanWithMethodHeaderTest extends ContextTestSupport {
 
@@ -86,51 +83,49 @@ public class BeanWithMethodHeaderTest extends ContextTestSupport {
 
     @Test
     public void testFail() throws Exception {
-
-        CamelExecutionException e = assertThrows(CamelExecutionException.class,
-                () -> template.sendBody("direct:fail", "Hello World"),
-                "Should throw an exception");
-
-        assertIsInstanceOf(AmbiguousMethodCallException.class, e.getCause());
-        AmbiguousMethodCallException ace = (AmbiguousMethodCallException) e.getCause();
-        assertEquals(2, ace.getMethods().size());
+        try {
+            template.sendBody("direct:fail", "Hello World");
+            fail("Should throw an exception");
+        } catch (CamelExecutionException e) {
+            assertIsInstanceOf(AmbiguousMethodCallException.class, e.getCause());
+            AmbiguousMethodCallException ace = (AmbiguousMethodCallException) e.getCause();
+            assertEquals(2, ace.getMethods().size());
+        }
     }
 
     @Test
     public void testMethodNotExists() throws Exception {
-
-        Exception e = assertThrows(Exception.class,
-                () -> {
-                    context.addRoutes(new RouteBuilder() {
-                        @Override
-                        public void configure() throws Exception {
-                            from("direct:typo").bean("myBean", "ups").to("mock:result");
-                        }
-                    });
-                }, "Should throw an exception");
-
-        MethodNotFoundException mnfe = assertIsInstanceOf(MethodNotFoundException.class, e.getCause());
-        assertEquals("ups", mnfe.getMethodName());
-        assertSame(bean, mnfe.getBean());
+        try {
+            context.addRoutes(new RouteBuilder() {
+                @Override
+                public void configure() throws Exception {
+                    from("direct:typo").bean("myBean", "ups").to("mock:result");
+                }
+            });
+            fail("Should throw an exception");
+        } catch (Exception e) {
+            MethodNotFoundException mnfe = assertIsInstanceOf(MethodNotFoundException.class, e.getCause());
+            assertEquals("ups", mnfe.getMethodName());
+            assertSame(bean, mnfe.getBean());
+        }
     }
 
     @Test
     public void testMethodNotExistsOnInstance() throws Exception {
         final MyBean myBean = new MyBean();
-
-        Exception e = assertThrows(Exception.class,
-                () -> {
-                    context.addRoutes(new RouteBuilder() {
-                        @Override
-                        public void configure() throws Exception {
-                            from("direct:typo").bean(myBean, "ups").to("mock:result");
-                        }
-                    });
-                }, "Should throw an exception");
-
-        MethodNotFoundException mnfe = assertIsInstanceOf(MethodNotFoundException.class, e.getCause());
-        assertEquals("ups", mnfe.getMethodName());
-        assertSame(myBean, mnfe.getBean());
+        try {
+            context.addRoutes(new RouteBuilder() {
+                @Override
+                public void configure() throws Exception {
+                    from("direct:typo").bean(myBean, "ups").to("mock:result");
+                }
+            });
+            fail("Should throw an exception");
+        } catch (Exception e) {
+            MethodNotFoundException mnfe = assertIsInstanceOf(MethodNotFoundException.class, e.getCause());
+            assertEquals("ups", mnfe.getMethodName());
+            assertSame(myBean, mnfe.getBean());
+        }
     }
 
     @Override

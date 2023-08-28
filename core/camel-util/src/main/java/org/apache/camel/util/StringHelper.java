@@ -47,7 +47,7 @@ public final class StringHelper {
      * @return                      sanitized version of <code>s</code>.
      * @throws NullPointerException if <code>s</code> is <code>null</code>.
      */
-    public static String sanitize(final String s) {
+    public static String sanitize(String s) {
         return s.replace(':', '-')
                 .replace('_', '-')
                 .replace('.', '-')
@@ -124,13 +124,14 @@ public final class StringHelper {
      * @param  s the string
      * @return   the string without quotes (single and double)
      */
-    public static String removeQuotes(final String s) {
+    public static String removeQuotes(String s) {
         if (ObjectHelper.isEmpty(s)) {
             return s;
         }
 
-        return s.replace("'", "")
-                .replace("\"", "");
+        s = s.replace("'", "");
+        s = s.replace("\"", "");
+        return s;
     }
 
     /**
@@ -139,7 +140,7 @@ public final class StringHelper {
      * @param  s the string
      * @return   the string without leading and ending quotes (single and double)
      */
-    public static String removeLeadingAndEndingQuotes(final String s) {
+    public static String removeLeadingAndEndingQuotes(String s) {
         if (ObjectHelper.isEmpty(s)) {
             return s;
         }
@@ -211,15 +212,16 @@ public final class StringHelper {
      * @param  text the text
      * @return      the encoded text
      */
-    public static String xmlEncode(final String text) {
+    public static String xmlEncode(String text) {
         if (text == null) {
             return "";
         }
         // must replace amp first, so we dont replace &lt; to amp later
-        return text.replace("&", "&amp;")
-                .replace("\"", "&quot;")
-                .replace("<", "&lt;")
-                .replace(">", "&gt;");
+        text = text.replace("&", "&amp;");
+        text = text.replace("\"", "&quot;");
+        text = text.replace("<", "&lt;");
+        text = text.replace(">", "&gt;");
+        return text;
     }
 
     /**
@@ -247,16 +249,17 @@ public final class StringHelper {
      * Determines if the string is a fully qualified class name
      */
     public static boolean isClassName(String text) {
+        boolean result = false;
         if (text != null) {
-            int lastIndexOf = text.lastIndexOf('.');
-            if (lastIndexOf <= 0 || lastIndexOf == text.length()) {
-                return false;
+            String[] split = text.split("\\.");
+            if (split.length > 0) {
+                String lastToken = split[split.length - 1];
+                if (lastToken.length() > 0) {
+                    result = Character.isUpperCase(lastToken.charAt(0));
+                }
             }
-
-            return Character.isUpperCase(text.charAt(lastIndexOf + 1));
         }
-
-        return false;
+        return result;
     }
 
     /**
@@ -487,42 +490,22 @@ public final class StringHelper {
      *                         helloGreatWorld)
      * @return                 the string capitalized (upper case first character)
      */
-    public static String capitalize(final String text, boolean dashToCamelCase) {
-        String ret = text;
+    public static String capitalize(String text, boolean dashToCamelCase) {
         if (dashToCamelCase) {
-            ret = dashToCamelCase(text);
+            text = dashToCamelCase(text);
         }
-        if (ret == null) {
-            return null;
-        }
-
-        final char[] chars = ret.toCharArray();
-
-        // We are OK with the limitations of Character.toUpperCase. The symbols and ideographs
-        // for which it does not return the capitalized value should not be used here (this is
-        // mostly used to capitalize setters/getters)
-        chars[0] = Character.toUpperCase(chars[0]);
-        return new String(chars);
-    }
-
-    /**
-     * De-capitalize the string (lower case first character)
-     *
-     * @param  text the string
-     * @return      the string decapitalized (lower case first character)
-     */
-    public static String decapitalize(final String text) {
         if (text == null) {
             return null;
         }
-
-        final char[] chars = text.toCharArray();
-
-        // We are OK with the limitations of Character.toLowerCase. The symbols and ideographs
-        // for which it does not return the lower case value should not be used here (this is
-        // mostly used to convert part of setters/getters to properties)
-        chars[0] = Character.toLowerCase(chars[0]);
-        return new String(chars);
+        int length = text.length();
+        if (length == 0) {
+            return text;
+        }
+        String answer = text.substring(0, 1).toUpperCase(Locale.ENGLISH);
+        if (length > 1) {
+            answer += text.substring(1, length);
+        }
+        return answer;
     }
 
     /**
@@ -531,7 +514,7 @@ public final class StringHelper {
      * @param  text the string
      * @return      the string camel cased
      */
-    public static String dashToCamelCase(final String text) {
+    public static String dashToCamelCase(String text) {
         if (text == null) {
             return null;
         }
@@ -709,12 +692,12 @@ public final class StringHelper {
      * @param  before the after token
      * @return        the text between the tokens, or <tt>null</tt> if text does not contain the tokens
      */
-    public static String between(final String text, String after, String before) {
-        String ret = after(text, after);
-        if (ret == null) {
+    public static String between(String text, String after, String before) {
+        text = after(text, after);
+        if (text == null) {
             return null;
         }
-        return before(ret, before);
+        return before(text, before);
     }
 
     /**
@@ -1039,23 +1022,22 @@ public final class StringHelper {
             if (ch == '-' || ch == '_') {
                 answer.append("-");
             } else if (Character.isUpperCase(ch) && prev != null && !Character.isUpperCase(prev)) {
-                applyDashPrefix(prev, answer, ch);
+                if (prev != '-' && prev != '_') {
+                    answer.append("-");
+                }
+                answer.append(ch);
             } else if (Character.isUpperCase(ch) && prev != null && next != null && Character.isLowerCase(next)) {
-                applyDashPrefix(prev, answer, ch);
+                if (prev != '-' && prev != '_') {
+                    answer.append("-");
+                }
+                answer.append(ch);
             } else {
-                answer.append(Character.toLowerCase(ch));
+                answer.append(ch);
             }
             prev = ch;
         }
 
-        return answer.toString();
-    }
-
-    private static void applyDashPrefix(Character prev, StringBuilder answer, char ch) {
-        if (prev != '-' && prev != '_') {
-            answer.append("-");
-        }
-        answer.append(Character.toLowerCase(ch));
+        return answer.toString().toLowerCase(Locale.ENGLISH);
     }
 
     /**
@@ -1075,16 +1057,16 @@ public final class StringHelper {
     /**
      * Converts the value to an enum constant value that is in the form of upper cased with underscore.
      */
-    public static String asEnumConstantValue(final String value) {
+    public static String asEnumConstantValue(String value) {
         if (value == null || value.isEmpty()) {
             return value;
         }
-        String ret = StringHelper.camelCaseToDash(value);
+        value = StringHelper.camelCaseToDash(value);
         // replace double dashes
-        ret = ret.replaceAll("-+", "-");
+        value = value.replaceAll("-+", "-");
         // replace dash with underscore and upper case
-        ret = ret.replace('-', '_').toUpperCase(Locale.ENGLISH);
-        return ret;
+        value = value.replace('-', '_').toUpperCase(Locale.ENGLISH);
+        return value;
     }
 
     /**

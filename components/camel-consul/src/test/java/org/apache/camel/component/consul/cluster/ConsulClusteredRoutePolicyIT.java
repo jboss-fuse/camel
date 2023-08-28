@@ -36,7 +36,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.shaded.org.awaitility.Awaitility;
 
 public class ConsulClusteredRoutePolicyIT {
     @RegisterExtension
@@ -95,7 +94,7 @@ public class ConsulClusteredRoutePolicyIT {
 
             // Start the context after some random time so the startup order
             // changes for each test.
-            Awaitility.await().pollDelay(ThreadLocalRandom.current().nextInt(500), TimeUnit.MILLISECONDS).untilAsserted(() -> Assertions.assertDoesNotThrow(context::start));
+            Thread.sleep(ThreadLocalRandom.current().nextInt(500));
             context.start();
 
             contextLatch.await();

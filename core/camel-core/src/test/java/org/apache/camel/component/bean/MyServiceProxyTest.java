@@ -24,7 +24,6 @@ import org.apache.camel.builder.RouteBuilder;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.fail;
 
 public class MyServiceProxyTest extends ContextTestSupport {
@@ -50,37 +49,37 @@ public class MyServiceProxyTest extends ContextTestSupport {
     @Test
     public void testCheckedException() throws Exception {
         MyService myService = ProxyHelper.createProxy(context.getEndpoint("direct:start"), MyService.class);
-
-        MyApplicationException e = assertThrows(MyApplicationException.class,
-                () -> myService.method("Tiger in Action"),
-                "Should have thrown exception");
-
-        assertEquals("No tigers", e.getMessage());
-        assertEquals(9, e.getCode());
+        try {
+            myService.method("Tiger in Action");
+            fail("Should have thrown exception");
+        } catch (MyApplicationException e) {
+            assertEquals("No tigers", e.getMessage());
+            assertEquals(9, e.getCode());
+        }
     }
 
     @Test
     public void testNestedRuntimeCheckedException() throws Exception {
         MyService myService = ProxyHelper.createProxy(context.getEndpoint("direct:start"), MyService.class);
-
-        MyApplicationException e = assertThrows(MyApplicationException.class,
-                () -> myService.method("Donkey in Action"),
-                "Should have thrown exception");
-
-        assertEquals("No donkeys", e.getMessage());
-        assertEquals(8, e.getCode());
+        try {
+            myService.method("Donkey in Action");
+            fail("Should have thrown exception");
+        } catch (MyApplicationException e) {
+            assertEquals("No donkeys", e.getMessage());
+            assertEquals(8, e.getCode());
+        }
     }
 
     @Test
     public void testNestedCheckedCheckedException() throws Exception {
         MyService myService = ProxyHelper.createProxy(context.getEndpoint("direct:start"), MyService.class);
-
-        MyApplicationException e = assertThrows(MyApplicationException.class,
-                () -> myService.method("Elephant in Action"),
-                "Should have thrown exception");
-
-        assertEquals("No elephants", e.getMessage());
-        assertEquals(7, e.getCode());
+        try {
+            myService.method("Elephant in Action");
+            fail("Should have thrown exception");
+        } catch (MyApplicationException e) {
+            assertEquals("No elephants", e.getMessage());
+            assertEquals(7, e.getCode());
+        }
     }
 
     @Test

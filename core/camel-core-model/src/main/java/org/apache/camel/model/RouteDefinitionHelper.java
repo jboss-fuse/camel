@@ -189,7 +189,8 @@ public final class RouteDefinitionHelper {
                 if (!done) {
                     throw new IllegalArgumentException("Cannot auto assign id to route: " + route);
                 }
-                route.setGeneratedId(id);
+                route.setId(id);
+                route.setCustomId(false);
                 customIds.add(route.getId());
             }
             RestDefinition rest = route.getRestDefinition();

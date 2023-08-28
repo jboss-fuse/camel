@@ -34,7 +34,6 @@
     <camelContext xmlns="http://camel.apache.org/schema/spring">
 
         <propertyPlaceholder id="properties" location="ref:prop"/>
-        <jmxAgent id="jmx" disabled="true"/>
 
         <route>
             <from uri="direct:header-start"/>

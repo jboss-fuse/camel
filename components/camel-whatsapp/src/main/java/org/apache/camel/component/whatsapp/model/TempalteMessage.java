@@ -14,28 +14,41 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.camel.maven.htmlxlsx.model;
+package org.apache.camel.component.whatsapp.model;
 
-import org.apache.camel.maven.htmlxlsx.TestUtil;
-import org.junit.jupiter.api.Test;
+import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+public class TempalteMessage {
 
-public class RouteTest extends GetterAndSetterTest<Route> {
+    private String name;
+    private Language language;
+    private List<Component> components;
 
-    @Override
-    protected Route getInstance() {
-
-        return TestUtil.route();
+    public TempalteMessage() {
     }
 
-    @Test
-    public void testToString() {
-
-        String toString = getInstance().toString();
-
-        assertNotNull(toString);
-        assertTrue(toString.contains("Route"));
+    public String getName() {
+        return name;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Language getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(Language language) {
+        this.language = language;
+    }
+
+    public List<Component> getComponents() {
+        return components;
+    }
+
+    public void setComponents(List<Component> components) {
+        this.components = components;
+    }
+
 }

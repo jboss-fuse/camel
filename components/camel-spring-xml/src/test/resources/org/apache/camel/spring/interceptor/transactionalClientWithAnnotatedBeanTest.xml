@@ -46,7 +46,6 @@
     <bean id="bookService" class="org.apache.camel.spring.interceptor.AnnotatedBookServiceImpl"/>
 
     <camelContext xmlns="http://camel.apache.org/schema/spring">
-    <jmxAgent id="jmx" disabled="true"/>
         <routeBuilder ref="annotatedRoute"/>
     </camelContext>
 

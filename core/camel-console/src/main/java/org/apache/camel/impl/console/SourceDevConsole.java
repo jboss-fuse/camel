@@ -64,7 +64,7 @@ public class SourceDevConsole extends AbstractDevConsole {
                 try {
                     Resource resource = PluginHelper.getResourceLoader(getCamelContext()).resolveResource(loc);
                     if (resource != null) {
-                        if (!sb.isEmpty()) {
+                        if (sb.length() > 0) {
                             sb.append("\n");
                         }
 
@@ -87,7 +87,7 @@ public class SourceDevConsole extends AbstractDevConsole {
                 if (mrb.getSourceLocation() != null) {
                     sb.append(String.format("\n    Source: %s", mrb.getSourceLocation()));
                 }
-                if (!code.isEmpty()) {
+                if (code.length() > 0) {
                     sb.append(code);
                 }
             }

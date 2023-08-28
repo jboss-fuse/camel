@@ -23,12 +23,9 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlRootElement;
-import jakarta.xml.bind.annotation.XmlTransient;
 
 import org.apache.camel.model.OptionalIdentifiedDefinition;
 import org.apache.camel.spi.Metadata;
-import org.apache.camel.spi.Resource;
-import org.apache.camel.spi.ResourceAware;
 
 /**
  * A series of rest services defined using the rest-dsl
@@ -36,12 +33,10 @@ import org.apache.camel.spi.ResourceAware;
 @Metadata(label = "rest")
 @XmlRootElement(name = "rests")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class RestsDefinition extends OptionalIdentifiedDefinition<RestsDefinition> implements RestContainer, ResourceAware {
+public class RestsDefinition extends OptionalIdentifiedDefinition<RestsDefinition> implements RestContainer {
 
     @XmlElementRef
     private List<RestDefinition> rests = new ArrayList<>();
-    @XmlTransient
-    private Resource resource;
 
     public RestsDefinition() {
     }
@@ -75,14 +70,6 @@ public class RestsDefinition extends OptionalIdentifiedDefinition<RestsDefinitio
     @Override
     public void setRests(List<RestDefinition> rests) {
         this.rests = rests;
-    }
-
-    public Resource getResource() {
-        return resource;
-    }
-
-    public void setResource(Resource resource) {
-        this.resource = resource;
     }
 
     // Fluent API
@@ -119,11 +106,7 @@ public class RestsDefinition extends OptionalIdentifiedDefinition<RestsDefinitio
     // -------------------------------------------------------------------------
 
     protected RestDefinition createRest() {
-        RestDefinition rest = new RestDefinition();
-        if (resource != null) {
-            rest.setResource(resource);
-        }
-        return rest;
+        return new RestDefinition();
     }
 
 }

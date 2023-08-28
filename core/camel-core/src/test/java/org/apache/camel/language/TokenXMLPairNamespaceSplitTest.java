@@ -17,6 +17,7 @@
 package org.apache.camel.language;
 
 import org.apache.camel.ContextTestSupport;
+import org.apache.camel.Exchange;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.mock.MockEndpoint;
 import org.junit.jupiter.api.Test;
@@ -35,7 +36,7 @@ public class TokenXMLPairNamespaceSplitTest extends ContextTestSupport {
         mock.message(2).body().isEqualTo("<order id=\"3\" xmlns=\"http:acme.com\">DSL in Action</order>");
 
         String body = createBody();
-        template.sendBody("direct:pair", body);
+        template.sendBodyAndHeader(fileUri("pair"), body, Exchange.FILE_NAME, "orders.xml");
 
         assertMockEndpointsSatisfied();
     }
@@ -49,7 +50,7 @@ public class TokenXMLPairNamespaceSplitTest extends ContextTestSupport {
         mock.message(2).body().isEqualTo("<order id=\"3\" xmlns=\"http:acme.com\">DSL in Action</order>");
 
         String body = createBody();
-        template.sendBody("direct:pair2", body);
+        template.sendBodyAndHeader(fileUri("pair2"), body, Exchange.FILE_NAME, "orders.xml");
 
         assertMockEndpointsSatisfied();
     }
@@ -69,12 +70,14 @@ public class TokenXMLPairNamespaceSplitTest extends ContextTestSupport {
         return new RouteBuilder() {
             @Override
             public void configure() throws Exception {
-                from("direct:pair")
+                // START SNIPPET: e1
+                from(fileUri("pair?initialDelay=0&delay=10"))
                         // split the order child tags, and inherit namespaces from
                         // the orders root tag
                         .split().tokenizeXML("order", "orders").to("mock:split");
+                // END SNIPPET: e1
 
-                from("direct:pair2")
+                from(fileUri("pair2?initialDelay=0&delay=10"))
                         // split the order child tags, and inherit namespaces from
                         // the orders root tag
                         .split(body().tokenizeXML("order", "orders")).to("mock:split");

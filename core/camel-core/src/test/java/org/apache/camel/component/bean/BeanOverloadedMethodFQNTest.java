@@ -23,7 +23,7 @@ import org.apache.camel.builder.RouteBuilder;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.fail;
 
 /**
  *
@@ -64,13 +64,14 @@ public class BeanOverloadedMethodFQNTest extends ContextTestSupport {
         });
         context.start();
 
-        CamelExecutionException e = assertThrows(CamelExecutionException.class,
-                () -> template.sendBody("direct:start", new MyOrder()),
-                "Should have thrown an exception");
-
-        NoTypeConversionAvailableException cause
-                = assertIsInstanceOf(NoTypeConversionAvailableException.class, e.getCause().getCause());
-        assertEquals("Unknown.class", cause.getValue());
+        try {
+            template.sendBody("direct:start", new MyOrder());
+            fail("Should have thrown an exception");
+        } catch (CamelExecutionException e) {
+            NoTypeConversionAvailableException cause
+                    = assertIsInstanceOf(NoTypeConversionAvailableException.class, e.getCause().getCause());
+            assertEquals("Unknown.class", cause.getValue());
+        }
     }
 
     @Test
@@ -124,13 +125,14 @@ public class BeanOverloadedMethodFQNTest extends ContextTestSupport {
         });
         context.start();
 
-        CamelExecutionException e = assertThrows(CamelExecutionException.class,
-                () -> template.sendBody("direct:start", new MyOrder()),
-                "Should have thrown an exception");
-
-        NoTypeConversionAvailableException cause
-                = assertIsInstanceOf(NoTypeConversionAvailableException.class, e.getCause().getCause());
-        assertEquals("org.apache.camel.component.bean.BeanOverloadedMethodFQNTest$Unknown.class", cause.getValue());
+        try {
+            template.sendBody("direct:start", new MyOrder());
+            fail("Should have thrown an exception");
+        } catch (CamelExecutionException e) {
+            NoTypeConversionAvailableException cause
+                    = assertIsInstanceOf(NoTypeConversionAvailableException.class, e.getCause().getCause());
+            assertEquals("org.apache.camel.component.bean.BeanOverloadedMethodFQNTest$Unknown.class", cause.getValue());
+        }
     }
 
     @Test

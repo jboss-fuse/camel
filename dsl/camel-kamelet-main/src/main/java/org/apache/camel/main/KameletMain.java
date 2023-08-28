@@ -56,7 +56,6 @@ import org.apache.camel.main.download.DependencyDownloaderStrategy;
 import org.apache.camel.main.download.DependencyDownloaderUriFactoryResolver;
 import org.apache.camel.main.download.DownloadListener;
 import org.apache.camel.main.download.DownloadModelineParser;
-import org.apache.camel.main.download.KameletAutowiredLifecycleStrategy;
 import org.apache.camel.main.download.KameletMainInjector;
 import org.apache.camel.main.download.KnownDependenciesResolver;
 import org.apache.camel.main.download.KnownReposResolver;
@@ -73,7 +72,6 @@ import org.apache.camel.spi.DataFormatResolver;
 import org.apache.camel.spi.FactoryFinder;
 import org.apache.camel.spi.FactoryFinderResolver;
 import org.apache.camel.spi.LanguageResolver;
-import org.apache.camel.spi.LifecycleStrategy;
 import org.apache.camel.spi.Registry;
 import org.apache.camel.spi.ResourceLoader;
 import org.apache.camel.spi.RoutesLoader;
@@ -109,8 +107,7 @@ public class KameletMain extends MainCommandLineSupport {
     private boolean verbose;
     private String mavenSettings;
     private String mavenSettingsSecurity;
-    private String stubPattern;
-    private boolean silent;
+    private boolean stub;
     private DownloadListener downloadListener;
     private DependencyDownloaderClassLoader classLoader;
 
@@ -215,29 +212,8 @@ public class KameletMain extends MainCommandLineSupport {
         this.fresh = fresh;
     }
 
-    /**
-     * Whether to use stub endpoints instead of creating the actual endpoints. This allows to simulate using real
-     * components but run without them on the classpath.
-     *
-     * @param stubPattern endpoint pattern (Use * for all).
-     */
-    public void setStubPattern(String stubPattern) {
-        this.stubPattern = stubPattern;
-    }
-
-    public String getStubPattern() {
-        return stubPattern;
-    }
-
-    public boolean isSilent() {
-        return silent;
-    }
-
-    /**
-     * Whether to run in silent mode (used during export or resolving dependencies)
-     */
-    public void setSilent(boolean silent) {
-        this.silent = silent;
+    public boolean isStub() {
+        return stub;
     }
 
     /**
@@ -262,6 +238,14 @@ public class KameletMain extends MainCommandLineSupport {
 
     public String getMavenSettingsSecurity() {
         return mavenSettingsSecurity;
+    }
+
+    /**
+     * Whether to use stub endpoints instead of creating the actual endpoints. This allows to simulate using real
+     * components but run without them on the classpath.
+     */
+    public void setStub(boolean stub) {
+        this.stub = stub;
     }
 
     public DownloadListener getDownloadListener() {
@@ -392,8 +376,8 @@ public class KameletMain extends MainCommandLineSupport {
             // in case we use circuit breakers
             CircuitBreakerDownloader.registerDownloadReifiers();
         }
-        if (silent || "*".equals(stubPattern)) {
-            // turn off auto-wiring when running in silent mode (or stub = *)
+        if (stub) {
+            // turn off auto-wiring when running in stub mode
             mainConfigurationProperties.setAutowiredEnabled(false);
             // and turn off fail fast as we stub components
             mainConfigurationProperties.setAutoConfigurationFailFast(false);
@@ -410,8 +394,7 @@ public class KameletMain extends MainCommandLineSupport {
         // annotation based dependency injection for camel/spring/quarkus annotations in DSLs and Java beans
         AnnotationDependencyInjection.initAnnotationBasedDependencyInjection(answer);
 
-        if (!silent) {
-            // silent should not include cli-connector
+        if (!stub) {
             // setup cli-connector if not already done
             if (answer.hasService(CliConnector.class) == null) {
                 CliConnectorFactory ccf = answer.getCamelContextExtension().getContextPlugin(CliConnectorFactory.class);
@@ -466,8 +449,8 @@ public class KameletMain extends MainCommandLineSupport {
             configure().httpServer().withEnabled(true);
             configure().httpServer().withHealthCheckEnabled(true);
         }
-        if (silent) {
-            // silent should not include http server
+        if (stub) {
+            // stub should not include http server
             configure().httpServer().withEnabled(false);
         }
 
@@ -523,7 +506,7 @@ public class KameletMain extends MainCommandLineSupport {
                 answer.getCamelContextExtension().setDefaultFactoryFinder(ff);
 
                 answer.getCamelContextExtension().addContextPlugin(ComponentResolver.class,
-                        new DependencyDownloaderComponentResolver(answer, stubPattern, silent));
+                        new DependencyDownloaderComponentResolver(answer, stub));
                 answer.getCamelContextExtension().addContextPlugin(UriFactoryResolver.class,
                         new DependencyDownloaderUriFactoryResolver(answer));
                 answer.getCamelContextExtension().addContextPlugin(DataFormatResolver.class,
@@ -533,7 +516,7 @@ public class KameletMain extends MainCommandLineSupport {
                 answer.getCamelContextExtension().addContextPlugin(ResourceLoader.class,
                         new DependencyDownloaderResourceLoader(answer));
             }
-            answer.setInjector(new KameletMainInjector(answer.getInjector(), stubPattern, silent));
+            answer.setInjector(new KameletMainInjector(answer.getInjector(), stub));
             if (download) {
                 answer.addService(new DependencyDownloaderKamelet(answer));
                 answer.getCamelContextExtension().getRegistry().bind(DownloadModelineParser.class.getSimpleName(),
@@ -581,11 +564,6 @@ public class KameletMain extends MainCommandLineSupport {
         camelContext.setApplicationContextClassLoader(createApplicationContextClassLoader());
         // auto configure camel afterwards
         super.autoconfigure(camelContext);
-    }
-
-    @Override
-    protected LifecycleStrategy createLifecycleStrategy(CamelContext camelContext) {
-        return new KameletAutowiredLifecycleStrategy(camelContext, stubPattern, silent);
     }
 
     protected ClassLoader createApplicationContextClassLoader() {

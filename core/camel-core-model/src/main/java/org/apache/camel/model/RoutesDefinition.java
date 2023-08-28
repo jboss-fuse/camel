@@ -88,7 +88,7 @@ public class RoutesDefinition extends OptionalIdentifiedDefinition<RoutesDefinit
 
     @Override
     public String getLabel() {
-        return "Routes " + getId();
+        return "Route " + getId();
     }
 
     // Properties
