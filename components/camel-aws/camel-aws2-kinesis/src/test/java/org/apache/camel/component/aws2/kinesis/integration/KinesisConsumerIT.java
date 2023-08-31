@@ -108,7 +108,7 @@ public class KinesisConsumerIT extends CamelTestSupport {
 
     @BeforeEach
     public void prepareEnvironment() {
-        createStream(client, streamName, 2);
+        createStream(client, streamName);
 
         putRecords(client, streamName, messageCount);
     }
