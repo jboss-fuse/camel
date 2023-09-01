@@ -121,6 +121,7 @@ camel-seda
 camel-servlet
 camel-slack
 camel-snmp
+camel-splunk
 camel-spring
 camel-spring-batch
 camel-spring-jdbc

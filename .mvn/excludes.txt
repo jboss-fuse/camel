@@ -230,7 +230,6 @@
 :camel-sjms2
 :camel-smpp
 :camel-snakeyaml
-:camel-splunk
 :camel-splunk-hec
 :camel-ssh
 :camel-stax
