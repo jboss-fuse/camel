@@ -294,7 +294,7 @@
                         <phase>process-sources</phase>
                         <configuration>
                             <target>
-                                <replace token= "@javax.annotation.Generated" value="@jakarta.annotation.Generated" dir="target/generated-sources/protobuf/grpc-java">
+                                <replace dir="target/generated-sources/protobuf/grpc-java" token="@javax.annotation.Generated" value="@jakarta.annotation.Generated">
                                     <include name="**/*.java"/>
                                 </replace>
                             </target>

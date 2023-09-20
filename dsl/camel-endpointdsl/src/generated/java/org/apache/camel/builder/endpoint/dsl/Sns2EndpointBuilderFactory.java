@@ -226,17 +226,17 @@ public interface Sns2EndpointBuilderFactory {
             return this;
         }
         /**
-         * The queueUrl to subscribe to.
+         * The ARN endpoint to subscribe to.
          * 
          * The option is a: &lt;code&gt;java.lang.String&lt;/code&gt; type.
          * 
          * Group: producer
          * 
-         * @param queueUrl the value to set
+         * @param queueArn the value to set
          * @return the dsl builder
          */
-        default Sns2EndpointBuilder queueUrl(String queueUrl) {
-            doSetProperty("queueUrl", queueUrl);
+        default Sns2EndpointBuilder queueArn(String queueArn) {
+            doSetProperty("queueArn", queueArn);
             return this;
         }
         /**

@@ -158,6 +158,7 @@
 :camel-jolt
 :camel-jooq
 :camel-joor
+:camel-jq
 :camel-js-dsl
 :camel-jsch
 :camel-jsh-dsl
