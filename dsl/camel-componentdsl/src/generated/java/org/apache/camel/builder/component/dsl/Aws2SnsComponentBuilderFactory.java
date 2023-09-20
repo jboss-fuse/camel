@@ -208,17 +208,17 @@ public interface Aws2SnsComponentBuilderFactory {
             return this;
         }
         /**
-         * The queueUrl to subscribe to.
+         * The ARN endpoint to subscribe to.
          * 
          * The option is a: &lt;code&gt;java.lang.String&lt;/code&gt; type.
          * 
          * Group: producer
          * 
-         * @param queueUrl the value to set
+         * @param queueArn the value to set
          * @return the dsl builder
          */
-        default Aws2SnsComponentBuilder queueUrl(java.lang.String queueUrl) {
-            doSetProperty("queueUrl", queueUrl);
+        default Aws2SnsComponentBuilder queueArn(java.lang.String queueArn) {
+            doSetProperty("queueArn", queueArn);
             return this;
         }
         /**
