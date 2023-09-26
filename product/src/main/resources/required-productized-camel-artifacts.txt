@@ -148,6 +148,7 @@ camel-xj
 camel-xml-io
 camel-xml-io-dsl
 camel-xml-jaxb
+camel-xml-jaxp
 camel-xpath
 camel-xslt
 camel-xslt-saxon
