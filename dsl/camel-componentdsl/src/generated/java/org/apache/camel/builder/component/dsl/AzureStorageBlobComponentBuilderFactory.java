@@ -653,6 +653,22 @@ public interface AzureStorageBlobComponentBuilderFactory {
             doSetProperty("sourceBlobAccessKey", sourceBlobAccessKey);
             return this;
         }
+        /**
+         * In case of usage of Shared Access Signature we'll need to set a SAS
+         * Token.
+         * 
+         * The option is a: &lt;code&gt;java.lang.String&lt;/code&gt; type.
+         * 
+         * Group: common
+         * 
+         * @param sasToken the value to set
+         * @return the dsl builder
+         */
+        default AzureStorageBlobComponentBuilder sasToken(
+                java.lang.String sasToken) {
+            doSetProperty("sasToken", sasToken);
+            return this;
+        }
     }
 
     class AzureStorageBlobComponentBuilderImpl
@@ -711,6 +727,7 @@ public interface AzureStorageBlobComponentBuilderFactory {
             case "healthCheckProducerEnabled": ((BlobComponent) component).setHealthCheckProducerEnabled((boolean) value); return true;
             case "accessKey": getOrCreateConfiguration((BlobComponent) component).setAccessKey((java.lang.String) value); return true;
             case "sourceBlobAccessKey": getOrCreateConfiguration((BlobComponent) component).setSourceBlobAccessKey((java.lang.String) value); return true;
+            case "sasToken": getOrCreateConfiguration((BlobComponent) component).setSasToken((java.lang.String) value); return true;
             default: return false;
             }
         }

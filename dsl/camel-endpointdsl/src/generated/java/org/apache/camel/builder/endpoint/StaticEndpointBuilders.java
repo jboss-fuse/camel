@@ -1733,6 +1733,9 @@ public class StaticEndpointBuilders {
      * Path parameter: containerName
      * The blob container name
      * 
+     * Path parameter: sasToken
+     * In case of usage of Shared Access Signature we'll need to set a SAS Token
+     * 
      * @param path accountName/containerName
      * @return the dsl builder
      */
@@ -1755,6 +1758,9 @@ public class StaticEndpointBuilders {
      * 
      * Path parameter: containerName
      * The blob container name
+     * 
+     * Path parameter: sasToken
+     * In case of usage of Shared Access Signature we'll need to set a SAS Token
      * 
      * @param componentName to use a custom component name for the endpoint
      * instead of the default name
