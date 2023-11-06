@@ -296,6 +296,7 @@
                             <exclude>**/*.cer</exclude>
                             <exclude>**/*.chtml</exclude>
                             <exclude>**/*.csv</exclude>
+                            <exclude>**/*.dccache</exclude>
                             <exclude>**/*.gpg</exclude>
                             <exclude>**/*.graphql*</exclude>
                             <exclude>**/*.ics</exclude>
@@ -313,6 +314,7 @@
                             <exclude>**/*.pem</exclude>
                             <exclude>**/*.pfx</exclude>
                             <exclude>**/*.pgp</exclude>
+                            <exclude>**/*.snyk</exclude>
                             <exclude>**/*.tm</exclude>
                             <exclude>**/*.truststore</exclude>
                             <exclude>**/*.tt</exclude>
