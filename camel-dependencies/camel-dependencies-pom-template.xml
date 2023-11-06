@@ -220,7 +220,7 @@
     <google-api-services-mail-version>v1-rev20211108-1.32.1</google-api-services-mail-version>
     <google-api-services-sheets-version>v4-rev20210629-1.32.1</google-api-services-sheets-version>
     <google-auth-library-oauth2-http-version>1.7.0</google-auth-library-oauth2-http-version>
-    <google-cloud-bom-version>25.4.0</google-cloud-bom-version>
+    <google-cloud-bom-version>26.26.0</google-cloud-bom-version>
     <google-cloud-functions-bom-version>1.0.8</google-cloud-functions-bom-version>
     <google-cloud-functions-gax-grpc-version>1.62.0</google-cloud-functions-gax-grpc-version>
     <google-cloud-guava-version>${google-cloud-guava-version-prefix}-jre</google-cloud-guava-version>
@@ -236,7 +236,7 @@
     <grpc-guava-version>31.1-jre</grpc-guava-version>
     <grpc-java-jwt-version>3.19.2</grpc-java-jwt-version>
     <grpc-netty-tcnative-boringssl-static-version>2.0.54.Final</grpc-netty-tcnative-boringssl-static-version>
-    <grpc-protobuf-version>3.21.7</grpc-protobuf-version>
+    <grpc-protobuf-version>3.23.4</grpc-protobuf-version>
     <grpc-version>1.48.2</grpc-version>
     <gson-version>2.9.1</gson-version>
     <guava-eventbus-version>28.2-jre</guava-eventbus-version>
@@ -459,7 +459,7 @@
     <powermock-version>2.0.7</powermock-version>
     <properties-maven-plugin-version>1.0-alpha-2</properties-maven-plugin-version>
     <protobuf-maven-plugin-version>0.6.1</protobuf-maven-plugin-version>
-    <protobuf-version>3.19.6</protobuf-version>
+    <protobuf-version>3.23.4</protobuf-version>
     <protonpack-version>1.8</protonpack-version>
     <protostream-version>4.5.0.Final</protostream-version>
     <prowide-version>SRU2022-9.3.2</prowide-version>
