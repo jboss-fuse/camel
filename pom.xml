@@ -857,12 +857,14 @@
                                 <exclude>**/*.adoc</exclude>
                                 <exclude>**/node_modules/**</exclude>
                                 <exclude>**/cacerts</exclude>
+                                <exclude>**/*.dccache</exclude>
                                 <exclude>**/*.p12</exclude>
                                 <exclude>**/*.txt</exclude>
                                 <exclude>**/*.mp3</exclude>
                                 <exclude>**/*.mp4</exclude>
                                 <exclude>.mvn/**</exclude>
                                 <exclude>mvnw*</exclude>
+                                <exclude>**/*.snyk</exclude>
                                 <exclude>**/META-INF/persistence*.xsd</exclude>
                             </excludes>
                             <mapping>
