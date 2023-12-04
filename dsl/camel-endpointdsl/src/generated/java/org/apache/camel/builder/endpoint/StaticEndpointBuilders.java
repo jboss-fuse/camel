@@ -1670,7 +1670,7 @@ public class StaticEndpointBuilders {
     }
     /**
      * Azure ServiceBus (camel-azure-servicebus)
-     * Send and receive messages to/from Azure Event Bus.
+     * Send and receive messages to/from Azure Service Bus.
      * 
      * Category: cloud,messaging
      * Since: 3.12
@@ -1693,7 +1693,7 @@ public class StaticEndpointBuilders {
     }
     /**
      * Azure ServiceBus (camel-azure-servicebus)
-     * Send and receive messages to/from Azure Event Bus.
+     * Send and receive messages to/from Azure Service Bus.
      * 
      * Category: cloud,messaging
      * Since: 3.12
@@ -1733,9 +1733,6 @@ public class StaticEndpointBuilders {
      * Path parameter: containerName
      * The blob container name
      * 
-     * Path parameter: sasToken
-     * In case of usage of Shared Access Signature we'll need to set a SAS Token
-     * 
      * @param path accountName/containerName
      * @return the dsl builder
      */
@@ -1758,9 +1755,6 @@ public class StaticEndpointBuilders {
      * 
      * Path parameter: containerName
      * The blob container name
-     * 
-     * Path parameter: sasToken
-     * In case of usage of Shared Access Signature we'll need to set a SAS Token
      * 
      * @param componentName to use a custom component name for the endpoint
      * instead of the default name
