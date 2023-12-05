@@ -426,6 +426,21 @@ public interface BlobEndpointBuilderFactory {
             return this;
         }
         /**
+         * In case of usage of Shared Access Signature we'll need to set a SAS
+         * Token.
+         * 
+         * The option is a: &lt;code&gt;java.lang.String&lt;/code&gt; type.
+         * 
+         * Group: common
+         * 
+         * @param sasToken the value to set
+         * @return the dsl builder
+         */
+        default BlobEndpointConsumerBuilder sasToken(String sasToken) {
+            doSetProperty("sasToken", sasToken);
+            return this;
+        }
+        /**
          * Client to a storage account. This client does not hold any state
          * about a particular storage account but is instead a convenient way of
          * sending off appropriate requests to the resource on the service. It
@@ -1604,6 +1619,21 @@ public interface BlobEndpointBuilderFactory {
             return this;
         }
         /**
+         * In case of usage of Shared Access Signature we'll need to set a SAS
+         * Token.
+         * 
+         * The option is a: &lt;code&gt;java.lang.String&lt;/code&gt; type.
+         * 
+         * Group: common
+         * 
+         * @param sasToken the value to set
+         * @return the dsl builder
+         */
+        default BlobEndpointProducerBuilder sasToken(String sasToken) {
+            doSetProperty("sasToken", sasToken);
+            return this;
+        }
+        /**
          * Client to a storage account. This client does not hold any state
          * about a particular storage account but is instead a convenient way of
          * sending off appropriate requests to the resource on the service. It
@@ -2588,6 +2618,21 @@ public interface BlobEndpointBuilderFactory {
             return this;
         }
         /**
+         * In case of usage of Shared Access Signature we'll need to set a SAS
+         * Token.
+         * 
+         * The option is a: &lt;code&gt;java.lang.String&lt;/code&gt; type.
+         * 
+         * Group: common
+         * 
+         * @param sasToken the value to set
+         * @return the dsl builder
+         */
+        default BlobEndpointBuilder sasToken(String sasToken) {
+            doSetProperty("sasToken", sasToken);
+            return this;
+        }
+        /**
          * Client to a storage account. This client does not hold any state
          * about a particular storage account but is instead a convenient way of
          * sending off appropriate requests to the resource on the service. It
@@ -2745,10 +2790,6 @@ public interface BlobEndpointBuilderFactory {
          * Path parameter: containerName
          * The blob container name
          * 
-         * Path parameter: sasToken
-         * In case of usage of Shared Access Signature we'll need to set a SAS
-         * Token
-         * 
          * @param path accountName/containerName
          * @return the dsl builder
          */
@@ -2771,10 +2812,6 @@ public interface BlobEndpointBuilderFactory {
          * 
          * Path parameter: containerName
          * The blob container name
-         * 
-         * Path parameter: sasToken
-         * In case of usage of Shared Access Signature we'll need to set a SAS
-         * Token
          * 
          * @param componentName to use a custom component name for the endpoint
          * instead of the default name
