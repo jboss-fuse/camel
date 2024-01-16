@@ -281,6 +281,7 @@
                         <header>${maven.multiModuleProjectDirectory}/buildingtools/src/main/resources/header.txt</header>
                         <excludes>
                             <exclude>release.properties</exclude>
+                            <exclude>build.metadata</exclude>
                             <exclude>**/pom.xml.tag</exclude>
                             <exclude>**/pom.xml.releaseBackup</exclude>
                             <exclude>**/*.MockMaker</exclude>
