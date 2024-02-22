@@ -307,6 +307,7 @@
                             <exclude>**/*.joor</exclude>
                             <exclude>**/*.jpeg</exclude>
                             <exclude>**/*.jslt</exclude>
+                            <exclude>**/*.jte</exclude>
                             <exclude>**/*.key</exclude>
                             <exclude>**/*.keystore</exclude>
                             <exclude>**/*.model</exclude>
@@ -323,6 +324,7 @@
                             <exclude>**/*.truststore</exclude>
                             <exclude>**/*.tt</exclude>
                             <exclude>**/*.txt</exclude>
+                            <exclude>**/*.wasm</exclude>
                             <exclude>**/*.webp</exclude>
                             <exclude>**/*.xquery</exclude>
                             <exclude>**/*utf16.ftl</exclude>
@@ -370,6 +372,7 @@
                             <exclude>**/src/main/resources/templates/*.tmpl</exclude>
                             <exclude>**/src/test/resources/generated/**</exclude>
                             <exclude>**/test-kerb5.conf</exclude>
+                            <exclude>**/Cargo.lock</exclude>
                             <exclude>**/yarn.lock</exclude>
                             <exclude>**/zkserver*.conf</exclude>
                             <exclude>.mvn/**</exclude>
