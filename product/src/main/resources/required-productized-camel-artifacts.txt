@@ -75,6 +75,7 @@ camel-jpa
 camel-jslt
 camel-jsonpath
 camel-jta
+camel-jt400
 camel-kafka
 camel-kamelet
 camel-kamelet-main
@@ -85,6 +86,7 @@ camel-kudu
 camel-language
 camel-ldap
 camel-log
+camel-lra
 camel-mail
 camel-mail-microsoft-oauth
 camel-main

@@ -166,13 +166,11 @@
 :camel-jsonapi
 :camel-jsonata
 :camel-jsonb
-:camel-jt400
 :camel-jte
 :camel-kotlin-api
 :camel-kotlin-dsl
 :camel-ldif
 :camel-leveldb
-:camel-lra
 :camel-lucene
 :camel-lumberjack
 :camel-lzf
