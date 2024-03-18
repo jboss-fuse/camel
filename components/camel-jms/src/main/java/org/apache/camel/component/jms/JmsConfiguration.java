@@ -621,13 +621,32 @@ public class JmsConfiguration implements Cloneable {
                 // Check commit - avoid commit call within a JTA transaction.
                 if (session.getTransacted() && isSessionLocallyTransacted(session)) {
                     // Transacted session created by this template -> commit.
-                    JmsUtils.commitIfNecessary(session);
+                    commitIfNecessary(session);
                 }
             } finally {
                 JmsUtils.closeMessageProducer(producer);
             }
             return null;
         }
+
+        protected void commitIfNecessary(Session session) throws JMSException {
+            //# CAMEL-20521 - we can't use JmsUtils.commitIfNecessary because it catches
+            // jakarta.jms.IllegalStateException that can be thrown if the session is closed
+
+            // Transacted session created by this template -> commit.
+            Assert.notNull(session, "Session must not be null");
+
+            // Check commit - avoid commit call within a JTA transaction.
+            if (session.getTransacted() && isSessionLocallyTransacted(session)) {
+                try {
+                    session.commit();
+                } catch (javax.jms.TransactionInProgressException ex) {
+                    // Ignore -> can only happen in case of a JTA transaction.
+                    LOG.trace(ex.getMessage());
+                }
+            }
+        }
+
 
         /**
          * Override so we can support preserving the Qos settings that have been set on the message.
@@ -725,7 +744,7 @@ public class JmsConfiguration implements Cloneable {
         }
 
         ConnectionFactory factory = getOrCreateTemplateConnectionFactory();
-        JmsTemplate template = new CamelJmsTemplate(this, factory);
+        JmsTemplate template =  createCamelJmsTemplate(factory);
 
         template.setPubSubDomain(pubSubDomain);
         if (destinationResolver != null) {
@@ -780,6 +799,11 @@ public class JmsConfiguration implements Cloneable {
 
         return template;
     }
+
+    protected CamelJmsTemplate createCamelJmsTemplate(ConnectionFactory connectionFactory) {
+        return new CamelJmsTemplate(this, connectionFactory);
+    }
+
 
     public AbstractMessageListenerContainer createMessageListenerContainer(JmsEndpoint endpoint) {
         AbstractMessageListenerContainer container = chooseMessageListenerContainerImplementation(endpoint);
