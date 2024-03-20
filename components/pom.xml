@@ -267,7 +267,7 @@
         <!-- <module>camel-sjms2</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-sjms</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-slack</module>
-        <!-- <module>camel-smb</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-smb</module>
         <!-- <module>camel-smpp</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-snakeyaml</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-snmp</module>

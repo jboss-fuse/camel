@@ -139,6 +139,7 @@ camel-spring-security
 camel-spring-ws
 camel-spring-xml
 camel-undertow-spring-security
+camel-smb
 camel-soap
 camel-splunk
 camel-splunk-hec
