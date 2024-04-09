@@ -80,12 +80,12 @@ public class GrpcProducerStreamingTest extends CamelTestSupport {
         context().stop();
 
         Awaitility
-            .await().atMost(10, TimeUnit.SECONDS)
-            .untilAsserted(() -> {
-                assertNotNull(pingPongServer.getLastStreamRequests());
-                assertListSize(pingPongServer.getLastStreamRequests(), 1);
-                assertListSize(pingPongServer.getLastStreamRequests().get(0), messageCount);
-            });
+                .await().atMost(10, TimeUnit.SECONDS)
+                .untilAsserted(() -> {
+                    assertNotNull(pingPongServer.getLastStreamRequests());
+                    assertListSize(pingPongServer.getLastStreamRequests(), 1);
+                    assertListSize(pingPongServer.getLastStreamRequests().get(0), messageCount);
+                });
     }
 
     @Test
