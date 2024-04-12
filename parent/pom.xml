@@ -51,7 +51,7 @@
         <!-- dependency versions -->
         <activemq-version>5.18.3</activemq-version>
         <activemq-artemis-version>2.32.0</activemq-artemis-version>
-        <angus-mail-version>2.0.2</angus-mail-version>
+        <angus-mail-version>2.0.3</angus-mail-version>
         <apacheds-version>2.0.0.AM26</apacheds-version>
         <apache-drill-version>1.21.1</apache-drill-version>
         <apicurio-version>2.0.4</apicurio-version>
@@ -206,7 +206,7 @@
         <hsqldb-version>2.7.2</hsqldb-version>
         <httpunit-version>1.7</httpunit-version>
         <httpcore-version>5.2.4</httpcore-version>
-        <httpclient-version>5.2.1</httpclient-version>
+        <httpclient-version>5.2.3</httpclient-version>
         <httpcore4-version>4.4.16</httpcore4-version>
         <httpclient4-version>4.5.14</httpclient4-version>
         <httpasyncclient-version>4.1.5</httpasyncclient-version>
@@ -239,12 +239,12 @@
         <javassist-version>3.30.2-GA</javassist-version>
         <jakarta-el-api-version>5.0.1</jakarta-el-api-version>
         <jakarta-el-expressly-version>5.0.0</jakarta-el-expressly-version>
-        <jakarta-activation-version>2.1.2</jakarta-activation-version>
+        <jakarta-activation-version>2.1.3</jakarta-activation-version>
         <jakarta-annotation-api-version>2.1.1</jakarta-annotation-api-version>
         <jakarta-servlet-api-version>6.0.0</jakarta-servlet-api-version>
         <jakarta-enterprise-cdi-api-version>4.0.1</jakarta-enterprise-cdi-api-version>
         <jakarta-inject-version>2.0.1</jakarta-inject-version>
-        <jakarta-xml-bind-api-version>4.0.1</jakarta-xml-bind-api-version>
+        <jakarta-xml-bind-api-version>4.0.2</jakarta-xml-bind-api-version>
         <jakarta-xml-soap-api-version>3.0.1</jakarta-xml-soap-api-version>
         <jakarta-xml-ws-api-version>4.0.1</jakarta-xml-ws-api-version>
         <glassfish-javax-json>1.1.4</glassfish-javax-json>
@@ -430,11 +430,11 @@
         <splunk-version>1.9.5_1</splunk-version>
         <spock-version>2.3-groovy-4.0</spock-version>
         <spring-batch-version>5.1.1</spring-batch-version>
-        <spring-data-redis-version>3.2.3</spring-data-redis-version>
+        <spring-data-redis-version>3.2.4</spring-data-redis-version>
         <spring-ldap-version>3.2.2</spring-ldap-version>
         <spring-vault-core-version>3.1.1</spring-vault-core-version>
         <spring-version>6.1.5</spring-version>
-        <spring-rabbitmq-version>3.1.1</spring-rabbitmq-version>
+        <spring-rabbitmq-version>3.1.3</spring-rabbitmq-version>
         <spring-security-version>6.2.3</spring-security-version>
         <spring-ws-version>4.0.10</spring-ws-version>
         <sql-maven-plugin-version>1.5</sql-maven-plugin-version>
