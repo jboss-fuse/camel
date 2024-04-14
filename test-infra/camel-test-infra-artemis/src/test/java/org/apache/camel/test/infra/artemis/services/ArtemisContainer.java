@@ -29,6 +29,8 @@ public class ArtemisContainer extends GenericContainer<ArtemisContainer> impleme
     private static final int DEFAULT_ACCEPTOR_PORT = 61616;
     private static final String FROM_IMAGE_NAME = "fedora:38";
     private static final String FROM_IMAGE_ARG = "FROMIMAGE";
+    private static final String DEFAULT_USERNAME = "admin";
+    private static final String DEFAULT_PASSWORD = "admin";
 
     public ArtemisContainer() {
         super(new ImageFromDockerfile("localhost/apache-artemis:camel", false)
@@ -36,10 +38,12 @@ public class ArtemisContainer extends GenericContainer<ArtemisContainer> impleme
                         "org/apache/camel/test/infra/artemis/services/Dockerfile")
                 .withBuildArg(FROM_IMAGE_ARG, TestUtils.prependHubImageNamePrefixIfNeeded(FROM_IMAGE_NAME)));
 
-        withExposedPorts(DEFAULT_MQTT_PORT, DEFAULT_AMQP_PORT,
-                DEFAULT_ADMIN_PORT, DEFAULT_ACCEPTOR_PORT);
-
-        waitingFor(Wait.forListeningPort());
+        this.withEnv("AMQ_EXTRA_ARGS", "--relax-jolokia")
+                .withEnv("AMQ_USER", DEFAULT_USERNAME)
+                .withEnv("AMQ_PASSWORD", DEFAULT_PASSWORD)
+                .withExposedPorts(DEFAULT_MQTT_PORT, DEFAULT_AMQP_PORT,
+                        DEFAULT_ADMIN_PORT, DEFAULT_ACCEPTOR_PORT)
+                .waitingFor(Wait.forListeningPort());
     }
 
     /**
@@ -130,5 +134,13 @@ public class ArtemisContainer extends GenericContainer<ArtemisContainer> impleme
      */
     public String getOpenwireEndpoint() {
         return String.format("tcp://%s:%d", getHost(), openwirePort());
+    }
+
+    public String username() {
+        return DEFAULT_USERNAME;
+    }
+
+    public String password() {
+        return DEFAULT_PASSWORD;
     }
 }

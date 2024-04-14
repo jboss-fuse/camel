@@ -617,15 +617,21 @@ public class JmsConfiguration implements Cloneable {
                 if (message != null && callback != null) {
                     callback.sent(session, message, destination);
                 }
-                // Check commit - avoid commit call within a JTA transaction.
-                if (session.getTransacted() && isSessionLocallyTransacted(session)) {
-                    // Transacted session created by this template -> commit.
-                    JmsUtils.commitIfNecessary(session);
-                }
+
+                commitIfNecessary(session);
+
             } finally {
                 JmsUtils.closeMessageProducer(producer);
             }
             return null;
+        }
+
+        protected void commitIfNecessary(Session session) throws JMSException {
+            // Check commit - avoid commit call within a JTA transaction.
+            if (session.getTransacted() && isSessionLocallyTransacted(session)) {
+                // Transacted session created by this template -> commit.
+                JmsUtils.commitIfNecessary(session);
+            }
         }
 
         /**
@@ -724,7 +730,7 @@ public class JmsConfiguration implements Cloneable {
         }
 
         ConnectionFactory factory = getOrCreateTemplateConnectionFactory();
-        JmsTemplate template = new CamelJmsTemplate(this, factory);
+        JmsTemplate template = createCamelJmsTemplate(factory);
 
         template.setPubSubDomain(pubSubDomain);
         if (destinationResolver != null) {
@@ -778,6 +784,10 @@ public class JmsConfiguration implements Cloneable {
         template.setDeliveryDelay(deliveryDelay);
 
         return template;
+    }
+
+    protected CamelJmsTemplate createCamelJmsTemplate(ConnectionFactory connectionFactory) {
+        return new CamelJmsTemplate(this, connectionFactory);
     }
 
     public AbstractMessageListenerContainer createMessageListenerContainer(JmsEndpoint endpoint) {
