@@ -59,6 +59,9 @@ public class ServiceBusConfiguration implements Cloneable {
     private AmqpRetryOptions amqpRetryOptions;
     @UriParam(label = "common", defaultValue = "AMQP")
     private AmqpTransportType amqpTransportType = AmqpTransportType.AMQP;
+    @UriParam(label = "common",
+              description = "To use a custom HeaderFilterStrategy to filter Service Bus application properties to and from Camel message headers.")
+    private HeaderFilterStrategy headerFilterStrategy = new ServiceBusHeaderFilterStrategy();
     @UriParam(label = "consumer", defaultValue = "receiveMessages")
     private ServiceBusConsumerOperationDefinition consumerOperation = ServiceBusConsumerOperationDefinition.receiveMessages;
     @UriParam(label = "consumer")

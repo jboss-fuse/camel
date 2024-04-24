@@ -182,6 +182,12 @@ public class ServiceBusConsumer extends DefaultConsumer {
         message.setHeader(ServiceBusConstants.TIME_TO_LIVE, receivedMessage.getTimeToLive());
         message.setHeader(ServiceBusConstants.TO, receivedMessage.getTo());
 
+        // propagate headers
+        final HeaderFilterStrategy headerFilterStrategy = getConfiguration().getHeaderFilterStrategy();
+        message.getHeaders().putAll(receivedMessage.getApplicationProperties().entrySet().stream()
+                .filter(entry -> !headerFilterStrategy.applyFilterToExternalHeaders(entry.getKey(), entry.getValue(), exchange))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue)));
+
         return exchange;
     }
 
