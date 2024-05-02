@@ -48,6 +48,11 @@
                 <version>${google-cloud-guava-version}</version>
             </dependency>
             <dependency>
+                <groupId>org.threeten</groupId>
+                <artifactId>threetenbp</artifactId>
+                <version>${threetenbp-version}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.google.cloud</groupId>
                 <artifactId>libraries-bom</artifactId>
                 <version>${google-cloud-bom-version}</version>
