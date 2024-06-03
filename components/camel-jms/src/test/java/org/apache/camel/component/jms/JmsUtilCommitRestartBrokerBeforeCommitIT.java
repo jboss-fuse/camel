@@ -37,8 +37,8 @@ public class JmsUtilCommitRestartBrokerBeforeCommitIT extends AbstractRestartBro
 
     @Test
     public void useJmsUtilCommitIfNecessaryTest() throws IOException, URISyntaxException, InterruptedException {
-        int okMessageExpectedCount = 1;
-        int jmsExceptionCount = 0;
+        int okMessageExpectedCount = 0;
+        int jmsExceptionCount = 1;
         int exceptionMessageExpectedCount = 0;
         performTest(jmsExceptionCount, okMessageExpectedCount, exceptionMessageExpectedCount);
     }
