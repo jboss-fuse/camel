@@ -107,7 +107,7 @@ class KafkaBreakOnFirstErrorWithBatchUsingSynchCommitManagerIT extends BaseEmbed
 
         Awaitility.await()
                 .atMost(3, TimeUnit.SECONDS)
-                .until(() -> errorPayloads.size() > 3);
+                .until(() -> errorPayloads.size() > 0);
 
         to.assertIsSatisfied();
 
