@@ -355,7 +355,7 @@
         <msal4j-version>1.14.2</msal4j-version>
         <mustache-java-version>0.9.11</mustache-java-version>
         <mvel-version>2.5.2.Final</mvel-version>
-        <mybatis-version>3.5.15</mybatis-version>
+        <mybatis-version>3.5.16</mybatis-version>
         <narayana-version>5.13.1.Final</narayana-version>
         <neoscada-version>0.4.0</neoscada-version>
         <netty-version>4.1.110.Final</netty-version>
@@ -382,7 +382,7 @@
         <parquet-common-version>1.13.1</parquet-common-version>
         <parquet-avro-version>1.13.1</parquet-avro-version>
         <pdfbox-version>3.0.1</pdfbox-version>
-        <pgjdbc-driver-version>42.7.1</pgjdbc-driver-version>
+        <pgjdbc-driver-version>42.7.3</pgjdbc-driver-version>
         <pgjdbc-ng-driver-version>0.8.9</pgjdbc-ng-driver-version>
         <picocli-version>4.7.5</picocli-version>
         <plc4x-version>0.11.0</plc4x-version>
