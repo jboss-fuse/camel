@@ -30,6 +30,8 @@ import com.azure.messaging.servicebus.ServiceBusTransactionContext;
 import com.azure.messaging.servicebus.models.ServiceBusReceiveMode;
 import com.azure.messaging.servicebus.models.SubQueue;
 import org.apache.camel.RuntimeCamelException;
+import org.apache.camel.spi.HeaderFilterStrategy;
+import org.apache.camel.spi.HeaderFilterStrategyAware;
 import org.apache.camel.spi.Metadata;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -38,7 +40,7 @@ import org.apache.camel.spi.UriPath;
 import static org.apache.camel.component.azure.servicebus.CredentialType.CONNECTION_STRING;
 
 @UriParams
-public class ServiceBusConfiguration implements Cloneable {
+public class ServiceBusConfiguration implements Cloneable, HeaderFilterStrategyAware {
 
     @UriPath
     private String topicOrQueueName;
@@ -189,6 +191,17 @@ public class ServiceBusConfiguration implements Cloneable {
 
     public void setAmqpTransportType(AmqpTransportType amqpTransportType) {
         this.amqpTransportType = amqpTransportType;
+    }
+
+    /**
+     * To use a custom HeaderFilterStrategy to filter application properties to and from the Camel message headers.
+     */
+    public HeaderFilterStrategy getHeaderFilterStrategy() {
+        return headerFilterStrategy;
+    }
+
+    public void setHeaderFilterStrategy(HeaderFilterStrategy headerFilterStrategy) {
+        this.headerFilterStrategy = headerFilterStrategy;
     }
 
     /**

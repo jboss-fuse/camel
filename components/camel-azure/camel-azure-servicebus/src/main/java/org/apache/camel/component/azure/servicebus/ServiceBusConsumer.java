@@ -18,6 +18,7 @@ package org.apache.camel.component.azure.servicebus;
 
 import java.util.EnumMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import com.azure.messaging.servicebus.ServiceBusReceivedMessage;
 import com.azure.messaging.servicebus.ServiceBusReceiverAsyncClient;
@@ -29,6 +30,7 @@ import org.apache.camel.RuntimeCamelException;
 import org.apache.camel.component.azure.servicebus.client.ServiceBusClientFactory;
 import org.apache.camel.component.azure.servicebus.client.ServiceBusReceiverAsyncClientWrapper;
 import org.apache.camel.component.azure.servicebus.operations.ServiceBusReceiverOperations;
+import org.apache.camel.spi.HeaderFilterStrategy;
 import org.apache.camel.support.DefaultConsumer;
 import org.apache.camel.support.SynchronizationAdapter;
 import org.apache.camel.util.ObjectHelper;
