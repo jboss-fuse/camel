@@ -100,6 +100,9 @@ public class Kinesis2Configuration implements Cloneable {
     @UriParam(label = "security",
               description = "If using a profile credentials provider this parameter will set the profile name.")
     private String profileCredentialsName;
+    @UriParam(label = "advanced",
+              description = "If we want to a KCL Consumer set it to true")
+    private boolean useKclConsumers;
 
     public KinesisClient getAmazonKinesisClient() {
         return amazonKinesisClient;
@@ -283,6 +286,14 @@ public class Kinesis2Configuration implements Cloneable {
 
     public void setAsyncClient(boolean asyncClient) {
         this.asyncClient = asyncClient;
+    }
+
+    public boolean isUseKclConsumers() {
+        return useKclConsumers;
+    }
+
+    public void setUseKclConsumers(boolean useKclConsumers) {
+        this.useKclConsumers = useKclConsumers;
     }
 
     // *************************************************

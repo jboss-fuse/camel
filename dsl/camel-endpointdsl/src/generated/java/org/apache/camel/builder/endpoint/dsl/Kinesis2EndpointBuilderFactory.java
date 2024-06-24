@@ -1312,6 +1312,36 @@ public interface Kinesis2EndpointBuilderFactory {
             doSetProperty("asyncClient", asyncClient);
             return this;
         }
+        /**
+         * If we want to a KCL Consumer set it to true.
+         * 
+         * The option is a: <code>boolean</code> type.
+         * 
+         * Default: false
+         * Group: advanced
+         * 
+         * @param useKclConsumers the value to set
+         * @return the dsl builder
+         */
+        default AdvancedKinesis2EndpointConsumerBuilder useKclConsumers(boolean useKclConsumers) {
+            doSetProperty("useKclConsumers", useKclConsumers);
+            return this;
+        }
+        /**
+         * If we want to a KCL Consumer set it to true.
+         * 
+         * The option will be converted to a <code>boolean</code> type.
+         * 
+         * Default: false
+         * Group: advanced
+         * 
+         * @param useKclConsumers the value to set
+         * @return the dsl builder
+         */
+        default AdvancedKinesis2EndpointConsumerBuilder useKclConsumers(String useKclConsumers) {
+            doSetProperty("useKclConsumers", useKclConsumers);
+            return this;
+        }
     }
 
     /**
@@ -1827,6 +1857,36 @@ public interface Kinesis2EndpointBuilderFactory {
             doSetProperty("asyncClient", asyncClient);
             return this;
         }
+        /**
+         * If we want to a KCL Consumer set it to true.
+         * 
+         * The option is a: <code>boolean</code> type.
+         * 
+         * Default: false
+         * Group: advanced
+         * 
+         * @param useKclConsumers the value to set
+         * @return the dsl builder
+         */
+        default AdvancedKinesis2EndpointProducerBuilder useKclConsumers(boolean useKclConsumers) {
+            doSetProperty("useKclConsumers", useKclConsumers);
+            return this;
+        }
+        /**
+         * If we want to a KCL Consumer set it to true.
+         * 
+         * The option will be converted to a <code>boolean</code> type.
+         * 
+         * Default: false
+         * Group: advanced
+         * 
+         * @param useKclConsumers the value to set
+         * @return the dsl builder
+         */
+        default AdvancedKinesis2EndpointProducerBuilder useKclConsumers(String useKclConsumers) {
+            doSetProperty("useKclConsumers", useKclConsumers);
+            return this;
+        }
     }
 
     /**
@@ -2289,6 +2349,36 @@ public interface Kinesis2EndpointBuilderFactory {
          */
         default AdvancedKinesis2EndpointBuilder asyncClient(String asyncClient) {
             doSetProperty("asyncClient", asyncClient);
+            return this;
+        }
+        /**
+         * If we want to a KCL Consumer set it to true.
+         * 
+         * The option is a: <code>boolean</code> type.
+         * 
+         * Default: false
+         * Group: advanced
+         * 
+         * @param useKclConsumers the value to set
+         * @return the dsl builder
+         */
+        default AdvancedKinesis2EndpointBuilder useKclConsumers(boolean useKclConsumers) {
+            doSetProperty("useKclConsumers", useKclConsumers);
+            return this;
+        }
+        /**
+         * If we want to a KCL Consumer set it to true.
+         * 
+         * The option will be converted to a <code>boolean</code> type.
+         * 
+         * Default: false
+         * Group: advanced
+         * 
+         * @param useKclConsumers the value to set
+         * @return the dsl builder
+         */
+        default AdvancedKinesis2EndpointBuilder useKclConsumers(String useKclConsumers) {
+            doSetProperty("useKclConsumers", useKclConsumers);
             return this;
         }
     }

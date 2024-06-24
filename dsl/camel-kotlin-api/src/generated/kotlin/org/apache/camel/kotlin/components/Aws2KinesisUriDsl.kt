@@ -141,6 +141,26 @@ public class Aws2KinesisUriDsl(
     it.property("asyncClient", asyncClient.toString())
   }
 
+<<<<<<< HEAD
+=======
+  /**
+   * If we want to a KCL Consumer set it to true
+   */
+  public fun useKclConsumers(useKclConsumers: String) {
+    it.property("useKclConsumers", useKclConsumers)
+  }
+
+  /**
+   * If we want to a KCL Consumer set it to true
+   */
+  public fun useKclConsumers(useKclConsumers: Boolean) {
+    it.property("useKclConsumers", useKclConsumers.toString())
+  }
+
+  /**
+   * To define a proxy host when instantiating the Kinesis client
+   */
+>>>>>>> f765808912e6 (CAMEL-20909 - Camel-Aws-Kinesis: Support KCL Consumers (#14628))
   public fun proxyHost(proxyHost: String) {
     it.property("proxyHost", proxyHost)
   }
