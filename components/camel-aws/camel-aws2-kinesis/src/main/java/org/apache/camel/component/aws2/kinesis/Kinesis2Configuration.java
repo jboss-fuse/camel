@@ -22,6 +22,8 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 import org.apache.camel.spi.UriPath;
 import software.amazon.awssdk.core.Protocol;
+import software.amazon.awssdk.services.cloudwatch.CloudWatchAsyncClient;
+import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient;
 import software.amazon.awssdk.services.kinesis.KinesisClient;
 import software.amazon.awssdk.services.kinesis.model.ShardIteratorType;
 
@@ -100,9 +102,17 @@ public class Kinesis2Configuration implements Cloneable {
     @UriParam(label = "security",
               description = "If using a profile credentials provider this parameter will set the profile name.")
     private String profileCredentialsName;
+
+    // KCL specific parameters
     @UriParam(label = "advanced",
               description = "If we want to a KCL Consumer set it to true")
     private boolean useKclConsumers;
+    @UriParam(label = "advanced",
+              description = "If we want to a KCL Consumer, we can pass an instance of DynamoDbAsyncClient")
+    private DynamoDbAsyncClient dynamoDbAsyncClient;
+    @UriParam(label = "advanced",
+              description = "If we want to a KCL Consumer, we can pass an instance of CloudWatchAsyncClient")
+    private CloudWatchAsyncClient cloudWatchAsyncClient;
 
     public KinesisClient getAmazonKinesisClient() {
         return amazonKinesisClient;
@@ -294,6 +304,22 @@ public class Kinesis2Configuration implements Cloneable {
 
     public void setUseKclConsumers(boolean useKclConsumers) {
         this.useKclConsumers = useKclConsumers;
+    }
+
+    public DynamoDbAsyncClient getDynamoDbAsyncClient() {
+        return dynamoDbAsyncClient;
+    }
+
+    public void setDynamoDbAsyncClient(DynamoDbAsyncClient dynamoDbAsyncClient) {
+        this.dynamoDbAsyncClient = dynamoDbAsyncClient;
+    }
+
+    public CloudWatchAsyncClient getCloudWatchAsyncClient() {
+        return cloudWatchAsyncClient;
+    }
+
+    public void setCloudWatchAsyncClient(CloudWatchAsyncClient cloudWatchAsyncClient) {
+        this.cloudWatchAsyncClient = cloudWatchAsyncClient;
     }
 
     // *************************************************
