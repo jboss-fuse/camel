@@ -144,6 +144,20 @@ public class Aws2KinesisUriDsl(
 <<<<<<< HEAD
 =======
   /**
+   * If we want to a KCL Consumer, we can pass an instance of CloudWatchAsyncClient
+   */
+  public fun cloudWatchAsyncClient(cloudWatchAsyncClient: String) {
+    it.property("cloudWatchAsyncClient", cloudWatchAsyncClient)
+  }
+
+  /**
+   * If we want to a KCL Consumer, we can pass an instance of DynamoDbAsyncClient
+   */
+  public fun dynamoDbAsyncClient(dynamoDbAsyncClient: String) {
+    it.property("dynamoDbAsyncClient", dynamoDbAsyncClient)
+  }
+
+  /**
    * If we want to a KCL Consumer set it to true
    */
   public fun useKclConsumers(useKclConsumers: String) {
