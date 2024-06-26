@@ -141,6 +141,37 @@ public class Aws2KinesisUriDsl(
     it.property("asyncClient", asyncClient.toString())
   }
 
+  /**
+   * If we want to a KCL Consumer, we can pass an instance of CloudWatchAsyncClient
+   */
+  public fun cloudWatchAsyncClient(cloudWatchAsyncClient: String) {
+    it.property("cloudWatchAsyncClient", cloudWatchAsyncClient)
+  }
+
+  /**
+   * If we want to a KCL Consumer, we can pass an instance of DynamoDbAsyncClient
+   */
+  public fun dynamoDbAsyncClient(dynamoDbAsyncClient: String) {
+    it.property("dynamoDbAsyncClient", dynamoDbAsyncClient)
+  }
+
+  /**
+   * If we want to a KCL Consumer set it to true
+   */
+  public fun useKclConsumers(useKclConsumers: String) {
+    it.property("useKclConsumers", useKclConsumers)
+  }
+
+  /**
+   * If we want to a KCL Consumer set it to true
+   */
+  public fun useKclConsumers(useKclConsumers: Boolean) {
+    it.property("useKclConsumers", useKclConsumers.toString())
+  }
+
+  /**
+   * To define a proxy host when instantiating the Kinesis client
+   */
   public fun proxyHost(proxyHost: String) {
     it.property("proxyHost", proxyHost)
   }

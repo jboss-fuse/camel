@@ -21,7 +21,7 @@ public class Kinesis2EndpointUriFactory extends org.apache.camel.support.compone
     private static final Set<String> SECRET_PROPERTY_NAMES;
     private static final Set<String> MULTI_VALUE_PREFIXES;
     static {
-        Set<String> props = new HashSet<>(43);
+        Set<String> props = new HashSet<>(46);
         props.add("accessKey");
         props.add("amazonKinesisClient");
         props.add("asyncClient");
@@ -30,7 +30,9 @@ public class Kinesis2EndpointUriFactory extends org.apache.camel.support.compone
         props.add("backoffMultiplier");
         props.add("bridgeErrorHandler");
         props.add("cborEnabled");
+        props.add("cloudWatchAsyncClient");
         props.add("delay");
+        props.add("dynamoDbAsyncClient");
         props.add("exceptionHandler");
         props.add("exchangePattern");
         props.add("greedy");
@@ -63,6 +65,7 @@ public class Kinesis2EndpointUriFactory extends org.apache.camel.support.compone
         props.add("uriEndpointOverride");
         props.add("useDefaultCredentialsProvider");
         props.add("useFixedDelay");
+        props.add("useKclConsumers");
         props.add("useProfileCredentialsProvider");
         props.add("useSessionCredentials");
         PROPERTY_NAMES = Collections.unmodifiableSet(props);
