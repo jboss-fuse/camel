@@ -141,8 +141,6 @@ public class Aws2KinesisUriDsl(
     it.property("asyncClient", asyncClient.toString())
   }
 
-<<<<<<< HEAD
-=======
   /**
    * If we want to a KCL Consumer, we can pass an instance of CloudWatchAsyncClient
    */
@@ -174,7 +172,6 @@ public class Aws2KinesisUriDsl(
   /**
    * To define a proxy host when instantiating the Kinesis client
    */
->>>>>>> f765808912e6 (CAMEL-20909 - Camel-Aws-Kinesis: Support KCL Consumers (#14628))
   public fun proxyHost(proxyHost: String) {
     it.property("proxyHost", proxyHost)
   }
