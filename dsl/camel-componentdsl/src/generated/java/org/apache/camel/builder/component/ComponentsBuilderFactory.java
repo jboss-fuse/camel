@@ -306,6 +306,19 @@ public interface ComponentsBuilderFactory {
         return org.apache.camel.builder.component.dsl.Aws2IamComponentBuilderFactory.aws2Iam();
     }
     /**
+     * AWS Kinesis (camel-aws2-kinesis)
+     * Consume and produce records from and to AWS Kinesis Streams.
+     * 
+     * Category: cloud,messaging
+     * Since: 3.2
+     * Maven coordinates: org.apache.camel:camel-aws2-kinesis
+     * 
+     * @return the dsl builder
+     */
+    static org.apache.camel.builder.component.dsl.Aws2KinesisComponentBuilderFactory.Aws2KinesisComponentBuilder aws2Kinesis() {
+        return org.apache.camel.builder.component.dsl.Aws2KinesisComponentBuilderFactory.aws2Kinesis();
+    }
+    /**
      * AWS Kinesis Firehose (camel-aws2-kinesis)
      * Produce data to AWS Kinesis Firehose streams.
      * 
