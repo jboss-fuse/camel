@@ -330,12 +330,11 @@ public interface Aws2KinesisComponentBuilderFactory {
          * @param useKclConsumers the value to set
          * @return the dsl builder
          */
-        default Aws2KinesisComponentBuilder useKclConsumers(boolean useKclConsumers) {
+        default Aws2KinesisComponentBuilder useKclConsumers(
+                boolean useKclConsumers) {
             doSetProperty("useKclConsumers", useKclConsumers);
             return this;
         }
-    
-        
         /**
          * Used for enabling or disabling all consumer based health checks from
          * this component.
