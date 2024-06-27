@@ -31,7 +31,6 @@ import org.apache.camel.Processor;
 import org.apache.camel.RollbackExchangeException;
 import org.apache.camel.Traceable;
 import org.apache.camel.spi.IdAware;
-import org.apache.camel.spi.InterceptableProcessor;
 import org.apache.camel.spi.RouteIdAware;
 import org.apache.camel.support.EventHelper;
 import org.apache.camel.support.ExchangeHelper;
@@ -43,7 +42,7 @@ import org.slf4j.LoggerFactory;
 /**
  * A processor which catches exceptions.
  */
-public class CatchProcessor extends DelegateAsyncProcessor implements Traceable, IdAware, RouteIdAware, InterceptableProcessor {
+public class CatchProcessor extends DelegateAsyncProcessor implements Traceable, IdAware, RouteIdAware {
 
     private static final Logger LOG = LoggerFactory.getLogger(CatchProcessor.class);
 
@@ -109,11 +108,6 @@ public class CatchProcessor extends DelegateAsyncProcessor implements Traceable,
     @Override
     public String getTraceLabel() {
         return "catch";
-    }
-
-    @Override
-    public boolean canIntercept() {
-        return false;
     }
 
     @Override

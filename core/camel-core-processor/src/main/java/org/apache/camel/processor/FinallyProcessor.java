@@ -22,7 +22,6 @@ import org.apache.camel.ExchangePropertyKey;
 import org.apache.camel.Processor;
 import org.apache.camel.Traceable;
 import org.apache.camel.spi.IdAware;
-import org.apache.camel.spi.InterceptableProcessor;
 import org.apache.camel.spi.RouteIdAware;
 import org.apache.camel.support.ExchangeHelper;
 import org.apache.camel.support.processor.DelegateAsyncProcessor;
@@ -32,8 +31,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Processor to handle do finally supporting asynchronous routing engine
  */
-public class FinallyProcessor extends DelegateAsyncProcessor
-        implements Traceable, IdAware, RouteIdAware, InterceptableProcessor {
+public class FinallyProcessor extends DelegateAsyncProcessor implements Traceable, IdAware, RouteIdAware {
 
     private static final Logger LOG = LoggerFactory.getLogger(FinallyProcessor.class);
 
@@ -90,11 +88,6 @@ public class FinallyProcessor extends DelegateAsyncProcessor
     @Override
     public void setRouteId(String routeId) {
         this.routeId = routeId;
-    }
-
-    @Override
-    public boolean canIntercept() {
-        return false;
     }
 
     private static final class FinallyAsyncCallback implements AsyncCallback {
