@@ -303,7 +303,7 @@
         <kafka-version>3.6.2</kafka-version>
         <kotlin-version>1.9.22</kotlin-version>
         <kotlinpoet-version>1.15.3</kotlinpoet-version>
-        <kubernetes-client-version>6.10.0</kubernetes-client-version>
+        <kubernetes-client-version>6.13.1</kubernetes-client-version>
         <kubernetes-model-version>6.9.2</kubernetes-model-version>
         <kudu-version>1.17.0</kudu-version>
         <leveldbjni-version>1.8</leveldbjni-version>
