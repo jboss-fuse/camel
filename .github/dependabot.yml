@@ -31,4 +31,8 @@ updates:
       - dependency-name: "io.vertx:*"
       # Spring Boot Dependencies related
       - dependency-name: "org.apache.logging.log4j:*"
+      # Ignore all major version updates (too big of an update for maintenance)
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
     open-pull-requests-limit: 20
+    
