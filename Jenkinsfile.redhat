@@ -15,11 +15,11 @@
  * limitations under the License.
  */
 
-def MAVEN_PARAMS = "-B -e -fae -V -Dnoassembly -Dmaven.compiler.fork=true -Dsurefire.rerunFailingTestsCount=3 -Dfailsafe.rerunFailingTestsCount=1"
+def MAVEN_PARAMS = "-B -e -fae -V -s $MAVEN_SETTINGS -Dnoassembly -Dmaven.compiler.fork=true -Dsurefire.rerunFailingTestsCount=3 -Dfailsafe.rerunFailingTestsCount=1"
 pipeline {
 
     agent {
-        label "rhel||pipeline||pipeline-large"
+        label "pipeline-large"
     }
 
     tools {
