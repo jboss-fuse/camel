@@ -112,6 +112,7 @@ class SplitTest extends YamlTestSupport {
                             xtokenize:
                               mode: i
                               expression: /orders/order 
+                              namespace: []
                           steps:
                             - to: "mock:split"
                       - to: "mock:route"
