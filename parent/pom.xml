@@ -117,7 +117,7 @@
         <cobertura-maven-plugin-version>2.7</cobertura-maven-plugin-version>
         <couchbase-client-version>3.5.3</couchbase-client-version>
         <curator-version>5.6.0</curator-version>
-        <cxf-version>4.0.4.fuse-redhat-00001</cxf-version>
+        <cxf-version>4.0.4.fuse-redhat-00027</cxf-version>
         <cxf-codegen-plugin-version>4.0.3</cxf-codegen-plugin-version>
         <!-- cxf-xjc is not released as often -->
         <cxf-xjc-plugin-version>4.0.0</cxf-xjc-plugin-version>
@@ -441,7 +441,7 @@
         <sql-maven-plugin-version>1.5</sql-maven-plugin-version>
         <squareup-okhttp-version>3.14.9</squareup-okhttp-version>
         <squareup-okio-version>1.17.5</squareup-okio-version>
-        <sshd-version>2.12.0</sshd-version>
+        <sshd-version>2.12.1</sshd-version>
         <stompjms-version>1.19</stompjms-version>
         <swagger-java-version>1.6.10</swagger-java-version>
         <swagger-openapi3-version>2.2.20</swagger-openapi3-version>
