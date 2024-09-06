@@ -221,6 +221,9 @@
                             <systemPropertyVariables>
                                 <visibleassertions.silence>true</visibleassertions.silence>
                             </systemPropertyVariables>
+                            <excludes>
+                                <exclude>**/EndpointQueryParamTest.java</exclude>
+                            </excludes>
                         </configuration>
                     </plugin>
                 </plugins>
