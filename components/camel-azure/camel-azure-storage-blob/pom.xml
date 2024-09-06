@@ -36,6 +36,7 @@
         <!-- Azurite is not available on these platforms -->
         <skipITs.ppc64le>true</skipITs.ppc64le>
         <skipITs.s390x>true</skipITs.s390x>
+        <skipITs>true</skipITs> <!-- camel-azure bom has been updated; camel-azure-storage-blob needs a new camel-azure-test-infra > 4.4.7 -->
     </properties>
 
     <dependencies>
