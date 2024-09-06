@@ -102,6 +102,7 @@ class KafkaBreakOnFirstErrorSeekIssueIT extends BaseEmbeddedKafkaTestSupport {
 
     @Test
     void testCamel19894TestFix() throws Exception {
+        System.out.println();
         to.reset();
         // will consume the payloads from partition 0
         // and will continually retry the payload with "5"
