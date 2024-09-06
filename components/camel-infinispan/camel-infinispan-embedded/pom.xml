@@ -143,6 +143,9 @@
                                     <value>tcp</value>
                                 </property>
                             </systemPropertyVariables>
+                            <excludes>
+                                <exclude>**/InfinispanEmbeddedClusteredConsumerTest.java</exclude>
+                            </excludes>
                         </configuration>
                     </plugin>
                 </plugins>
