@@ -229,6 +229,7 @@
         <hapi-version>2.3</hapi-version>
         <hapi-base-version>2.3</hapi-base-version>
         <hapi-fhir-version>6.6.2</hapi-fhir-version>
+        <hapi-fhir-core.version>6.3.23</hapi-fhir-core.version>
         <hawtbuf-version>1.11</hawtbuf-version>
         <hawtdispatch-version>1.22</hawtdispatch-version>
         <hazelcast-version>5.2.4</hazelcast-version>
