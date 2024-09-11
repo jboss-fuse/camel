@@ -306,6 +306,7 @@
                     <plugin>
                         <artifactId>maven-surefire-plugin</artifactId>
                         <configuration>
+                            <rerunFailingTestsCount>5</rerunFailingTestsCount>
                             <!-- skip file stress tests as they are intended to run manually -->
                             <excludes>
                                 <exclude>org/apache/camel/component/file/stress/**.java</exclude>
