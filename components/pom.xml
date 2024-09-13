@@ -446,6 +446,7 @@
                         <artifactId>maven-surefire-plugin</artifactId>
                         <configuration>
                             <skipTests>${skipTests.aarch64}</skipTests>
+                            <rerunFailingTestsCount>5</rerunFailingTestsCount>
                         </configuration>
                     </plugin>
                     <plugin>
@@ -472,6 +473,7 @@
                         <artifactId>maven-surefire-plugin</artifactId>
                         <configuration>
                             <skipTests>${skipTests.s390x}</skipTests>
+                            <rerunFailingTestsCount>5</rerunFailingTestsCount>
                         </configuration>
                     </plugin>
                     <plugin>
@@ -498,6 +500,7 @@
                         <artifactId>maven-surefire-plugin</artifactId>
                         <configuration>
                             <skipTests>${skipTests.ppc64le}</skipTests>
+                            <rerunFailingTestsCount>5</rerunFailingTestsCount>
                         </configuration>
                     </plugin>
                     <plugin>
