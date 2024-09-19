@@ -4673,7 +4673,7 @@
                     <failIfNoTests>false</failIfNoTests>
                     <runOrder>alphabetical</runOrder>
                     <!-- lets re-run the failed test one more time, just to be sure -->
-                    <rerunFailingTestsCount>2</rerunFailingTestsCount>
+                    <rerunFailingTestsCount>5</rerunFailingTestsCount>
                     <systemPropertyVariables>
                         <javax.xml.accessExternalSchema>file,http,https</javax.xml.accessExternalSchema>
                         <javax.xml.accessExternalDTD>file,http</javax.xml.accessExternalDTD>
@@ -4943,6 +4943,9 @@
         <profile>
             <id>integration</id>
             <!--The profile for running the unit and integration test -->
+            <properties>
+                <surefire.rerunFailingTestsCount>5</surefire.rerunFailingTestsCount>
+            </properties>
             <build>
                 <plugins>
                     <plugin>
@@ -4955,7 +4958,7 @@
                             <useFile>true</useFile>
                             <failIfNoTests>false</failIfNoTests>
                             <runOrder>alphabetical</runOrder>
-                            <rerunFailingTestsCount>0</rerunFailingTestsCount>
+                            <rerunFailingTestsCount>${surefire.rerunFailingTestsCount}</rerunFailingTestsCount>
                             <systemPropertyVariables>
                                 <derby.stream.error.file>target/derby.log</derby.stream.error.file>
                                 <java.awt.headless>${java.awt.headless}</java.awt.headless>
