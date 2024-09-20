@@ -199,7 +199,7 @@
         <hapi-version>2.5.1</hapi-version>
         <hapi-base-version>2.5.1</hapi-base-version>
         <hapi-fhir-version>6.10.4</hapi-fhir-version>
-        <hapi-fhir-core.version>6.3.23</hapi-fhir-core.version>
+        <hapi-fhir-core.version>6.3.26</hapi-fhir-core.version>
         <hazelcast-version>5.3.7</hazelcast-version>
         <hdrhistrogram-version>2.1.12</hdrhistrogram-version>
         <hibernate-validator-version>8.0.1.Final</hibernate-validator-version>
