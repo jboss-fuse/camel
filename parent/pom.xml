@@ -177,7 +177,7 @@
         <google-api-services-sheets-version>v4-rev20230815-2.0.0</google-api-services-sheets-version>
         <google-api-services-mail-version>v1-rev20231218-2.0.0</google-api-services-mail-version>
         <google-oauth-client-version>1.35.0</google-oauth-client-version>
-        <google-cloud-bom-version>26.31.0</google-cloud-bom-version>
+        <google-cloud-bom-version>26.47.0</google-cloud-bom-version>
         <google-cloud-functions-bom-version>2.37.0</google-cloud-functions-bom-version>
         <google-cloud-http-client-version>1.44.1</google-cloud-http-client-version>
         <google-cloud-secretmanager-bom-version>2.35.0</google-cloud-secretmanager-bom-version>
@@ -391,7 +391,7 @@
         <pooled-jms-version>3.1.6</pooled-jms-version>
         <properties-maven-plugin-version>1.2.1</properties-maven-plugin-version>
         <proto-google-common-protos-version>2.22.0</proto-google-common-protos-version>
-        <protobuf-version>3.25.2</protobuf-version>
+        <protobuf-version>3.25.5</protobuf-version>
         <protobuf-maven-plugin-version>0.6.1</protobuf-maven-plugin-version>
         <protonpack-version>1.8</protonpack-version>
         <protostream-version>4.6.5.Final</protostream-version>
