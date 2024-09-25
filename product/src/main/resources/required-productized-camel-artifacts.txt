@@ -110,6 +110,7 @@ camel-olingo4
 camel-olingo4-api
 camel-olingo4-component
 camel-openapi-java
+camel-opensearch
 camel-opentelemetry
 camel-paho
 camel-paho-mqtt5

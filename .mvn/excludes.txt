@@ -204,7 +204,6 @@
 :camel-olingo2-api
 :camel-olingo2-parent
 :camel-openapi-validator
-:camel-opensearch
 :camel-openstack
 :camel-optaplanner
 :camel-parquet-avro

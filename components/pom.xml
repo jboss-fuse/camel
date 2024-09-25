@@ -295,7 +295,7 @@
         <!-- <module>camel-swift</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-openapi-java</module>
         <!-- <module>camel-openapi-validator</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-opensearch</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-opensearch</module>
         <!-- <module>camel-optaplanner</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-syslog</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-tahu</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
