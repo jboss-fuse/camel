@@ -25,7 +25,6 @@
 :camel-aws-bedrock
 :camel-aws-cloudtrail
 :camel-aws-config
-:camel-aws-secrets-manager
 :camel-aws-xray
 :camel-aws2-athena
 :camel-aws2-ec2
@@ -44,7 +43,6 @@
 :camel-aws2-translate
 :camel-azure-cosmosdb
 :camel-azure-files
-:camel-azure-key-vault
 :camel-azure-schema-registry
 :camel-azure-storage-datalake
 :camel-barcode
@@ -115,7 +113,6 @@
 :camel-google-functions
 :camel-google-mail
 :camel-google-pubsub-lite
-:camel-google-secret-manager
 :camel-google-sheets
 :camel-google-storage
 :camel-grape
