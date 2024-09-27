@@ -109,7 +109,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <camel-community.version>4.8.0</camel-community.version>
-        <cq-plugin.version>4.5.0</cq-plugin.version>
+        <cq-plugin.version>4.12.0</cq-plugin.version>
 
         <site-repo-url>scpexe://people.apache.org/www/camel.apache.org/maven/</site-repo-url>
         <jdk.version>17</jdk.version>
