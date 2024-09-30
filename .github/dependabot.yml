@@ -32,7 +32,7 @@ updates:
       - dependency-name: "io.smallrye:jandex:*"
       # Spring Boot Dependencies related
       - dependency-name: "org.apache.logging.log4j:*"
-    open-pull-requests-limit: 20
+    open-pull-requests-limit: 0
   - package-ecosystem: "npm"
     directory: "docs"
     schedule:
