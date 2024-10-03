@@ -33,11 +33,9 @@ import io.opentelemetry.api.trace.Tracer;
 import io.opentelemetry.context.Context;
 import io.opentelemetry.sdk.logs.data.LogRecordData;
 import io.opentelemetry.sdk.trace.data.SpanData;
-import org.apache.camel.BindToRegistry;
 import org.apache.camel.CamelContext;
 import org.apache.camel.CamelContextAware;
 import org.apache.camel.spi.InterceptStrategy;
-import org.apache.camel.spi.ThreadPoolFactory;
 import org.apache.camel.test.junit5.CamelTestSupport;
 import org.awaitility.Awaitility;
 import org.junit.jupiter.api.AfterEach;
@@ -45,7 +43,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.extension.RegisterExtension;
-import org.junitpioneer.jupiter.SetSystemProperty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -53,7 +50,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @Tags({ @Tag("not-parallel") })
-@SetSystemProperty(key = "io.opentelemetry.context.enableStrictContext", value = "true")
 class CamelOpenTelemetryTestSupport extends CamelTestSupport {
     static final AttributeKey<String> CAMEL_URI_KEY = AttributeKey.stringKey("camel-uri");
     static final AttributeKey<String> COMPONENT_KEY = AttributeKey.stringKey("component");
@@ -66,9 +62,6 @@ class CamelOpenTelemetryTestSupport extends CamelTestSupport {
 
     @RegisterExtension
     public final CamelOpenTelemetryExtension otelExtension = CamelOpenTelemetryExtension.create();
-
-    @BindToRegistry
-    ThreadPoolFactory threadPoolFactory = new OpenTelemetryInstrumentedThreadPoolFactory();
 
     SpanTestData[] expected;
     Tracer tracer;
