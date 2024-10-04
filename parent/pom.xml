@@ -218,7 +218,7 @@
         <icu4j-version>74.2</icu4j-version>
         <ignite-version>2.16.0</ignite-version>
         <impsort-maven-plugin-version>1.9.0</impsort-maven-plugin-version>
-        <infinispan-version>14.0.30.Final</infinispan-version>
+        <infinispan-version>14.0.31.Final</infinispan-version>
         <influx-java-driver-version>2.24</influx-java-driver-version>
         <influx-client-java-driver-version>7.0.0</influx-client-java-driver-version>
         <irclib-version>1.10</irclib-version>
@@ -262,7 +262,7 @@
         <jcr-version>2.0</jcr-version>
         <jedis-client-version>5.1.0</jedis-client-version>
         <jetcd-version>0.7.7</jetcd-version>
-        <jetty-version>12.0.12</jetty-version>
+        <jetty-version>12.0.13</jetty-version>
         <jetty-plugin-version>${jetty-version}</jetty-plugin-version>
         <jetty-runner-groupId>org.eclipse.jetty</jetty-runner-groupId>
         <jettison-version>1.5.4</jettison-version>
@@ -341,7 +341,7 @@
         <maven-wagon-version>3.5.2</maven-wagon-version>
         <maven-war-plugin-version>3.4.0</maven-war-plugin-version>
         <metrics-version>4.2.25</metrics-version>
-        <micrometer-version>1.12.9</micrometer-version>
+        <micrometer-version>1.12.10</micrometer-version>
         <micrometer-tracing-version>1.2.8</micrometer-tracing-version>
         <microprofile-config-version>3.1</microprofile-config-version>
         <microprofile-fault-tolerance-version>4.0.2</microprofile-fault-tolerance-version>
@@ -352,7 +352,7 @@
         <mock-javamail-version>1.9</mock-javamail-version>
         <mockwebserver-version>6.10.0</mockwebserver-version>
         <mockito-version>5.10.0</mockito-version>
-        <mongo-java-driver-version>4.11.3</mongo-java-driver-version>
+        <mongo-java-driver-version>4.11.4</mongo-java-driver-version>
         <mongo-hadoop-version>1.5.0</mongo-hadoop-version>
         <msal4j-version>1.15.1</msal4j-version>
         <mustache-java-version>0.9.11</mustache-java-version>
@@ -432,7 +432,7 @@
         <splunk-version>1.9.5_1</splunk-version>
         <spock-version>2.3-groovy-4.0</spock-version>
         <spring-batch-version>5.1.2</spring-batch-version>
-        <spring-data-redis-version>3.2.9</spring-data-redis-version>
+        <spring-data-redis-version>3.2.10</spring-data-redis-version>
         <spring-ldap-version>3.2.6</spring-ldap-version>
         <spring-vault-core-version>3.1.1</spring-vault-core-version>
         <spring-version>6.1.13</spring-version>
