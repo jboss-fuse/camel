@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-def MAVEN_PARAMS = '-B -e -fae -V -s $MAVEN_SETTINGS -Dnoassembly -Dmaven.compiler.fork=true -Dsurefire.rerunFailingTestsCount=5 -Dfailsafe.rerunFailingTestsCount=5 -Dci.env.name=redhat.com'
+def MAVEN_PARAMS = '-B -e -fae -V -s $MAVEN_SETTINGS -Dnoassembly -Dmaven.compiler.fork=true -Dprotobuf.skip=true -Dprotoc.skip=true -Dsurefire.rerunFailingTestsCount=5 -Dfailsafe.rerunFailingTestsCount=5 -Dci.env.name=redhat.com'
 pipeline {
 
     agent {
