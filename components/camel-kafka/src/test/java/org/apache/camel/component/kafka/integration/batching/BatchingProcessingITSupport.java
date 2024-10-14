@@ -103,7 +103,7 @@ abstract class BatchingProcessingITSupport extends BaseEmbeddedKafkaTestSupport 
         validateReceivedExchanges(3, secondExchangeBatch);
     }
 
-    private static void validateReceivedExchanges(int expectedCount, List<Exchange> exchanges) {
+    protected static void validateReceivedExchanges(int expectedCount, List<Exchange> exchanges) {
         assertNotNull(exchanges, "The exchange should not be null");
 
         final Exchange parentExchange = exchanges.get(0);
