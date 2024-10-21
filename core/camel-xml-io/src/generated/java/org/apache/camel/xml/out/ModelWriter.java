@@ -2647,6 +2647,7 @@ public class ModelWriter extends BaseWriter {
         doWriteAttribute("disableFeatures", def.getDisableFeatures());
         doWriteAttribute("moduleRefs", def.getModuleRefs());
         doWriteAttribute("schemaResolver", def.getSchemaResolver());
+        doWriteAttribute("combineUnicodeSurrogates", def.getCombineUnicodeSurrogates());
         doWriteAttribute("useDefaultObjectMapper", def.getUseDefaultObjectMapper());
         doWriteAttribute("objectMapper", def.getObjectMapper());
         doWriteAttribute("namingStrategy", def.getNamingStrategy());

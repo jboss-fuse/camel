@@ -48,6 +48,12 @@ public class JsonDataFormat extends DataFormatDefinition implements ContentTypeH
     @XmlAttribute
     @Metadata(defaultValue = "Jackson")
     private JsonLibrary library = JsonLibrary.Jackson;
+    @XmlAttribute
+    @Metadata(javaType = "java.lang.Boolean",
+              description = "Force generator that outputs JSON content to combine unicode surrogate pairs (if any) into "
+                            + "4-byte characters. This should be preferred when using languages such as Japanese."
+                            + " This property is Jackson exclusive.")
+    private String combineUnicodeSurrogates;
     @XmlAttribute(name = "unmarshalType")
     private String unmarshalTypeName;
     @XmlTransient
@@ -124,6 +130,7 @@ public class JsonDataFormat extends DataFormatDefinition implements ContentTypeH
         this.autoDiscoverObjectMapper = source.autoDiscoverObjectMapper;
         this.prettyPrint = source.prettyPrint;
         this.library = source.library;
+        this.combineUnicodeSurrogates = source.combineUnicodeSurrogates;
         this.unmarshalTypeName = source.unmarshalTypeName;
         this.unmarshalType = source.unmarshalType;
         this.jsonViewTypeName = source.jsonViewTypeName;
@@ -153,6 +160,7 @@ public class JsonDataFormat extends DataFormatDefinition implements ContentTypeH
         this.autoDiscoverObjectMapper = builder.autoDiscoverObjectMapper;
         this.prettyPrint = builder.prettyPrint;
         this.library = builder.library;
+        this.combineUnicodeSurrogates = builder.combineUnicodeSurrogates;
         this.unmarshalTypeName = builder.unmarshalTypeName;
         this.unmarshalType = builder.unmarshalType;
         this.jsonViewTypeName = builder.jsonViewTypeName;
@@ -235,6 +243,18 @@ public class JsonDataFormat extends DataFormatDefinition implements ContentTypeH
      */
     public void setPrettyPrint(String prettyPrint) {
         this.prettyPrint = prettyPrint;
+    }
+
+    public String getCombineUnicodeSurrogates() {
+        return combineUnicodeSurrogates;
+    }
+
+    /**
+     * Force generator that outputs JSON content to combine unicode surrogate pairs (if any) into 4-byte characters.
+     * This should be preferred when using languages such as Japanese.
+     */
+    public void setCombineUnicodeSurrogates(String combineUnicodeSurrogates) {
+        this.combineUnicodeSurrogates = combineUnicodeSurrogates;
     }
 
     public String getUnmarshalTypeName() {
@@ -618,6 +638,7 @@ public class JsonDataFormat extends DataFormatDefinition implements ContentTypeH
         private String autoDiscoverObjectMapper;
         private String prettyPrint;
         private JsonLibrary library = JsonLibrary.Jackson;
+        private String combineUnicodeSurrogates;
         private String unmarshalTypeName;
         private Class<?> unmarshalType;
         private String jsonViewTypeName;
@@ -730,6 +751,24 @@ public class JsonDataFormat extends DataFormatDefinition implements ContentTypeH
          */
         public Builder library(JsonLibrary library) {
             this.library = library;
+            return this;
+        }
+
+        /**
+         * Force generator that outputs JSON content to combine unicode surrogate pairs (if any) into 4-byte characters.
+         * This should be preferred when using languages such as Japanese.
+         */
+        public Builder combineUnicodeSurrogates(boolean combineUnicodeSurrogates) {
+            this.combineUnicodeSurrogates = Boolean.toString(combineUnicodeSurrogates);
+            return this;
+        }
+
+        /**
+         * Force generator that outputs JSON content to combine unicode surrogate pairs (if any) into 4-byte characters.
+         * This should be preferred when using languages such as Japanese.
+         */
+        public Builder combineUnicodeSurrogates(String combineUnicodeSurrogates) {
+            this.combineUnicodeSurrogates = combineUnicodeSurrogates;
             return this;
         }
 
