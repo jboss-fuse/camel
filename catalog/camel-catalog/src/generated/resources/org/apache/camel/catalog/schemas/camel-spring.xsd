@@ -9182,6 +9182,16 @@ Which json library to use. Default value: Jackson
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
+        <xs:attribute name="combineUnicodeSurrogates" type="xs:string">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">
+<![CDATA[
+Force generator that outputs JSON content to combine unicode surrogate pairs (if any) into 4-byte characters. This
+should be preferred when using languages such as Japanese. This property is Jackson exclusive. Default value: false
+]]>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
         <xs:attribute name="unmarshalType" type="xs:string">
           <xs:annotation>
             <xs:documentation xml:lang="en">

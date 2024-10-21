@@ -8216,6 +8216,7 @@ public final class ModelDeserializers extends YamlDeserializerSupport {
                     @YamlProperty(name = "autoDiscoverObjectMapper", type = "boolean", description = "If set to true then Jackson will look for an objectMapper to use from the registry", displayName = "Auto Discover Object Mapper"),
                     @YamlProperty(name = "autoDiscoverSchemaResolver", type = "boolean", description = "When not disabled, the SchemaResolver will be looked up into the registry", displayName = "Auto Discover Schema Resolver"),
                     @YamlProperty(name = "collectionType", type = "string", description = "Refers to a custom collection type to lookup in the registry to use. This option should rarely be used, but allows using different collection types than java.util.Collection based as default.", displayName = "Collection Type"),
+                    @YamlProperty(name = "combineUnicodeSurrogates", type = "boolean", description = "Force generator that outputs JSON content to combine unicode surrogate pairs (if any) into 4-byte characters. This should be preferred when using languages such as Japanese. This property is Jackson exclusive.", displayName = "Combine Unicode Surrogates"),
                     @YamlProperty(name = "contentTypeHeader", type = "boolean", description = "Whether the data format should set the Content-Type header with the type from the data format. For example application/xml for data formats marshalling to XML, or application/json for data formats marshalling to JSON", displayName = "Content Type Header"),
                     @YamlProperty(name = "dateFormatPattern", type = "string", description = "To configure the date format while marshall or unmarshall Date fields in JSON using Gson", displayName = "Date Format Pattern"),
                     @YamlProperty(name = "disableFeatures", type = "string", description = "Set of features to disable on the Jackson com.fasterxml.jackson.databind.ObjectMapper. The features should be a name that matches a enum from com.fasterxml.jackson.databind.SerializationFeature, com.fasterxml.jackson.databind.DeserializationFeature, or com.fasterxml.jackson.databind.MapperFeature Multiple features can be separated by comma", displayName = "Disable Features"),
@@ -8274,6 +8275,11 @@ public final class ModelDeserializers extends YamlDeserializerSupport {
                 case "collectionType": {
                     String val = asText(node);
                     target.setCollectionTypeName(val);
+                    break;
+                }
+                case "combineUnicodeSurrogates": {
+                    String val = asText(node);
+                    target.setCombineUnicodeSurrogates(val);
                     break;
                 }
                 case "contentTypeHeader": {
