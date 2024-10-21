@@ -31,12 +31,14 @@ import java.util.TimeZone;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.FormatSchema;
+import com.fasterxml.jackson.core.json.JsonWriteFeature;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.Module;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -65,6 +67,7 @@ public abstract class AbstractJacksonDataFormat extends ServiceSupport
     private CamelContext camelContext;
     private ObjectMapper objectMapper;
     private boolean useDefaultObjectMapper = true;
+    private boolean combineUnicodeSurrogates;
     private String collectionTypeName;
     private Class<? extends Collection> collectionType;
     private List<Module> modules;
@@ -157,7 +160,11 @@ public abstract class AbstractJacksonDataFormat extends ServiceSupport
         if (this.schemaResolver != null) {
             schema = this.schemaResolver.resolve(exchange);
         }
-        this.objectMapper.writerWithView(jsonView).with(schema).writeValue(stream, graph);
+        ObjectWriter objectWriter = this.objectMapper.writerWithView(jsonView);
+        if (combineUnicodeSurrogates) {
+            objectWriter = objectWriter.with(JsonWriteFeature.COMBINE_UNICODE_SURROGATES_IN_UTF8);
+        }
+        objectWriter.with(schema).writeValue(stream, graph);
 
         if (contentTypeHeader) {
             exchange.getMessage().setHeader(Exchange.CONTENT_TYPE, getDefaultContentType());
@@ -253,6 +260,14 @@ public abstract class AbstractJacksonDataFormat extends ServiceSupport
 
     public void setUnmarshalTypeName(String unmarshalTypeName) {
         this.unmarshalTypeName = unmarshalTypeName;
+    }
+
+    public boolean isCombineUnicodeSurrogates() {
+        return combineUnicodeSurrogates;
+    }
+
+    public void setCombineUnicodeSurrogates(boolean combineUnicodeSurrogates) {
+        this.combineUnicodeSurrogates = combineUnicodeSurrogates;
     }
 
     public Class<? extends Collection> getCollectionType() {

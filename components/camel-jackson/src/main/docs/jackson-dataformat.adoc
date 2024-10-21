@@ -31,6 +31,13 @@ include::partial$dataformat-options.adoc[]
 
 == Usage
 
+=== 4-byte characters
+
+Jackson by default outputs 4-byte characters (in languages such as Japanese) as surrogate pairs, escaped. This is
+compliant with Json specification. This can however frustrate users, because it garbles regular output, such as
+names and texts with Unicode escapes. To avoid this, users commonly using 4-byte characters would need to set
+`combineUnicodeSurrogates=true` in the Camel dataformat.
+
 === Using custom ObjectMapper
 
 You can configure `JacksonDataFormat` to use a custom `ObjectMapper` in case you need more control of the mapping configuration.
