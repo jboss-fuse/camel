@@ -17,11 +17,7 @@
 
 package org.apache.camel.builder;
 
-import org.apache.camel.model.tokenizer.LangChain4jCharacterTokenizerDefinition;
-import org.apache.camel.model.tokenizer.LangChain4jLineTokenizerDefinition;
-import org.apache.camel.model.tokenizer.LangChain4jParagraphTokenizerDefinition;
-import org.apache.camel.model.tokenizer.LangChain4jSentenceTokenizerDefinition;
-import org.apache.camel.model.tokenizer.LangChain4jWordTokenizerDefinition;
+import org.apache.camel.model.tokenizer.LangChain4jTokenizerDefinition;
 
 /**
  * {@code TokenizerBuilderFactory} is a factory class of builder of all supported tokenizers.
@@ -31,35 +27,35 @@ public class TokenizerBuilderFactory {
     /**
      * Creates a new tokenizer builder for a tokenizer that splits texts in segments separated by paragraphs
      */
-    public LangChain4jParagraphTokenizerDefinition.ParagraphBuilder byParagraph() {
-        return new LangChain4jParagraphTokenizerDefinition.ParagraphBuilder();
+    public LangChain4jTokenizerDefinition.ParagraphBuilder byParagraph() {
+        return new LangChain4jTokenizerDefinition.ParagraphBuilder();
     }
 
     /**
      * Creates a new tokenizer builder for a tokenizer that splits texts in segments separated by line
      */
-    public LangChain4jLineTokenizerDefinition.LineBuilder byLine() {
-        return new LangChain4jLineTokenizerDefinition.LineBuilder();
+    public LangChain4jTokenizerDefinition.LineBuilder byLine() {
+        return new LangChain4jTokenizerDefinition.LineBuilder();
     }
 
     /**
      * Creates a new tokenizer builder for a tokenizer that splits texts in segments separated by word
      */
-    public LangChain4jWordTokenizerDefinition.WordBuilder byWord() {
-        return new LangChain4jWordTokenizerDefinition.WordBuilder();
+    public LangChain4jTokenizerDefinition.WordBuilder byWord() {
+        return new LangChain4jTokenizerDefinition.WordBuilder();
     }
 
     /**
      * Creates a new tokenizer builder for a tokenizer that splits texts in segments separated by sentence
      */
-    public LangChain4jSentenceTokenizerDefinition.SentenceBuilder bySentence() {
-        return new LangChain4jSentenceTokenizerDefinition.SentenceBuilder();
+    public LangChain4jTokenizerDefinition.SentenceBuilder bySentence() {
+        return new LangChain4jTokenizerDefinition.SentenceBuilder();
     }
 
     /**
      * Creates a new tokenizer builder for a tokenizer that splits texts in segments separated by character
      */
-    public LangChain4jCharacterTokenizerDefinition.CharacterBuilder byCharacter() {
-        return new LangChain4jCharacterTokenizerDefinition.CharacterBuilder();
+    public LangChain4jTokenizerDefinition.CharacterBuilder byCharacter() {
+        return new LangChain4jTokenizerDefinition.CharacterBuilder();
     }
 }
