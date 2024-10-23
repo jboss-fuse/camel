@@ -154,8 +154,6 @@
         </dependency>
     </dependencies>
 
-    </dependencies>
-
     <profiles>
         <profile>
             <id>full</id>
