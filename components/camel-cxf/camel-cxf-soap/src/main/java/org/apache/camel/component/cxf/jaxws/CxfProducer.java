@@ -32,7 +32,6 @@ import javax.xml.namespace.QName;
 
 import org.apache.camel.AsyncCallback;
 import org.apache.camel.Exchange;
-import org.apache.camel.ExchangePropertyKey;
 import org.apache.camel.RuntimeCamelException;
 import org.apache.camel.component.cxf.common.CxfPayload;
 import org.apache.camel.component.cxf.common.DataFormat;
@@ -51,6 +50,8 @@ import org.apache.cxf.service.model.BindingMessageInfo;
 import org.apache.cxf.service.model.BindingOperationInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import static org.apache.camel.Exchange.ACTIVE_SPAN;
 
 /**
  * CxfProducer binds a Camel exchange to a CXF exchange, acts as a CXF client, and sends the request to a CXF to a
@@ -100,18 +101,8 @@ public class CxfProducer extends DefaultAsyncProducer {
     // so we don't delegate the sync process call to the async process
     @Override
     public boolean process(Exchange camelExchange, AsyncCallback callback) {
-        // if using camel-tracer then execute this synchronously due to CXF-9063
-        if (camelExchange.getProperty(ExchangePropertyKey.ACTIVE_SPAN) != null) {
-            try {
-                process(camelExchange);
-            } catch (Exception e) {
-                camelExchange.setException(e);
-            }
-            callback.done(true);
-            return true;
-        }
+        LOG.trace("Process exchange: {} in an async way.", camelExchange);
 
-        LOG.trace("Process exchange: {} (asynchronously)", camelExchange);
         try {
             // create CXF exchange
             ExchangeImpl cxfExchange = new ExchangeImpl();
@@ -148,7 +139,7 @@ public class CxfProducer extends DefaultAsyncProducer {
      */
     @Override
     public void process(Exchange camelExchange) throws Exception {
-        LOG.trace("Process exchange: {} (synchronously)", camelExchange);
+        LOG.trace("Process exchange: {} in sync way.", camelExchange);
 
         // create CXF exchange
         ExchangeImpl cxfExchange = new ExchangeImpl();
