@@ -271,7 +271,7 @@
         <jcr-version>2.0</jcr-version>
         <jedis-client-version>5.1.5</jedis-client-version>
         <jetcd-version>0.8.3</jetcd-version>
-        <jetty-version>12.0.13</jetty-version>
+        <jetty-version>12.0.14</jetty-version>
 		<jetty-for-solr-version>10.0.20</jetty-for-solr-version>        
         <jetty-plugin-version>${jetty-version}</jetty-plugin-version>
         <jetty-runner-groupId>org.eclipse.jetty</jetty-runner-groupId>
@@ -450,12 +450,12 @@
         <splunk-version>1.9.5_1</splunk-version>
         <spock-version>2.3-groovy-4.0</spock-version>
         <spring-batch-version>5.1.2</spring-batch-version>
-        <spring-data-redis-version>3.3.4</spring-data-redis-version>
-        <spring-ldap-version>3.2.6</spring-ldap-version>
+        <spring-data-redis-version>3.3.5</spring-data-redis-version>
+        <spring-ldap-version>3.2.7</spring-ldap-version>
         <spring-vault-core-version>3.1.2</spring-vault-core-version>
-        <spring-version>6.1.13</spring-version>
+        <spring-version>6.1.14</spring-version>
         <spring-rabbitmq-version>3.1.7</spring-rabbitmq-version>
-        <spring-security-version>6.3.3</spring-security-version>
+        <spring-security-version>6.3.4</spring-security-version>
         <spring-ws-version>4.0.11</spring-ws-version>
         <sql-maven-plugin-version>3.0.0</sql-maven-plugin-version>
         <squareup-okhttp-version>3.14.9</squareup-okhttp-version>
