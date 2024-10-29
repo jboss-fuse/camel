@@ -162,7 +162,7 @@ public abstract class AbstractJacksonDataFormat extends ServiceSupport
         }
         ObjectWriter objectWriter = this.objectMapper.writerWithView(jsonView);
         if (combineUnicodeSurrogates) {
-            objectWriter = objectWriter.with(JsonWriteFeature.COMBINE_UNICODE_SURROGATES_IN_UTF8);
+            objectWriter = configureCombineUnicodeSurrogates(objectWriter);
         }
         objectWriter.with(schema).writeValue(stream, graph);
 
@@ -627,6 +627,10 @@ public abstract class AbstractJacksonDataFormat extends ServiceSupport
         } else {
             LOG.debug("The option autoDiscoverSchemaResolver is set to false, Camel won't search in the registry");
         }
+    }
+
+    protected ObjectWriter configureCombineUnicodeSurrogates(ObjectWriter objectWriter) {
+        return objectWriter.with(JsonWriteFeature.COMBINE_UNICODE_SURROGATES_IN_UTF8);
     }
 
     private boolean resolveObjectMapper() {
