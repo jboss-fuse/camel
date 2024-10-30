@@ -56,7 +56,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!-- Remove the exlcusion and the dependency once the CVE-2024-47561 is fixed in jackson-dataformat-avro -->
+        <!-- Remove the exclusion and the dependency once the CVE-2024-47561 is fixed in jackson-dataformat-avro -->
         <dependency>
             <groupId>org.apache.avro</groupId>
             <artifactId>avro</artifactId>
