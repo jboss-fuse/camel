@@ -66,7 +66,7 @@ public class JacksonAvroLookupResolverTest extends CamelTestSupport {
                             + "\"fields\": [\n"
                             + " {\"name\": \"text\", \"type\": \"string\"}\n"
                             + "]}";
-        Schema raw = new Schema.Parser(NameValidator.STRICT_VALIDATOR).parse(schemaJson);
+        Schema raw = new Schema.Parser(NameValidator.UTF_VALIDATOR).parse(schemaJson);
         AvroSchema schema = new AvroSchema(raw);
         SchemaResolver resolver = ex -> schema;
         registry.bind("schema-resolver-1", SchemaResolver.class, resolver);

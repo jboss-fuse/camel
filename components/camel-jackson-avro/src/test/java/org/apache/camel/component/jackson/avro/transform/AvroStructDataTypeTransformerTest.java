@@ -115,7 +115,7 @@ class AvroStructDataTypeTransformerTest {
 
     private AvroSchema getSchema() throws IOException {
         return new AvroSchema(
-                new Schema.Parser(NameValidator.STRICT_VALIDATOR)
+                new Schema.Parser(NameValidator.UTF_VALIDATOR)
                         .parse(AvroStructDataTypeTransformerTest.class.getResourceAsStream("Person.avsc")));
     }
 }
