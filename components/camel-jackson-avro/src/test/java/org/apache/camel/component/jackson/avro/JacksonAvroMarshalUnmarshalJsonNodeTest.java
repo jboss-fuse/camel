@@ -113,10 +113,10 @@ public class JacksonAvroMarshalUnmarshalJsonNodeTest extends CamelTestSupport {
                                 "  }\n" +
                                 "}";
 
-        Schema raw = new Schema.Parser(NameValidator.STRICT_VALIDATOR).parse(schemaJson);
+        Schema raw = new Schema.Parser(NameValidator.UTF_VALIDATOR).parse(schemaJson);
         AvroSchema schema = new AvroSchema(raw);
 
-        Schema rawList = new Schema.Parser(NameValidator.STRICT_VALIDATOR).parse(listSchemaJson);
+        Schema rawList = new Schema.Parser(NameValidator.UTF_VALIDATOR).parse(listSchemaJson);
         AvroSchema schemaList = new AvroSchema(rawList);
 
         SchemaResolver resolver = ex -> {

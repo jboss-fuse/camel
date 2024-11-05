@@ -65,7 +65,7 @@ public class AvroSchemaResolver implements SchemaResolver, Processor {
 
     public void setSchema(String schema) {
         if (ObjectHelper.isNotEmpty(schema)) {
-            this.schema = new AvroSchema(new Schema.Parser(NameValidator.STRICT_VALIDATOR).parse(schema));
+            this.schema = new AvroSchema(new Schema.Parser(NameValidator.UTF_VALIDATOR).parse(schema));
         } else {
             this.schema = null;
         }
@@ -126,7 +126,7 @@ public class AvroSchemaResolver implements SchemaResolver, Processor {
 
         if (answer == null && exchange.getProperties().containsKey(SchemaHelper.SCHEMA)) {
             String schemaJson = exchange.getProperty(SchemaHelper.SCHEMA, String.class);
-            Schema raw = new Schema.Parser(NameValidator.STRICT_VALIDATOR).parse(schemaJson);
+            Schema raw = new Schema.Parser(NameValidator.UTF_VALIDATOR).parse(schemaJson);
             answer = new AvroSchema(raw);
         }
 
@@ -142,7 +142,7 @@ public class AvroSchemaResolver implements SchemaResolver, Processor {
                         if (res.exists()) {
                             try (InputStream is = res.getInputStream()) {
                                 if (is != null) {
-                                    return new AvroSchema(new Schema.Parser(NameValidator.STRICT_VALIDATOR).parse(is));
+                                    return new AvroSchema(new Schema.Parser(NameValidator.UTF_VALIDATOR).parse(is));
                                 }
                             }
                         }
