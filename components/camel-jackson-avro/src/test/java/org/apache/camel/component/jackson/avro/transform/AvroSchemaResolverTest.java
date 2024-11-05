@@ -42,7 +42,7 @@ class AvroSchemaResolverTest {
         exchange.setProperty(SchemaHelper.CONTENT_CLASS, Person.class.getName());
 
         Schema raw
-                = new Schema.Parser(NameValidator.STRICT_VALIDATOR).parse(this.getClass().getResourceAsStream("Person.avsc"));
+                = new Schema.Parser(NameValidator.UTF_VALIDATOR).parse(this.getClass().getResourceAsStream("Person.avsc"));
         AvroSchema avroSchema = new AvroSchema(raw);
         exchange.setProperty(SchemaHelper.CONTENT_SCHEMA, avroSchema);
         exchange.getMessage().setBody(person);

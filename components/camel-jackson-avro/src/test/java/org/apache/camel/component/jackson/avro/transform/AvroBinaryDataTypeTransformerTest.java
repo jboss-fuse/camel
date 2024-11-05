@@ -63,7 +63,7 @@ class AvroBinaryDataTypeTransformerTest {
         Exchange exchange = new DefaultExchange(camelContext);
 
         AvroSchema avroSchema = new AvroSchema(
-                new Schema.Parser(NameValidator.STRICT_VALIDATOR)
+                new Schema.Parser(NameValidator.UTF_VALIDATOR)
                         .parse(AvroBinaryDataTypeTransformerTest.class.getResourceAsStream("Person.avsc")));
         exchange.setProperty(SchemaHelper.CONTENT_SCHEMA, avroSchema);
         exchange.getMessage().setBody(new Person("Mickey", 20));
@@ -118,7 +118,7 @@ class AvroBinaryDataTypeTransformerTest {
 
     private AvroSchema getSchema() throws IOException {
         return new AvroSchema(
-                new Schema.Parser(NameValidator.STRICT_VALIDATOR)
+                new Schema.Parser(NameValidator.UTF_VALIDATOR)
                         .parse(AvroBinaryDataTypeTransformerTest.class.getResourceAsStream("Person.avsc")));
     }
 }
