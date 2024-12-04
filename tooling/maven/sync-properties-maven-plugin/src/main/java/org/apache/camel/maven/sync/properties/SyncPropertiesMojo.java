@@ -194,6 +194,7 @@ public class SyncPropertiesMojo extends AbstractMojo {
         final String properties = Stream.concat(
                 camelParentPomXmlModel.getProperties().entrySet().stream(),
                 camelPomXmlModel.getProperties().entrySet().stream()
+                        .filter(property -> !(property.getKey().equals("camel-community.version")))
                         .filter(property -> property.getKey().equals("license-maven-plugin-version")))
                 .filter(property -> includes.test((String) property.getKey()) && !excludes.test((String) property.getKey()))
                 .map(property -> "<" + property.getKey() + ">" + property.getValue() + "</" + property.getKey() + ">")
