@@ -241,7 +241,7 @@
                                 <phase>pre-integration-test</phase>
                                 <configuration>
                                     <target>
-                                        <mkdir dir="${shared.data.folder}" />
+                                        <mkdir dir="${shared.data.folder}"/>
                                     </target>
                                 </configuration>
                                 <goals>
