@@ -52,14 +52,13 @@ https://www.openlogic.com/solutions/support-activemq-apache-camel-kafka#apache-c
 
 == https://www.redhat.com[Red Hat]
 
-https://www.redhat.com[Red Hat] offers a https://developers.redhat.com/products/redhat-build-of-camel/overview[supported build of Camel] as part of 
-https://www.redhat.com/en/products/integration[Red Hat Integration] and https://www.redhat.com/en/products/application-foundations[Red Hat Application Foundations].
+https://www.redhat.com[Red Hat] offers a https://developers.redhat.com/products/red-hat-build-of-apache-camel/overview[supported build of Camel]. 
 It contains an enterprise integration platform based on Apache Camel and other
 open source integration projects, with developer and production support.
 In addition to enterprise support, Red Hat provides
 https://www.redhat.com/en/training/skills-path-finder/red-hat-certified-specialist-camel-development[training],
 https://www.redhat.com/en/services/consulting[consulting], and
-https://developers.redhat.com/products/redhat-build-of-camel/overview[a developer community].
+https://developers.redhat.com/products/red-hat-build-of-apache-camel/overview[a developer community].
 
 == https://www.randoli.io[Randoli]
 We provide consulting and implementation of Microservices as well as modernization support for legacy applications using Springboot + Camel or Quarkus + Camel.
