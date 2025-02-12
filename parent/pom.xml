@@ -124,7 +124,7 @@
         <cobertura-maven-plugin-version>2.7</cobertura-maven-plugin-version>
         <couchbase-client-version>3.7.7</couchbase-client-version>
         <curator-version>5.7.1</curator-version>
-        <cxf-version>4.1.0</cxf-version>
+        <cxf-version>4.1.0.rbac-redhat-00001</cxf-version>
         <cxf-codegen-plugin-version>4.1.0</cxf-codegen-plugin-version>
         <!-- cxf-xjc is not released as often -->
         <cxf-xjc-plugin-version>4.1.0</cxf-xjc-plugin-version>
@@ -151,7 +151,7 @@
         <findbugs-maven-plugin-version>3.0.5</findbugs-maven-plugin-version>
         <google-maps-services-version>2.2.0</google-maps-services-version>
         <flatpack-version>4.0.18</flatpack-version>
-        <flink-version>1.20.0</flink-version>
+        <flink-version>1.19.1</flink-version>
         <flowable-version>7.1.0</flowable-version>
         <fop-version>2.10</fop-version>
         <formatter-maven-plugin-version>2.24.1</formatter-maven-plugin-version>
