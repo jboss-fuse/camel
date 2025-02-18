@@ -210,7 +210,7 @@
         <module>camel-mapstruct</module>
         <!-- <module>camel-metrics</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-micrometer</module>
-        <!-- <module>camel-micrometer-prometheus</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-micrometer-prometheus</module>
         <module>camel-microprofile</module>
         <!-- <module>camel-mina</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-minio</module>
@@ -289,7 +289,7 @@
         <module>camel-spring-security</module>
         <module>camel-spring-ws</module>
         <module>camel-sql</module>
-        <!-- <module>camel-ssh</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-ssh</module>
         <!-- <module>camel-stax</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-stomp</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-stream</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
@@ -338,7 +338,7 @@
         <!-- build jooq last as it cause component builds to be slower afterwards -->
         <!-- <module>camel-jooq</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- observability-services requires the availability of other components -->
-        <!-- <module>camel-observability-services</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-observability-services</module>
     </modules>
 
     <properties>

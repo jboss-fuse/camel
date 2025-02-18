@@ -1420,7 +1420,7 @@
       <dependency>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-micrometer-prometheus</artifactId>
-        <version>4.10.0</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.camel</groupId>
@@ -1520,7 +1520,7 @@
       <dependency>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-observability-services</artifactId>
-        <version>4.10.0</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.camel</groupId>
@@ -1945,7 +1945,7 @@
       <dependency>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-ssh</artifactId>
-        <version>4.10.0</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.camel</groupId>

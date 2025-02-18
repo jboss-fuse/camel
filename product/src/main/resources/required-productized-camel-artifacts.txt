@@ -101,6 +101,7 @@ camel-management
 camel-mapstruct
 camel-master
 camel-micrometer
+camel-micrometer-prometheus
 camel-microprofile-config
 camel-microprofile-fault-tolerance
 camel-microprofile-health
@@ -113,6 +114,7 @@ camel-mybatis
 camel-nats
 camel-netty
 camel-netty-http
+camel-observability-services
 camel-olingo4
 camel-olingo4-api
 camel-olingo4-component
@@ -146,6 +148,7 @@ camel-spring-redis
 camel-spring-security
 camel-spring-ws
 camel-spring-xml
+camel-ssh
 camel-undertow-spring-security
 camel-smb
 camel-soap
