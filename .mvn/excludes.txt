@@ -176,7 +176,6 @@
 :camel-lzf
 :camel-maven-plugin
 :camel-metrics
-:camel-micrometer-prometheus
 :camel-milvus
 :camel-mina
 :camel-mongodb-gridfs
@@ -185,7 +184,6 @@
 :camel-neo4j
 :camel-nitrite
 :camel-oaipmh
-:camel-observability-services
 :camel-observation
 :camel-ognl
 :camel-olingo2
@@ -237,7 +235,6 @@
 :camel-smpp
 :camel-snakeyaml
 :camel-solr
-:camel-ssh
 :camel-stax
 :camel-stitch
 :camel-stomp
