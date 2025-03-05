@@ -72,9 +72,9 @@
         <asterisk-java-version>3.39.0</asterisk-java-version>
         <atlassian-fugue-version>6.1.0</atlassian-fugue-version>
         <atmosphere-version>3.0.10</atmosphere-version>
-        <avro-version>1.11.4</avro-version>
-        <avro-ipc-jetty-version>1.11.4</avro-ipc-jetty-version>
-        <avro-ipc-netty-version>1.11.4</avro-ipc-netty-version>
+        <avro-version>1.12.0</avro-version>
+        <avro-ipc-jetty-version>1.12.0</avro-ipc-jetty-version>
+        <avro-ipc-netty-version>1.12.0</avro-ipc-netty-version>
         <awaitility-version>4.2.2</awaitility-version>
         <aws-java-sdk2-version>2.27.19</aws-java-sdk2-version>
         <aws-xray-version>2.18.1</aws-xray-version>
@@ -125,7 +125,7 @@
         <cobertura-maven-plugin-version>2.7</cobertura-maven-plugin-version>
         <couchbase-client-version>3.7.2</couchbase-client-version>
         <curator-version>5.7.0</curator-version>
-        <cxf-version>4.0.6</cxf-version>
+        <cxf-version>4.0.6.rbac-redhat-00001</cxf-version>
         <cxf-codegen-plugin-version>4.0.6</cxf-codegen-plugin-version>
         <!-- cxf-xjc is not released as often -->
         <cxf-xjc-plugin-version>4.0.2</cxf-xjc-plugin-version>
@@ -211,8 +211,8 @@
         <hamcrest-version>3.0</hamcrest-version>
         <hapi-version>2.5.1</hapi-version>
         <hapi-base-version>2.5.1</hapi-base-version>
-        <hapi-fhir-version>7.4.0</hapi-fhir-version>
-        <hapi-fhir-core-version>6.3.23</hapi-fhir-core-version>
+        <hapi-fhir-version>7.4.5</hapi-fhir-version>
+        <hapi-fhir-core-version>6.4.0</hapi-fhir-core-version>
         <hazelcast-version>5.4.0</hazelcast-version>
         <hdrhistrogram-version>2.2.2</hdrhistrogram-version>
         <hibernate-validator-version>8.0.1.Final</hibernate-validator-version>
@@ -238,7 +238,7 @@
         <ironmq-version>3.0.5</ironmq-version>
         <ivy-version>2.5.2</ivy-version>
         <jackson-jq-version>1.0.0</jackson-jq-version>
-        <jackson2-version>2.17.3</jackson2-version>
+        <jackson2-version>2.17.2.redhat-00004</jackson2-version>
         <jackrabbit-version>2.22.0</jackrabbit-version>
         <jasminb-jsonapi-version>0.14</jasminb-jsonapi-version>
         <jandex-version>3.2.2</jandex-version>
@@ -270,7 +270,7 @@
         <jboss-logging-version>3.6.0.Final</jboss-logging-version>
         <jboss-marshalling-version>1.4.10.Final</jboss-marshalling-version>
         <jboss-transaction-spi-version>7.6.1.Final</jboss-transaction-spi-version>
-        <jboss-xnio-version>3.8.14.Final</jboss-xnio-version>
+        <jboss-xnio-version>3.8.16.Final-redhat-00001</jboss-xnio-version>
         <jcache-version>1.1.1</jcache-version>
         <jcr-version>2.0</jcr-version>
         <jedis-client-version>5.1.5</jedis-client-version>
@@ -479,7 +479,7 @@
         <tika-version>2.9.2</tika-version>
         <twilio-version>10.4.2</twilio-version>
         <twitter4j-version>4.1.2</twitter4j-version>
-        <undertow-version>2.3.18.Final</undertow-version>
+        <undertow-version>2.3.18.SP1-redhat-00001</undertow-version>
         <univocity-parsers-version>2.9.1</univocity-parsers-version>
         <validation-api-version>2.0.1.Final</validation-api-version>
         <vavr-version>0.10.4</vavr-version>
