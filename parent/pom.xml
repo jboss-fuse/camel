@@ -381,7 +381,7 @@
         <narayana-version>5.13.1.Final</narayana-version>
         <neoscada-version>0.4.0</neoscada-version>
         <neo4j-version>5.28.1</neo4j-version>
-        <netty-version>4.1.118.Final</netty-version>
+        <netty-version>4.1.119.Final</netty-version>
         <netty-reactive-streams-version>2.0.5</netty-reactive-streams-version>
         <networknt-json-schema-validator-version>1.5.5</networknt-json-schema-validator-version>
         <nimbus-jose-jwt>10.0.1</nimbus-jose-jwt>
@@ -464,7 +464,7 @@
         <splunk-version>1.9.5_1</splunk-version>
         <spock-version>2.3-groovy-4.0</spock-version>
         <spring-batch-version>5.2.1</spring-batch-version>
-        <spring-data-redis-version>3.4.2</spring-data-redis-version>
+        <spring-data-redis-version>3.4.3</spring-data-redis-version>
         <spring-ldap-version>3.2.11</spring-ldap-version>
         <spring-vault-core-version>3.1.2</spring-vault-core-version>
         <spring-version>6.2.3</spring-version>
