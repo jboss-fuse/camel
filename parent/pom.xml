@@ -215,13 +215,13 @@
         <hapi-fhir-core-version>6.4.0</hapi-fhir-core-version>
         <hazelcast-version>5.4.0</hazelcast-version>
         <hdrhistrogram-version>2.2.2</hdrhistrogram-version>
-        <hibernate-validator-version>8.0.1.Final</hibernate-validator-version>
+        <hibernate-validator-version>8.0.2.Final</hibernate-validator-version>
         <hibernate-version>6.3.2.Final</hibernate-version>
         <hk2-version>2.6.1</hk2-version>
         <hsqldb-version>2.7.3</hsqldb-version>
         <httpunit-version>1.7</httpunit-version>
         <httpcore-version>5.2.5</httpcore-version>
-        <httpclient-version>5.2.1</httpclient-version>
+        <httpclient-version>5.3.1</httpclient-version>
         <httpcore4-version>4.4.16</httpcore4-version>
         <httpclient4-version>4.5.14</httpclient4-version>
         <httpasyncclient-version>4.1.5</httpasyncclient-version>
@@ -458,7 +458,7 @@
         <spring-ldap-version>3.2.11</spring-ldap-version>
         <spring-vault-core-version>3.1.2</spring-vault-core-version>
         <spring-version>6.1.17</spring-version>
-        <spring-rabbitmq-version>3.1.7</spring-rabbitmq-version>
+        <spring-rabbitmq-version>3.1.9</spring-rabbitmq-version>
         <spring-security-version>6.3.7</spring-security-version>
         <spring-ws-version>4.0.11</spring-ws-version>
         <sql-maven-plugin-version>3.0.0</sql-maven-plugin-version>
