@@ -156,7 +156,7 @@
         <fop-version>2.9</fop-version>
         <formatter-maven-plugin-version>2.24.1</formatter-maven-plugin-version>
         <ftpserver-version>1.2.0</ftpserver-version>
-        <freemarker-version>2.3.33</freemarker-version>
+        <freemarker-version>2.3.34</freemarker-version>
         <geronimo-annotation-1.0-spec-version>1.1.1</geronimo-annotation-1.0-spec-version>
         <geronimo-annotation-1.2-spec-version>1.0</geronimo-annotation-1.2-spec-version>
         <geronimo-atinject-1.0-spec-version>1.0</geronimo-atinject-1.0-spec-version>
@@ -215,7 +215,7 @@
         <hapi-fhir-core-version>6.4.0</hapi-fhir-core-version>
         <hazelcast-version>5.4.0</hazelcast-version>
         <hdrhistrogram-version>2.2.2</hdrhistrogram-version>
-        <hibernate-validator-version>8.0.1.Final</hibernate-validator-version>
+        <hibernate-validator-version>8.0.2.Final</hibernate-validator-version>
         <hibernate-version>6.3.2.Final</hibernate-version>
         <hk2-version>2.6.1</hk2-version>
         <hsqldb-version>2.7.3</hsqldb-version>
@@ -328,7 +328,7 @@
         <libphonenumber-version>8.13.45</libphonenumber-version>
         <!-- virtual dependency only used by Eclipse m2e -->
         <lifecycle-mapping-version>1.0.0</lifecycle-mapping-version>
-        <log4j2-version>2.21.1</log4j2-version>
+        <log4j2-version>2.23.1</log4j2-version>
         <logback-version>1.5.16</logback-version>
         <lucene-version>9.11.1</lucene-version>
         <lightcouch-version>0.2.0</lightcouch-version>
@@ -458,7 +458,7 @@
         <spring-ldap-version>3.2.11</spring-ldap-version>
         <spring-vault-core-version>3.1.2</spring-vault-core-version>
         <spring-version>6.1.17</spring-version>
-        <spring-rabbitmq-version>3.1.7</spring-rabbitmq-version>
+        <spring-rabbitmq-version>3.1.9</spring-rabbitmq-version>
         <spring-security-version>6.3.7</spring-security-version>
         <spring-ws-version>4.0.11</spring-ws-version>
         <sql-maven-plugin-version>3.0.0</sql-maven-plugin-version>
