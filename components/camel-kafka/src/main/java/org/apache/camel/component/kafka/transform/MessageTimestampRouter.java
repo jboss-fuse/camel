@@ -14,25 +14,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.camel.component.kamelet.utils.transform;
+package org.apache.camel.component.kafka.transform;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.util.Date;
-import java.util.TimeZone;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.camel.Exchange;
 import org.apache.camel.ExchangeProperty;
 import org.apache.camel.component.kafka.KafkaConstants;
 import org.apache.camel.util.ObjectHelper;
 
-public class TimestampRouter {
+public class MessageTimestampRouter {
 
     public void process(
             @ExchangeProperty("topicFormat") String topicFormat, @ExchangeProperty("timestampFormat") String timestampFormat,
-            @ExchangeProperty("timestampHeaderName") String timestampHeaderName, Exchange ex) {
+            @ExchangeProperty("timestampKeys") String timestampKeys,
+            @ExchangeProperty("timestampKeyFormat") String timestampKeyFormat, Exchange ex)
+            throws ParseException {
         final Pattern TOPIC = Pattern.compile("$[topic]", Pattern.LITERAL);
 
         final Pattern TIMESTAMP = Pattern.compile("$[timestamp]", Pattern.LITERAL);
@@ -40,13 +45,29 @@ public class TimestampRouter {
         final SimpleDateFormat fmt = new SimpleDateFormat(timestampFormat);
         fmt.setTimeZone(TimeZone.getTimeZone("UTC"));
 
-        Long timestamp = null;
+        ObjectMapper mapper = new ObjectMapper();
+        List<String> splittedKeys = new ArrayList<>();
+        JsonNode jsonNodeBody = ex.getMessage().getBody(JsonNode.class);
+        Map<Object, Object> body = mapper.convertValue(jsonNodeBody, new TypeReference<Map<Object, Object>>() {
+        });
+        if (ObjectHelper.isNotEmpty(timestampKeys)) {
+            splittedKeys = Arrays.stream(timestampKeys.split(",")).collect(Collectors.toList());
+        }
+
+        Object rawTimestamp = null;
         String topicName = ex.getMessage().getHeader(KafkaConstants.TOPIC, String.class);
-        Object rawTimestamp = ex.getMessage().getHeader(timestampHeaderName);
-        if (rawTimestamp instanceof Long) {
-            timestamp = (Long) rawTimestamp;
-        } else if (rawTimestamp instanceof Instant) {
-            timestamp = ((Instant) rawTimestamp).toEpochMilli();
+        for (String key : splittedKeys) {
+            if (ObjectHelper.isNotEmpty(key)) {
+                rawTimestamp = body.get(key);
+                break;
+            }
+        }
+        Long timestamp = null;
+        if (ObjectHelper.isNotEmpty(timestampKeyFormat) && ObjectHelper.isNotEmpty(rawTimestamp)
+                && !timestampKeyFormat.equalsIgnoreCase("timestamp")) {
+            final SimpleDateFormat timestampKeyFmt = new SimpleDateFormat(timestampKeyFormat);
+            timestampKeyFmt.setTimeZone(TimeZone.getTimeZone("UTC"));
+            timestamp = timestampKeyFmt.parse((String) rawTimestamp).getTime();
         } else if (ObjectHelper.isNotEmpty(rawTimestamp)) {
             timestamp = Long.parseLong(rawTimestamp.toString());
         }
