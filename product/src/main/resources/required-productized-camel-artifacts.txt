@@ -136,6 +136,7 @@ camel-scheduler
 camel-seda
 camel-servlet
 camel-slack
+camel-smooks
 camel-snmp
 camel-splunk
 camel-spring
