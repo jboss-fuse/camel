@@ -231,7 +231,6 @@
 :camel-shiro
 :camel-sjms
 :camel-sjms2
-:camel-smooks
 :camel-smpp
 :camel-snakeyaml
 :camel-solr
