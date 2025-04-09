@@ -51,7 +51,7 @@
         <!-- <module>camel-xml-jaxb-dsl-test</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-yaml-dsl</module>
         <module>camel-kamelet-main</module>
-        <!-- <module>camel-jbang</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-jbang</module>
     </modules>
 
     <build>

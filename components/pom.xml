@@ -255,7 +255,7 @@
         <!-- <module>camel-reactor</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-redis</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-resilience4j</module>
-        <!-- <module>camel-resourceresolver-github</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-resourceresolver-github</module>
         <!-- <module>camel-robotframework</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-rocketmq</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-rss</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->

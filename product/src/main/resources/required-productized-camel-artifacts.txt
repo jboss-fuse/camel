@@ -74,6 +74,11 @@ camel-jacksonxml
 camel-jasypt
 camel-java-joor-dsl
 camel-jaxb
+camel-jbang-core
+camel-jbang-console
+camel-jbang-main
+camel-jbang-plugin-generate
+camel-jbang-plugin-kubernetes
 camel-jdbc
 camel-jira
 camel-jms

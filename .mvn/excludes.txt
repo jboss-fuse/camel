@@ -139,13 +139,7 @@
 :camel-ironmq
 :camel-itest
 :camel-javascript
-:camel-jbang-console
-:camel-jbang-core
 :camel-jbang-it
-:camel-jbang-main
-:camel-jbang-parent
-:camel-jbang-plugin-generate
-:camel-jbang-plugin-kubernetes
 :camel-jcache
 :camel-jcr
 :camel-jetty
@@ -189,7 +183,6 @@
 :camel-olingo2
 :camel-olingo2-api
 :camel-olingo2-parent
-:camel-openapi-rest-dsl-generator
 :camel-openapi-validator
 :camel-openstack
 :camel-optaplanner
@@ -213,7 +206,6 @@
 :camel-reactor
 :camel-redis
 :camel-report-maven-plugin
-:camel-resourceresolver-github
 :camel-restdsl-openapi-plugin
 :camel-robotframework
 :camel-rocketmq
