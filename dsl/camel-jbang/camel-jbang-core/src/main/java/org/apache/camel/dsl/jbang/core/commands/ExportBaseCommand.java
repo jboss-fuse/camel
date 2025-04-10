@@ -331,6 +331,7 @@ public abstract class ExportBaseCommand extends CamelCommand {
         run.camelVersion = camelVersion;
         run.camelSpringBootVersion = camelSpringBootVersion;
         run.quarkusVersion = quarkusVersion;
+        run.quarkusGroupId = quarkusGroupId;
         run.springBootVersion = springBootVersion;
         run.kameletsVersion = kameletsVersion;
         run.localKameletDir = localKameletDir;
