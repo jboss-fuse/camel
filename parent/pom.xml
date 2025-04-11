@@ -232,7 +232,7 @@
         <icu4j-version>76.1</icu4j-version>
         <ignite-version>2.16.0</ignite-version>
         <impsort-maven-plugin-version>1.12.0</impsort-maven-plugin-version>
-        <infinispan-version>15.1.5.Final</infinispan-version>
+        <infinispan-version>15.0.14.Final-redhat-00002</infinispan-version>
         <influx-java-driver-version>2.24</influx-java-driver-version>
         <influx-client-java-driver-version>7.2.0</influx-client-java-driver-version>
         <irclib-version>1.10</irclib-version>
@@ -421,7 +421,7 @@
         <protobuf-version>3.25.5</protobuf-version>
         <protobuf-maven-plugin-version>2.10.3</protobuf-maven-plugin-version>
         <protonpack-version>1.8</protonpack-version>
-        <protostream-version>5.0.12.Final</protostream-version>
+        <protostream-version>5.0.13.Final-redhat-00004</protostream-version>
         <prowide-version>SRU2024-10.2.6</prowide-version>
         <pubnub-version>10.4.1</pubnub-version>
         <pulsar-version>3.3.3</pulsar-version>
