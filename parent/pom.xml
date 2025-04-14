@@ -58,7 +58,7 @@
         <!-- dependency versions -->
         <activemq-version>5.18.6</activemq-version>
         <activemq6-version>6.1.5</activemq6-version>
-        <activemq-artemis-version>2.39.0</activemq-artemis-version>
+        <activemq-artemis-version>2.33.0.redhat-00017</activemq-artemis-version>
         <amazon-kinesis-client-version>2.6.0</amazon-kinesis-client-version>
         <angus-mail-version>2.0.3</angus-mail-version>
         <apacheds-version>2.0.0.AM26</apacheds-version>
@@ -489,7 +489,7 @@
         <tika-version>2.9.3</tika-version>
         <twilio-version>10.6.8</twilio-version>
         <twitter4j-version>4.1.2</twitter4j-version>
-        <undertow-version>2.3.18.Final</undertow-version>
+        <undertow-version>2.3.18.SP1-redhat-00001</undertow-version>
         <univocity-parsers-version>2.10.1</univocity-parsers-version>
         <validation-api-version>2.0.1.Final</validation-api-version>
         <vavr-version>0.10.6</vavr-version>
