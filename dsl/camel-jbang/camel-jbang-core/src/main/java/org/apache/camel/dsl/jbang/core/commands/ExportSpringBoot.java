@@ -49,6 +49,10 @@ class ExportSpringBoot extends Export {
 
     @Override
     public Integer export() throws Exception {
+        if (System.getProperty("camel.jbang.camelSpringBootVersion") != null) {
+            camelSpringBootVersion = System.getProperty("camel.jbang.camelSpringBootVersion");
+        }
+
         String[] ids = gav.split(":");
         if (ids.length != 3) {
             printer().printErr("--gav must be in syntax: groupId:artifactId:version");
