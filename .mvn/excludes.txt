@@ -3,6 +3,7 @@
 :bundles-pom
 :camel-activemq
 :camel-activemq6
+:camel-ai-parent
 :camel-arangodb
 :camel-archetype-api-component
 :camel-archetype-component
@@ -88,6 +89,7 @@
 :camel-dhis2-parent
 :camel-digitalocean
 :camel-disruptor
+:camel-djl
 :camel-dns
 :camel-docker
 :camel-drill

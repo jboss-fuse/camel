@@ -1216,7 +1216,7 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-djl</artifactId>
-                <version>${project.version}</version>
+                <version>${camel-community-version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>
