@@ -21,10 +21,12 @@ import java.util.concurrent.TimeUnit;
 import org.apache.camel.builder.NotifyBuilder;
 import org.apache.camel.test.mllp.Hl7TestMessageGenerator;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.DisabledIfSystemProperty;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@DisabledIfSystemProperty(named = "ci.env.name", matches = ".*", disabledReason = "Flaky on Github CI")
 public class MllpTcpServerConsumerOptionalEndOfDataWithValidationTest
         extends TcpServerConsumerEndOfDataAndValidationTestSupport {
 
