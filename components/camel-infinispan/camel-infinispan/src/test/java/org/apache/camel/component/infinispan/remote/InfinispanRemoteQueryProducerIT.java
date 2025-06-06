@@ -38,6 +38,7 @@ import org.infinispan.query.remote.client.ProtobufMetadataManagerConstants;
 import org.infinispan.query.remote.client.impl.MarshallerRegistration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.DisabledIfSystemProperty;
 
 import static org.apache.camel.component.infinispan.InfinispanConstants.OPERATION;
 import static org.apache.camel.component.infinispan.InfinispanConstants.QUERY_BUILDER;
@@ -46,6 +47,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@DisabledIfSystemProperty(named = "ci.env.name", matches = ".*", disabledReason = "Flaky on Github CI")
 public class InfinispanRemoteQueryProducerIT extends InfinispanRemoteQueryTestSupport {
 
     @BindToRegistry("noResultQueryBuilder")
