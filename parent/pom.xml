@@ -58,7 +58,7 @@
         <!-- dependency versions -->
         <activemq-version>5.18.6</activemq-version>
         <activemq6-version>6.1.5</activemq6-version>
-        <activemq-artemis-version>2.39.0</activemq-artemis-version>
+        <activemq-artemis-version>2.40.0.redhat-00004</activemq-artemis-version>
         <amazon-kinesis-client-version>2.6.0</amazon-kinesis-client-version>
         <angus-mail-version>2.0.3</angus-mail-version>
         <apacheds-version>2.0.0.AM26</apacheds-version>
@@ -232,7 +232,7 @@
         <icu4j-version>76.1</icu4j-version>
         <ignite-version>2.16.0</ignite-version>
         <impsort-maven-plugin-version>1.12.0</impsort-maven-plugin-version>
-        <infinispan-version>15.1.5.Final</infinispan-version>
+        <infinispan-version>15.0.14.Final-redhat-00002</infinispan-version>
         <influx-java-driver-version>2.24</influx-java-driver-version>
         <influx-client-java-driver-version>7.2.0</influx-client-java-driver-version>
         <irclib-version>1.10</irclib-version>
@@ -395,7 +395,7 @@
         <opensearch-java-client-version>2.20.0</opensearch-java-client-version>
         <opensearch-testcontainers-version>2.1.2</opensearch-testcontainers-version>
         <openstack4j-version>3.12</openstack4j-version>
-        <opentelemetry-version>1.46.0</opentelemetry-version>
+        <opentelemetry-version>1.46.0.redhat-00001</opentelemetry-version>
         <opentelemetry-log4j2-version>2.12.0-alpha</opentelemetry-log4j2-version>
         <opentelemetry-incubator-version>1.43.0-alpha</opentelemetry-incubator-version>
         <opentelemetry-alpha-version>1.27.0-alpha</opentelemetry-alpha-version>
@@ -421,7 +421,7 @@
         <protobuf-version>3.25.5</protobuf-version>
         <protobuf-maven-plugin-version>2.10.3</protobuf-maven-plugin-version>
         <protonpack-version>1.8</protonpack-version>
-        <protostream-version>5.0.12.Final</protostream-version>
+        <protostream-version>5.0.13.Final-redhat-00004</protostream-version>
         <prowide-version>SRU2024-10.2.6</prowide-version>
         <pubnub-version>10.4.1</pubnub-version>
         <pulsar-version>3.3.7</pulsar-version>
@@ -472,7 +472,7 @@
         <spring-security-version>6.4.7</spring-security-version>
         <spring-ws-version>4.0.15</spring-ws-version>
         <sql-maven-plugin-version>3.0.0</sql-maven-plugin-version>
-        <squareup-okhttp-version>3.14.9</squareup-okhttp-version>
+        <squareup-okhttp-version>3.14.9.redhat-00011</squareup-okhttp-version>
         <squareup-okio-version>1.17.5</squareup-okio-version>
         <sshd-version>2.14.0</sshd-version>
         <stompjms-version>1.19</stompjms-version>
@@ -489,7 +489,7 @@
         <tika-version>2.9.3</tika-version>
         <twilio-version>10.6.8</twilio-version>
         <twitter4j-version>4.1.2</twitter4j-version>
-        <undertow-version>2.3.18.Final</undertow-version>
+        <undertow-version>2.3.18.SP1-redhat-00001</undertow-version>
         <univocity-parsers-version>2.10.1</univocity-parsers-version>
         <validation-api-version>2.0.1.Final</validation-api-version>
         <vavr-version>0.10.6</vavr-version>
