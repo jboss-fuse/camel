@@ -403,7 +403,7 @@
         <paho-version>1.2.5</paho-version>
         <parson-version>1.1.7</parson-version>
         <parquet-common-version>1.15.0</parquet-common-version>
-        <parquet-avro-version>1.15.0</parquet-avro-version>
+        <parquet-avro-version>1.15.2</parquet-avro-version>
         <pdfbox-version>3.0.4</pdfbox-version>
         <pgjdbc-driver-version>42.7.7</pgjdbc-driver-version>
         <pgjdbc-ng-driver-version>0.8.9</pgjdbc-ng-driver-version>
@@ -453,7 +453,7 @@
         <smack-version>4.3.5</smack-version>
         <smallrye-config-version>3.11.2</smallrye-config-version>
         <smallrye-health-version>4.2.0</smallrye-health-version>
-        <smallrye-fault-tolerance-version>6.8.0</smallrye-fault-tolerance-version>
+        <smallrye-fault-tolerance-version>6.9.1</smallrye-fault-tolerance-version>
         <smbj-version>0.14.0</smbj-version>
         <smooks-version>2.2.1</smooks-version>
         <snakeyaml-version>2.3</snakeyaml-version>
