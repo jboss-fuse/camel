@@ -230,6 +230,7 @@
 :camel-stitch
 :camel-stomp
 :camel-stream
+:camel-streamcaching-test
 :camel-stringtemplate
 :camel-swift
 :camel-syslog
