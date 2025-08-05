@@ -680,7 +680,7 @@ public class HttpProducer extends DefaultProducer implements LineNumberAware {
             create = true;
         } else if (in.getHeader(HttpConstants.HTTP_URI) != null && !getEndpoint().isBridgeEndpoint()) {
             create = true;
-        } else if (in.getHeader(HttpConstants.HTTP_PATH) != null && !isBridgeOnSpringBoot(exchange)) {
+        } else if (in.getHeader(HttpConstants.HTTP_PATH) != null) {
             create = true;
         } else if (in.getHeader(HttpConstants.REST_HTTP_QUERY) != null) {
             create = true;
@@ -690,13 +690,6 @@ public class HttpProducer extends DefaultProducer implements LineNumberAware {
             create = true;
         }
         return create;
-    }
-
-    //due to CAMEL-22282 CSB-7417
-    private boolean isBridgeOnSpringBoot(Exchange exchange) {
-        return getEndpoint().isBridgeEndpoint() &&
-                "org.apache.camel.component.platform.http.springboot.PlatformHttpMessage"
-                        .equals(exchange.getIn().getClass().getName());
     }
 
     /**
