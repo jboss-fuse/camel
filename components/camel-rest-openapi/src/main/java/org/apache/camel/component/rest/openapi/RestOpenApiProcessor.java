@@ -33,6 +33,7 @@ import org.apache.camel.support.processor.RestBindingAdvice;
 import org.apache.camel.support.processor.RestBindingAdviceFactory;
 import org.apache.camel.support.processor.RestBindingConfiguration;
 import org.apache.camel.support.service.ServiceHelper;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -94,12 +95,15 @@ public class RestOpenApiProcessor extends DelegateAsyncProcessor implements Came
     @Override
     public boolean process(Exchange exchange, AsyncCallback callback) {
         // use HTTP_URI as this works for all runtimes
-        String path = exchange.getMessage().getHeader(Exchange.HTTP_PATH, String.class);
+        String path = removeBasePath(exchange.getMessage().getHeader(Exchange.HTTP_PATH, String.class));
         //        if (path != null) {
         //            path = URISupport.stripQuery(path);
         //        }
-        if (path != null && path.startsWith(basePath)) {
-            path = path.substring(basePath.length());
+
+        //CSB-7516
+        if (StringUtils.isBlank(path)
+                && StringUtils.isNotBlank(exchange.getMessage().getHeader(Exchange.HTTP_URI, String.class))) {
+            path = removeBasePath(exchange.getMessage().getHeader(Exchange.HTTP_URI, String.class));
         }
         String verb = exchange.getMessage().getHeader(Exchange.HTTP_METHOD, String.class);
 
@@ -142,6 +146,13 @@ public class RestOpenApiProcessor extends DelegateAsyncProcessor implements Came
         exchange.setRouteStop(true);
         callback.done(true);
         return true;
+    }
+
+    private String removeBasePath(String path) {
+        if (path != null && path.startsWith(basePath)) {
+            path = path.substring(basePath.length());
+        }
+        return path;
     }
 
     @Override
