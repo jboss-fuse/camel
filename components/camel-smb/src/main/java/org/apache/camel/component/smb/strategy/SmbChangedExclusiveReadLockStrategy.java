@@ -44,8 +44,8 @@ public class SmbChangedExclusiveReadLockStrategy
 
     @Override
     public void prepareOnStartup(
-            GenericFileOperations<FileIdBothDirectoryInformation> tGenericFileOperations,
-            GenericFileEndpoint<FileIdBothDirectoryInformation> tGenericFileEndpoint) {
+            GenericFileOperations<FileIdBothDirectoryInformation> operations,
+            GenericFileEndpoint<FileIdBothDirectoryInformation> endpoint) {
         // noop
     }
 
