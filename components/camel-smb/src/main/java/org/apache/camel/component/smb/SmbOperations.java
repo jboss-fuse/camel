@@ -210,10 +210,8 @@ public class SmbOperations implements SmbFileOperations {
 
             src.deleteOnClose();
         } catch (SMBRuntimeException smbre) {
-            if (smbre.getCause() instanceof TransportException) {
-                disconnect();
-                throw smbre;
-            }
+            safeDisconnect(smbre);
+            throw smbre;
         }
         return true;
     }
@@ -226,10 +224,8 @@ public class SmbOperations implements SmbFileOperations {
         try {
             files.mkdirs(share, normalize(directory));
         } catch (SMBRuntimeException smbre) {
-            if (smbre.getCause() instanceof TransportException) {
-                disconnect();
-                throw smbre;
-            }
+            safeDisconnect(smbre);
+            throw smbre;
         }
         return true;
     }
@@ -285,10 +281,8 @@ public class SmbOperations implements SmbFileOperations {
 
             exchange.getIn().setHeader(SmbConstants.SMB_UNC_PATH, shareFile.getUncPath());
         } catch (SMBRuntimeException smbre) {
-            if (smbre.getCause() instanceof TransportException) {
-                disconnect();
-                throw smbre;
-            }
+            safeDisconnect(smbre);
+            throw smbre;
         }
         return true;
     }
@@ -541,10 +535,8 @@ public class SmbOperations implements SmbFileOperations {
         try {
             result = share.list(path, searchPattern).toArray(FileIdBothDirectoryInformation[]::new);
         } catch (SMBRuntimeException smbre) {
-            if (smbre.getCause() instanceof TransportException) {
-                disconnect();
-                throw smbre;
-            }
+            safeDisconnect(smbre);
+            throw smbre;
         }
         return result;
     }
@@ -560,12 +552,9 @@ public class SmbOperations implements SmbFileOperations {
                 throw new GenericFileOperationFailedException(e.getMessage(), e);
             }
         } catch (SMBRuntimeException smbre) {
-            if (smbre.getCause() instanceof TransportException) {
-                disconnect();
-                throw smbre;
-            }
+            safeDisconnect(smbre);
+            throw smbre;
         }
-        return null;
     }
 
     public InputStream getBodyAsInputStream(Exchange exchange, String path) {
@@ -578,12 +567,20 @@ public class SmbOperations implements SmbFileOperations {
             exchange.getIn().setHeader(SmbComponent.SMB_FILE_INPUT_STREAM, is);
             exchange.getIn().setHeader(SmbConstants.SMB_UNC_PATH, shareFile.getUncPath());
         } catch (SMBRuntimeException smbre) {
-            if (smbre.getCause() instanceof TransportException) {
-                disconnect();
-                throw smbre;
-            }
+            safeDisconnect(smbre);
+            throw smbre;
         }
         return is;
+    }
+
+    private void safeDisconnect(SMBRuntimeException smbre) {
+        if (smbre.getCause() instanceof TransportException) {
+            try {
+                disconnect();
+            } catch (Exception e) {
+                // ignore
+            }
+        }
     }
 
     /*
