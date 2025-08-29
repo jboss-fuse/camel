@@ -44,7 +44,6 @@
 :camel-azure-cosmosdb
 :camel-azure-files
 :camel-azure-schema-registry
-:camel-azure-storage-datalake
 :camel-barcode
 :camel-base64
 :camel-bonita
