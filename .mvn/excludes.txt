@@ -68,7 +68,6 @@
 :camel-core-all
 :camel-couchbase
 :camel-couchdb
-:camel-crypto-pgp
 :camel-csimple-joor
 :camel-csimple-maven-plugin
 :camel-csv
@@ -84,7 +83,6 @@
 :camel-debezium-parent
 :camel-debezium-postgres
 :camel-debezium-sqlserver
-:camel-debug
 :camel-dfdl
 :camel-dhis2
 :camel-dhis2-api
