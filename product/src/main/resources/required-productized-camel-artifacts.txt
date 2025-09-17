@@ -35,6 +35,7 @@ camel-core-languages
 camel-core-processor
 camel-cron
 camel-crypto
+camel-crypto-pgp
 camel-cxf-common
 camel-cxf-spring-transport
 camel-cxf-rest
@@ -45,6 +46,7 @@ camel-cxf-spring-rest
 camel-cxf-spring-soap
 camel-dataformat
 camel-dataset
+camel-debug
 camel-dependencies-generator
 camel-direct
 camel-dsl-support
