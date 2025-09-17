@@ -30,7 +30,6 @@ import java.util.Set;
 import java.util.StringJoiner;
 import java.util.stream.Collectors;
 
-import org.apache.camel.catalog.CamelCatalog;
 import org.apache.camel.dsl.jbang.core.common.CatalogLoader;
 import org.apache.camel.dsl.jbang.core.common.CommandLineHelper;
 import org.apache.camel.dsl.jbang.core.common.PathUtils;
@@ -275,7 +274,7 @@ class ExportQuarkus extends Export {
         // quarkus controls the camel version
         String repos = getMavenRepositories(settings, prop, quarkusVersion);
 
-        CamelCatalog catalog = CatalogLoader.loadQuarkusCatalog(repos, quarkusVersion, quarkusGroupId, download);
+        catalog = CatalogLoader.loadQuarkusCatalog(repos, quarkusVersion, quarkusGroupId, download);
         if (camelVersion == null) {
             camelVersion = catalog.getCatalogVersion();
         }
@@ -433,7 +432,7 @@ class ExportQuarkus extends Export {
         // quarkus controls the camel version
         String repos = getMavenRepositories(settings, prop, quarkusVersion);
 
-        CamelCatalog catalog = CatalogLoader.loadQuarkusCatalog(repos, quarkusVersion, quarkusGroupId, download);
+        catalog = CatalogLoader.loadQuarkusCatalog(repos, quarkusVersion, quarkusGroupId, download);
         if (camelVersion == null) {
             camelVersion = catalog.getCatalogVersion();
         }
