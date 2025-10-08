@@ -156,7 +156,13 @@ public class Export extends ExportBaseCommand {
             this.localKameletDir = props.getProperty(LOCAL_KAMELET_DIR, this.localKameletDir);
             this.quarkusGroupId = props.getProperty(QUARKUS_GROUP_ID, this.quarkusGroupId);
             this.quarkusArtifactId = props.getProperty(QUARKUS_ARTIFACT_ID, this.quarkusArtifactId);
-            this.quarkusVersion = props.getProperty(QUARKUS_VERSION, this.quarkusVersion);
+            if (System.getProperty("camel.jbang.quarkusVersion") != null)  {
+                this.quarkusVersion = System.getProperty("camel.jbang.quarkusVersion");
+            }
+            else {
+                this.quarkusVersion = props.getProperty("camel.jbang.quarkusVersion", this.quarkusVersion);
+            }
+            
             this.camelSpringBootVersion = VersionHelper.getSpringBootVersion(
                     () -> props.getProperty(CAMEL_SPRING_BOOT_VERSION, this.camelSpringBootVersion));
             this.springBootVersion = props.getProperty(SPRING_BOOT_VERSION, this.springBootVersion);

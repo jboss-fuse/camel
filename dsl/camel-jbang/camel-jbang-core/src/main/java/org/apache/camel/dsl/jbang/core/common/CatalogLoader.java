@@ -200,12 +200,15 @@ public final class CatalogLoader {
             }
 
             if (camelQuarkusVersion != null) {
+
+                final String cqVersion = camelQuarkusVersion ;
+                
                 // download camel-quarkus-catalog we use to know if we have an extension or not
                 List<MavenArtifact> artifacts = downloader.downloadArtifacts("org.apache.camel.quarkus",
-                        "camel-quarkus-catalog", camelQuarkusVersion, true);
+                        "camel-quarkus-catalog", VersionHelper.getQuarkusVersion(() -> cqVersion), true);
                 if (artifacts != null) {
                     // this will add to classpath
-                    downloader.downloadDependency("org.apache.camel.quarkus", "camel-quarkus-catalog", camelQuarkusVersion);
+                    downloader.downloadDependency("org.apache.camel.quarkus", "camel-quarkus-catalog", VersionHelper.getQuarkusVersion(() -> cqVersion));
 
                     Class<RuntimeProvider> clazz = (Class<RuntimeProvider>) cl.loadClass(QUARKUS_CATALOG_PROVIDER);
                     if (clazz != null) {

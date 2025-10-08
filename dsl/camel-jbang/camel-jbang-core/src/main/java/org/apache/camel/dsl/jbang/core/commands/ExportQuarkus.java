@@ -54,6 +54,9 @@ class ExportQuarkus extends Export {
 
     @Override
     public Integer export() throws Exception {
+        if (System.getProperty("camel.jbang.quarkusVersion") != null) {
+            quarkusVersion = System.getProperty("camel.jbang.quarkusVersion");
+        }
         String[] ids = gav.split(":");
         if (ids.length != 3) {
             printer().printErr("--gav must be in syntax: groupId:artifactId:version");
@@ -63,7 +66,6 @@ class ExportQuarkus extends Export {
             printer().printErr("--build-tool must either be maven or gradle, was: " + buildTool);
             return 1;
         }
-
         Path profile = exportBaseDir.resolve("application.properties");
 
         // the settings file has information what to export
