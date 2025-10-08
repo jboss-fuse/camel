@@ -55,6 +55,31 @@ public final class VersionHelper {
         return null;
     }
 
+        /**
+     * Retrieves the Quarkus Platform version to use, with support for overriding via system property.
+     *
+     * <p>
+     * The method follows this precedence order:
+     * <ol>
+     * <li>System property {@code camel.jbang.quarkusVersion} if set</li>
+     * <li>Value from the provided supplier if not null</li>
+     * <li>Returns null if neither option is available</li>
+     * </ol>
+     *
+     * @param  supplier a supplier that provides the default Camel Quarkus version when no system property override is
+     *                  present. May be null.
+     * @return          the Camel Quarkus version string, or null if no version can be determined
+     */
+    public static String getQuarkusVersion(Supplier<String> supplier) {
+        if (System.getProperty(CamelJBangConstants.QUARKUS_VERSION) != null) {
+            return System.getProperty(CamelJBangConstants.QUARKUS_VERSION);
+        } else if (supplier != null) {
+            return supplier.get();
+        }
+
+        return null;
+    }
+
     public static String getJBangVersion() {
         try {
             // find actual version in JBANG_HOME
