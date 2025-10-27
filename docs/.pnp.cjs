@@ -33,7 +33,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
-            ["del", "npm:8.0.0"],\
+            ["del", "npm:8.0.1"],\
             ["eslint", "virtual:2c610f76f644a633eeb9dfdbedcfce0166801ee59e3837f66b2054b454dac8d45ae1806a247a932c013c07d243b2c1e84fbe9998428676d783c2454982c011e5#npm:9.33.0"],\
             ["eslint-config-standard", "virtual:2c610f76f644a633eeb9dfdbedcfce0166801ee59e3837f66b2054b454dac8d45ae1806a247a932c013c07d243b2c1e84fbe9998428676d783c2454982c011e5#npm:17.1.0"],\
             ["eslint-plugin-import", "virtual:2c610f76f644a633eeb9dfdbedcfce0166801ee59e3837f66b2054b454dac8d45ae1806a247a932c013c07d243b2c1e84fbe9998428676d783c2454982c011e5#npm:2.32.0"],\
@@ -67,7 +67,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["@apache-camel/docs", "workspace:."],\
-            ["del", "npm:8.0.0"],\
+            ["del", "npm:8.0.1"],\
             ["eslint", "virtual:2c610f76f644a633eeb9dfdbedcfce0166801ee59e3837f66b2054b454dac8d45ae1806a247a932c013c07d243b2c1e84fbe9998428676d783c2454982c011e5#npm:9.33.0"],\
             ["eslint-config-standard", "virtual:2c610f76f644a633eeb9dfdbedcfce0166801ee59e3837f66b2054b454dac8d45ae1806a247a932c013c07d243b2c1e84fbe9998428676d783c2454982c011e5#npm:17.1.0"],\
             ["eslint-plugin-import", "virtual:2c610f76f644a633eeb9dfdbedcfce0166801ee59e3837f66b2054b454dac8d45ae1806a247a932c013c07d243b2c1e84fbe9998428676d783c2454982c011e5#npm:2.32.0"],\
@@ -2207,15 +2207,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["del", [\
-        ["npm:8.0.0", {\
-          "packageLocation": "./.yarn/cache/del-npm-8.0.0-c3f65ab5f0-502dea7a84.zip/node_modules/del/",\
+        ["npm:8.0.1", {\
+          "packageLocation": "./.yarn/cache/del-npm-8.0.1-39f8182559-53ed4a379a.zip/node_modules/del/",\
           "packageDependencies": [\
-            ["del", "npm:8.0.0"],\
+            ["del", "npm:8.0.1"],\
             ["globby", "npm:14.0.2"],\
             ["is-glob", "npm:4.0.3"],\
             ["is-path-cwd", "npm:3.0.0"],\
             ["is-path-inside", "npm:4.0.0"],\
             ["p-map", "npm:7.0.2"],\
+            ["presentable-error", "npm:0.0.1"],\
             ["slash", "npm:5.1.0"]\
           ],\
           "linkType": "HARD"\
@@ -6731,6 +6732,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/prelude-ls-npm-1.2.1-3e4d272a55-cd192ec0d0.zip/node_modules/prelude-ls/",\
           "packageDependencies": [\
             ["prelude-ls", "npm:1.2.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["presentable-error", [\
+        ["npm:0.0.1", {\
+          "packageLocation": "./.yarn/cache/presentable-error-npm-0.0.1-023a92e7c6-013809ee7a.zip/node_modules/presentable-error/",\
+          "packageDependencies": [\
+            ["presentable-error", "npm:0.0.1"]\
           ],\
           "linkType": "HARD"\
         }]\
