@@ -49,7 +49,6 @@ public interface VertxEndpointBuilderFactory {
          * 
          * The option is a: <code>java.lang.Boolean</code> type.
          * 
-         * Default: false
          * Group: common
          * 
          * @param pubSub the value to set
@@ -66,7 +65,6 @@ public interface VertxEndpointBuilderFactory {
          * The option will be converted to a <code>java.lang.Boolean</code>
          * type.
          * 
-         * Default: false
          * Group: common
          * 
          * @param pubSub the value to set
@@ -222,7 +220,6 @@ public interface VertxEndpointBuilderFactory {
          * 
          * The option is a: <code>java.lang.Boolean</code> type.
          * 
-         * Default: false
          * Group: common
          * 
          * @param pubSub the value to set
@@ -239,7 +236,6 @@ public interface VertxEndpointBuilderFactory {
          * The option will be converted to a <code>java.lang.Boolean</code>
          * type.
          * 
-         * Default: false
          * Group: common
          * 
          * @param pubSub the value to set
@@ -324,7 +320,6 @@ public interface VertxEndpointBuilderFactory {
          * 
          * The option is a: <code>java.lang.Boolean</code> type.
          * 
-         * Default: false
          * Group: common
          * 
          * @param pubSub the value to set
@@ -341,7 +336,6 @@ public interface VertxEndpointBuilderFactory {
          * The option will be converted to a <code>java.lang.Boolean</code>
          * type.
          * 
-         * Default: false
          * Group: common
          * 
          * @param pubSub the value to set
