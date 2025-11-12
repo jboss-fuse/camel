@@ -97,7 +97,7 @@ public abstract class ExportBaseCommand extends CamelCommand {
     protected Path exportBaseDir;
     private MavenDownloader downloader;
     private Printer quietPrinter;
-	protected CamelCatalog catalog;
+    protected CamelCatalog catalog;
 
     @CommandLine.Parameters(description = "The Camel file(s) to export. If no files is specified then what was last run will be exported.",
                             arity = "0..9", paramLabel = "<files>", parameterConsumer = FilesConsumer.class)

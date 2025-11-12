@@ -413,50 +413,50 @@ class ExportSpringBoot extends Export {
         return super.applicationPropertyLine(key, value);
     }
 
-	@Override
-	protected void copyDockerFiles(String buildDir) throws Exception {
-		Path docker = Path.of(buildDir).resolve("src/main/docker");
-		Files.createDirectories(docker);
-		String[] ids = gav.split(":");
-		// we only support and have docker files for java 17 or 21
-		String v = javaVersion.equals("17") ? "17" : "21";
+    @Override
+    protected void copyDockerFiles(String buildDir) throws Exception {
+        Path docker = Path.of(buildDir).resolve("src/main/docker");
+        Files.createDirectories(docker);
+        String[] ids = gav.split(":");
+        // we only support and have docker files for java 17 or 21
+        String v = javaVersion.equals("17") ? "17" : "21";
 
-		// First try to load a specialized template from the catalog, if the catalog does not provide it
-		// fallback to the template defined in camel-jbang-core
-		String context;
-		InputStream is = catalog.loadResource("camel-jbang/docker/templates", "Dockerfile" + v + ".tmpl");
-		if (is != null) {
-			context = IOHelper.loadText(is);
-		} else {
-			context = readResourceTemplate("templates/" + pomTemplateName);
-		}
+        // First try to load a specialized template from the catalog, if the catalog does not provide it
+        // fallback to the template defined in camel-jbang-core
+        String context;
+        InputStream is = catalog.loadResource("camel-jbang/docker/templates", "Dockerfile" + v + ".tmpl");
+        if (is != null) {
+            context = IOHelper.loadText(is);
+        } else {
+            context = readResourceTemplate("templates/" + pomTemplateName);
+        }
 
-		IOHelper.close(is);
+        IOHelper.close(is);
 
-		String appJar = ids[1] + "-" + ids[2] + ".jar";
-		context = context.replaceAll("\\{\\{ \\.ArtifactId }}", ids[1]);
-		context = context.replaceAll("\\{\\{ \\.Version }}", ids[2]);
-		context = context.replaceAll("\\{\\{ \\.AppJar }}", appJar);
-		Files.writeString(docker.resolve("Dockerfile"), context);
-	}
+        String appJar = ids[1] + "-" + ids[2] + ".jar";
+        context = context.replaceAll("\\{\\{ \\.ArtifactId }}", ids[1]);
+        context = context.replaceAll("\\{\\{ \\.Version }}", ids[2]);
+        context = context.replaceAll("\\{\\{ \\.AppJar }}", appJar);
+        Files.writeString(docker.resolve("Dockerfile"), context);
+    }
 
-	@Override
-	protected void copyReadme(String buildDir, String appJar) throws Exception {
-		String[] ids = gav.split(":");
-		String context;
-		InputStream is = catalog.loadResource("camel-jbang/docker/templates", "readme.md.tmpl");
-		if (is != null) {
-			context = IOHelper.loadText(is);
-		} else {
-			context = readResourceTemplate("templates/readme.md.tmpl");
-		}
-		IOHelper.close(is);
+    @Override
+    protected void copyReadme(String buildDir, String appJar) throws Exception {
+        String[] ids = gav.split(":");
+        String context;
+        InputStream is = catalog.loadResource("camel-jbang/docker/templates", "readme.md.tmpl");
+        if (is != null) {
+            context = IOHelper.loadText(is);
+        } else {
+            context = readResourceTemplate("templates/readme.md.tmpl");
+        }
+        IOHelper.close(is);
 
-		context = context.replaceAll("\\{\\{ \\.ArtifactId }}", ids[1]);
-		context = context.replaceAll("\\{\\{ \\.Version }}", ids[2]);
-		context = context.replaceAll("\\{\\{ \\.AppRuntimeJar }}", appJar);
-		Files.writeString(Path.of(buildDir).resolve("readme.md"), context);
-	}
+        context = context.replaceAll("\\{\\{ \\.ArtifactId }}", ids[1]);
+        context = context.replaceAll("\\{\\{ \\.Version }}", ids[2]);
+        context = context.replaceAll("\\{\\{ \\.AppRuntimeJar }}", appJar);
+        Files.writeString(Path.of(buildDir).resolve("readme.md"), context);
+    }
 
     private String readResourceTemplate(String name) throws IOException {
         InputStream is = ExportSpringBoot.class.getClassLoader().getResourceAsStream(name);
