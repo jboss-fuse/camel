@@ -67,7 +67,6 @@ import org.apache.camel.spi.IdempotentRepository;
 import org.apache.camel.spi.InterceptStrategy;
 import org.apache.camel.spi.Metadata;
 import org.apache.camel.spi.Policy;
-import org.apache.camel.spi.PredicateExceptionFactory;
 import org.apache.camel.spi.Resource;
 import org.apache.camel.spi.ResourceAware;
 import org.apache.camel.support.ExpressionAdapter;
@@ -1336,10 +1335,10 @@ public abstract class ProcessorDefinition<Type extends ProcessorDefinition<Type>
      * @param  expression the expression
      * @return            the builder
      */
-    public Type validate(@AsPredicate Expression expression) {
+    public ValidateDefinition validate(@AsPredicate Expression expression) {
         ValidateDefinition answer = new ValidateDefinition(expression);
         addOutput(answer);
-        return asType();
+        return answer;
     }
 
     /**
@@ -1349,10 +1348,10 @@ public abstract class ProcessorDefinition<Type extends ProcessorDefinition<Type>
      * @param  predicate the predicate
      * @return           the builder
      */
-    public Type validate(@AsPredicate Predicate predicate) {
+    public ValidateDefinition validate(@AsPredicate Predicate predicate) {
         ValidateDefinition answer = new ValidateDefinition(predicate);
         addOutput(answer);
-        return asType();
+        return answer;
     }
 
     /**
@@ -1362,25 +1361,10 @@ public abstract class ProcessorDefinition<Type extends ProcessorDefinition<Type>
      * @return the builder
      */
     @AsPredicate
-    public ExpressionClause<ProcessorDefinition<Type>> validate() {
-        ExpressionClause<ProcessorDefinition<Type>> clause = new ExpressionClause<>(this);
-        ValidateDefinition answer = new ValidateDefinition((Expression) clause);
+    public ExpressionClause<ValidateDefinition> validate() {
+        ValidateDefinition answer = new ValidateDefinition();
         addOutput(answer);
-        return clause;
-    }
-
-    /**
-     * Creates a validation expression which only if it is <tt>true</tt> then the exchange is forwarded to the
-     * destination. Otherwise a {@link org.apache.camel.support.processor.PredicateValidationException} is thrown.
-     *
-     * @return the builder
-     */
-    public ExpressionClause<ProcessorDefinition<Type>> validate(PredicateExceptionFactory predicateExceptionFactory) {
-        ExpressionClause<ProcessorDefinition<Type>> clause = new ExpressionClause<>(this);
-        ValidateDefinition answer = new ValidateDefinition((Expression) clause);
-        answer.predicateExceptionFactory(predicateExceptionFactory);
-        addOutput(answer);
-        return clause;
+        return createAndSetExpression(answer);
     }
 
     /**
