@@ -145,7 +145,6 @@
 :camel-javascript
 :camel-jbang-it
 :camel-jbang-plugin-edit
-:camel-jbang-plugin-test
 :camel-jcache
 :camel-jcr
 :camel-jetty
