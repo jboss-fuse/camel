@@ -83,6 +83,7 @@ camel-jbang-console
 camel-jbang-main
 camel-jbang-plugin-generate
 camel-jbang-plugin-kubernetes
+camel-jbang-plugin-test
 camel-jdbc
 camel-jira
 camel-jms
