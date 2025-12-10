@@ -464,6 +464,7 @@ public class HttpComponent extends HttpCommonComponent implements RestProducerFa
         endpoint.setMuteException(muteException);
         endpoint.setHttpActivityListener(httpActivityListener);
         endpoint.setLogHttpActivity(logHttpActivity);
+        endpoint.setUseSystemProperties(this.useSystemProperties);
 
         // configure the endpoint with the common configuration from the component
         if (getHttpConfiguration() != null) {
