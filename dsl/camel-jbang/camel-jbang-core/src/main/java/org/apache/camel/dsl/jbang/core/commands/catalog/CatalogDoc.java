@@ -186,7 +186,7 @@ public class CatalogDoc extends CamelCommand {
             if (kamelet) {
                 // kamelet names
                 suggestions
-                    = SuggestSimilarHelper.didYouMean(KameletCatalogHelper.findKameletNames(kameletsVersion, repos), name);
+                        = SuggestSimilarHelper.didYouMean(KameletCatalogHelper.findKameletNames(kameletsVersion, repos), name);
             } else {
                 // assume its a component
                 suggestions = SuggestSimilarHelper.didYouMean(findComponentNames(catalog), name);
