@@ -75,7 +75,7 @@ public class Init extends CamelCommand {
     @Option(names = { "--pipe" },
             description = "When creating a yaml file should it be created as a Pipe CR")
     private boolean pipe;
-    
+
     @Option(names = { "--repo", "--repos" },
             description = "Additional maven repositories (Use commas to separate multiple repositories)")
     protected String repositories;
