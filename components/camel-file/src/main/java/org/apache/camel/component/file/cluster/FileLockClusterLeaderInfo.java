@@ -23,33 +23,33 @@ import java.util.Objects;
  */
 final class FileLockClusterLeaderInfo {
     private final String id;
-    private final long heartbeatUpdateIntervalMilliseconds;
-    private final long heartbeatMilliseconds;
+    private final long heartbeatUpdateIntervalNanoseconds;
+    private final long heartbeatNanoseconds;
 
     /**
      * Constructs a {@link FileLockClusterLeaderInfo}.
      *
-     * @param id                                  The unique UUID assigned to the cluster leader
-     * @param heartbeatUpdateIntervalMilliseconds The cluster leader heartbeat update interval value in milliseconds
-     * @param heartbeatMilliseconds               The cluster leader heartbeat value in milliseconds
+     * @param id                                 The unique UUID assigned to the cluster leader
+     * @param heartbeatUpdateIntervalNanoseconds The cluster leader heartbeat update interval value in nanoseconds
+     * @param heartbeatNanoseconds               The cluster leader heartbeat value in nanoseconds
      */
-    FileLockClusterLeaderInfo(String id, long heartbeatUpdateIntervalMilliseconds, long heartbeatMilliseconds) {
+    FileLockClusterLeaderInfo(String id, long heartbeatUpdateIntervalNanoseconds, long heartbeatNanoseconds) {
         Objects.requireNonNull(id);
         this.id = id;
-        this.heartbeatUpdateIntervalMilliseconds = heartbeatUpdateIntervalMilliseconds;
-        this.heartbeatMilliseconds = heartbeatMilliseconds;
+        this.heartbeatUpdateIntervalNanoseconds = heartbeatUpdateIntervalNanoseconds;
+        this.heartbeatNanoseconds = heartbeatNanoseconds;
     }
 
     String getId() {
         return id;
     }
 
-    long getHeartbeatMilliseconds() {
-        return heartbeatMilliseconds;
+    long getHeartbeatNanoseconds() {
+        return heartbeatNanoseconds;
     }
 
-    long getHeartbeatUpdateIntervalMilliseconds() {
-        return heartbeatUpdateIntervalMilliseconds;
+    long getHeartbeatUpdateIntervalNanoseconds() {
+        return heartbeatUpdateIntervalNanoseconds;
     }
 
     @Override
