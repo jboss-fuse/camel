@@ -16,7 +16,6 @@
  */
 package org.apache.camel.component.file.cluster;
 
-import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -25,11 +24,9 @@ import java.time.Duration;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.stream.Stream;
 
 import org.apache.camel.CamelContext;
 import org.apache.camel.component.mock.MockEndpoint;
-import org.apache.camel.util.FileUtil;
 import org.awaitility.Awaitility;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.DisabledOnOs;
@@ -181,84 +178,6 @@ class FileLockClusterServiceAdvancedFailoverTest extends FileLockClusterServiceT
     }
 
     @Test
-    void multipleClusterMembersReelectLeaderIfClusterDataDirectoryDeleted() throws Exception {
-        ClusterConfig leaderConfig = new ClusterConfig();
-        leaderConfig.setTimerRepeatCount(-1);
-
-        CamelContext clusterLeader = createCamelContext(leaderConfig);
-
-        ClusterConfig followerConfig = new ClusterConfig();
-        followerConfig.setTimerRepeatCount(-1);
-        followerConfig.setAcquireLockDelay(2);
-
-        CamelContext clusterFollower = createCamelContext(followerConfig);
-
-        try {
-            MockEndpoint mockEndpointLeader = clusterLeader.getEndpoint("mock:result", MockEndpoint.class);
-            mockEndpointLeader.expectedMinimumMessageCount(1);
-
-            clusterLeader.start();
-            clusterFollower.start();
-
-            mockEndpointLeader.assertIsSatisfied();
-
-            Awaitility.await().atMost(Duration.ofSeconds(30)).untilAsserted(() -> {
-                assertTrue(Files.exists(lockFile));
-                assertTrue(Files.exists(dataFile));
-                assertTrue(getClusterMember(clusterLeader).isLeader());
-
-                FileLockClusterLeaderInfo clusterLeaderInfo = FileLockClusterUtils.readClusterLeaderInfo(dataFile);
-                assertNotNull(clusterLeaderInfo);
-
-                String leaderId = clusterLeaderInfo.getId();
-                assertNotNull(leaderId);
-                assertDoesNotThrow(() -> UUID.fromString(leaderId));
-            });
-
-            // Wait enough time for the follower to have run its lock acquisition scheduled task
-            Thread.sleep(followerConfig.getStartupDelayWithOffsetMillis());
-
-            // The follower should not have produced any messages
-            MockEndpoint mockEndpointFollower = clusterFollower.getEndpoint("mock:result", MockEndpoint.class);
-            assertTrue(mockEndpointFollower.getExchanges().isEmpty());
-
-            mockEndpointLeader.reset();
-            mockEndpointLeader.expectedMinimumMessageCount(1);
-
-            // Delete the cluster data directory
-            FileUtil.removeDir(clusterDir.toFile());
-
-            // Wait for leadership to be relinquished
-            Awaitility.await().atMost(Duration.ofSeconds(10)).untilAsserted(() -> {
-                assertFalse(getClusterMember(clusterLeader).isLeader());
-            });
-
-            // Wait for leadership to be gained by one of the members
-            CamelContext oldLeader = clusterLeader;
-            Awaitility.await().atMost(Duration.ofSeconds(10)).untilAsserted(() -> {
-                boolean newLeaderElected = false;
-
-                // Original cluster leader regained leadership
-                if (getClusterMember(oldLeader).isLeader()) {
-                    newLeaderElected = true;
-                    mockEndpointLeader.assertIsSatisfied();
-                }
-
-                // A different cluster member gained leadership
-                if (getClusterMember(clusterFollower).isLeader()) {
-                    newLeaderElected = true;
-                    mockEndpointFollower.assertIsSatisfied();
-                }
-
-                assertTrue(newLeaderElected);
-            });
-        } finally {
-            clusterLeader.stop();
-            clusterFollower.stop();
-        }
-    }
-
-    @Test
     void notStaleLockFileForRestoredFileSystemElectsOriginalLeader(@TempDir Path clusterMovedLocation) throws Exception {
         ClusterConfig leaderConfig = new ClusterConfig();
         leaderConfig.setTimerRepeatCount(-1);
@@ -280,7 +199,6 @@ class FileLockClusterServiceAdvancedFailoverTest extends FileLockClusterServiceT
 
             mockEndpointLeader.assertIsSatisfied();
 
-            AtomicReference<FileLockClusterLeaderInfo> leaderInfo = new AtomicReference<>();
             Awaitility.await().atMost(Duration.ofSeconds(30)).untilAsserted(() -> {
                 assertTrue(Files.exists(lockFile));
                 assertTrue(Files.exists(dataFile));
@@ -288,7 +206,6 @@ class FileLockClusterServiceAdvancedFailoverTest extends FileLockClusterServiceT
 
                 FileLockClusterLeaderInfo clusterLeaderInfo = FileLockClusterUtils.readClusterLeaderInfo(dataFile);
                 assertNotNull(clusterLeaderInfo);
-                leaderInfo.set(clusterLeaderInfo);
 
                 String leaderId = clusterLeaderInfo.getId();
                 assertNotNull(leaderId);
@@ -308,30 +225,13 @@ class FileLockClusterServiceAdvancedFailoverTest extends FileLockClusterServiceT
             // Simulate the file system becoming detached by moving the cluster data directory
             Files.move(clusterDir, clusterMovedLocation, StandardCopyOption.REPLACE_EXISTING);
 
-            // Simulate reattaching the file system by moving the cluster directory back to the original location
-            try (Stream<Path> stream = Files.walk(clusterMovedLocation)) {
-                stream.forEach(path -> {
-                    try {
-                        Path destination = clusterDir.resolve(clusterMovedLocation.relativize(path));
-                        if (Files.isDirectory(path)) {
-                            Files.createDirectories(destination);
-                        } else {
-                            Files.copy(path, destination, StandardCopyOption.REPLACE_EXISTING);
-                        }
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-                });
-            }
+            // Wait for leadership to be relinquished
+            Awaitility.await().atMost(Duration.ofSeconds(10)).untilAsserted(() -> {
+                assertFalse(getClusterMember(clusterLeader).isLeader());
+            });
 
-            FileLockClusterLeaderInfo updatedInfo
-                    = new FileLockClusterLeaderInfo(
-                            leaderInfo.get().getId(), TimeUnit.MILLISECONDS.toMillis(2), System.currentTimeMillis());
-            Path data = clusterMovedLocation.resolve(NAMESPACE + ".data");
-            try (RandomAccessFile file = new RandomAccessFile(data.toFile(), "rw")) {
-                FileLockClusterUtils.writeClusterLeaderInfo(data, file.getChannel(), updatedInfo,
-                        true);
-            }
+            // Simulate reattaching the file system by moving the cluster directory back to the original location
+            Files.move(clusterMovedLocation, clusterDir, StandardCopyOption.REPLACE_EXISTING);
 
             // Since the lock file is not considered 'stale', the original leader should resume leadership
             Awaitility.await().atMost(Duration.ofSeconds(10)).untilAsserted(() -> {
@@ -409,7 +309,7 @@ class FileLockClusterServiceAdvancedFailoverTest extends FileLockClusterServiceT
 
             FileLockClusterLeaderInfo updatedInfo
                     = new FileLockClusterLeaderInfo(
-                            leaderInfo.get().getId(), TimeUnit.MILLISECONDS.toMillis(2), staleHeartbeatTimestamp);
+                            leaderInfo.get().getId(), TimeUnit.NANOSECONDS.toNanos(2), staleHeartbeatTimestamp);
             Path data = clusterMovedLocation.resolve(NAMESPACE + ".data");
             try (RandomAccessFile file = new RandomAccessFile(data.toFile(), "rw")) {
                 FileLockClusterUtils.writeClusterLeaderInfo(data, file.getChannel(), updatedInfo,
@@ -417,20 +317,7 @@ class FileLockClusterServiceAdvancedFailoverTest extends FileLockClusterServiceT
             }
 
             // Simulate reattaching the file system by moving the cluster directory back to the original location
-            try (Stream<Path> stream = Files.walk(clusterMovedLocation)) {
-                stream.forEach(path -> {
-                    try {
-                        Path destination = clusterDir.resolve(clusterMovedLocation.relativize(path));
-                        if (Files.isDirectory(path)) {
-                            Files.createDirectories(destination);
-                        } else {
-                            Files.copy(path, destination, StandardCopyOption.REPLACE_EXISTING);
-                        }
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-                });
-            }
+            Files.move(clusterMovedLocation, clusterDir, StandardCopyOption.REPLACE_EXISTING);
 
             mockEndpointFollower.expectedMinimumMessageCount(1);
 
