@@ -99,6 +99,11 @@
             <artifactId>commons-lang3</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.awaitility</groupId>
+            <artifactId>awaitility</artifactId>
+            <version>${awaitility-version}</version>
+        </dependency>
         <!-- test infra -->
        <dependency>
             <groupId>org.apache.camel</groupId>
