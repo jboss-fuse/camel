@@ -58,7 +58,7 @@
         <!-- dependency versions -->
         <activemq-version>5.19.0</activemq-version>
         <activemq6-version>6.1.7</activemq6-version>
-        <activemq-artemis-version>2.42.0</activemq-artemis-version>
+        <activemq-artemis-version>2.40.0.redhat-00006</activemq-artemis-version>
         <allegro-converter-version>0.3.0</allegro-converter-version>
         <amazon-kinesis-client-version>2.6.0</amazon-kinesis-client-version>
         <angus-mail-version>2.0.5</angus-mail-version>
@@ -102,7 +102,7 @@
         <cloudant-version>0.10.6</cloudant-version>
         <cometd-java-client-version>8.0.9</cometd-java-client-version>
         <cometd-java-server-version>8.0.9</cometd-java-server-version>
-        <commons-beanutils-version>1.11.0</commons-beanutils-version>
+        <commons-beanutils-version>1.11.0.redhat-00001</commons-beanutils-version>
         <commons-codec-version>1.19.0</commons-codec-version>
         <commons-collections-version>3.2.2</commons-collections-version>
         <commons-collections4-version>4.5.0</commons-collections4-version>
@@ -126,11 +126,11 @@
         <cobertura-maven-plugin-version>2.7</cobertura-maven-plugin-version>
         <couchbase-client-version>3.9.0</couchbase-client-version>
         <curator-version>5.9.0</curator-version>
-        <cxf-version>4.1.4</cxf-version>
-        <cxf-codegen-plugin-version>4.1.3</cxf-codegen-plugin-version>
+        <cxf-version>4.1.4.rhbac-redhat-00001</cxf-version>
+        <cxf-codegen-plugin-version>4.1.4</cxf-codegen-plugin-version>
         <!-- cxf-xjc is not released as often -->
-        <cxf-xjc-plugin-version>4.1.0</cxf-xjc-plugin-version>
-        <cxf-xjc-utils-version>4.1.0</cxf-xjc-utils-version>
+        <cxf-xjc-plugin-version>4.1.1</cxf-xjc-plugin-version>
+        <cxf-xjc-utils-version>4.1.1</cxf-xjc-utils-version>
         <daffodil-version>3.10.0</daffodil-version>
         <dapr-version>1.15.0</dapr-version>
         <datasonnet-mapper-version>3.0.0</datasonnet-mapper-version>
@@ -281,7 +281,7 @@
         <jboss-logging-version>3.6.1.Final</jboss-logging-version>
         <jboss-marshalling-version>1.4.10.Final</jboss-marshalling-version>
         <jboss-transaction-spi-version>7.6.1.Final</jboss-transaction-spi-version>
-        <jboss-xnio-version>3.8.14.Final</jboss-xnio-version>
+        <jboss-xnio-version>3.8.17.Final-redhat-00001</jboss-xnio-version>
         <jcache-version>1.1.1</jcache-version>
         <jcip-annotations-version>1.0-1</jcip-annotations-version>
         <jcr-version>2.0</jcr-version>
@@ -299,6 +299,7 @@
         <jira-rest-client-api-version>6.0.2</jira-rest-client-api-version>
         <jline-version>3.30.5</jline-version>
         <libthrift-version>0.22.0</libthrift-version>
+        <lz4-java-version>1.10.3</lz4-java-version>
         <jodatime2-version>2.14.0</jodatime2-version>
         <jolokia-version>2.3.0</jolokia-version>
         <jolt-version>0.1.8</jolt-version>
@@ -329,7 +330,7 @@
         <jxmpp-version>1.1.0</jxmpp-version>
         <jython-version>2.7.4</jython-version>
         <jzlib-version>1.1.3</jzlib-version>
-        <kafka-version>3.9.1</kafka-version>
+        <kafka-version>3.9.1.redhat-00006</kafka-version>
         <keycloak-client-version>26.0.6</keycloak-client-version>
         <kubernetes-client-version>7.3.1</kubernetes-client-version>
         <kudu-version>1.18.0</kudu-version>
@@ -349,7 +350,6 @@
         <lucene-version>9.12.0</lucene-version>
         <lightcouch-version>0.2.0</lightcouch-version>
         <littleproxy-version>2.4.4</littleproxy-version>
-        <lz4-java-version>1.10.2</lz4-java-version>
         <mapstruct-version>1.6.3</mapstruct-version>
         <!-- needed from tooling/archetypes -->
         <maven-version>3.9.11</maven-version>
@@ -507,7 +507,7 @@
         <tika-version>3.2.3</tika-version>
         <twilio-version>10.9.2</twilio-version>
         <twitter4j-version>4.1.2</twitter4j-version>
-        <undertow-version>2.3.20.Final</undertow-version>
+        <undertow-version>2.3.22.Final</undertow-version>
         <univocity-parsers-version>2.10.2</univocity-parsers-version>
         <validation-api-version>2.0.1.Final</validation-api-version>
         <vavr-version>0.10.7</vavr-version>
