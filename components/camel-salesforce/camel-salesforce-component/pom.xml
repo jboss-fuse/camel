@@ -304,8 +304,8 @@
                         <phase>process-sources</phase>
                         <configuration>
                             <target>
-                                <replace token="@javax.annotation.Generated" value="@jakarta.annotation.Generated" dir="${project.basedir}/target/generated-sources/protobuf">
-                                    <include name="**/*.java" />
+                                <replace dir="${project.basedir}/target/generated-sources/protobuf" token="@javax.annotation.Generated" value="@jakarta.annotation.Generated">
+                                    <include name="**/*.java"/>
                                 </replace>
                             </target>
                         </configuration>
@@ -342,7 +342,7 @@
                                                     ${salesforce.component.root}/it/resources/setup-salesforce.sh
                                                 </file>
                                             </files>
-                                            <message><![CDATA[Salesforce CLI Setup Script required
+                                            <message>Salesforce CLI Setup Script required
 
 The integration tests require the Salesforce CLI (sf) to be installed.
 
@@ -361,7 +361,7 @@ ALTERNATIVE - Traditional Org:
    - Or configure in test-salesforce-login.properties
 
 Source metadata location:
-${salesforce.component.root}/it/resources/salesforce-source]]></message>
+${salesforce.component.root}/it/resources/salesforce-source</message>
                                         </requireFilesExist>
                                     </rules>
                                     <fail>true</fail>
