@@ -660,7 +660,7 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-docling</artifactId>
-            <version>${project.version}</version>
+            <version>${camel-community-version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
@@ -725,7 +725,7 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-file-watch</artifactId>
-            <version>${project.version}</version>
+            <version>${camel-community-version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
@@ -1430,7 +1430,7 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-milvus</artifactId>
-            <version>${project.version}</version>
+            <version>${camel-community-version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
@@ -1440,7 +1440,7 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-mina-sftp</artifactId>
-            <version>${project.version}</version>
+            <version>${camel-community-version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
@@ -1565,7 +1565,7 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-openai</artifactId>
-            <version>${project.version}</version>
+            <version>${camel-community-version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
@@ -1700,7 +1700,7 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-qdrant</artifactId>
-            <version>${project.version}</version>
+            <version>${camel-community-version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
@@ -2075,7 +2075,7 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-test-junit6</artifactId>
-            <version>${project.version}</version>
+            <version>${camel-community-version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
@@ -2095,7 +2095,7 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-test-spring-junit6</artifactId>
-            <version>${project.version}</version>
+            <version>${camel-community-version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
