@@ -5861,7 +5861,7 @@
           "routeConfigurationId" : {
             "type" : "string"
           },
-          "routePolicy" : {
+          "routePolicyRef" : {
             "type" : "string"
           },
           "shutdownRoute" : {
