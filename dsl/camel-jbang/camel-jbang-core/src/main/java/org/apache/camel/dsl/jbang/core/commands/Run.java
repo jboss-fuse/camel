@@ -150,6 +150,9 @@ public class Run extends CamelCommand {
     @Option(names = { "--empty" }, defaultValue = "false", description = "Run an empty Camel without loading source files")
     public boolean empty;
 
+    @CommandLine.Option(names = { "--java-version" }, description = "Java version", defaultValue = "21")
+    protected String javaVersion = "21";
+
     @Option(names = { "--camel-version" }, description = "To run using a different Camel version than the default version.")
     String camelVersion;
 
@@ -651,6 +654,7 @@ public class Run extends CamelCommand {
         writeSetting(main, profileProperties, QUARKUS_VERSION, quarkusVersion);
         writeSetting(main, profileProperties, QUARKUS_GROUP_ID, quarkusGroupId);
         writeSetting(main, profileProperties, QUARKUS_ARTIFACT_ID, quarkusArtifactId);
+        writeSetting(main, profileProperties, JAVA_VERSION, javaVersion);
 
         if (observe) {
             main.addInitialProperty(DEPENDENCIES, "camel:observability-services");
@@ -1067,6 +1071,7 @@ public class Run extends CamelCommand {
         eq.quarkusGroupId = PropertyResolver.fromSystemProperty(QUARKUS_GROUP_ID, () -> this.quarkusGroupId);
         eq.quarkusArtifactId = PropertyResolver.fromSystemProperty(QUARKUS_ARTIFACT_ID, () -> this.quarkusArtifactId);
         eq.camelVersion = this.camelVersion;
+        eq.javaVersion = this.javaVersion;
         eq.kameletsVersion = this.kameletsVersion;
         eq.exportDir = runDirPath.toString();
         eq.localKameletDir = this.localKameletDir;
@@ -1174,6 +1179,7 @@ public class Run extends CamelCommand {
         eq.camelVersion = this.camelVersion;
         eq.camelSpringBootVersion = PropertyResolver.fromSystemProperty(CAMEL_SPRING_BOOT_VERSION,
                 () -> this.camelSpringBootVersion != null ? this.camelSpringBootVersion : this.camelVersion);
+        eq.javaVersion = this.javaVersion;
         eq.kameletsVersion = this.kameletsVersion;
         eq.exportDir = runDirPath.toString();
         eq.localKameletDir = this.localKameletDir;
@@ -1352,6 +1358,7 @@ public class Run extends CamelCommand {
             camelVersion = answer.getProperty(CAMEL_VERSION, camelVersion);
             kameletsVersion = answer.getProperty(KAMELETS_VERSION, kameletsVersion);
             springBootVersion = answer.getProperty(SPRING_BOOT_VERSION, springBootVersion);
+            javaVersion = answer.getProperty(JAVA_VERSION, javaVersion);
             quarkusGroupId = answer.getProperty(QUARKUS_GROUP_ID, quarkusGroupId);
             quarkusArtifactId = answer.getProperty(QUARKUS_ARTIFACT_ID, quarkusArtifactId);
             quarkusVersion = answer.getProperty(QUARKUS_VERSION, quarkusVersion);
@@ -1427,6 +1434,9 @@ public class Run extends CamelCommand {
             cmds.removeIf(arg -> arg.startsWith("--jvm-debug"));
         }
 
+        if (javaVersion != null) {
+            jbangArgs.add("--java-version=" + javaVersion);
+        }
         if (repositories != null) {
             jbangArgs.add("--repos=" + repositories);
         }
