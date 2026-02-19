@@ -286,7 +286,7 @@
         <jcip-annotations-version>1.0-1</jcip-annotations-version>
         <jcr-version>2.0</jcr-version>
         <jedis-client-version>6.1.0</jedis-client-version>
-        <jetty-version>12.0.31</jetty-version>
+        <jetty-version>12.0.32</jetty-version>
         <jetty-for-solr-version>10.0.20</jetty-for-solr-version>
         <jetty-plugin-version>${jetty-version}</jetty-plugin-version>
         <jetty-runner-groupId>org.eclipse.jetty</jetty-runner-groupId>
@@ -377,8 +377,8 @@
         <maven-wagon-version>3.5.2</maven-wagon-version>
         <maven-war-plugin-version>3.4.0</maven-war-plugin-version>
         <metrics-version>4.2.33</metrics-version>
-        <micrometer-version>1.15.7</micrometer-version>
-        <micrometer-tracing-version>1.5.3</micrometer-tracing-version>
+        <micrometer-version>1.15.9</micrometer-version>
+        <micrometer-tracing-version>1.5.9</micrometer-tracing-version>
         <microprofile-config-version>3.1</microprofile-config-version>
         <milvus-client-version>2.6.2</milvus-client-version>
         <mina-version>2.2.4</mina-version>
@@ -481,11 +481,11 @@
         <spring-cloud-config-version>4.3.0</spring-cloud-config-version>
         <spring-batch-version>5.2.4</spring-batch-version>
         <spring-data-redis-version>3.5.5</spring-data-redis-version>
-        <spring-ldap-version>3.3.5</spring-ldap-version>
+        <spring-ldap-version>3.3.6</spring-ldap-version>
         <spring-vault-core-version>3.2.0</spring-vault-core-version>
-        <spring-version>6.2.15</spring-version>
+        <spring-version>6.2.16</spring-version>
         <spring-rabbitmq-version>3.2.6</spring-rabbitmq-version>
-        <spring-security-version>6.5.7</spring-security-version>
+        <spring-security-version>6.5.8</spring-security-version>
         <spring-ws-version>4.1.2</spring-ws-version>
         <sql-maven-plugin-version>3.0.0</sql-maven-plugin-version>
         <squareup-okhttp-version>3.14.9</squareup-okhttp-version>
@@ -508,7 +508,7 @@
         <tika-version>3.2.3</tika-version>
         <twilio-version>10.9.2</twilio-version>
         <twitter4j-version>4.1.2</twitter4j-version>
-        <undertow-version>2.3.22.Final</undertow-version>
+        <undertow-version>2.3.23.Final</undertow-version>
         <univocity-parsers-version>2.10.2</univocity-parsers-version>
         <validation-api-version>2.0.1.Final</validation-api-version>
         <vavr-version>0.10.7</vavr-version>
