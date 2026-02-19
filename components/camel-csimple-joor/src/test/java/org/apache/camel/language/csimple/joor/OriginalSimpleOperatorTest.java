@@ -806,6 +806,24 @@ public class OriginalSimpleOperatorTest extends LanguageTestSupport {
         assertExpression("${body} ?: 'World'", 1);
     }
 
+    @Test
+    public void testTernaryLog() {
+        exchange.getIn().setBody("Hello World");
+        assertExpression(">>> Message received from WebSocket Client : ${body}",
+                ">>> Message received from WebSocket Client : Hello World");
+
+        exchange.getMessage().setHeader(Exchange.FILE_NAME, "foo.txt");
+        assertExpression("This is a test bug ${header.CamelFileName}",
+                "This is a test bug foo.txt");
+
+        assertExpression("This is a test bug : ${header.CamelFileName}",
+                "This is a test bug : foo.txt");
+
+        assertExpression("This is a test bug ? ${header.CamelFileName}",
+                "This is a test bug ? foo.txt");
+
+    }
+
     @Override
     protected String getLanguageName() {
         return "csimple";

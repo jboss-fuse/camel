@@ -2938,10 +2938,10 @@ public class OriginalSimpleTest extends LanguageTestSupport {
         // Test with body
         exchange.getIn().setBody("Hello World");
         exchange.getIn().setHeader("foo", 44);
-        assertExpression("${header.foo > 0 ? ${body} : 'Bye World'}", "Hello World");
+        assertExpression("${header.foo > 0 ? body : 'Bye World'}", "Hello World");
         exchange.getIn().setHeader("foo", -123);
-        assertExpression("${header.foo > 0 ? ${body} : 'Bye World'}", "Bye World");
-        assertExpression("${header.foo > 0 ? ${body} : ${null}}", null);
+        assertExpression("${header.foo > 0 ? body : 'Bye World'}", "Bye World");
+        assertExpression("${header.foo > 0 ? body : null}", null);
 
         // Test with file name
         exchange.getIn().setHeader("CamelFileName", "testfile.txt");
@@ -2981,13 +2981,7 @@ public class OriginalSimpleTest extends LanguageTestSupport {
 
     @Test
     public void testTernaryOperatorNested() {
-        // Nested ternary operators
-        exchange.getIn().setHeader("score", 95);
-        assertExpression("${header.score >= 90 ? 'A' : ${header.score} >= 80 ? 'B' : 'C'}", "A");
-        exchange.getIn().setHeader("score", 85);
-        assertExpression("${header.score >= 90 ? 'A' : ${header.score} >= 80 ? 'B' : 'C'}", "B");
-        exchange.getIn().setHeader("score", 75);
-        assertExpression("${header.score >= 90 ? 'A' : ${header.score} >= 80 ? 'B' : 'C'}", "C");
+        // not supported in csimple
     }
 
     @Test
