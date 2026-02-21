@@ -145,6 +145,22 @@ public class SimpleInitBlockTest extends LanguageTestSupport {
         assertEquals("average: 5\n", s);
     }
 
+    @Test
+    public void testInitBlockConstant() {
+        String exp = """
+                $init{
+                  $bar := ${val(Hi from ${body})}
+                }init$
+                $bar
+                """;
+
+        exchange.getMessage().setBody("Camel");
+
+        Expression expression = context.resolveLanguage("simple").createExpression(exp);
+        String s = expression.evaluate(exchange, String.class);
+        assertEquals("Hi from Camel\n", s);
+    }
+
     @Override
     protected String getLanguageName() {
         return "simple";
