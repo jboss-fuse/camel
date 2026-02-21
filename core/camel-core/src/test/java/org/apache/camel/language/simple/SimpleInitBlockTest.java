@@ -16,9 +16,12 @@
  */
 package org.apache.camel.language.simple;
 
+import org.apache.camel.Expression;
 import org.apache.camel.LanguageTestSupport;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SimpleInitBlockTest extends LanguageTestSupport {
 
@@ -104,6 +107,42 @@ public class SimpleInitBlockTest extends LanguageTestSupport {
         exchange.getMessage().setHeader("lines", "75,33");
 
         assertExpression(exchange, INIT4, "orderId=123,total=208\n");
+    }
+
+    @Test
+    public void testInitBlockAverageFunction() {
+        String exp = """
+                $init{
+                  $a := ${body}
+                  $b := ${header.foo}
+                  $c := ${header.bar}
+                }init$
+                average: ${average($a,$b,$c)}
+                """;
+
+        exchange.getMessage().setBody(1);
+        exchange.getMessage().setHeader("foo", 2);
+        exchange.getMessage().setHeader("bar", 3);
+
+        Expression expression = context.resolveLanguage("simple").createExpression(exp);
+        String s = expression.evaluate(exchange, String.class);
+        assertEquals("average: 2\n", s);
+    }
+
+    @Test
+    public void testInitBlockAverageVal() {
+        String exp = """
+                $init{
+                  $a := ${val(4)}
+                  $b := ${val(5)}
+                  $c := ${val(6)}
+                }init$
+                average: ${average($a,$b,$c)}
+                """;
+
+        Expression expression = context.resolveLanguage("simple").createExpression(exp);
+        String s = expression.evaluate(exchange, String.class);
+        assertEquals("average: 5\n", s);
     }
 
     @Override

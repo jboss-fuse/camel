@@ -2868,6 +2868,24 @@ public class OriginalSimpleTest extends LanguageTestSupport {
     }
 
     @Test
+    public void testVal() {
+        exchange.getMessage().setBody(123);
+
+        Expression expression = context.resolveLanguage("csimple").createExpression("${val(abc)}");
+        String s = expression.evaluate(exchange, String.class);
+        assertEquals("abc", s);
+
+        expression = context.resolveLanguage("csimple").createExpression("${val(${body})}");
+        s = expression.evaluate(exchange, String.class);
+        assertEquals("123", s);
+
+        expression = context.resolveLanguage("csimple").createExpression("${val(${body})}");
+        Object obj = expression.evaluate(exchange, Object.class);
+        assertIsInstanceOf(Integer.class, obj);
+        assertEquals(123, obj);
+    }
+
+    @Test
     public void testSetHeader() {
         exchange.getMessage().setBody("Hello World");
 

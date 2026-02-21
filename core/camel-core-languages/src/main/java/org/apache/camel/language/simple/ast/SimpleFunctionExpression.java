@@ -1317,6 +1317,19 @@ public class SimpleFunctionExpression extends LiteralExpression {
             return SimpleExpressionBuilder.trimExpression(exp);
         }
 
+        // val function
+        remainder = ifStartsWithReturnRemainder("val(", function);
+        if (remainder != null) {
+            String exp = null;
+            String value = StringHelper.beforeLast(remainder, ")");
+            if (value == null || ObjectHelper.isEmpty(value)) {
+                throw new SimpleParserException(
+                        "Valid syntax: ${val(exp)} was: " + function,
+                        token.getIndex());
+            }
+            return ExpressionBuilder.simpleExpression(value);
+        }
+
         // capitalize
         remainder = ifStartsWithReturnRemainder("capitalize(", function);
         if (remainder != null) {
@@ -3229,6 +3242,21 @@ public class SimpleFunctionExpression extends LiteralExpression {
                 exp = "null";
             }
             return "Object o = " + exp + ";\n        return trim(exchange, o);";
+        }
+
+        // val function
+        remainder = ifStartsWithReturnRemainder("val(", function);
+        if (remainder != null) {
+            String values = StringHelper.beforeLast(remainder, ")");
+            if (values == null || ObjectHelper.isEmpty(values)) {
+                throw new SimpleParserException(
+                        "Valid syntax: ${val(exp)} was: " + function,
+                        token.getIndex());
+            }
+            String s = values;
+            s = StringHelper.removeLeadingAndEndingQuotes(s);
+            s = StringQuoteHelper.doubleQuote(s);
+            return "Object o = " + s + ";\n        return o;";
         }
 
         // isEmpty function

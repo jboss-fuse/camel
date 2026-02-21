@@ -186,6 +186,7 @@ to access Camel functionality and content of the message being routed.
 |`stepId` | `String` | Returns the id of the current step the `Exchange` is being routed. Returns `null` if there are no steps.
 |`throwException(type,msg)` | `Exception` | Deliberately throws an error. Uses `IllegalArgumentException` by default if no type is specified (use fully qualified classname).
 |`type:name.field` | `Object` | To refer to a type or field by its fully qualified classname. For example: `type:org.apache.camel.Exchange.FILE_NAME`.
+|`val(exp)` | `Object` |
 |`variable.key` | `Object` | To look up the variable with the given key.
 |`variable.key._OGNL_` | `Object` | To look up the variable with the given key and then invoke Camel _OGNL syntax_.
 |`variable[key]` | `Object` | *Deprecated* To look up the variable with the given key.
