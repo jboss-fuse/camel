@@ -246,7 +246,7 @@
         <hsqldb-version>2.7.4</hsqldb-version>
         <httpunit-version>1.7</httpunit-version>
         <httpcore-version>5.3.6</httpcore-version>
-        <httpclient-version>5.5.1</httpclient-version>
+        <httpclient-version>5.5.2</httpclient-version>
         <httpcore4-version>4.4.16</httpcore4-version>
         <httpclient4-version>4.5.14</httpclient4-version>
         <httpasyncclient-version>4.1.5</httpasyncclient-version>
@@ -398,8 +398,8 @@
         <maven-wagon-version>3.5.2</maven-wagon-version>
         <maven-war-plugin-version>3.5.1</maven-war-plugin-version>
         <metrics-version>4.2.38</metrics-version>
-        <micrometer-version>1.15.6</micrometer-version>
-        <micrometer-tracing-version>1.5.5</micrometer-tracing-version>
+        <micrometer-version>1.15.9</micrometer-version>
+        <micrometer-tracing-version>1.5.9</micrometer-tracing-version>
         <microprofile-config-version>3.1</microprofile-config-version>
         <milo-version>1.1.1</milo-version>
         <milvus-client-version>2.6.14</milvus-client-version>
@@ -419,7 +419,7 @@
         <narayana-version>5.13.1.Final</narayana-version>
         <neoscada-version>0.4.0</neoscada-version>
         <neo4j-version>6.0.2</neo4j-version>
-        <netty-version>4.1.130.Final</netty-version>
+        <netty-version>4.1.131.Final</netty-version>
         <netty-reactive-streams-version>2.0.5</netty-reactive-streams-version>
         <networknt-json-schema-validator-version>1.5.9</networknt-json-schema-validator-version>
         <nimbus-jose-jwt>10.7</nimbus-jose-jwt>
@@ -507,13 +507,13 @@
         <spring-ai-version>1.1.2</spring-ai-version>
         <spring-cloud-config-version>4.3.0</spring-cloud-config-version>
         <spring-batch-version>5.2.4</spring-batch-version>
-        <spring-boot-version>3.5.10</spring-boot-version>
+        <spring-boot-version>3.5.11</spring-boot-version>
         <spring-data-redis-version>3.5.5</spring-data-redis-version>
         <spring-ldap-version>3.3.5</spring-ldap-version>
         <spring-vault-core-version>3.2.0</spring-vault-core-version>
-        <spring-version>6.2.15</spring-version>
+        <spring-version>6.2.16</spring-version>
         <spring-rabbitmq-version>3.2.8</spring-rabbitmq-version>
-        <spring-security-version>6.5.7</spring-security-version>
+        <spring-security-version>6.5.8</spring-security-version>
         <spring-ws-version>4.1.2</spring-ws-version>
         <sql-maven-plugin-version>3.0.0</sql-maven-plugin-version>
         <squareup-okhttp-version>3.14.9</squareup-okhttp-version>
