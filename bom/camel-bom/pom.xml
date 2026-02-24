@@ -1765,7 +1765,7 @@
       <dependency>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-openai</artifactId>
-        <version>4.18.0</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.camel</groupId>

@@ -128,6 +128,7 @@ camel-observability-services
 camel-olingo4
 camel-olingo4-api
 camel-olingo4-component
+camel-openai
 camel-openapi-java
 camel-opensearch
 camel-opentelemetry

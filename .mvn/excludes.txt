@@ -3,7 +3,6 @@
 :bundles-pom
 :camel-activemq
 :camel-activemq6
-:camel-ai-parent
 :camel-arangodb
 :camel-archetype-api-component
 :camel-archetype-component
@@ -227,7 +226,6 @@
 :camel-olingo2-api
 :camel-olingo2-parent
 :camel-once
-:camel-openai
 :camel-openapi-validator
 :camel-openstack
 :camel-opentelemetry-metrics
