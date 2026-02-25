@@ -61,6 +61,7 @@ public class HttpEndpointUriFactory extends org.apache.camel.support.component.E
         props.add("maxTotalConnections");
         props.add("multipartUpload");
         props.add("multipartUploadName");
+        props.add("nonProxyHosts");
         props.add("oauth2BodyAuthentication");
         props.add("oauth2CacheTokens");
         props.add("oauth2CachedTokensDefaultExpirySeconds");
