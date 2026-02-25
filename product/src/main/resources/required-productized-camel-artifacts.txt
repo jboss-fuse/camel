@@ -49,6 +49,7 @@ camel-dataset
 camel-debug
 camel-dependencies-generator
 camel-direct
+camel-docling
 camel-dsl-support
 camel-elasticsearch
 camel-elasticsearch-rest-client
@@ -56,6 +57,7 @@ camel-endpointdsl
 camel-endpointdsl-support
 camel-fhir
 camel-file
+camel-file-watch
 camel-flink
 camel-ftp
 camel-google-bigquery
@@ -116,6 +118,8 @@ camel-microprofile-config
 camel-microprofile-fault-tolerance
 camel-microprofile-health
 camel-microprofile-metrics
+camel-milvus
+camel-mina-sftp
 camel-minio
 camel-mllp
 camel-mock
@@ -137,6 +141,7 @@ camel-paho
 camel-paho-mqtt5
 camel-platform-http
 camel-platform-http-vertx
+camel-qdrant
 camel-quartz
 camel-ref
 camel-resilience4j

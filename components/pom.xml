@@ -135,7 +135,7 @@
         <!-- <module>camel-exec</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-fastjson</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-fhir</module>
-        <!-- <module>camel-file-watch</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-file-watch</module>
         <!-- <module>camel-flatpack</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-flink</module>
         <!-- <module>camel-flowable</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
@@ -353,7 +353,7 @@
         <!-- <module>camel-jooq</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- observability-services requires the availability of other components -->
         <module>camel-observability-services</module>
-        <!-- <module>camel-mina-sftp</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-mina-sftp</module>
     </modules>
 
     <properties>
