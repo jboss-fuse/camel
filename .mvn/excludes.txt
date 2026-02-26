@@ -364,6 +364,7 @@
 :camel-wal
 :camel-wasm
 :camel-weather
+:camel-weaviate
 :camel-web3j
 :camel-whatsapp
 :camel-wordpress
