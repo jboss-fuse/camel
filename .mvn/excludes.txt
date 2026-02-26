@@ -102,7 +102,6 @@
 :camel-djl
 :camel-dns
 :camel-docker
-:camel-docling
 :camel-drill
 :camel-dropbox
 :camel-dynamic-router
@@ -112,7 +111,6 @@
 :camel-etc
 :camel-exec
 :camel-fastjson
-:camel-file-watch
 :camel-flatpack
 :camel-flowable
 :camel-fop
@@ -209,9 +207,7 @@
 :camel-metrics
 :camel-micrometer-observability
 :camel-milo
-:camel-milvus
 :camel-mina
-:camel-mina-sftp
 :camel-mongodb-gridfs
 :camel-mustache
 :camel-mvel
@@ -243,7 +239,6 @@
 :camel-pubnub
 :camel-pulsar
 :camel-python
-:camel-qdrant
 :camel-quickfix
 :camel-reactive-executor-tomcat
 :camel-reactive-executor-vertx
