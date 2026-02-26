@@ -210,6 +210,12 @@ public class YamlWriter extends ServiceSupport implements CamelContextAware {
                 } else if ("choice".equals(parent.getName())) {
                     // special for choice/doCatch/doFinally
                     setMetadata(parent, name, last);
+                } else if ("setHeaders".equals(parent.getName())) {
+                    // special for setHeaders
+                    setMetadata(parent, "headers", last);
+                } else if ("setVariables".equals(parent.getName())) {
+                    // special for setVariables
+                    setMetadata(parent, "variables", last);
                 } else if (parent.isOutput()) {
                     List<EipModel> list = (List<EipModel>) parent.getMetadata().get("_output");
                     if (list == null) {
@@ -316,6 +322,16 @@ public class YamlWriter extends ServiceSupport implements CamelContextAware {
                 EipModel m = (EipModel) entry.getValue();
                 node.setInput(asNode(m));
             } else if ("_output".equals(key)) {
+                List<EipModel> list = (List) entry.getValue();
+                for (EipModel m : list) {
+                    node.addOutput(asNode(m));
+                }
+            } else if ("setHeaders".equals(node.getName()) && "headers".equals(key)) {
+                List<EipModel> list = (List) entry.getValue();
+                for (EipModel m : list) {
+                    node.addOutput(asNode(m));
+                }
+            } else if ("setVariables".equals(node.getName()) && "variables".equals(key)) {
                 List<EipModel> list = (List) entry.getValue();
                 for (EipModel m : list) {
                     node.addOutput(asNode(m));

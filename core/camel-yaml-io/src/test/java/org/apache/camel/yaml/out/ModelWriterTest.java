@@ -33,6 +33,10 @@ import org.apache.camel.model.ModelCamelContext;
 import org.apache.camel.model.RouteDefinition;
 import org.apache.camel.model.RoutesDefinition;
 import org.apache.camel.model.SetBodyDefinition;
+import org.apache.camel.model.SetHeaderDefinition;
+import org.apache.camel.model.SetHeadersDefinition;
+import org.apache.camel.model.SetVariableDefinition;
+import org.apache.camel.model.SetVariablesDefinition;
 import org.apache.camel.model.SplitDefinition;
 import org.apache.camel.model.ToDefinition;
 import org.apache.camel.model.dataformat.CsvDataFormat;
@@ -324,6 +328,48 @@ public class ModelWriterTest {
 
         String out = sw.toString();
         String expected = stripLineComments(Paths.get("src/test/resources/route10.yaml"), "#", true);
+        Assertions.assertEquals(expected, out);
+    }
+
+    @Test
+    public void testSetHeaders() throws Exception {
+        StringWriter sw = new StringWriter();
+        ModelWriter writer = new ModelWriter(sw);
+
+        RouteDefinition route = new RouteDefinition();
+        route.setId("myRout12");
+        route.setInput(new FromDefinition("timer:foo"));
+        SetHeadersDefinition sh = new SetHeadersDefinition();
+        sh.getHeaders().add(new SetHeaderDefinition("foo", new ConstantExpression("hello world")));
+        sh.getHeaders().add(new SetHeaderDefinition("bar", new SimpleExpression("bye ${body}")));
+        route.addOutput(sh);
+        route.addOutput(new LogDefinition("${body}"));
+
+        writer.writeRouteDefinition(route);
+
+        String out = sw.toString();
+        String expected = stripLineComments(Paths.get("src/test/resources/route12.yaml"), "#", true);
+        Assertions.assertEquals(expected, out);
+    }
+
+    @Test
+    public void testSetVariables() throws Exception {
+        StringWriter sw = new StringWriter();
+        ModelWriter writer = new ModelWriter(sw);
+
+        RouteDefinition route = new RouteDefinition();
+        route.setId("myRout13");
+        route.setInput(new FromDefinition("timer:foo"));
+        SetVariablesDefinition sv = new SetVariablesDefinition();
+        sv.getVariables().add(new SetVariableDefinition("foo", new ConstantExpression("hello2 world")));
+        sv.getVariables().add(new SetVariableDefinition("bar", new SimpleExpression("bye2 ${body}")));
+        route.addOutput(sv);
+        route.addOutput(new LogDefinition("${body}"));
+
+        writer.writeRouteDefinition(route);
+
+        String out = sw.toString();
+        String expected = stripLineComments(Paths.get("src/test/resources/route13.yaml"), "#", true);
         Assertions.assertEquals(expected, out);
     }
 
