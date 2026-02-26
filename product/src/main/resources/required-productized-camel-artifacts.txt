@@ -184,7 +184,6 @@ camel-velocity
 camel-vertx-common
 camel-vertx-http
 camel-vertx-websocket
-camel-weaviate
 camel-webhook
 camel-xj
 camel-xml-io
