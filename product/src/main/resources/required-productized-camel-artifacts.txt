@@ -175,6 +175,7 @@ camel-ssh
 camel-stub
 camel-support
 camel-telegram
+camel-test-junit6
 camel-test-spring-junit5
 camel-timer
 camel-undertow-spring-security
@@ -183,6 +184,7 @@ camel-velocity
 camel-vertx-common
 camel-vertx-http
 camel-vertx-websocket
+camel-weaviate
 camel-webhook
 camel-xj
 camel-xml-io

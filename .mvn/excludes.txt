@@ -349,7 +349,6 @@
 :camel-test-infra-weaviate
 :camel-test-infra-xmpp
 :camel-test-infra-zookeeper
-:camel-test-junit6
 :camel-test-main-junit5
 :camel-test-main-junit6
 :camel-test-spring-junit6
@@ -366,7 +365,6 @@
 :camel-wal
 :camel-wasm
 :camel-weather
-:camel-weaviate
 :camel-web3j
 :camel-whatsapp
 :camel-wordpress
