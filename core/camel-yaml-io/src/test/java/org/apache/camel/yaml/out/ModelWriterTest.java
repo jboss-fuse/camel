@@ -30,6 +30,7 @@ import org.apache.camel.model.FromDefinition;
 import org.apache.camel.model.LogDefinition;
 import org.apache.camel.model.MarshalDefinition;
 import org.apache.camel.model.ModelCamelContext;
+import org.apache.camel.model.ResequenceDefinition;
 import org.apache.camel.model.RouteDefinition;
 import org.apache.camel.model.RoutesDefinition;
 import org.apache.camel.model.SetBodyDefinition;
@@ -370,6 +371,48 @@ public class ModelWriterTest {
 
         String out = sw.toString();
         String expected = stripLineComments(Paths.get("src/test/resources/route13.yaml"), "#", true);
+        Assertions.assertEquals(expected, out);
+    }
+
+    @Test
+    public void testResequenceBatch() throws Exception {
+        StringWriter sw = new StringWriter();
+        ModelWriter writer = new ModelWriter(sw);
+
+        RouteDefinition route = new RouteDefinition();
+        route.setId("myRout14");
+        route.setInput(new FromDefinition("timer:foo"));
+        ResequenceDefinition rd = new ResequenceDefinition(new SimpleExpression("${body}"));
+        rd.batch().size(300).timeout("4000");
+        route.addOutput(rd);
+        rd.addOutput(new ToDefinition("mock:result"));
+        route.addOutput(new LogDefinition("${body}"));
+
+        writer.writeRouteDefinition(route);
+
+        String out = sw.toString();
+        String expected = stripLineComments(Paths.get("src/test/resources/route14.yaml"), "#", true);
+        Assertions.assertEquals(expected, out);
+    }
+
+    @Test
+    public void testResequenceStream() throws Exception {
+        StringWriter sw = new StringWriter();
+        ModelWriter writer = new ModelWriter(sw);
+
+        RouteDefinition route = new RouteDefinition();
+        route.setId("myRout15");
+        route.setInput(new FromDefinition("timer:foo"));
+        ResequenceDefinition rd = new ResequenceDefinition(new SimpleExpression("${body}"));
+        rd.stream().capacity(123).timeout("4000").rejectOld();
+        route.addOutput(rd);
+        rd.addOutput(new ToDefinition("mock:result"));
+        route.addOutput(new LogDefinition("${body}"));
+
+        writer.writeRouteDefinition(route);
+
+        String out = sw.toString();
+        String expected = stripLineComments(Paths.get("src/test/resources/route15.yaml"), "#", true);
         Assertions.assertEquals(expected, out);
     }
 

@@ -216,6 +216,10 @@ public class YamlWriter extends ServiceSupport implements CamelContextAware {
                 } else if ("setVariables".equals(parent.getName())) {
                     // special for setVariables
                     setMetadata(parent, "variables", last);
+                } else if ("resequence".equals(parent.getName())
+                        && ("batchConfig".equals(name) || "streamConfig".equals(name))) {
+                    // special for resequence
+                    setMetadata(parent, "resequenceConfig", last);
                 } else if (parent.isOutput()) {
                     List<EipModel> list = (List<EipModel>) parent.getMetadata().get("_output");
                     if (list == null) {
@@ -335,6 +339,19 @@ public class YamlWriter extends ServiceSupport implements CamelContextAware {
                 List<EipModel> list = (List) entry.getValue();
                 for (EipModel m : list) {
                     node.addOutput(asNode(m));
+                }
+            } else if ("resequence".equals(node.getName()) && "resequenceConfig".equals(key)) {
+                EipModel config = (EipModel) entry.getValue();
+                JsonObject jo = new JsonObject();
+                for (var o : config.getOptions()) {
+                    String n = o.getName();
+                    Object v = config.getMetadata().get(n);
+                    if (v != null) {
+                        jo.put(n, v);
+                    }
+                }
+                if (!jo.isEmpty()) {
+                    node.addProperty(config.getName(), jo);
                 }
             } else if ("choice".equals(node.getName()) && "otherwise".equals(key)) {
                 EipModel other = (EipModel) entry.getValue();
