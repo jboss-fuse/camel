@@ -75,7 +75,7 @@ public class NatsConfiguration implements Cloneable {
     private boolean replyToDisabled;
     @UriParam(label = "consumer")
     private String maxMessages;
-    @UriParam(label = "consumer", defaultValue = "explicit", enums = "none,all,explicit")
+    @UriParam(label = "consumer", defaultValue = "Explicit", enums = "None,All,Explicit")
     private AckPolicy ackPolicy;
     @UriParam(label = "consumer", defaultValue = "30000")
     private long ackWait = 30000;

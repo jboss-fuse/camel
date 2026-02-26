@@ -519,7 +519,7 @@ public interface NatsEndpointBuilderFactory {
          * 
          * The option is a: <code>io.nats.client.api.AckPolicy</code> type.
          * 
-         * Default: explicit
+         * Default: Explicit
          * Group: consumer
          * 
          * @param ackPolicy the value to set
@@ -545,7 +545,7 @@ public interface NatsEndpointBuilderFactory {
          * The option will be converted to a
          * <code>io.nats.client.api.AckPolicy</code> type.
          * 
-         * Default: explicit
+         * Default: Explicit
          * Group: consumer
          * 
          * @param ackPolicy the value to set

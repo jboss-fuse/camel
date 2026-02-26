@@ -62,7 +62,7 @@ public class NatsJetstreamConsumerMaxDeliverIT extends NatsITSupport {
             @Override
             public void configure() {
                 String uri
-                        = "nats:mytopic2?jetstreamEnabled=true&jetstreamName=mystream2&jetstreamAsync=false&durableName=camel2&pullSubscription=false&ackPolicy=explicit&nackWait=10&maxDeliver=3";
+                        = "nats:mytopic2?jetstreamEnabled=true&jetstreamName=mystream2&jetstreamAsync=false&durableName=camel2&pullSubscription=false&nackWait=10&maxDeliver=3";
 
                 from("direct:send")
                         // when running full test suite then send can fail due to nats server setup/teardown

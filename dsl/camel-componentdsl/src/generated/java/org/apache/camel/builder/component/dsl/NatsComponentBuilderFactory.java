@@ -358,7 +358,7 @@ public interface NatsComponentBuilderFactory {
          * The option is a:
          * &lt;code&gt;io.nats.client.api.AckPolicy&lt;/code&gt; type.
          * 
-         * Default: explicit
+         * Default: Explicit
          * Group: consumer
          * 
          * @param ackPolicy the value to set
