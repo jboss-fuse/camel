@@ -1712,21 +1712,16 @@ public class ModelWriter extends BaseWriter {
         doWriteExpressionNodeElements(def);
         endElement(name);
     }
-    protected void doWriteSagaActionUriDefinition(String name, SagaActionUriDefinition def) throws IOException {
-        startElement(name);
-        doWriteSendDefinitionAttributes(def);
-        endElement(name);
-    }
     protected void doWriteSagaDefinition(String name, SagaDefinition def) throws IOException {
         startElement(name);
         doWriteProcessorDefinitionAttributes(def);
+        doWriteAttribute("completion", def.getCompletion(), null);
         doWriteAttribute("propagation", def.getPropagation(), "REQUIRED");
+        doWriteAttribute("compensation", def.getCompensation(), null);
         doWriteAttribute("completionMode", def.getCompletionMode(), "AUTO");
         doWriteAttribute("sagaService", def.getSagaService(), null);
         doWriteAttribute("timeout", def.getTimeout(), null);
-        doWriteElement("completion", def.getCompletion(), this::doWriteSagaActionUriDefinition);
         doWriteList(null, "option", def.getOptions(), this::doWritePropertyExpressionDefinition);
-        doWriteElement("compensation", def.getCompensation(), this::doWriteSagaActionUriDefinition);
         doWriteList(null, null, def.getOutputs(), this::doWriteProcessorDefinitionRef);
         endElement(name);
     }

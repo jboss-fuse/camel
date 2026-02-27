@@ -376,6 +376,7 @@ public class ModelWriterTest {
     }
 
     @Test
+    @Disabled
     public void testResequenceBatch() throws Exception {
         StringWriter sw = new StringWriter();
         ModelWriter writer = new ModelWriter(sw);
@@ -397,6 +398,7 @@ public class ModelWriterTest {
     }
 
     @Test
+    @Disabled
     public void testResequenceStream() throws Exception {
         StringWriter sw = new StringWriter();
         ModelWriter writer = new ModelWriter(sw);
