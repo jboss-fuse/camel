@@ -510,38 +510,6 @@ public interface CoAPEndpointBuilderFactory {
             doSetProperty("exchangePattern", exchangePattern);
             return this;
         }
-        /**
-         * To use a custom HeaderFilterStrategy to filter header to and from
-         * Camel message.
-         * 
-         * The option is a:
-         * <code>org.apache.camel.spi.HeaderFilterStrategy</code> type.
-         * 
-         * Group: advanced
-         * 
-         * @param headerFilterStrategy the value to set
-         * @return the dsl builder
-         */
-        default AdvancedCoAPEndpointConsumerBuilder headerFilterStrategy(org.apache.camel.spi.HeaderFilterStrategy headerFilterStrategy) {
-            doSetProperty("headerFilterStrategy", headerFilterStrategy);
-            return this;
-        }
-        /**
-         * To use a custom HeaderFilterStrategy to filter header to and from
-         * Camel message.
-         * 
-         * The option will be converted to a
-         * <code>org.apache.camel.spi.HeaderFilterStrategy</code> type.
-         * 
-         * Group: advanced
-         * 
-         * @param headerFilterStrategy the value to set
-         * @return the dsl builder
-         */
-        default AdvancedCoAPEndpointConsumerBuilder headerFilterStrategy(String headerFilterStrategy) {
-            doSetProperty("headerFilterStrategy", headerFilterStrategy);
-            return this;
-        }
     }
 
     /**
@@ -937,38 +905,6 @@ public interface CoAPEndpointBuilderFactory {
             doSetProperty("lazyStartProducer", lazyStartProducer);
             return this;
         }
-        /**
-         * To use a custom HeaderFilterStrategy to filter header to and from
-         * Camel message.
-         * 
-         * The option is a:
-         * <code>org.apache.camel.spi.HeaderFilterStrategy</code> type.
-         * 
-         * Group: advanced
-         * 
-         * @param headerFilterStrategy the value to set
-         * @return the dsl builder
-         */
-        default AdvancedCoAPEndpointProducerBuilder headerFilterStrategy(org.apache.camel.spi.HeaderFilterStrategy headerFilterStrategy) {
-            doSetProperty("headerFilterStrategy", headerFilterStrategy);
-            return this;
-        }
-        /**
-         * To use a custom HeaderFilterStrategy to filter header to and from
-         * Camel message.
-         * 
-         * The option will be converted to a
-         * <code>org.apache.camel.spi.HeaderFilterStrategy</code> type.
-         * 
-         * Group: advanced
-         * 
-         * @param headerFilterStrategy the value to set
-         * @return the dsl builder
-         */
-        default AdvancedCoAPEndpointProducerBuilder headerFilterStrategy(String headerFilterStrategy) {
-            doSetProperty("headerFilterStrategy", headerFilterStrategy);
-            return this;
-        }
     }
 
     /**
@@ -1258,38 +1194,6 @@ public interface CoAPEndpointBuilderFactory {
             return (CoAPEndpointBuilder) this;
         }
 
-        /**
-         * To use a custom HeaderFilterStrategy to filter header to and from
-         * Camel message.
-         * 
-         * The option is a:
-         * <code>org.apache.camel.spi.HeaderFilterStrategy</code> type.
-         * 
-         * Group: advanced
-         * 
-         * @param headerFilterStrategy the value to set
-         * @return the dsl builder
-         */
-        default AdvancedCoAPEndpointBuilder headerFilterStrategy(org.apache.camel.spi.HeaderFilterStrategy headerFilterStrategy) {
-            doSetProperty("headerFilterStrategy", headerFilterStrategy);
-            return this;
-        }
-        /**
-         * To use a custom HeaderFilterStrategy to filter header to and from
-         * Camel message.
-         * 
-         * The option will be converted to a
-         * <code>org.apache.camel.spi.HeaderFilterStrategy</code> type.
-         * 
-         * Group: advanced
-         * 
-         * @param headerFilterStrategy the value to set
-         * @return the dsl builder
-         */
-        default AdvancedCoAPEndpointBuilder headerFilterStrategy(String headerFilterStrategy) {
-            doSetProperty("headerFilterStrategy", headerFilterStrategy);
-            return this;
-        }
     }
 
     public interface CoAPBuilders {

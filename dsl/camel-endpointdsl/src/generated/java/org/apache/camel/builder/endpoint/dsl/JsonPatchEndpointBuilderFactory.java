@@ -221,7 +221,6 @@ public interface JsonPatchEndpointBuilderFactory {
          * 
          * @return the dsl builder for the headers' name.
          */
-        @Deprecated
         default JsonPatchHeaderNameBuilder jsonPatch() {
             return JsonPatchHeaderNameBuilder.INSTANCE;
         }
@@ -248,7 +247,6 @@ public interface JsonPatchEndpointBuilderFactory {
          * @param path resourceUri
          * @return the dsl builder
          */
-        @Deprecated
         default JsonPatchEndpointBuilder jsonPatch(String path) {
             return JsonPatchEndpointBuilderFactory.endpointBuilder("json-patch", path);
         }
@@ -277,7 +275,6 @@ public interface JsonPatchEndpointBuilderFactory {
          * @param path resourceUri
          * @return the dsl builder
          */
-        @Deprecated
         default JsonPatchEndpointBuilder jsonPatch(String componentName, String path) {
             return JsonPatchEndpointBuilderFactory.endpointBuilder(componentName, path);
         }
