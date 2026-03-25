@@ -324,7 +324,7 @@ When using local or third-party providers, ensure they support the chat completi
 |===
 | Provider | Recommended Model | Dimensions
 
-| IBM | `???` | `???`
+| IBM Granite | `???` | `???`
 |===
 
 .Example using IBM Granite for local embeddings:
