@@ -297,12 +297,19 @@ from("direct:with-history")
 
 == Compatibility
 
-This component works with any OpenAI API-compatible endpoint by setting the `baseUrl` parameter. This includes:
+This component works with any OpenAI API-compatible endpoint by setting the `baseUrl` parameter.
+
+Supported endpoints:
+
+- link:https://docs.redhat.com/en/documentation/red_hat_ai_inference_server/[RedHat Inference Server]
+
+Other possible endpoints (these may require additional configuration, and are not tested by RedHat):
 
 - OpenAI official API (`https://api.openai.com/v1`)
-- Azure OpenAI (may require additional configuration)
-- Local LLM servers (e.g., Ollama, LM Studio, LocalAI)
+- Azure OpenAI
+- Local LLM servers (For example, Ollama, LM Studio, LocalAI)
 - Third-party OpenAI-compatible providers
+
 
 [NOTE]
 ====
@@ -310,6 +317,23 @@ When using local or third-party providers, ensure they support the chat completi
 ====
 
 === Embedding Models by Provider
+
+==== Supported
+
+[cols="1,2,1"]
+|===
+| Provider | Recommended Model | Dimensions
+
+| Red Hat AI Inference Server | `???` | `???`
+|===
+
+.Example using Red Hat AI Inference Server for local embeddings:
+[source,yaml]
+----
+???
+----
+
+==== Other available providers
 
 [cols="1,2,1"]
 |===
