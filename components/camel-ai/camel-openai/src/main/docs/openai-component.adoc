@@ -324,10 +324,10 @@ When using local or third-party providers, ensure they support the chat completi
 |===
 | Provider | Recommended Model | Dimensions
 
-| Red Hat AI Inference Server | `???` | `???`
+| IBM | `???` | `???`
 |===
 
-.Example using Red Hat AI Inference Server for local embeddings:
+.Example using IBM Granite for local embeddings:
 [source,yaml]
 ----
 ???
