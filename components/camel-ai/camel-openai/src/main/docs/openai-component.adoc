@@ -306,7 +306,6 @@ Supported endpoints:
 Other possible endpoints (these may require additional configuration, and are not tested by RedHat):
 
 - OpenAI official API (`https://api.openai.com/v1`)
-- Azure OpenAI
 - Local LLM servers (For example, Ollama, LM Studio, LocalAI)
 - Third-party OpenAI-compatible providers
 
@@ -344,7 +343,6 @@ When using local or third-party providers, ensure they support the chat completi
 | Ollama | `nomic-embed-text` | 768
 | Ollama | `mxbai-embed-large` | 1024
 | Mistral | `mistral-embed` | 1024
-| Azure OpenAI | `text-embedding-ada-002` | 1536
 |===
 
 .Example using Ollama for local embeddings:
