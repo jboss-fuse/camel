@@ -476,11 +476,11 @@ public interface QdrantEndpointBuilderFactory {
         }
         /**
          * The maximum number of results to return from a similarity search.
-         *
+         * 
          * The option is a: {@code int} type.
-         *
+         * 
          * Group: producer
-         *
+         * 
          * @return the name of the header {@code QdrantMaxResults}.
          */
         public String qdrantMaxResults() {
