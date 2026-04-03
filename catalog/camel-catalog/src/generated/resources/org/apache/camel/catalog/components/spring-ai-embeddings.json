@@ -11,7 +11,7 @@
     "supportLevel": "Preview",
     "groupId": "org.apache.camel",
     "artifactId": "camel-spring-ai-embeddings",
-    "version": "4.18.0",
+    "version": "4.18.1",
     "scheme": "spring-ai-embeddings",
     "extendsScheme": "",
     "syntax": "spring-ai-embeddings:embeddingId",
