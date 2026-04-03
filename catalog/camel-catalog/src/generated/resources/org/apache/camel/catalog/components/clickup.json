@@ -11,7 +11,7 @@
     "supportLevel": "Preview",
     "groupId": "org.apache.camel",
     "artifactId": "camel-clickup",
-    "version": "4.18.0",
+    "version": "4.18.1",
     "scheme": "clickup",
     "extendsScheme": "",
     "syntax": "clickup:workspaceId",
