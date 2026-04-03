@@ -21,6 +21,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.PublicKey;
+import java.util.List;
 
 import org.apache.camel.BindToRegistry;
 import org.apache.camel.Exchange;
@@ -28,9 +29,12 @@ import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.file.remote.BaseServerTestSupport;
 import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.test.infra.ftp.services.embedded.SftpEmbeddedService;
+import org.apache.sshd.common.NamedFactory;
 import org.apache.sshd.common.config.keys.KeyUtils;
 import org.apache.sshd.common.config.keys.OpenSshCertificate;
 import org.apache.sshd.common.config.keys.PublicKeyEntry;
+import org.apache.sshd.common.signature.BuiltinSignatures;
+import org.apache.sshd.common.signature.Signature;
 import org.apache.sshd.server.auth.pubkey.PublickeyAuthenticator;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.DisabledOnOs;
@@ -68,6 +72,18 @@ public class SftpCertUserAuthIT extends BaseServerTestSupport {
         @Override
         protected PublickeyAuthenticator getPublickeyAuthenticator() {
             return createCaAwareAuthenticator();
+        }
+
+        @Override
+        public void setUpServer() throws Exception {
+            super.setUpServer();
+            // Add rsa_cert and rsaSHA256_cert signature factories so the embedded server
+            // can verify ssh-rsa-cert-v01@openssh.com certificates sent by JSch.
+            // These are missing from the community test-infra jar (added by CAMEL-23277).
+            List<NamedFactory<Signature>> factories = sshd.getSignatureFactories();
+            factories.add(BuiltinSignatures.rsa_cert);
+            factories.add(BuiltinSignatures.rsaSHA256_cert);
+            sshd.setSignatureFactories(factories);
         }
     };
 
