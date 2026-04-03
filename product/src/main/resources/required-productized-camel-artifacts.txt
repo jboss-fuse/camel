@@ -175,8 +175,10 @@ camel-ssh
 camel-stub
 camel-support
 camel-telegram
+camel-test-junit5
 camel-test-junit6
 camel-test-spring-junit5
+camel-test-spring-junit6
 camel-timer
 camel-undertow-spring-security
 camel-validator

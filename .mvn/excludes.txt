@@ -351,7 +351,6 @@
 :camel-test-infra-zookeeper
 :camel-test-main-junit5
 :camel-test-main-junit6
-:camel-test-spring-junit6
 :camel-threadpoolfactory-vertx
 :camel-thrift
 :camel-thymeleaf
