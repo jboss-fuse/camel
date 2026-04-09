@@ -59,7 +59,7 @@
         <!-- dependency versions -->
         <activemq-version>5.19.2</activemq-version>
         <activemq6-version>6.2.1</activemq6-version>
-        <activemq-artemis-version>2.40.0.redhat-00009</activemq-artemis-version>
+        <activemq-artemis-version>2.53.0.redhat-00003</activemq-artemis-version>
         <allegro-converter-version>0.3.0</allegro-converter-version>
         <amazon-kinesis-client-version>2.6.0</amazon-kinesis-client-version>
         <angus-mail-version>2.0.5</angus-mail-version>
