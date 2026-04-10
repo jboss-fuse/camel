@@ -16,10 +16,14 @@
  */
 package org.apache.camel.telemetry.decorators;
 
+import java.util.Map;
+
 import org.apache.camel.Endpoint;
 import org.apache.camel.Exchange;
 import org.apache.camel.telemetry.Span;
+import org.apache.camel.telemetry.SpanContextPropagationExtractor;
 import org.apache.camel.telemetry.TagConstants;
+import org.apache.camel.telemetry.propagation.CamelMessagingHeadersSpanContextPropagationExtractor;
 
 public abstract class AbstractMessagingSpanDecorator extends AbstractSpanDecorator {
 
@@ -38,6 +42,22 @@ public abstract class AbstractMessagingSpanDecorator extends AbstractSpanDecorat
         if (messageId != null) {
             span.setTag(TagConstants.MESSAGE_ID, messageId);
         }
+    }
+
+    @Override
+    public SpanContextPropagationExtractor getExtractor(Exchange exchange) {
+        return new CamelMessagingHeadersSpanContextPropagationExtractor(processHeaders(exchange.getIn().getHeaders()));
+    }
+
+    /**
+     * Hook for subclasses to transform headers before span context extraction. For example, JMS needs to decode
+     * dash-encoded header keys ({@code __dash__} back to {@code -}).
+     *
+     * @param  headers the raw exchange headers
+     * @return         the processed headers (default: unchanged)
+     */
+    protected Map<String, Object> processHeaders(Map<String, Object> headers) {
+        return headers;
     }
 
     /**

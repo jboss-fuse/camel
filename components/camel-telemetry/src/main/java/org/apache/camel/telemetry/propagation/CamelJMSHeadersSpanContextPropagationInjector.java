@@ -27,7 +27,7 @@ public final class CamelJMSHeadersSpanContextPropagationInjector implements Span
     // This means that any header names that contain illegal characters ("-", for
     // example) should be handled correctly,
     // Opentracing java-jms does it as follows.
-    static final String JMS_DASH = "__dash__";
+    public static final String JMS_DASH = "__dash__";
     private final Map<String, Object> map;
 
     public CamelJMSHeadersSpanContextPropagationInjector(final Map<String, Object> map) {

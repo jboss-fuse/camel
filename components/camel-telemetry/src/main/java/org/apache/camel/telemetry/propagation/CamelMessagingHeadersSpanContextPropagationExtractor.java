@@ -24,16 +24,22 @@ import java.util.Set;
 import org.apache.camel.telemetry.SpanContextPropagationExtractor;
 import org.apache.camel.util.CaseInsensitiveMap;
 
-public final class CamelJMSHeadersSpanContextPropagationExtractor implements SpanContextPropagationExtractor {
+/**
+ * Messaging-aware span context propagation extractor that handles both String and byte[] header values. Many messaging
+ * transports (Kafka, AMQP, JMS via SJMS, STOMP, Azure Service Bus, etc.) may deliver headers as raw byte arrays, so
+ * trace context headers like {@code traceparent} need to be converted from byte[] to String for the W3C propagator to
+ * extract them.
+ */
+public final class CamelMessagingHeadersSpanContextPropagationExtractor implements SpanContextPropagationExtractor {
 
     private final Map<String, Object> map = new CaseInsensitiveMap();
 
-    public CamelJMSHeadersSpanContextPropagationExtractor(final Map<String, Object> map) {
+    public CamelMessagingHeadersSpanContextPropagationExtractor(final Map<String, Object> map) {
         map.entrySet().stream().filter(e -> e.getValue() instanceof String || e.getValue() instanceof byte[]).forEach(e -> {
             if (e.getValue() instanceof byte[] bytes) {
-                this.map.put(decodeDash(e.getKey()), new String(bytes, StandardCharsets.UTF_8));
+                this.map.put(e.getKey(), new String(bytes, StandardCharsets.UTF_8));
             } else {
-                this.map.put(decodeDash(e.getKey()), e.getValue());
+                this.map.put(e.getKey(), e.getValue());
             }
         });
     }
@@ -51,17 +57,5 @@ public final class CamelJMSHeadersSpanContextPropagationExtractor implements Spa
     @Override
     public Set<String> keys() {
         return map.keySet();
-    }
-
-    /**
-     * Decode dashes (encoded in {@link CamelJMSHeadersSpanContextPropagationInjector} Dash encoding and decoding is
-     * required by JMS. This is implemented here rather than specifically to JMS so that other Camel messaging endpoints
-     * can take part in traces where the peer is using JMS.
-     */
-    private String decodeDash(String key) {
-        if (key != null) {
-            return key.replace(CamelJMSHeadersSpanContextPropagationInjector.JMS_DASH, "-");
-        }
-        return key;
     }
 }

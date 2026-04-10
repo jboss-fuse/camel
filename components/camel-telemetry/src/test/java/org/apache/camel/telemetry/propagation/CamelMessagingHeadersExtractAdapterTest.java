@@ -17,57 +17,60 @@
 package org.apache.camel.telemetry.propagation;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
+import org.apache.camel.Exchange;
+import org.apache.camel.Message;
 import org.apache.camel.telemetry.SpanContextPropagationExtractor;
-import org.junit.jupiter.api.BeforeEach;
+import org.apache.camel.telemetry.decorators.JmsSpanDecorator;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import static org.apache.camel.telemetry.propagation.CamelJMSHeadersSpanContextPropagationInjector.JMS_DASH;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 
+/**
+ * Tests that JMS dash-encoded header keys are properly decoded when extracting span context via JmsSpanDecorator.
+ */
 public class CamelMessagingHeadersExtractAdapterTest {
 
-    private Map<String, Object> map;
-
-    @BeforeEach
-    public void before() {
-        map = new HashMap<>();
-    }
-
-    @Test
-    public void noProperties() {
-        SpanContextPropagationExtractor adapter = new CamelJMSHeadersSpanContextPropagationExtractor(map);
-        Iterator<Map.Entry<String, Object>> iterator = adapter.iterator();
-        assertFalse(iterator.hasNext());
-    }
-
-    @Test
-    public void oneProperty() {
-        map.put("key", "value");
-        SpanContextPropagationExtractor adapter = new CamelJMSHeadersSpanContextPropagationExtractor(map);
-        Iterator<Map.Entry<String, Object>> iterator = adapter.iterator();
-        Map.Entry<String, Object> entry = iterator.next();
-        assertEquals("key", entry.getKey());
-        assertEquals("value", entry.getValue());
+    private SpanContextPropagationExtractor createJmsExtractor(Map<String, Object> headers) {
+        Exchange exchange = Mockito.mock(Exchange.class);
+        Message message = Mockito.mock(Message.class);
+        Mockito.when(exchange.getIn()).thenReturn(message);
+        Mockito.when(message.getHeaders()).thenReturn(headers);
+        return new JmsSpanDecorator().getExtractor(exchange);
     }
 
     @Test
     public void propertyWithDash() {
+        Map<String, Object> map = new HashMap<>();
         map.put(JMS_DASH + "key" + JMS_DASH + "1" + JMS_DASH, "value1");
-        SpanContextPropagationExtractor adapter = new CamelJMSHeadersSpanContextPropagationExtractor(map);
-        Iterator<Map.Entry<String, Object>> iterator = adapter.iterator();
-        Map.Entry<String, Object> entry = iterator.next();
-        assertEquals("-key-1-", entry.getKey());
-        assertEquals("value1", entry.getValue());
+        SpanContextPropagationExtractor adapter = createJmsExtractor(map);
+        assertEquals("value1", adapter.get("-key-1-"));
+    }
+
+    @Test
+    public void traceparentWithEncodedDashes() {
+        Map<String, Object> map = new HashMap<>();
+        map.put("traceparent", "00-abc123-def456-01");
+        SpanContextPropagationExtractor adapter = createJmsExtractor(map);
+        assertEquals("00-abc123-def456-01", adapter.get("traceparent"));
     }
 
     @Test
     public void keyWithDifferentCase() {
+        Map<String, Object> map = new HashMap<>();
         map.put("key", "value");
-        SpanContextPropagationExtractor adapter = new CamelJMSHeadersSpanContextPropagationExtractor(map);
+        SpanContextPropagationExtractor adapter = createJmsExtractor(map);
         assertEquals("value", adapter.get("KeY"));
+    }
+
+    @Test
+    public void byteArrayPropertyWithDashDecode() {
+        Map<String, Object> map = new HashMap<>();
+        map.put(JMS_DASH + "traceparent", "00-abc-def-01".getBytes());
+        SpanContextPropagationExtractor adapter = createJmsExtractor(map);
+        assertEquals("00-abc-def-01", adapter.get("-traceparent"));
     }
 }

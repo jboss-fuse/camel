@@ -16,11 +16,12 @@
  */
 package org.apache.camel.telemetry.decorators;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.apache.camel.Endpoint;
 import org.apache.camel.Exchange;
-import org.apache.camel.telemetry.SpanContextPropagationExtractor;
 import org.apache.camel.telemetry.SpanContextPropagationInjector;
-import org.apache.camel.telemetry.propagation.CamelJMSHeadersSpanContextPropagationExtractor;
 import org.apache.camel.telemetry.propagation.CamelJMSHeadersSpanContextPropagationInjector;
 
 public class JmsSpanDecorator extends AbstractMessagingSpanDecorator {
@@ -53,8 +54,10 @@ public class JmsSpanDecorator extends AbstractMessagingSpanDecorator {
     }
 
     @Override
-    public SpanContextPropagationExtractor getExtractor(Exchange exchange) {
-        return new CamelJMSHeadersSpanContextPropagationExtractor(exchange.getIn().getHeaders());
+    protected Map<String, Object> processHeaders(Map<String, Object> headers) {
+        Map<String, Object> decoded = new HashMap<>();
+        headers.forEach((k, v) -> decoded.put(k.replace(CamelJMSHeadersSpanContextPropagationInjector.JMS_DASH, "-"), v));
+        return decoded;
     }
 
     @Override
