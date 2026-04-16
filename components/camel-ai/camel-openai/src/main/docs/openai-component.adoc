@@ -161,7 +161,7 @@ When `streaming=true`, the component returns an `Iterator<ChatCompletionChunk>` 
 
 === Structured Output with outputClass
 
-.When `outputClass` is set, the model is instructed to produce JSON matching the given class, but the component returns the raw String. Deserialize the body yourself (for example, with Camel's Jackson) if you need a typed object.
+When `outputClass` is set, the model is instructed to produce JSON matching the given class, but the component returns the raw String. Deserialize the body yourself (for example, with Camel's Jackson) if you need a typed object.
 
 .Usage example:
 [source,java]
