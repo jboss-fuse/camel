@@ -253,6 +253,7 @@ When using `File` input, the component uses `Files.probeContentType()` to detect
 The full model response is returned as a String in the message body.
 
 === Streaming Mode
+
 When `streaming=true`, the message body contains an `Iterator<ChatCompletionChunk>` suitable for Camel streaming EIPs (such as `split()` with `streaming()`).
 
 IMPORTANT:
