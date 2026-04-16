@@ -62,7 +62,7 @@ API key resolution order:
 
 [NOTE]
 ====
-The API key can be omitted if using OpenAI-compatible providers that don't require authentication (e.g., some local LLM servers).
+The API key can be omitted if using OpenAI-compatible providers that don't require authentication (for example, some local LLM servers).
 ====
 
 === Basic Chat Completion with String Input
@@ -119,7 +119,7 @@ from("file:images?noop=true")
 
 [NOTE]
 ====
-When using image files, the userMessage is required. Supported image formats are detected by MIME type (e.g., `image/png`, `image/jpeg`, `image/gif`, `image/webp`).
+When using image files, the userMessage is required. Supported image formats are detected by MIME type (for example, `image/png`, `image/jpeg`, `image/gif`, `image/webp`).
 ====
 
 === Streaming Response
@@ -161,7 +161,7 @@ When `streaming=true`, the component returns an `Iterator<ChatCompletionChunk>` 
 
 === Structured Output with outputClass
 
-.When `outputClass` is set, the model is instructed to produce JSON matching the given class, but the component returns the raw String. Deserialize the body yourself (e.g., with Camel's Jackson) if you need a typed object.
+.When `outputClass` is set, the model is instructed to produce JSON matching the given class, but the component returns the raw String. Deserialize the body yourself (for example, with Camel's Jackson) if you need a typed object.
 
 .Usage example:
 [source,java]
@@ -321,39 +321,35 @@ When using local or third-party providers, ensure they support the chat completi
 
 [cols="1,2,1"]
 |===
-| Provider | Recommended Model | Dimensions
+| Provider | Model example | Dimensions
 
-| RedHat Inference Server | `???` | `???`
+| RedHat Inference Server | `sentence-transformers/all-MiniLM-L6-v2` | `???`
+| OpenAI | `text-embedding-3-small` | 1536 (reducible to 256, 512, 1024)
+| OpenAI | `text-embedding-3-large` | 3072 (reducible)
+| Ollama | `nomic-embed-text` | 768
+| Ollama | `mxbai-embed-large` | 1024
+
 |===
 
-.Example using IBM Granite for local embeddings:
+.Generic example for local embeddings:
 [source,yaml]
 ----
-???
+- to:
+    uri: openai:embeddings
+    parameters:
+      # Replace parameters with your model
+      baseUrl: http://your.model.domain/v1
+      embeddingModel: sentence-transformers/all-MiniLM-L6-v2
 ----
 
 ==== Other available providers
 
 [cols="1,2,1"]
 |===
-| Provider | Recommended Model | Dimensions
+| Provider | Model example | Dimensions
 
-| OpenAI | `text-embedding-3-small` | 1536 (reducible to 256, 512, 1024)
-| OpenAI | `text-embedding-3-large` | 3072 (reducible)
-| Ollama | `nomic-embed-text` | 768
-| Ollama | `mxbai-embed-large` | 1024
 | Mistral | `mistral-embed` | 1024
 |===
-
-.Example using Ollama for local embeddings:
-[source,yaml]
-----
-- to:
-    uri: openai:embeddings
-    parameters:
-      baseUrl: http://localhost:11434/v1
-      embeddingModel: nomic-embed-text
-----
 
 == Embeddings Operation
 
@@ -365,6 +361,7 @@ The `embeddings` operation generates vector embeddings from text, which can be u
 ====
 Java::
 +
+.Ollama embedding example
 [source,java]
 ----
 from("direct:embed")
@@ -374,6 +371,7 @@ from("direct:embed")
 
 YAML::
 +
+.Ollama embedding example
 [source,yaml]
 ----
 - route:
@@ -412,6 +410,7 @@ For single-input requests, the component returns a raw `List<Float>` embedding v
 
 ==== PostgreSQL + pgvector (Recommended)
 
+.Ollama database integration example
 [source,yaml]
 ----
 # Index documents in PostgreSQL with pgvector
