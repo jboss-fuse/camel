@@ -341,15 +341,6 @@ When using local or third-party providers, ensure they support the chat completi
       embeddingModel: sentence-transformers/all-MiniLM-L6-v2
 ----
 
-==== Other available providers
-
-[cols="1,2,1"]
-|===
-| Provider | Model example
-
-| Mistral | `mistral-embed`
-|===
-
 == Embeddings Operation
 
 The `embeddings` operation generates vector embeddings from text, which can be used for semantic search, similarity comparison, and RAG (Retrieval-Augmented Generation) applications.
