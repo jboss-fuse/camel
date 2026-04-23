@@ -303,11 +303,10 @@ This component works with any OpenAI API-compatible endpoint by setting the `bas
 Supported endpoints:
 
 - link:https://docs.redhat.com/en/documentation/red_hat_ai_inference_server/[RedHat Inference Server]
+- link:https://api.openai.com/v1[OpenAI official API]
+- link:https://ollama.com/[Ollama] Local LLM server
 
 Other possible endpoints (these may require additional configuration, and are not tested by RedHat):
-
-- OpenAI official API (`https://api.openai.com/v1`)
-- Local LLM servers (For example, Ollama, LM Studio, LocalAI)
 - Third-party OpenAI-compatible providers
 
 
