@@ -318,7 +318,7 @@ When using local or third-party providers, ensure they support the chat completi
 
 ==== Supported
 
-[cols="1,2,1"]
+[cols="1,2"]
 |===
 | Provider | Model example
 
