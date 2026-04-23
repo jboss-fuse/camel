@@ -322,7 +322,7 @@ When using local or third-party providers, ensure they support the chat completi
 |===
 | Provider | Model example
 
-| RedHat Inference Server | `<your-embedding-model>`
+| RedHat Inference Server | `sentence-transformers/all-MiniLM-L6-v2`
 | OpenAI | `text-embedding-3-large`
 | Ollama | `nomic-embed-text`
 
