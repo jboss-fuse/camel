@@ -306,8 +306,7 @@ Supported endpoints:
 - link:https://api.openai.com/v1[OpenAI official API]
 - link:https://ollama.com/[Ollama] Local LLM server
 
-Other possible endpoints (these may require additional configuration, and are not tested by RedHat):
-- Third-party OpenAI-compatible providers
+It is possible to use Third-party OpenAI-compatible providers, but these are not supported, and may require additional configuration.
 
 
 [NOTE]
