@@ -62,7 +62,7 @@ API key resolution order:
 
 [NOTE]
 ====
-The API key can be omitted if using OpenAI-compatible providers that don't require authentication (e.g., some local LLM servers).
+The API key can be omitted if using OpenAI-compatible providers that don't require authentication (for example, some local LLM servers).
 ====
 
 === Basic Chat Completion with String Input
@@ -119,7 +119,7 @@ from("file:images?noop=true")
 
 [NOTE]
 ====
-When using image files, the userMessage is required. Supported image formats are detected by MIME type (e.g., `image/png`, `image/jpeg`, `image/gif`, `image/webp`).
+When using image files, the userMessage is required. Supported image formats are detected by MIME type (for example, `image/png`, `image/jpeg`, `image/gif`, `image/webp`).
 ====
 
 === Streaming Response
@@ -161,7 +161,7 @@ When `streaming=true`, the component returns an `Iterator<ChatCompletionChunk>` 
 
 === Structured Output with outputClass
 
-.When `outputClass` is set, the model is instructed to produce JSON matching the given class, but the component returns the raw String. Deserialize the body yourself (e.g., with Camel's Jackson) if you need a typed object.
+When `outputClass` is set, the model is instructed to produce JSON matching the given class, but the component returns the raw String. Deserialize the body yourself (for example, with Camel's Jackson) if you need a typed object.
 
 .Usage example:
 [source,java]
@@ -253,10 +253,11 @@ When using `File` input, the component uses `Files.probeContentType()` to detect
 The full model response is returned as a String in the message body.
 
 === Streaming Mode
+
 When `streaming=true`, the message body contains an `Iterator<ChatCompletionChunk>` suitable for Camel streaming EIPs (such as `split()` with `streaming()`).
 
 IMPORTANT:
-
+* Resource cleanup is handled automatically when the Exchange completes (success or failure)
 * Conversation memory is **not** automatically updated for streaming responses (only for non-streaming responses)
 
 === Structured Outputs
@@ -274,7 +275,6 @@ The JSON schema must be a valid JSON object. Invalid schema strings will result 
 When `conversationMemory=true`, the component maintains conversation history in the `CamelOpenAIConversationHistory` exchange property (configurable via `conversationHistoryProperty` option). This history is scoped to a single Exchange and allows multi-turn conversations within a route.
 
 IMPORTANT:
-
 * Conversation history is automatically updated with each assistant response for **non-streaming** responses only
 * The history is stored as a `List<ChatCompletionMessageParam>` in the Exchange property
 * The history persists across multiple calls to the endpoint within the same Exchange
@@ -298,11 +298,16 @@ from("direct:with-history")
 
 == Compatibility
 
-This component works with any OpenAI API-compatible endpoint by setting the `baseUrl` parameter. This includes:
+This component works with any OpenAI API-compatible endpoint by setting the `baseUrl` parameter.
 
-- OpenAI official API (`https://api.openai.com/v1`)
-- Local LLM servers (e.g., Ollama, LM Studio, LocalAI)
-- Third-party OpenAI-compatible providers
+Supported endpoints:
+
+- link:https://docs.redhat.com/en/documentation/red_hat_ai_inference_server/[RedHat Inference Server]
+- link:https://api.openai.com/v1[OpenAI official API]
+- link:https://ollama.com/[Ollama] Local LLM server
+
+It is possible to use Third-party OpenAI-compatible providers, but these are not supported, and may require additional configuration.
+
 
 [NOTE]
 ====
@@ -311,25 +316,27 @@ When using local or third-party providers, ensure they support the chat completi
 
 === Embedding Models by Provider
 
-[cols="1,2,1"]
-|===
-| Provider | Recommended Model | Dimensions
+==== Supported
 
-| OpenAI | `text-embedding-3-small` | 1536 (reducible to 256, 512, 1024)
-| OpenAI | `text-embedding-3-large` | 3072 (reducible)
-| Ollama | `nomic-embed-text` | 768
-| Ollama | `mxbai-embed-large` | 1024
-| Mistral | `mistral-embed` | 1024
+[cols="1,2"]
+|===
+| Provider | Model example
+
+| RedHat Inference Server | `sentence-transformers/all-MiniLM-L6-v2`
+| OpenAI | `text-embedding-3-large`
+| Ollama | `nomic-embed-text`
+
 |===
 
-.Example using Ollama for local embeddings:
+.Generic example for local embeddings:
 [source,yaml]
 ----
 - to:
     uri: openai:embeddings
     parameters:
-      baseUrl: http://localhost:11434/v1
-      embeddingModel: nomic-embed-text
+      # Replace parameters with your model
+      baseUrl: http://your.model.domain/v1
+      embeddingModel: <your-embedding-model>
 ----
 
 == Embeddings Operation
@@ -342,6 +349,7 @@ The `embeddings` operation generates vector embeddings from text, which can be u
 ====
 Java::
 +
+.Ollama embedding example
 [source,java]
 ----
 from("direct:embed")
@@ -351,6 +359,7 @@ from("direct:embed")
 
 YAML::
 +
+.Ollama embedding example
 [source,yaml]
 ----
 - route:
@@ -389,6 +398,7 @@ For single-input requests, the component returns a raw `List<Float>` embedding v
 
 ==== PostgreSQL + pgvector (Recommended)
 
+.Ollama database integration example
 [source,yaml]
 ----
 # Index documents in PostgreSQL with pgvector
