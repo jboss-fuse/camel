@@ -257,7 +257,6 @@ The full model response is returned as a String in the message body.
 When `streaming=true`, the message body contains an `Iterator<ChatCompletionChunk>` suitable for Camel streaming EIPs (such as `split()` with `streaming()`).
 
 IMPORTANT:
-* Resource cleanup is handled automatically when the Exchange completes (success or failure)
 * Conversation memory is **not** automatically updated for streaming responses (only for non-streaming responses)
 
 === Structured Outputs
