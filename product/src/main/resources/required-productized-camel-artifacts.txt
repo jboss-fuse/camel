@@ -140,6 +140,7 @@ camel-opentelemetry2
 camel-paho
 camel-paho-mqtt5
 camel-platform-http
+camel-platform-http-jolokia
 camel-platform-http-vertx
 camel-qdrant
 camel-quartz

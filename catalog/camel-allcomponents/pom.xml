@@ -1650,7 +1650,7 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-platform-http-jolokia</artifactId>
-            <version>${camel-community-version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>

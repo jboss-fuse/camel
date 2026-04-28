@@ -256,7 +256,7 @@
         <!-- <module>camel-pg-replication-slot</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-pgevent</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-platform-http</module>
-        <!-- <module>camel-platform-http-jolokia</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-platform-http-jolokia</module>
         <module>camel-platform-http-main</module>
         <module>camel-platform-http-vertx</module>
         <!-- <module>camel-plc4x</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->

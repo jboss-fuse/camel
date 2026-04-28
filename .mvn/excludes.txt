@@ -231,7 +231,6 @@
 :camel-pg-replication-slot
 :camel-pgevent
 :camel-pinecone
-:camel-platform-http-jolokia
 :camel-plc4x
 :camel-pqc
 :camel-printer
