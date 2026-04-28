@@ -86,6 +86,7 @@ camel-jbang-main
 camel-jbang-plugin-generate
 camel-jbang-plugin-kubernetes
 camel-jbang-plugin-test
+camel-jbang-plugin-validate
 camel-jdbc
 camel-jira
 camel-jms
@@ -134,6 +135,7 @@ camel-olingo4-api
 camel-olingo4-component
 camel-openai
 camel-openapi-java
+camel-openapi-validator
 camel-opensearch
 camel-opentelemetry
 camel-opentelemetry2
