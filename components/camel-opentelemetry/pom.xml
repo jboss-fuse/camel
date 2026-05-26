@@ -124,6 +124,7 @@
         <dependency>
             <groupId>io.opentelemetry</groupId>
             <artifactId>opentelemetry-sdk-extension-incubator</artifactId>
+            <version>${opentelemetry-incubator-version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
