@@ -36,6 +36,11 @@
         <dependencies>
             <dependency>
                 <groupId>com.azure</groupId>
+                <artifactId>azure-core-http-netty</artifactId>
+                <version>${azure-core-http-netty-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.azure</groupId>
                 <artifactId>azure-sdk-bom</artifactId>
                 <version>${azure-sdk-bom-version}</version>
                 <type>pom</type>
