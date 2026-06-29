@@ -421,6 +421,7 @@
         <mvel-version>2.5.2.Final</mvel-version>
         <mybatis-version>3.5.19</mybatis-version>
         <narayana-version>5.13.1.Final</narayana-version>
+        <neethi-version>3.2.2</neethi-version>
         <neoscada-version>0.4.0</neoscada-version>
         <neo4j-version>6.0.2</neo4j-version>
         <netty-version>4.1.135.Final</netty-version>
