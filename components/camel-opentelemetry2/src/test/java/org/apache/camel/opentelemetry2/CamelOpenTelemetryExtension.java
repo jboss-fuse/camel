@@ -149,6 +149,8 @@ final class CamelOpenTelemetryExtension implements BeforeEachCallback, AfterEach
     @Override
     public void beforeEach(ExtensionContext context) {
         GlobalOpenTelemetry.resetForTest();
+        spanExporter.reset();
+        logRecordExporter.reset();
         GlobalOpenTelemetry.set(openTelemetry);
         OpenTelemetryAppender.install(openTelemetry);
     }
@@ -156,7 +158,6 @@ final class CamelOpenTelemetryExtension implements BeforeEachCallback, AfterEach
     @Override
     public void afterEach(ExtensionContext context) {
         GlobalOpenTelemetry.resetForTest();
-        openTelemetry.close();
     }
 
     Map<String, OtelTrace> getTraces() {
