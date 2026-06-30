@@ -1694,6 +1694,15 @@
                 <artifactId>camel-ignite</artifactId>
                 <version>${camel-community-version}</version>
             </dependency>
+            <!-- Override phantom module from infinispan-bom: infinispan-spring6-common was
+                 renamed to infinispan-spring-common in Infinispan 16.0.4, but the BOM
+                 still declares it. Pin to 16.0.3 (last published version) to prevent
+                 resolution failures in starters-analysis. -->
+            <dependency>
+                <groupId>org.infinispan</groupId>
+                <artifactId>infinispan-spring6-common</artifactId>
+                <version>16.0.3</version>
+            </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-infinispan</artifactId>
