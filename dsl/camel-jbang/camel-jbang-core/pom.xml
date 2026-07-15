@@ -272,64 +272,64 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <property name="examples.base" value="https://raw.githubusercontent.com/apache/camel-jbang-examples/main" />
-                                        <property name="examples.dest" value="${project.basedir}/src/main/resources/examples" />
+                                        <property name="examples.base" value="https://raw.githubusercontent.com/apache/camel-jbang-examples/main"/>
+                                        <property name="examples.dest" value="${project.basedir}/src/main/resources/examples"/>
                                         <!-- Catalog -->
-                                        <get src="${examples.base}/camel-jbang-example-catalog.json" dest="${examples.dest}/camel-jbang-example-catalog.json" usetimestamp="true" />
+                                        <get dest="${examples.dest}/camel-jbang-example-catalog.json" src="${examples.base}/camel-jbang-example-catalog.json" usetimestamp="true"/>
                                         <!-- Bundled examples -->
                                         <macrodef name="sync-example">
-                                            <attribute name="name" />
-                                            <attribute name="file" />
+                                            <attribute name="name"/>
+                                            <attribute name="file"/>
                                             <sequential>
-                                                <mkdir dir="${examples.dest}/@{name}" />
-                                                <get src="${examples.base}/@{name}/@{file}" dest="${examples.dest}/@{name}/@{file}" usetimestamp="true" />
+                                                <mkdir dir="${examples.dest}/@{name}"/>
+                                                <get dest="${examples.dest}/@{name}/@{file}" src="${examples.base}/@{name}/@{file}" usetimestamp="true"/>
                                             </sequential>
                                         </macrodef>
                                         <!-- camel-1-trbute -->
-                                        <sync-example name="camel-1-tribute" file="README.md" />
-                                        <sync-example name="camel-1-tribute" file="application.properties" />
-                                        <sync-example name="camel-1-tribute" file="jms-to-file.camel.yaml" />
+                                        <sync-example file="README.md" name="camel-1-tribute"/>
+                                        <sync-example file="application.properties" name="camel-1-tribute"/>
+                                        <sync-example file="jms-to-file.camel.yaml" name="camel-1-tribute"/>
                                         <!-- circuit-breaker -->
-                                        <sync-example name="circuit-breaker" file="README.md" />
-                                        <sync-example name="circuit-breaker" file="route.camel.yaml" />
+                                        <sync-example file="README.md" name="circuit-breaker"/>
+                                        <sync-example file="route.camel.yaml" name="circuit-breaker"/>
                                         <!-- cron-log -->
-                                        <sync-example name="cron-log" file="README.md" />
-                                        <sync-example name="cron-log" file="application.properties" />
-                                        <sync-example name="cron-log" file="cron-log.camel.yaml" />
+                                        <sync-example file="README.md" name="cron-log"/>
+                                        <sync-example file="application.properties" name="cron-log"/>
+                                        <sync-example file="cron-log.camel.yaml" name="cron-log"/>
                                         <!-- groovy -->
-                                        <sync-example name="groovy" file="README.md" />
-                                        <sync-example name="groovy" file="application.properties" />
-                                        <sync-example name="groovy" file="groovy.camel.yaml" />
+                                        <sync-example file="README.md" name="groovy"/>
+                                        <sync-example file="application.properties" name="groovy"/>
+                                        <sync-example file="groovy.camel.yaml" name="groovy"/>
                                         <!-- message-size -->
-                                        <sync-example name="message-size" file="README.md" />
-                                        <sync-example name="message-size" file="orders.camel.yaml" />
+                                        <sync-example file="README.md" name="message-size"/>
+                                        <sync-example file="orders.camel.yaml" name="message-size"/>
                                         <!-- rest-api -->
-                                        <sync-example name="rest-api" file="README.md" />
-                                        <sync-example name="rest-api" file="application.properties" />
-                                        <sync-example name="rest-api" file="rest-api.camel.yaml" />
+                                        <sync-example file="README.md" name="rest-api"/>
+                                        <sync-example file="application.properties" name="rest-api"/>
+                                        <sync-example file="rest-api.camel.yaml" name="rest-api"/>
                                         <!-- route-topology -->
-                                        <sync-example name="route-topology" file="README.md" />
-                                        <sync-example name="route-topology" file="application.properties" />
-                                        <sync-example name="route-topology" file="route-topology.camel.yaml" />
+                                        <sync-example file="README.md" name="route-topology"/>
+                                        <sync-example file="application.properties" name="route-topology"/>
+                                        <sync-example file="route-topology.camel.yaml" name="route-topology"/>
                                         <!-- routes -->
-                                        <sync-example name="routes" file="Greeter.java" />
-                                        <sync-example name="routes" file="README.md" />
-                                        <sync-example name="routes" file="application.properties" />
-                                        <sync-example name="routes" file="beans.yaml" />
-                                        <sync-example name="routes" file="routes.camel.yaml" />
+                                        <sync-example file="Greeter.java" name="routes"/>
+                                        <sync-example file="README.md" name="routes"/>
+                                        <sync-example file="application.properties" name="routes"/>
+                                        <sync-example file="beans.yaml" name="routes"/>
+                                        <sync-example file="routes.camel.yaml" name="routes"/>
                                         <!-- timer-log -->
-                                        <sync-example name="timer-log" file="README.md" />
-                                        <sync-example name="timer-log" file="application.properties" />
-                                        <sync-example name="timer-log" file="timer-log.camel.yaml" />
+                                        <sync-example file="README.md" name="timer-log"/>
+                                        <sync-example file="application.properties" name="timer-log"/>
+                                        <sync-example file="timer-log.camel.yaml" name="timer-log"/>
                                         <!-- tui-hello-world -->
-                                        <sync-example name="tui-hello-world" file="README.md" />
-                                        <sync-example name="tui-hello-world" file="tui-hello-world.yaml" />
+                                        <sync-example file="README.md" name="tui-hello-world"/>
+                                        <sync-example file="tui-hello-world.yaml" name="tui-hello-world"/>
                                         <!-- xslt -->
-                                        <sync-example name="xslt" file="README.md" />
-                                        <sync-example name="xslt" file="consumer.camel.yaml" />
-                                        <mkdir dir="${examples.dest}/xslt/input" />
-                                        <sync-example name="xslt" file="input/account.xml" />
-                                        <sync-example name="xslt" file="stylesheet.xsl" />
+                                        <sync-example file="README.md" name="xslt"/>
+                                        <sync-example file="consumer.camel.yaml" name="xslt"/>
+                                        <mkdir dir="${examples.dest}/xslt/input"/>
+                                        <sync-example file="input/account.xml" name="xslt"/>
+                                        <sync-example file="stylesheet.xsl" name="xslt"/>
                                     </target>
                                 </configuration>
                             </execution>
