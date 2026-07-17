@@ -550,8 +550,8 @@
         <vavr-version>1.0.0</vavr-version>
         <velocity-tools-version>3.1</velocity-tools-version>
         <velocity-version>2.4.1</velocity-version>
-        <vertx-version>4.5.26</vertx-version>
-        <vertx-community-version>4.5.26</vertx-community-version>
+        <vertx-version>4.5.30</vertx-version>
+        <vertx-community-version>4.5.30</vertx-community-version>
         <vysper-version>0.7</vysper-version>
         <weaviate-client-version>5.5.0</weaviate-client-version>
         <web3j-version>5.0.0</web3j-version>
@@ -737,6 +737,48 @@
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-yaml-io</artifactId>
                 <version>${project.version}</version>
+            </dependency>
+
+            <!-- Vert.x version alignment: override transitive vertx from fabric8 kubernetes-httpclient-vertx -->
+            <dependency>
+                <groupId>io.vertx</groupId>
+                <artifactId>vertx-core</artifactId>
+                <version>${vertx-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.vertx</groupId>
+                <artifactId>vertx-web</artifactId>
+                <version>${vertx-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.vertx</groupId>
+                <artifactId>vertx-web-client</artifactId>
+                <version>${vertx-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.vertx</groupId>
+                <artifactId>vertx-web-common</artifactId>
+                <version>${vertx-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.vertx</groupId>
+                <artifactId>vertx-auth-common</artifactId>
+                <version>${vertx-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.vertx</groupId>
+                <artifactId>vertx-auth-properties</artifactId>
+                <version>${vertx-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.vertx</groupId>
+                <artifactId>vertx-auth-jwt</artifactId>
+                <version>${vertx-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.vertx</groupId>
+                <artifactId>vertx-bridge-common</artifactId>
+                <version>${vertx-version}</version>
             </dependency>
 
             <!-- NOTE: auto-generated list of components when building camel catalog -->
