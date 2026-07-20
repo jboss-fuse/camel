@@ -44,6 +44,7 @@ camel-cxf-soap
 camel-cxf-spring-common
 camel-cxf-spring-rest
 camel-cxf-spring-soap
+camel-cyberark-vault
 camel-dataformat
 camel-dataset
 camel-debug
@@ -112,6 +113,7 @@ camel-main
 camel-management
 camel-mapstruct
 camel-master
+camel-mdc
 camel-micrometer
 camel-micrometer-prometheus
 camel-microprofile-config
@@ -186,6 +188,7 @@ camel-velocity
 camel-vertx-common
 camel-vertx-http
 camel-vertx-websocket
+camel-weaviate
 camel-webhook
 camel-xj
 camel-xml-io
