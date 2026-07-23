@@ -53,8 +53,8 @@ public class NettyHttpConfiguration extends NettyConfiguration {
     private boolean throwExceptionOnFailure = true;
     @UriParam(label = "advanced")
     private boolean transferException;
-    @UriParam(label = "consumer")
-    private boolean muteException;
+    @UriParam(label = "consumer", defaultValue = "true")
+    private boolean muteException = true;
     @UriParam(label = "consumer")
     private boolean matchOnUriPrefix;
     @UriParam(label = "consumer,advanced", defaultValue = "true")
