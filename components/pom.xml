@@ -116,7 +116,7 @@
         <module>camel-crypto-pgp</module>
         <!-- <module>camel-csimple-joor</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-csv</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-cyberark-vault</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-cyberark-vault</module>
         <!-- <module>camel-dapr</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-datasonnet</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-debug</module>
@@ -222,7 +222,7 @@
         <module>camel-mail</module>
         <module>camel-mail-microsoft-oauth</module>
         <module>camel-mapstruct</module>
-        <!-- <module>camel-mdc</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-mdc</module>
         <!-- <module>camel-metrics</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-micrometer</module>
         <!-- <module>camel-micrometer-observability</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->

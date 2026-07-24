@@ -82,7 +82,6 @@
 :camel-csimple-joor
 :camel-csimple-maven-plugin
 :camel-csv
-:camel-cyberark-vault
 :camel-dapr
 :camel-datasonnet
 :camel-debezium-common
@@ -213,7 +212,6 @@
 :camel-lumberjack
 :camel-lzf
 :camel-maven-plugin
-:camel-mdc
 :camel-metrics
 :camel-micrometer-observability
 :camel-milo
@@ -374,7 +372,6 @@
 :camel-wal
 :camel-wasm
 :camel-weather
-:camel-weaviate
 :camel-web3j
 :camel-whatsapp
 :camel-wordpress
