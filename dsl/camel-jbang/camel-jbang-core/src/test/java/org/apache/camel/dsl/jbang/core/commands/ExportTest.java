@@ -20,6 +20,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.List;
@@ -27,8 +29,10 @@ import java.util.Properties;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
+import com.sun.net.httpserver.HttpServer;
 import org.apache.camel.dsl.jbang.core.common.CamelJBangConstants;
 import org.apache.camel.dsl.jbang.core.common.HawtioVersion;
+import org.apache.camel.dsl.jbang.core.common.QuarkusHelper;
 import org.apache.camel.dsl.jbang.core.common.RuntimeType;
 import org.apache.camel.util.IOHelper;
 import org.apache.maven.model.Dependency;
@@ -902,6 +906,43 @@ class ExportTest {
             String content = IOHelper.loadText(new FileInputStream(appProperties));
             Assertions.assertTrue(content.contains("quarkus.hawtio.authenticationEnabled=false"),
                     "should contain quarkus.hawtio.authenticationEnabled property, was " + content);
+        }
+    }
+
+    @Test
+    public void shouldResolvePlatformVersionFromCustomUrl() throws Exception {
+        LOG.info("shouldResolvePlatformVersionFromCustomUrl");
+
+        String resolvedVersion = RuntimeType.QUARKUS_VERSION;
+        String majorMinor = resolvedVersion.substring(0, resolvedVersion.lastIndexOf('.'));
+        String mockResponse = "{\"platforms\":[{\"streams\":[{\"id\":\"" + majorMinor
+                              + "\",\"releases\":[{\"version\":\"" + resolvedVersion + "\"}]}]}]}";
+
+        HttpServer server = HttpServer.create(new InetSocketAddress(0), 0);
+        server.createContext("/platforms", exchange -> {
+            byte[] body = mockResponse.getBytes(StandardCharsets.UTF_8);
+            exchange.sendResponseHeaders(200, body.length);
+            exchange.getResponseBody().write(body);
+            exchange.getResponseBody().close();
+        });
+        server.start();
+
+        try {
+            String customUrl = "http://localhost:" + server.getAddress().getPort() + "/platforms";
+            System.setProperty(QuarkusHelper.QUARKUS_PLATFORM_URL_PROPERTY, customUrl);
+
+            Export command = createCommand(RuntimeType.quarkus, new String[] { "classpath:route.yaml" },
+                    "--gav=examples:route:1.0.0", "--dir=" + workingDir, "--quiet",
+                    "--quarkus-version=" + majorMinor + ".0");
+            int exit = command.doCall();
+
+            Assertions.assertEquals(0, exit);
+
+            Model model = readMavenModel();
+            assertThat(model.getProperties()).containsEntry("quarkus.platform.version", resolvedVersion);
+        } finally {
+            System.clearProperty(QuarkusHelper.QUARKUS_PLATFORM_URL_PROPERTY);
+            server.stop(0);
         }
     }
 
