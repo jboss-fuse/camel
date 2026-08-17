@@ -447,6 +447,7 @@
                                     <exclude>**/*.wav</exclude>
                                     <exclude>**/*.cast</exclude>
                                     <exclude>**/Makefile</exclude>
+                                    <exclude>**/jreleaser/**/*.tpl</exclude>
                                 </excludes>
                             </licenseSet>
                         </licenseSets>
