@@ -69,7 +69,7 @@
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-test-infra-smb</artifactId>
-      <version>${project.version}</version>
+      <version>${camel-community-version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>

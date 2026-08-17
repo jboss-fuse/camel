@@ -42,7 +42,7 @@
 
     <modules>
         <module>parent</module>
-        <module>camel-exe</module>
+        <!-- <module>camel-exe</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>spi-annotations</module>
         <module>camel-tooling-model</module>
         <module>camel-util-json</module>
@@ -50,6 +50,6 @@
         <module>openapi-rest-dsl-generator</module>
         <module>maven</module>
         <module>camel-tooling-maven</module>
-        <module>enforcer-rules</module>
+        <!-- <module>enforcer-rules</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
     </modules>
 </project>

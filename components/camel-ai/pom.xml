@@ -33,32 +33,32 @@
     <description>Camel AI parent</description>
 
     <modules>
-        <module>camel-a2a</module>
-        <module>camel-ai-tool</module>
-        <module>camel-chatscript</module>
-        <module>camel-djl</module>
+        <!-- <module>camel-a2a</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <!-- <module>camel-ai-tool</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <!-- <module>camel-chatscript</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <!-- <module>camel-djl</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-docling</module>
-        <module>camel-huggingface</module>
-        <module>camel-kserve</module>
-        <module>camel-langchain4j-agent-api</module>
-        <module>camel-langchain4j-agent</module>
-        <module>camel-langchain4j-chat</module>
-        <module>camel-langchain4j-core</module>
-        <module>camel-langchain4j-embeddings</module>
-        <module>camel-langchain4j-embeddingstore-api</module>
-        <module>camel-langchain4j-embeddingstore</module>
-        <module>camel-langchain4j-tokenizer</module>
-        <module>camel-langchain4j-tools</module>
-        <module>camel-langchain4j-web-search</module>
-        <module>camel-mcp-server-api</module>
-        <module>camel-mcp-server</module>
+        <!-- <module>camel-huggingface</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <!-- <module>camel-kserve</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <!-- <module>camel-langchain4j-agent-api</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <!-- <module>camel-langchain4j-agent</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <!-- <module>camel-langchain4j-chat</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <!-- <module>camel-langchain4j-core</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <!-- <module>camel-langchain4j-embeddings</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <!-- <module>camel-langchain4j-embeddingstore-api</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <!-- <module>camel-langchain4j-embeddingstore</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <!-- <module>camel-langchain4j-tokenizer</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <!-- <module>camel-langchain4j-tools</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <!-- <module>camel-langchain4j-web-search</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <!-- <module>camel-mcp-server-api</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <!-- <module>camel-mcp-server</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-milvus</module>
-        <module>camel-neo4j</module>
+        <!-- <module>camel-neo4j</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-openai</module>
-        <module>camel-pgvector</module>
-        <module>camel-pinecone</module>
+        <!-- <module>camel-pgvector</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <!-- <module>camel-pinecone</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-qdrant</module>
-        <module>camel-tensorflow-serving</module>
+        <!-- <module>camel-tensorflow-serving</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-weaviate</module>
     </modules>
 

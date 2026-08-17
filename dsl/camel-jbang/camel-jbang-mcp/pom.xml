@@ -217,13 +217,13 @@
                         </goals>
                         <configuration>
                             <target>
-                                <fileset id="guide-files" dir="${project.build.outputDirectory}/migration-guides">
-                                    <include name="*.adoc" />
+                                <fileset dir="${project.build.outputDirectory}/migration-guides" id="guide-files">
+                                    <include name="*.adoc"/>
                                 </fileset>
-                                <pathconvert property="guide-list" refid="guide-files" pathsep="${line.separator}">
+                                <pathconvert pathsep="${line.separator}" property="guide-list" refid="guide-files">
                                     <flattenmapper />
                                 </pathconvert>
-                                <echo file="${project.build.outputDirectory}/migration-guides/index.txt" message="${guide-list}" />
+                                <echo file="${project.build.outputDirectory}/migration-guides/index.txt" message="${guide-list}"/>
                             </target>
                         </configuration>
                     </execution>
