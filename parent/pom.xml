@@ -285,7 +285,7 @@
         <jaxp-ri-version>1.4.5</jaxp-ri-version>
         <jboss-logging-version>3.6.3.Final</jboss-logging-version>
         <jboss-transaction-spi-version>7.6.1.Final</jboss-transaction-spi-version>
-        <jboss-xnio-version>3.8.14.Final</jboss-xnio-version>
+        <jboss-xnio-version>3.8.17.Final</jboss-xnio-version>
         <jcache-version>1.1.1</jcache-version>
         <jcip-annotations-version>1.0-1</jcip-annotations-version>
         <jcr-version>2.0</jcr-version>
