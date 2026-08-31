@@ -24,7 +24,6 @@ camel-browse
 camel-cassandraql
 camel-catalog
 camel-cli-connector
-camel-cloud
 camel-cloudevents
 camel-componentdsl
 camel-console
