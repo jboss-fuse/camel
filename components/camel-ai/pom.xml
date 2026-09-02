@@ -33,8 +33,8 @@
     <description>Camel AI parent</description>
 
     <modules>
-        <!-- <module>camel-a2a</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-ai-tool</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-a2a</module>
+        <module>camel-ai-tool</module>
         <!-- <module>camel-chatscript</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-djl</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-docling</module>
@@ -50,8 +50,8 @@
         <!-- <module>camel-langchain4j-tokenizer</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-langchain4j-tools</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-langchain4j-web-search</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-mcp-server-api</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-mcp-server</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-mcp-server-api</module>
+        <module>camel-mcp-server</module>
         <module>camel-milvus</module>
         <!-- <module>camel-neo4j</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-openai</module>

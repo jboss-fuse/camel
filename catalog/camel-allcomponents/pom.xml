@@ -55,7 +55,7 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-a2a</artifactId>
-            <version>${camel-community-version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
@@ -70,7 +70,7 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-ai-tool</artifactId>
-            <version>${camel-community-version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
@@ -1115,22 +1115,22 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-jackson3</artifactId>
-            <version>${camel-community-version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-jackson3-avro</artifactId>
-            <version>${camel-community-version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-jackson3-protobuf</artifactId>
-            <version>${camel-community-version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-jackson3xml</artifactId>
-            <version>${camel-community-version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
@@ -1465,12 +1465,12 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-mcp-server</artifactId>
-            <version>${camel-community-version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-mcp-server-api</artifactId>
-            <version>${camel-community-version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
@@ -1645,7 +1645,7 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-once</artifactId>
-            <version>${camel-community-version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
@@ -1760,7 +1760,7 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-pqc</artifactId>
-            <version>${camel-community-version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>

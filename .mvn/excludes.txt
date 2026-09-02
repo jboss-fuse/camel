@@ -1,10 +1,8 @@
 :apache-camel
 :archetypes
 :bundles-pom
-:camel-a2a
 :camel-activemq
 :camel-activemq6
-:camel-ai-tool
 :camel-arangodb
 :camel-archetype-api-component
 :camel-archetype-component
@@ -167,10 +165,6 @@
 :camel-ironmq
 :camel-iso8583
 :camel-itest
-:camel-jackson3
-:camel-jackson3-avro
-:camel-jackson3-protobuf
-:camel-jackson3xml
 :camel-jactl
 :camel-jandex
 :camel-javascript
@@ -218,8 +212,6 @@
 :camel-lumberjack
 :camel-lzf
 :camel-maven-plugin
-:camel-mcp-server
-:camel-mcp-server-api
 :camel-metrics
 :camel-milo
 :camel-mina
@@ -235,7 +227,6 @@
 :camel-olingo2
 :camel-olingo2-api
 :camel-olingo2-parent
-:camel-once
 :camel-openapi-validator
 :camel-openstack
 :camel-opentelemetry-metrics
@@ -248,7 +239,6 @@
 :camel-pinecone
 :camel-platform-http-jolokia
 :camel-plc4x
-:camel-pqc
 :camel-printer
 :camel-protobuf
 :camel-pubnub

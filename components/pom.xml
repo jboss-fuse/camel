@@ -177,10 +177,10 @@
         <module>camel-jackson-avro</module>
         <module>camel-jackson-protobuf</module>
         <module>camel-jacksonxml</module>
-        <!-- <module>camel-jackson3</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-jackson3-avro</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-jackson3-protobuf</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-jackson3xml</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-jackson3</module>
+        <module>camel-jackson3-avro</module>
+        <module>camel-jackson3-protobuf</module>
+        <module>camel-jackson3xml</module>
         <!-- <module>camel-jactl</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-jandex</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-jasypt</module>
@@ -251,7 +251,7 @@
         <!-- <module>camel-ognl</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-olingo2</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-olingo4</module>
-        <!-- <module>camel-once</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-once</module>
         <!-- <module>camel-openstack</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-opentelemetry</module>
         <module>camel-opentelemetry2</module>
@@ -271,7 +271,7 @@
         <!-- <module>camel-protobuf</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-pubnub</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <!-- <module>camel-pulsar</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
-        <!-- <module>camel-pqc</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <module>camel-pqc</module>
         <!-- <module>camel-python</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
         <module>camel-quartz</module>
         <!-- <module>camel-quickfix</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
