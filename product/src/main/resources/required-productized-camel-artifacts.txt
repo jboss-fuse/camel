@@ -1,3 +1,5 @@
+camel-a2a
+camel-ai-tool
 camel-amqp
 camel-attachments
 camel-avro
@@ -74,9 +76,13 @@ camel-http-common
 camel-infinispan
 camel-infinispan-embedded
 camel-jackson
+camel-jackson3
 camel-jackson-avro
+camel-jackson3-avro
 camel-jackson-protobuf
+camel-jackson3-protobuf
 camel-jacksonxml
+camel-jackson3xml
 camel-jasypt
 camel-java-joor-dsl
 camel-jaxb
@@ -112,6 +118,7 @@ camel-main
 camel-management
 camel-mapstruct
 camel-master
+camel-mcp-server
 camel-mdc
 camel-micrometer
 camel-micrometer-observability
@@ -134,6 +141,7 @@ camel-observability-services
 camel-olingo4
 camel-olingo4-api
 camel-olingo4-component
+camel-once
 camel-openai
 camel-openapi-java
 camel-opensearch
@@ -143,6 +151,7 @@ camel-paho
 camel-paho-mqtt5
 camel-platform-http
 camel-platform-http-vertx
+camel-pqc
 camel-qdrant
 camel-quartz
 camel-ref
