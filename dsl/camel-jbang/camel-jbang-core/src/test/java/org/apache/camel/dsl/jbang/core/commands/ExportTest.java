@@ -994,5 +994,5 @@ class ExportTest {
             System.clearProperty(QuarkusHelper.QUARKUS_PLATFORM_URL_PROPERTY);
             server.stop(0);
         }
-}
+    }
 }

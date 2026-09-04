@@ -26,7 +26,6 @@ import jakarta.enterprise.context.ApplicationScoped;
 import io.quarkiverse.mcp.server.Tool;
 import io.quarkiverse.mcp.server.ToolArg;
 import io.quarkiverse.mcp.server.ToolCallException;
-import org.apache.camel.main.util.VersionHelper;
 import org.apache.camel.dsl.jbang.core.commands.catalog.KameletCatalogHelper;
 import org.apache.camel.dsl.jbang.core.commands.catalog.KameletModel;
 import org.apache.camel.dsl.jbang.core.commands.catalog.KameletOptionModel;

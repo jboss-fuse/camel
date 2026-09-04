@@ -1,1 +1,0 @@
-../../../../../components/camel-ibm/camel-ibm-watsonx-ai/src/main/docs/ibm-watsonx-ai-component.adoc

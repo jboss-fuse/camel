@@ -1,1 +1,0 @@
-../../../../../components/camel-ai/camel-openai/src/main/docs/openai-component.adoc

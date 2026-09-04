@@ -1,1 +1,0 @@
-../../../../../components/camel-aws/camel-aws-parameter-store/src/main/docs/aws-parameter-store-component.adoc
