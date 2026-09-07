@@ -239,6 +239,7 @@
 :camel-pinecone
 :camel-platform-http-jolokia
 :camel-plc4x
+:camel-pqc
 :camel-printer
 :camel-protobuf
 :camel-pubnub

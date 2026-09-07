@@ -151,7 +151,6 @@ camel-paho
 camel-paho-mqtt5
 camel-platform-http
 camel-platform-http-vertx
-camel-pqc
 camel-qdrant
 camel-quartz
 camel-ref
