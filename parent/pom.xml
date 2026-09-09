@@ -425,7 +425,6 @@
         <neoscada-version>0.4.0</neoscada-version>
         <neo4j-version>6.0.2</neo4j-version>
         <netty-version>4.1.136.Final</netty-version>
-        <netty-42-version>4.2.16.Final</netty-42-version>
         <netty-reactive-streams-version>2.0.5</netty-reactive-streams-version>
         <networknt-json-schema-validator-version>1.5.9</networknt-json-schema-validator-version>
         <nimbus-jose-jwt>10.7</nimbus-jose-jwt>
