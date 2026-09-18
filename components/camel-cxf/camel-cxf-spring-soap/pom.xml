@@ -23,7 +23,7 @@
     <parent>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-cxf-parent</artifactId>
-        <version>4.18.4-SNAPSHOT</version>
+        <version>4.18.4.redhat-00007</version>
     </parent>
 
     <artifactId>camel-cxf-spring-soap</artifactId>
@@ -351,12 +351,12 @@
                                 <echo>Copying spring meta files</echo>
                                 <copy preservelastmodified="true" todir="${project.build.directory}/spring-meta">
                                     <fileset dir="${project.basedir}/src/main/resources">
-                                        <include name="**/spring.*"/>
+                                        <include name="**/spring.*" />
                                     </fileset>
                                 </copy>
-                                <replace file="${project.build.directory}/spring-meta/META-INF/spring.schemas" preservelastmodified="true" token="$${camel.version}" value="${project.version}"/>
+                                <replace file="${project.build.directory}/spring-meta/META-INF/spring.schemas" preservelastmodified="true" token="$${camel.version}" value="${project.version}" />
                                 <copy preservelastmodified="true" todir="${project.build.directory}/classes">
-                                    <fileset dir="${project.build.directory}/spring-meta"/>
+                                    <fileset dir="${project.build.directory}/spring-meta" />
                                 </copy>
                             </target>
                         </configuration>

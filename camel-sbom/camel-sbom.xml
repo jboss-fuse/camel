@@ -10471,7 +10471,7 @@ Brotli, Zstandard and ar, cpio, jar, tar, zip, dump, 7z, arj.</description>
       <name>jakarta.interceptor-api</name>
       <version>2.1.0</version>
       <description>Jakarta Interceptors defines a means of interposing on business method invocations
-        and specific events—such as lifecycle events and timeout events—that occur on instances
+        and specific events???such as lifecycle events and timeout events???that occur on instances
         of Jakarta EE components and other managed classes.</description>
       <scope>required</scope>
       <hashes>
@@ -18677,7 +18677,7 @@ working with JSON-P (JSON Processing) node types (new Jakarta flavor) via data-b
       <group>com.squareup.okhttp3</group>
       <name>okhttp-jvm</name>
       <version>5.3.2</version>
-      <description>Square’s meticulous HTTP client for Java and Kotlin.</description>
+      <description>Square???s meticulous HTTP client for Java and Kotlin.</description>
       <scope>required</scope>
       <hashes>
         <hash alg="MD5">827a887aa959c1f1d6b12f3345df2484</hash>
@@ -18880,7 +18880,7 @@ Guava (https://github.com/google/guava) types (currently mostly just collection 
       <group>com.squareup.okhttp3</group>
       <name>okhttp</name>
       <version>4.12.0</version>
-      <description>Square’s meticulous HTTP client for Java and Kotlin.</description>
+      <description>Square???s meticulous HTTP client for Java and Kotlin.</description>
       <scope>required</scope>
       <hashes>
         <hash alg="MD5">6acba053af88fed87e710c6c29911d7c</hash>
@@ -20098,7 +20098,7 @@ Guava (https://github.com/google/guava) types (currently mostly just collection 
       <group>org.apache.ignite</group>
       <name>ignite-core</name>
       <version>2.17.0</version>
-      <description>Apache Ignite® is a Distributed Database For High-Performance Computing With In-Memory Speed.</description>
+      <description>Apache Ignite?? is a Distributed Database For High-Performance Computing With In-Memory Speed.</description>
       <scope>required</scope>
       <hashes>
         <hash alg="MD5">62377339e3707c8972a92d7c0d830dc0</hash>
@@ -20206,7 +20206,7 @@ Guava (https://github.com/google/guava) types (currently mostly just collection 
       <group>org.apache.ignite</group>
       <name>ignite-log4j2</name>
       <version>2.17.0</version>
-      <description>Apache Ignite® is a Distributed Database For High-Performance Computing With In-Memory Speed.</description>
+      <description>Apache Ignite?? is a Distributed Database For High-Performance Computing With In-Memory Speed.</description>
       <scope>required</scope>
       <hashes>
         <hash alg="MD5">38462f0c4a1f7386497edf6b12681739</hash>
@@ -29815,7 +29815,7 @@ JSON Schema (http://tools.ietf.org/html/draft-zyp-json-schema-03) version 3 gene
       <group>com.github.victools</group>
       <name>jsonschema-generator</name>
       <version>4.38.0</version>
-      <description>Java JSON Schema Generator – creating a JSON Schema (Draft 6, Draft 7 or Draft 2019-09) from your Java classes</description>
+      <description>Java JSON Schema Generator ??? creating a JSON Schema (Draft 6, Draft 7 or Draft 2019-09) from your Java classes</description>
       <scope>required</scope>
       <hashes>
         <hash alg="MD5">85236afed8931d7b4cb719914df0359d</hash>
@@ -29892,7 +29892,7 @@ JSON Schema (http://tools.ietf.org/html/draft-zyp-json-schema-03) version 3 gene
       <group>com.github.victools</group>
       <name>jsonschema-module-jackson</name>
       <version>4.38.0</version>
-      <description>Module for the jsonschema-generator – deriving JSON Schema attributes from jackson annotations</description>
+      <description>Module for the jsonschema-generator ??? deriving JSON Schema attributes from jackson annotations</description>
       <scope>required</scope>
       <hashes>
         <hash alg="MD5">04cedcb88a562ebe96b5e77ad13df5a1</hash>
@@ -29930,7 +29930,7 @@ JSON Schema (http://tools.ietf.org/html/draft-zyp-json-schema-03) version 3 gene
       <group>com.github.victools</group>
       <name>jsonschema-module-swagger-2</name>
       <version>4.38.0</version>
-      <description>Module for the jsonschema-generator – Swagger (2.x)</description>
+      <description>Module for the jsonschema-generator ??? Swagger (2.x)</description>
       <scope>required</scope>
       <hashes>
         <hash alg="MD5">de6082fcc431e072dc36778f5c5815a2</hash>
@@ -33735,7 +33735,7 @@ Supported protocols include Echo, Finger, FTP, NNTP, NTP, POP3(S), SMTP(S), Teln
       <group>com.squareup.okhttp3</group>
       <name>okhttp-sse</name>
       <version>4.12.0</version>
-      <description>Square’s meticulous HTTP client for Java and Kotlin.</description>
+      <description>Square???s meticulous HTTP client for Java and Kotlin.</description>
       <scope>required</scope>
       <hashes>
         <hash alg="MD5">4d440b966bd351ceba7a08f15d6b7e86</hash>
@@ -37425,7 +37425,7 @@ Supported protocols include Echo, Finger, FTP, NNTP, NTP, POP3(S), SMTP(S), Teln
       <group>com.squareup.okhttp3</group>
       <name>logging-interceptor</name>
       <version>4.12.0</version>
-      <description>Square’s meticulous HTTP client for Java and Kotlin.</description>
+      <description>Square???s meticulous HTTP client for Java and Kotlin.</description>
       <scope>required</scope>
       <hashes>
         <hash alg="MD5">48029ba5a920bbb533503169cba8e498</hash>
@@ -38590,7 +38590,7 @@ Supported protocols include Echo, Finger, FTP, NNTP, NTP, POP3(S), SMTP(S), Teln
       <group>com.github.victools</group>
       <name>jsonschema-generator</name>
       <version>4.31.1</version>
-      <description>Java JSON Schema Generator – creating a JSON Schema (Draft 6, Draft 7 or Draft 2019-09) from your Java classes</description>
+      <description>Java JSON Schema Generator ??? creating a JSON Schema (Draft 6, Draft 7 or Draft 2019-09) from your Java classes</description>
       <scope>required</scope>
       <hashes>
         <hash alg="MD5">6ebe0b467343ccd34d70e54709684d84</hash>
@@ -43477,7 +43477,7 @@ encoded data using Jackson abstractions (streaming API, data binding, tree model
       <group>com.squareup.okhttp3</group>
       <name>okhttp</name>
       <version>4.9.3</version>
-      <description>Square’s meticulous HTTP client for Java and Kotlin.</description>
+      <description>Square???s meticulous HTTP client for Java and Kotlin.</description>
       <scope>required</scope>
       <hashes>
         <hash alg="MD5">3b3373ecaff75d5804764ad301807d10</hash>
@@ -48350,7 +48350,7 @@ has no other dependencies, and provides additional builder-style content generat
       <group>com.datastax.oss</group>
       <name>native-protocol</name>
       <version>1.5.2</version>
-      <description>A set of Java types representing the frames and messages of the Apache Cassandra® native
+      <description>A set of Java types representing the frames and messages of the Apache Cassandra?? native
     protocol, with the associated serialization and deserialization logic (this is a third-party
     implementation, not related to the Apache Cassandra project)</description>
       <scope>required</scope>
@@ -48384,7 +48384,7 @@ has no other dependencies, and provides additional builder-style content generat
       <group>org.apache.cassandra</group>
       <name>java-driver-guava-shaded</name>
       <version>4.19.2</version>
-      <description>Shaded Guava artifact for use in the Java driver for Apache Cassandra®</description>
+      <description>Shaded Guava artifact for use in the Java driver for Apache Cassandra??</description>
       <scope>required</scope>
       <hashes>
         <hash alg="MD5">f9e697d2edf4308e689b17ba15f0bdc8</hash>
@@ -50264,7 +50264,7 @@ has no other dependencies, and provides additional builder-style content generat
       <group>com.squareup.okhttp3</group>
       <name>okhttp-urlconnection</name>
       <version>4.12.0</version>
-      <description>Square’s meticulous HTTP client for Java and Kotlin.</description>
+      <description>Square???s meticulous HTTP client for Java and Kotlin.</description>
       <scope>required</scope>
       <hashes>
         <hash alg="MD5">3dae1b2c6bc07210d0ce526f3baf3576</hash>
@@ -58097,7 +58097,7 @@ that uses LambdaMetafactory based code generation to replace reflection calls.</
       </externalReferences>
     </component>
     <component type="library" bom-ref="pkg:maven/com.kohlschutter.junixsocket/junixsocket-common@2.10.1?type=jar">
-      <publisher>Kohlschütter Search Intelligence</publisher>
+      <publisher>Kohlsch??tter Search Intelligence</publisher>
       <group>com.kohlschutter.junixsocket</group>
       <name>junixsocket-common</name>
       <version>2.10.1</version>
@@ -58132,7 +58132,7 @@ that uses LambdaMetafactory based code generation to replace reflection calls.</
       </externalReferences>
     </component>
     <component type="library" bom-ref="pkg:maven/com.kohlschutter.junixsocket/junixsocket-native-common@2.10.1?type=jar">
-      <publisher>Kohlschütter Search Intelligence</publisher>
+      <publisher>Kohlsch??tter Search Intelligence</publisher>
       <group>com.kohlschutter.junixsocket</group>
       <name>junixsocket-native-common</name>
       <version>2.10.1</version>
@@ -74867,7 +74867,7 @@ file comparators, endian transformation classes, and much more.</description>
       <group>org.apache.fory</group>
       <name>fory-core</name>
       <version>0.14.1</version>
-      <description>Apache Fory™ is a blazingly fast multi-language serialization framework powered by jit and zero-copy.</description>
+      <description>Apache Fory??? is a blazingly fast multi-language serialization framework powered by jit and zero-copy.</description>
       <scope>required</scope>
       <hashes>
         <hash alg="MD5">89e8d204363344f0b6f5505b437909e7</hash>
@@ -74967,7 +74967,7 @@ file comparators, endian transformation classes, and much more.</description>
       <group>com.squareup.okhttp3</group>
       <name>okhttp</name>
       <version>4.10.0</version>
-      <description>Square’s meticulous HTTP client for Java and Kotlin.</description>
+      <description>Square???s meticulous HTTP client for Java and Kotlin.</description>
       <scope>required</scope>
       <hashes>
         <hash alg="MD5">9a229b2af8b8ffcc41508f82ef5e3e72</hash>
@@ -86124,7 +86124,7 @@ that achieves high performance when combined with Graal.</description>
       <group>org.apache.jackrabbit</group>
       <name>jackrabbit-spi-commons</name>
       <version>2.22.3</version>
-      <description>The Apache Jackrabbit™ content repository is a fully conforming
+      <description>The Apache Jackrabbit??? content repository is a fully conforming
     implementation of the Content Repository for Java Technology API
     (JCR, specified in JSR 170 and 283). A content repository is a
     hierarchical content store with support for structured and unstructured
@@ -86171,7 +86171,7 @@ that achieves high performance when combined with Graal.</description>
       <group>org.apache.jackrabbit</group>
       <name>jackrabbit-spi</name>
       <version>2.22.3</version>
-      <description>The Apache Jackrabbit™ content repository is a fully conforming
+      <description>The Apache Jackrabbit??? content repository is a fully conforming
     implementation of the Content Repository for Java Technology API
     (JCR, specified in JSR 170 and 283). A content repository is a
     hierarchical content store with support for structured and unstructured
@@ -86218,7 +86218,7 @@ that achieves high performance when combined with Graal.</description>
       <group>org.apache.tika</group>
       <name>tika-core</name>
       <version>2.4.1</version>
-      <description>This is the core Apache Tika™ toolkit library from which all other modules inherit functionality. It
+      <description>This is the core Apache Tika??? toolkit library from which all other modules inherit functionality. It
     also
     includes the core facades for the Tika API.</description>
       <scope>required</scope>
@@ -103854,7 +103854,7 @@ flexible messaging model and an intuitive client API.</description>
       <group>com.squareup.okhttp3</group>
       <name>okhttp</name>
       <version>4.11.0</version>
-      <description>Square’s meticulous HTTP client for Java and Kotlin.</description>
+      <description>Square???s meticulous HTTP client for Java and Kotlin.</description>
       <scope>required</scope>
       <hashes>
         <hash alg="MD5">8f53e26319679de3ea22261b1899a99c</hash>
@@ -111907,7 +111907,7 @@ JSON Schema (http://tools.ietf.org/html/draft-zyp-json-schema-03) version 3 gene
       <group>org.apache.tika</group>
       <name>tika-core</name>
       <version>3.2.3</version>
-      <description>This is the core Apache Tika™ toolkit library from which all other modules inherit functionality. It
+      <description>This is the core Apache Tika??? toolkit library from which all other modules inherit functionality. It
     also
     includes the core facades for the Tika API.</description>
       <scope>required</scope>
@@ -114143,7 +114143,7 @@ JSON Schema (http://tools.ietf.org/html/draft-zyp-json-schema-03) version 3 gene
       <version>4.3.5</version>
       <description>Smack extensions.
 Classes and methods that implement support for the various XMPP XEPs
-(Multi-User Chat, PubSub, …) and other XMPP extensions.</description>
+(Multi-User Chat, PubSub, ???) and other XMPP extensions.</description>
       <scope>required</scope>
       <hashes>
         <hash alg="MD5">774842cacd3bc13ce3710a48ccbaa8ac</hash>
@@ -118327,7 +118327,7 @@ Roster, Chat and other functionality.</description>
       <name>jakarta.interceptor-api</name>
       <version>2.2.0</version>
       <description>Jakarta Interceptors defines a means of interposing on business method invocations
-        and specific events—such as lifecycle events and timeout events—that occur on instances
+        and specific events???such as lifecycle events and timeout events???that occur on instances
         of Jakarta EE components and other managed classes.</description>
       <scope>required</scope>
       <hashes>

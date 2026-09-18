@@ -24,7 +24,7 @@
     <parent>
         <groupId>org.apache.camel</groupId>
         <artifactId>components</artifactId>
-        <version>4.18.4-SNAPSHOT</version>
+        <version>4.18.4.redhat-00007</version>
     </parent>
 
     <artifactId>camel-jira</artifactId>
@@ -32,17 +32,7 @@
     <name>Camel :: JIRA</name>
 
     <repositories>
-        <repository>
-            <id>atlassian</id>
-            <url>https://packages.atlassian.com/maven-external/</url>
-            <name>atlassian external repo</name>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
+        
     </repositories>
 
     <dependencies>
@@ -70,7 +60,7 @@
         <dependency>
             <groupId>com.atlassian.sal</groupId>
             <artifactId>sal-api</artifactId>
-            <version>5.1.4</version>
+            <version>5.1.4.redhat-00006</version>
             <!-- force jar type -->
             <type>jar</type>
         </dependency>

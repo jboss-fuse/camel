@@ -24,7 +24,7 @@
     <parent>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-jbang-parent</artifactId>
-        <version>4.18.4-SNAPSHOT</version>
+        <version>4.18.4.redhat-00007</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -72,10 +72,10 @@
                             <target>
                                 <copy todir="${dist.dir}">
                                     <fileset dir="${project.build.directory}">
-                                        <include name="**/*.java"/>
+                                        <include name="**/*.java" />
                                     </fileset>
                                 </copy>
-                                <chmod file="${dist.dir}/*.java" perm="u+x"/>
+                                <chmod file="${dist.dir}/*.java" perm="u+x" />
                             </target>
                         </configuration>
                         <goals>

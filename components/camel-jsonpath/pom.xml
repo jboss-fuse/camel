@@ -24,16 +24,13 @@
     <parent>
         <groupId>org.apache.camel</groupId>
         <artifactId>components</artifactId>
-        <version>4.18.4-SNAPSHOT</version>
+        <version>4.18.4.redhat-00007</version>
     </parent>
 
     <artifactId>camel-jsonpath</artifactId>
     <packaging>jar</packaging>
     <name>Camel :: JSon Path</name>
     <description>Camel JSON Path Language</description>
-
-    <properties>
-    </properties>
 
     <dependencies>
 

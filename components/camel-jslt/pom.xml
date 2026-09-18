@@ -24,16 +24,13 @@
     <parent>
         <artifactId>components</artifactId>
         <groupId>org.apache.camel</groupId>
-        <version>4.18.4-SNAPSHOT</version>
+        <version>4.18.4.redhat-00007</version>
     </parent>
 
     <artifactId>camel-jslt</artifactId>
     <packaging>jar</packaging>
     <name>Camel :: Jslt</name>
     <description>Camel Jslt Support</description>
-
-    <properties>
-    </properties>
 
     <dependencies>
         <dependency>

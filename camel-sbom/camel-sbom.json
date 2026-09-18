@@ -17487,7 +17487,7 @@
       "group" : "jakarta.interceptor",
       "name" : "jakarta.interceptor-api",
       "version" : "2.1.0",
-      "description" : "Jakarta Interceptors defines a means of interposing on business method invocations and specific events—such as lifecycle events and timeout events—that occur on instances of Jakarta EE components and other managed classes.",
+      "description" : "Jakarta Interceptors defines a means of interposing on business method invocations and specific events???such as lifecycle events and timeout events???that occur on instances of Jakarta EE components and other managed classes.",
       "scope" : "required",
       "hashes" : [
         {
@@ -31933,7 +31933,7 @@
       "group" : "com.squareup.okhttp3",
       "name" : "okhttp-jvm",
       "version" : "5.3.2",
-      "description" : "Square’s meticulous HTTP client for Java and Kotlin.",
+      "description" : "Square???s meticulous HTTP client for Java and Kotlin.",
       "scope" : "required",
       "hashes" : [
         {
@@ -32318,7 +32318,7 @@
       "group" : "com.squareup.okhttp3",
       "name" : "okhttp",
       "version" : "4.12.0",
-      "description" : "Square’s meticulous HTTP client for Java and Kotlin.",
+      "description" : "Square???s meticulous HTTP client for Java and Kotlin.",
       "scope" : "required",
       "hashes" : [
         {
@@ -34173,7 +34173,7 @@
       "group" : "org.apache.ignite",
       "name" : "ignite-core",
       "version" : "2.17.0",
-      "description" : "Apache Ignite® is a Distributed Database For High-Performance Computing With In-Memory Speed.",
+      "description" : "Apache Ignite?? is a Distributed Database For High-Performance Computing With In-Memory Speed.",
       "scope" : "required",
       "hashes" : [
         {
@@ -34374,7 +34374,7 @@
       "group" : "org.apache.ignite",
       "name" : "ignite-log4j2",
       "version" : "2.17.0",
-      "description" : "Apache Ignite® is a Distributed Database For High-Performance Computing With In-Memory Speed.",
+      "description" : "Apache Ignite?? is a Distributed Database For High-Performance Computing With In-Memory Speed.",
       "scope" : "required",
       "hashes" : [
         {
@@ -51248,7 +51248,7 @@
       "group" : "com.github.victools",
       "name" : "jsonschema-generator",
       "version" : "4.38.0",
-      "description" : "Java JSON Schema Generator – creating a JSON Schema (Draft 6, Draft 7 or Draft 2019-09) from your Java classes",
+      "description" : "Java JSON Schema Generator ??? creating a JSON Schema (Draft 6, Draft 7 or Draft 2019-09) from your Java classes",
       "scope" : "required",
       "hashes" : [
         {
@@ -51388,7 +51388,7 @@
       "group" : "com.github.victools",
       "name" : "jsonschema-module-jackson",
       "version" : "4.38.0",
-      "description" : "Module for the jsonschema-generator – deriving JSON Schema attributes from jackson annotations",
+      "description" : "Module for the jsonschema-generator ??? deriving JSON Schema attributes from jackson annotations",
       "scope" : "required",
       "hashes" : [
         {
@@ -51458,7 +51458,7 @@
       "group" : "com.github.victools",
       "name" : "jsonschema-module-swagger-2",
       "version" : "4.38.0",
-      "description" : "Module for the jsonschema-generator – Swagger (2.x)",
+      "description" : "Module for the jsonschema-generator ??? Swagger (2.x)",
       "scope" : "required",
       "hashes" : [
         {
@@ -58073,7 +58073,7 @@
       "group" : "com.squareup.okhttp3",
       "name" : "okhttp-sse",
       "version" : "4.12.0",
-      "description" : "Square’s meticulous HTTP client for Java and Kotlin.",
+      "description" : "Square???s meticulous HTTP client for Java and Kotlin.",
       "scope" : "required",
       "hashes" : [
         {
@@ -64755,7 +64755,7 @@
       "group" : "com.squareup.okhttp3",
       "name" : "logging-interceptor",
       "version" : "4.12.0",
-      "description" : "Square’s meticulous HTTP client for Java and Kotlin.",
+      "description" : "Square???s meticulous HTTP client for Java and Kotlin.",
       "scope" : "required",
       "hashes" : [
         {
@@ -66859,7 +66859,7 @@
       "group" : "com.github.victools",
       "name" : "jsonschema-generator",
       "version" : "4.31.1",
-      "description" : "Java JSON Schema Generator – creating a JSON Schema (Draft 6, Draft 7 or Draft 2019-09) from your Java classes",
+      "description" : "Java JSON Schema Generator ??? creating a JSON Schema (Draft 6, Draft 7 or Draft 2019-09) from your Java classes",
       "scope" : "required",
       "hashes" : [
         {
@@ -75368,7 +75368,7 @@
       "group" : "com.squareup.okhttp3",
       "name" : "okhttp",
       "version" : "4.9.3",
-      "description" : "Square’s meticulous HTTP client for Java and Kotlin.",
+      "description" : "Square???s meticulous HTTP client for Java and Kotlin.",
       "scope" : "required",
       "hashes" : [
         {
@@ -83651,7 +83651,7 @@
       "group" : "com.datastax.oss",
       "name" : "native-protocol",
       "version" : "1.5.2",
-      "description" : "A set of Java types representing the frames and messages of the Apache Cassandra® native protocol, with the associated serialization and deserialization logic (this is a third-party implementation, not related to the Apache Cassandra project)",
+      "description" : "A set of Java types representing the frames and messages of the Apache Cassandra?? native protocol, with the associated serialization and deserialization logic (this is a third-party implementation, not related to the Apache Cassandra project)",
       "scope" : "required",
       "hashes" : [
         {
@@ -83713,7 +83713,7 @@
       "group" : "org.apache.cassandra",
       "name" : "java-driver-guava-shaded",
       "version" : "4.19.2",
-      "description" : "Shaded Guava artifact for use in the Java driver for Apache Cassandra®",
+      "description" : "Shaded Guava artifact for use in the Java driver for Apache Cassandra??",
       "scope" : "required",
       "hashes" : [
         {
@@ -86948,7 +86948,7 @@
       "group" : "com.squareup.okhttp3",
       "name" : "okhttp-urlconnection",
       "version" : "4.12.0",
-      "description" : "Square’s meticulous HTTP client for Java and Kotlin.",
+      "description" : "Square???s meticulous HTTP client for Java and Kotlin.",
       "scope" : "required",
       "hashes" : [
         {
@@ -100899,7 +100899,7 @@
     {
       "type" : "library",
       "bom-ref" : "pkg:maven/com.kohlschutter.junixsocket/junixsocket-common@2.10.1?type=jar",
-      "publisher" : "Kohlschütter Search Intelligence",
+      "publisher" : "Kohlsch??tter Search Intelligence",
       "group" : "com.kohlschutter.junixsocket",
       "name" : "junixsocket-common",
       "version" : "2.10.1",
@@ -100965,7 +100965,7 @@
     {
       "type" : "library",
       "bom-ref" : "pkg:maven/com.kohlschutter.junixsocket/junixsocket-native-common@2.10.1?type=jar",
-      "publisher" : "Kohlschütter Search Intelligence",
+      "publisher" : "Kohlsch??tter Search Intelligence",
       "group" : "com.kohlschutter.junixsocket",
       "name" : "junixsocket-native-common",
       "version" : "2.10.1",
@@ -131054,7 +131054,7 @@
       "group" : "org.apache.fory",
       "name" : "fory-core",
       "version" : "0.14.1",
-      "description" : "Apache Fory™ is a blazingly fast multi-language serialization framework powered by jit and zero-copy.",
+      "description" : "Apache Fory??? is a blazingly fast multi-language serialization framework powered by jit and zero-copy.",
       "scope" : "required",
       "hashes" : [
         {
@@ -131225,7 +131225,7 @@
       "group" : "com.squareup.okhttp3",
       "name" : "okhttp",
       "version" : "4.10.0",
-      "description" : "Square’s meticulous HTTP client for Java and Kotlin.",
+      "description" : "Square???s meticulous HTTP client for Java and Kotlin.",
       "scope" : "required",
       "hashes" : [
         {
@@ -150966,7 +150966,7 @@
       "group" : "org.apache.jackrabbit",
       "name" : "jackrabbit-spi-commons",
       "version" : "2.22.3",
-      "description" : "The Apache Jackrabbit™ content repository is a fully conforming implementation of the Content Repository for Java Technology API (JCR, specified in JSR 170 and 283). A content repository is a hierarchical content store with support for structured and unstructured content, full text search, versioning, transactions, observation, and more. Apache Jackrabbit is a project of the Apache Software Foundation.",
+      "description" : "The Apache Jackrabbit??? content repository is a fully conforming implementation of the Content Repository for Java Technology API (JCR, specified in JSR 170 and 283). A content repository is a hierarchical content store with support for structured and unstructured content, full text search, versioning, transactions, observation, and more. Apache Jackrabbit is a project of the Apache Software Foundation.",
       "scope" : "required",
       "hashes" : [
         {
@@ -151041,7 +151041,7 @@
       "group" : "org.apache.jackrabbit",
       "name" : "jackrabbit-spi",
       "version" : "2.22.3",
-      "description" : "The Apache Jackrabbit™ content repository is a fully conforming implementation of the Content Repository for Java Technology API (JCR, specified in JSR 170 and 283). A content repository is a hierarchical content store with support for structured and unstructured content, full text search, versioning, transactions, observation, and more. Apache Jackrabbit is a project of the Apache Software Foundation.",
+      "description" : "The Apache Jackrabbit??? content repository is a fully conforming implementation of the Content Repository for Java Technology API (JCR, specified in JSR 170 and 283). A content repository is a hierarchical content store with support for structured and unstructured content, full text search, versioning, transactions, observation, and more. Apache Jackrabbit is a project of the Apache Software Foundation.",
       "scope" : "required",
       "hashes" : [
         {
@@ -151116,7 +151116,7 @@
       "group" : "org.apache.tika",
       "name" : "tika-core",
       "version" : "2.4.1",
-      "description" : "This is the core Apache Tika™ toolkit library from which all other modules inherit functionality. It also includes the core facades for the Tika API.",
+      "description" : "This is the core Apache Tika??? toolkit library from which all other modules inherit functionality. It also includes the core facades for the Tika API.",
       "scope" : "required",
       "hashes" : [
         {
@@ -182010,7 +182010,7 @@
       "group" : "com.squareup.okhttp3",
       "name" : "okhttp",
       "version" : "4.11.0",
-      "description" : "Square’s meticulous HTTP client for Java and Kotlin.",
+      "description" : "Square???s meticulous HTTP client for Java and Kotlin.",
       "scope" : "required",
       "hashes" : [
         {
@@ -195913,7 +195913,7 @@
       "group" : "org.apache.tika",
       "name" : "tika-core",
       "version" : "3.2.3",
-      "description" : "This is the core Apache Tika™ toolkit library from which all other modules inherit functionality. It also includes the core facades for the Tika API.",
+      "description" : "This is the core Apache Tika??? toolkit library from which all other modules inherit functionality. It also includes the core facades for the Tika API.",
       "scope" : "required",
       "hashes" : [
         {
@@ -199880,7 +199880,7 @@
       "group" : "org.igniterealtime.smack",
       "name" : "smack-extensions",
       "version" : "4.3.5",
-      "description" : "Smack extensions. Classes and methods that implement support for the various XMPP XEPs (Multi-User Chat, PubSub, …) and other XMPP extensions.",
+      "description" : "Smack extensions. Classes and methods that implement support for the various XMPP XEPs (Multi-User Chat, PubSub, ???) and other XMPP extensions.",
       "scope" : "required",
       "hashes" : [
         {
@@ -206905,7 +206905,7 @@
       "group" : "jakarta.interceptor",
       "name" : "jakarta.interceptor-api",
       "version" : "2.2.0",
-      "description" : "Jakarta Interceptors defines a means of interposing on business method invocations and specific events—such as lifecycle events and timeout events—that occur on instances of Jakarta EE components and other managed classes.",
+      "description" : "Jakarta Interceptors defines a means of interposing on business method invocations and specific events???such as lifecycle events and timeout events???that occur on instances of Jakarta EE components and other managed classes.",
       "scope" : "required",
       "hashes" : [
         {

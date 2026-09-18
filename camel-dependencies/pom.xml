@@ -23,7 +23,7 @@
     <parent>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-parent</artifactId>
-        <version>4.18.4-SNAPSHOT</version>
+        <version>4.18.4.redhat-00007</version>
         <relativePath>../parent</relativePath>
     </parent>
 
@@ -32,12 +32,6 @@
     <packaging>pom</packaging>
     <name>Camel :: Dependencies</name>
     <description>Camel Dependencies POM</description>
-
-    <properties>
-        <!-- Historical note: we used to keep the version properties here till Camel 4.0.0-RC1 -->
-        <!-- After that, we started generating the installed pom.xml during the build using sync-properties-maven-plugin -->
-        <!-- The generated file can be inspected in target/generated-pom.xml -->
-    </properties>
     <build>
         <plugins>
             <plugin>
@@ -56,7 +50,7 @@
             <plugin>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>sync-properties-maven-plugin</artifactId>
-                <version>${project.version}</version>
+                <version>4.18.4.redhat-00007</version>
                 <executions>
                     <execution>
                         <phase>generate-resources</phase>

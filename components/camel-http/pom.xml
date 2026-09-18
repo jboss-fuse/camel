@@ -23,7 +23,7 @@
     <parent>
         <groupId>org.apache.camel</groupId>
         <artifactId>components</artifactId>
-        <version>4.18.4-SNAPSHOT</version>
+        <version>4.18.4.redhat-00007</version>
     </parent>
 
     <artifactId>camel-http</artifactId>
@@ -31,9 +31,6 @@
 
     <name>Camel :: HTTP</name>
     <description>Camel HTTP support</description>
-
-    <properties>
-    </properties>
 
     <dependencies>
 
@@ -178,7 +175,7 @@
                             <goal>test</goal>
                         </goals>
                         <configuration>
-                            <excludedGroups combine.self="override"/>
+                            <excludedGroups combine.self="override" />
                             <groups>require-isolated-jvm</groups>
                             <reuseForks>false</reuseForks>
                             <forkCount>1</forkCount>

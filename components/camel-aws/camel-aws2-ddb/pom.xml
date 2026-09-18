@@ -23,7 +23,7 @@
     <parent>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-aws-parent</artifactId>
-        <version>4.18.4-SNAPSHOT</version>
+        <version>4.18.4.redhat-00007</version>
     </parent>
 
     <artifactId>camel-aws2-ddb</artifactId>
@@ -31,9 +31,6 @@
 
     <name>Camel :: AWS2 DDB</name>
     <description>Store and retrieve data and events from Amazon DynamoDB service</description>
-
-    <properties>
-    </properties>
 
     <dependencies>
         <dependency>

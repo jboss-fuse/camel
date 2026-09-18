@@ -23,16 +23,13 @@
     <parent>
         <groupId>org.apache.camel</groupId>
         <artifactId>components</artifactId>
-        <version>4.18.4-SNAPSHOT</version>
+        <version>4.18.4.redhat-00007</version>
     </parent>
 
     <artifactId>camel-ssh</artifactId>
     <packaging>jar</packaging>
     <name>Camel :: SSH</name>
     <description>Camel SSH support</description>
-
-    <properties>
-    </properties>
 
     <dependencies>
         <dependency>

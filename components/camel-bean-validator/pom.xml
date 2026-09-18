@@ -23,16 +23,13 @@
     <parent>
         <groupId>org.apache.camel</groupId>
         <artifactId>components</artifactId>
-        <version>4.18.4-SNAPSHOT</version>
+        <version>4.18.4.redhat-00007</version>
     </parent>
 
     <artifactId>camel-bean-validator</artifactId>
     <name>Camel :: Bean validator</name>
     <description>Camel bean validation support (JSR 303)</description>
     <packaging>jar</packaging>
-
-    <properties>
-    </properties>
 
     <dependencies>
 

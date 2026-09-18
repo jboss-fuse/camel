@@ -23,16 +23,13 @@
     <parent>
         <groupId>org.apache.camel</groupId>
         <artifactId>components</artifactId>
-        <version>4.18.4-SNAPSHOT</version>
+        <version>4.18.4.redhat-00007</version>
     </parent>
 
     <artifactId>camel-jacksonxml</artifactId>
     <packaging>jar</packaging>
     <name>Camel :: Jackson XML</name>
     <description>Camel Jackson XML support</description>
-
-    <properties>
-    </properties>
 
     <dependencies>
 
