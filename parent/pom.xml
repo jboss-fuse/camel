@@ -542,6 +542,7 @@
         <zeebe-version>8.9.13</zeebe-version>
         <zendesk-client-version>1.5.2</zendesk-client-version>
         <zookeeper-version>3.9.5</zookeeper-version>
+        <zstd-jni-version>1.5.7-20</zstd-jni-version>
         <zxing-version>3.5.4</zxing-version>
     </properties>
 
@@ -703,6 +704,13 @@
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-yaml-io</artifactId>
                 <version>${project.version}</version>
+            </dependency>
+
+            <!-- override transitive zstd-jni from kafka-clients -->
+            <dependency>
+                <groupId>com.github.luben</groupId>
+                <artifactId>zstd-jni</artifactId>
+                <version>${zstd-jni-version}</version>
             </dependency>
 
             <!-- NOTE: auto-generated list of components when building camel catalog -->
