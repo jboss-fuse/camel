@@ -25,12 +25,12 @@ import org.apache.camel.tooling.maven.MavenGav;
 
 public class CommandLineDependencyDownloader extends ServiceSupport {
 
-    private final CamelContext camelContext;
+    private final CatalogDependencyResolver resolver;
     private final DependencyDownloader downloader;
     private final String dependencies;
 
     public CommandLineDependencyDownloader(CamelContext camelContext, String dependencies) {
-        this.camelContext = camelContext;
+        this.resolver = new CatalogDependencyResolver(camelContext);
         this.dependencies = dependencies;
         this.downloader = camelContext.hasService(DependencyDownloader.class);
     }
@@ -41,34 +41,25 @@ public class CommandLineDependencyDownloader extends ServiceSupport {
     }
 
     private void downloadDependencies() {
-        final List<String> gavs = new ArrayList<>();
+        final List<MavenGav> gavs = new ArrayList<>();
         for (String dep : dependencies.split(",")) {
-            // trim whitespace
             dep = dep.trim();
-            String gav = dep;
-            gav = gav.trim();
-            if (dep.startsWith("camel:") || dep.startsWith("camel-")) {
-                // it's a known camel component
-                gav = "org.apache.camel:camel-" + dep.substring(6) + ":" + camelContext.getVersion();
-            }
+            MavenGav gav = resolver.resolve(dep);
             if (isValidGav(gav)) {
                 gavs.add(gav);
             }
         }
 
         if (!gavs.isEmpty()) {
-            for (String gav : gavs) {
-                MavenGav mg = MavenGav.parseGav(gav, camelContext.getVersion());
-                downloader.downloadDependency(mg.getGroupId(), mg.getArtifactId(),
-                        mg.getVersion());
+            for (MavenGav gav : gavs) {
+                downloader.downloadDependency(gav.getGroupId(), gav.getArtifactId(), gav.getVersion());
             }
         }
     }
 
-    private boolean isValidGav(String gav) {
-        MavenGav mg = MavenGav.parseGav(gav, camelContext.getVersion());
+    private boolean isValidGav(MavenGav gav) {
         boolean exists
-                = downloader.alreadyOnClasspath(mg.getGroupId(), mg.getArtifactId(), mg.getVersion());
+                = downloader.alreadyOnClasspath(gav.getGroupId(), gav.getArtifactId(), gav.getVersion());
         // valid if not already on classpath
         return !exists;
     }
