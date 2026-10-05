@@ -796,6 +796,10 @@ such as:
 camel run foo.java --dep=camel-saxon
 ----
 
+The `camel:` and `camel-` shorthand forms use the dependency coordinates in the Camel catalog when available.
+For artifacts absent from the catalog, they use the running Camel version.
+An explicit Maven coordinate keeps the version you specify.
+
 You can specify multiple dependencies separated by comma:
 
 [source,bash]
