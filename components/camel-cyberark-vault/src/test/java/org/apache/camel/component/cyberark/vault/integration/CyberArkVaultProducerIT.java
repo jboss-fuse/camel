@@ -21,10 +21,13 @@ import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.cyberark.vault.CyberArkVaultConstants;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.DisabledIfSystemProperty;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+@DisabledIfSystemProperty(named = "os.arch", matches = "(?i)(s390x|ppc64le)",
+                          disabledReason = "CyberArk Conjur container image is unavailable on this architecture")
 class CyberArkVaultProducerIT extends CyberArkTestSupport {
 
     @BeforeAll
