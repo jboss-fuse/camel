@@ -33,6 +33,11 @@
     <description>Camel Parent POM</description>
 
     <properties>
+        <zstd-jni-version>1.5.7-16</zstd-jni-version>
+        <vertx-community-version>4.5.30</vertx-community-version>
+        <threetenbp-version>1.7.3</threetenbp-version>
+        <neethi-version>3.2.2</neethi-version>
+        <azure-core-http-netty-version>1.16.5</azure-core-http-netty-version>
         <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
         <camel.surefire.fork.additional-vmargs /><!-- Empty by default -->
         <camel.surefire.fork.vmargs>-XX:+EnableDynamicAgentLoading -XX:+ExitOnOutOfMemoryError -XX:+HeapDumpOnOutOfMemoryError ${camel.surefire.fork.additional-vmargs}</camel.surefire.fork.vmargs>
@@ -57,9 +62,9 @@
         <sourcecheckExcludesComma />
 
         <!-- dependency versions -->
-        <activemq-version>5.19.5</activemq-version>
-        <activemq6-version>6.2.4</activemq6-version>
-        <activemq-artemis-version>2.44.0</activemq-artemis-version>
+        <activemq-version>5.19.8</activemq-version>
+        <activemq6-version>6.2.7</activemq6-version>
+        <activemq-artemis-version>2.53.0.redhat-00003</activemq-artemis-version>
         <allegro-converter-version>0.3.0</allegro-converter-version>
         <amazon-kinesis-client-version>2.6.0</amazon-kinesis-client-version>
         <angus-mail-version>2.0.5</angus-mail-version>
@@ -83,7 +88,7 @@
         <azure-sdk-bom-version>1.3.3</azure-sdk-bom-version>
         <azure-storage-blob-changefeed-version>12.0.0-beta.34</azure-storage-blob-changefeed-version>
         <beanio-version>3.2.1</beanio-version>
-        <bouncycastle-version>1.83</bouncycastle-version>
+        <bouncycastle-version>1.85</bouncycastle-version>
         <box-java-sdk-version>4.16.3</box-java-sdk-version>
         <braintree-gateway-version>3.48.0</braintree-gateway-version>
         <build-helper-maven-plugin-version>3.6.1</build-helper-maven-plugin-version>
@@ -111,7 +116,7 @@
         <com-ibm-mq-jakarta-client-version>9.4.5.0</com-ibm-mq-jakarta-client-version>
         <cometd-java-client-version>9.0.0</cometd-java-client-version>
         <cometd-java-server-version>9.0.0</cometd-java-server-version>
-        <commons-beanutils-version>1.11.0</commons-beanutils-version>
+        <commons-beanutils-version>1.11.0.redhat-00001</commons-beanutils-version>
         <commons-codec-version>1.21.0</commons-codec-version>
         <commons-collections-version>3.2.2</commons-collections-version>
         <commons-collections4-version>4.5.0</commons-collections4-version>
@@ -135,11 +140,11 @@
         <cobertura-maven-plugin-version>2.7</cobertura-maven-plugin-version>
         <couchbase-client-version>3.11.0</couchbase-client-version>
         <curator-version>5.9.0</curator-version>
-        <cxf-version>4.1.5</cxf-version>
-        <cxf-codegen-plugin-version>4.1.5</cxf-codegen-plugin-version>
+        <cxf-version>4.1.9-rhbac-SNAPSHOT</cxf-version>
+        <cxf-codegen-plugin-version>4.1.7</cxf-codegen-plugin-version>
         <!-- cxf-xjc is not released as often -->
-        <cxf-xjc-plugin-version>4.1.2</cxf-xjc-plugin-version>
-        <cxf-xjc-utils-version>4.1.2</cxf-xjc-utils-version>
+        <cxf-xjc-plugin-version>4.1.3</cxf-xjc-plugin-version>
+        <cxf-xjc-utils-version>4.1.3</cxf-xjc-utils-version>
         <daffodil-version>3.10.0</daffodil-version>
         <dapr-version>1.16.1</dapr-version>
         <dapr-workflow-version>1.16.1</dapr-workflow-version>
@@ -249,7 +254,7 @@
         <hsqldb-version>2.7.4</hsqldb-version>
         <httpunit-version>1.7</httpunit-version>
         <httpcore-version>5.3.6</httpcore-version>
-        <httpclient-version>5.5.1</httpclient-version>
+        <httpclient-version>5.5.2</httpclient-version>
         <httpcore4-version>4.4.16</httpcore4-version>
         <httpclient4-version>4.5.14</httpclient4-version>
         <httpasyncclient-version>4.1.5</httpasyncclient-version>
@@ -264,8 +269,8 @@
         <iggy-version>0.6.0</iggy-version>
         <ignite-version>2.17.0</ignite-version>
         <impsort-maven-plugin-version>1.13.0</impsort-maven-plugin-version>
-        <infinispan-version>16.0.3</infinispan-version>
-        <infinispan-protostream-version>6.0.2</infinispan-protostream-version>
+        <infinispan-version>16.0.13</infinispan-version>
+        <infinispan-protostream-version>6.0.7</infinispan-protostream-version>
         <influx-java-driver-version>2.25</influx-java-driver-version>
         <influx-client-java-driver-version>7.5.0</influx-client-java-driver-version>
         <irclib-version>1.10</irclib-version>
@@ -273,7 +278,7 @@
         <ivy-version>2.5.3</ivy-version>
         <jackson-databind-nullable-version>0.2.9</jackson-databind-nullable-version>
         <jackson-jq-version>1.6.0</jackson-jq-version>
-        <jackson2-version>2.21.4</jackson2-version>
+        <jackson2-version>2.21.6</jackson2-version>
         <jackson2-annotations-version>2.21</jackson2-annotations-version>
         <jackrabbit-version>2.22.3</jackrabbit-version>
         <jasminb-jsonapi-version>0.15</jasminb-jsonapi-version>
@@ -306,7 +311,7 @@
         <jboss-logging-version>3.6.2.Final</jboss-logging-version>
         <jboss-marshalling-version>1.4.10.Final</jboss-marshalling-version>
         <jboss-transaction-spi-version>7.6.1.Final</jboss-transaction-spi-version>
-        <jboss-xnio-version>3.8.14.Final</jboss-xnio-version>
+        <jboss-xnio-version>3.8.17.Final-redhat-00001</jboss-xnio-version>
         <jcache-version>1.1.1</jcache-version>
         <jcip-annotations-version>1.0-1</jcip-annotations-version>
         <jcr-version>2.0</jcr-version>
@@ -355,7 +360,7 @@
         <jxmpp-version>1.1.0</jxmpp-version>
         <jython-version>2.7.4</jython-version>
         <jzlib-version>1.1.3</jzlib-version>
-        <kafka-version>3.9.2</kafka-version>
+        <kafka-version>3.9.2.redhat-00001</kafka-version>
         <keycloak-client-version>26.0.8</keycloak-client-version>
         <kubernetes-client-version>7.5.2</kubernetes-client-version>
         <kudu-version>1.18.1</kudu-version>
@@ -370,7 +375,7 @@
         <!-- virtual dependency only used by Eclipse m2e -->
         <lifecycle-mapping-version>1.0.0</lifecycle-mapping-version>
         <log4j2-version>2.25.4</log4j2-version>
-        <logback-version>1.5.34</logback-version>
+        <logback-version>1.5.38</logback-version>
         <lucene-version>9.12.3</lucene-version>
         <lightcouch-version>0.2.0</lightcouch-version>
         <littleproxy-version>2.6.0</littleproxy-version>
@@ -402,8 +407,8 @@
         <maven-wagon-version>3.5.2</maven-wagon-version>
         <maven-war-plugin-version>3.5.1</maven-war-plugin-version>
         <metrics-version>4.2.38</metrics-version>
-        <micrometer-version>1.15.12</micrometer-version>
-        <micrometer-tracing-version>1.5.12</micrometer-tracing-version>
+        <micrometer-version>1.17.1</micrometer-version>
+        <micrometer-tracing-version>1.7.1</micrometer-tracing-version>
         <microprofile-config-version>3.1</microprofile-config-version>
         <milo-version>1.1.1</milo-version>
         <milvus-client-version>2.6.14</milvus-client-version>
@@ -423,7 +428,7 @@
         <narayana-version>5.13.1.Final</narayana-version>
         <neoscada-version>0.4.0</neoscada-version>
         <neo4j-version>6.0.2</neo4j-version>
-        <netty-version>4.1.137.Final</netty-version>
+        <netty-version>4.1.138.Final</netty-version>
         <netty-reactive-streams-version>2.0.5</netty-reactive-streams-version>
         <networknt-json-schema-validator-version>1.5.9</networknt-json-schema-validator-version>
         <nimbus-jose-jwt>10.7</nimbus-jose-jwt>
@@ -457,7 +462,7 @@
         <plexus-archiver-version>4.11.0</plexus-archiver-version>
         <plexus-build-api-version>1.2.0</plexus-build-api-version>
         <plexus-container-default-version>2.1.1</plexus-container-default-version>
-        <plexus-utils-version>4.0.2</plexus-utils-version>
+        <plexus-utils-version>4.0.3</plexus-utils-version>
         <plexus-xml-version>3.0.1</plexus-xml-version>
         <pooled-jms-version>3.2.2</pooled-jms-version>
         <properties-maven-plugin-version>1.3.0</properties-maven-plugin-version>
@@ -541,13 +546,13 @@
         <tika-version>3.2.3</tika-version>
         <twilio-version>11.3.3</twilio-version>
         <twitter4j-version>4.1.2</twitter4j-version>
-        <undertow-version>2.3.24.Final</undertow-version>
+        <undertow-version>2.3.24.SP2-redhat-00001</undertow-version>
         <univocity-parsers-version>2.10.2</univocity-parsers-version>
         <validation-api-version>2.0.1.Final</validation-api-version>
         <vavr-version>1.0.0</vavr-version>
         <velocity-tools-version>3.1</velocity-tools-version>
         <velocity-version>2.4.1</velocity-version>
-        <vertx-version>4.5.26</vertx-version>
+        <vertx-version>4.5.30</vertx-version>
         <vysper-version>0.7</vysper-version>
         <weaviate-client-version>5.5.0</weaviate-client-version>
         <web3j-version>5.0.0</web3j-version>
@@ -3719,6 +3724,52 @@
                 <groupId>org.codehaus.plexus</groupId>
                 <artifactId>plexus-archiver</artifactId>
                 <version>${plexus-archiver-version}</version>
+            </dependency>
+        
+            <dependency>
+                <groupId>io.vertx</groupId>
+                <artifactId>vertx-core</artifactId>
+                <version>${vertx-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.vertx</groupId>
+                <artifactId>vertx-web</artifactId>
+                <version>${vertx-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.vertx</groupId>
+                <artifactId>vertx-web-client</artifactId>
+                <version>${vertx-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.vertx</groupId>
+                <artifactId>vertx-web-common</artifactId>
+                <version>${vertx-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.vertx</groupId>
+                <artifactId>vertx-auth-common</artifactId>
+                <version>${vertx-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.vertx</groupId>
+                <artifactId>vertx-auth-properties</artifactId>
+                <version>${vertx-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.vertx</groupId>
+                <artifactId>vertx-auth-jwt</artifactId>
+                <version>${vertx-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.vertx</groupId>
+                <artifactId>vertx-bridge-common</artifactId>
+                <version>${vertx-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.luben</groupId>
+                <artifactId>zstd-jni</artifactId>
+                <version>${zstd-jni-version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

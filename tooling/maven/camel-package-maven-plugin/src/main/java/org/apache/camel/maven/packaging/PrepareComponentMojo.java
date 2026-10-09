@@ -284,12 +284,13 @@ public class PrepareComponentMojo extends AbstractGeneratorMojo {
 
             // load existing dependencies
             Pattern pattern = Pattern.compile(
-                    "<dependency>\\s*<groupId>(?<groupId>.*)</groupId>\\s*<artifactId>(?<artifactId>.*)</artifactId>");
+                    "<dependency>\\s*<groupId>(?<groupId>.*)</groupId>\\s*<artifactId>(?<artifactId>.*)</artifactId>\\s*<version>(?<version>.*)</version>");
             Matcher matcher = pattern.matcher(between);
             TreeSet<MavenGav> dependencies = new TreeSet<>();
             TreeSet<MavenGav> unsupportedArchDependencies = new TreeSet<>();
             while (matcher.find()) {
-                MavenGav gav = new MavenGav(matcher.group(1), matcher.group(2), "${project.version}", null);
+                String v = matcher.groupCount() > 2 ? matcher.group(3) : "${project.version}";
+                MavenGav gav = new MavenGav(matcher.group(1), matcher.group(2), v, null);
                 dependencies.add(gav);
             }
 
