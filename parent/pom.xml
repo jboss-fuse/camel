@@ -334,7 +334,7 @@
         <juniversalchardet-version>1.0.3</juniversalchardet-version>
         <jxmpp-version>1.1.0</jxmpp-version>
         <jython-version>2.7.4</jython-version>
-        <kafka-version>4.3.1</kafka-version>
+        <kafka-version>4.3.2</kafka-version>
         <keycloak-client-version>26.0.8</keycloak-client-version>
         <kubernetes-client-version>7.8.0</kubernetes-client-version>
         <kudu-version>1.18.1</kudu-version>
@@ -1271,8 +1271,18 @@
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>
+                <artifactId>camel-debezium-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.camel</groupId>
                 <artifactId>camel-debezium-db2</artifactId>
                 <version>${camel-community-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-debezium-db2</artifactId>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>
@@ -1281,8 +1291,18 @@
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>
+                <artifactId>camel-debezium-mongodb</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.camel</groupId>
                 <artifactId>camel-debezium-mysql</artifactId>
                 <version>${camel-community-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-debezium-mysql</artifactId>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>
@@ -1291,13 +1311,28 @@
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>
+                <artifactId>camel-debezium-oracle</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.camel</groupId>
                 <artifactId>camel-debezium-postgres</artifactId>
                 <version>${camel-community-version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>
+                <artifactId>camel-debezium-postgres</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.camel</groupId>
                 <artifactId>camel-debezium-sqlserver</artifactId>
                 <version>${camel-community-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-debezium-sqlserver</artifactId>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>
@@ -1673,6 +1708,12 @@
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-ibm-secrets-manager</artifactId>
                 <version>${camel-community-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-ibm-secrets-manager</artifactId>
+                <version>${project.version}</version>
+                <type>jar</type>
             </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>
