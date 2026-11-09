@@ -11,6 +11,87 @@ Note that manual migration is still required.
 See the xref:camel-upgrade-recipes-tool.adoc[documentation] page for details.
 ====
 
+== Downstream updates to Camel 4.22.1
+
+The notes below apply to downstream Camel 4.22.1 builds that include the corresponding security backports.
+
+=== camel-a2a - webhook URL address classification
+
+Push notification webhook URLs are now classified by the address the host resolves to, using the
+same rules whether the host is written as an IP literal or as a name. Previously a few ranges were
+recognised only in literal form, and host names were partly classified by how they were spelled.
+
+Webhook URLs are now rejected when the host resolves into any of the following, in addition to the
+loopback, wildcard, link-local and site-local ranges that were already rejected:
+
+* IPv6 unique local addresses, `fc00::/7`
+* IPv4-compatible IPv6 addresses, `::a.b.c.d`, when the embedded IPv4 address is itself non-global
+* NAT64 addresses under the well-known prefix `64:ff9b::/96`, when the embedded IPv4 address is
+  itself non-global
+* 6to4 addresses under `2002::/16`, when the embedded IPv4 address is itself non-global
+* The shared address space used for carrier-grade NAT, `100.64.0.0/10`
+
+NAT64 and 6to4 addresses carrying a globally routable IPv4 address remain allowed, so an IPv6-only
+deployment can still reach public webhook endpoints through a translation prefix.
+
+In the other direction, host names are no longer rejected on the basis of their spelling. Names
+beginning with `fc` or `fd`, such as `fcm.googleapis.com`, were previously refused because those are
+the leading hex digits of the IPv6 unique local prefixes; they are now resolved and classified like
+any other name.
+
+Set `allowLocalWebhookUrls=true` to permit loopback targets during local development. That option is
+unchanged and still does not permit any of the ranges above.
+
+=== camel-aws2-s3
+
+The producer no longer evaluates the S3 object key or bucket name taken from a message header as a Simple
+expression. `AWS2S3Utils.determineKey()` and `determineBucketName()` evaluate the Simple language only for the
+values configured on the endpoint (`keyName` and `bucketName`); a key supplied through the `CamelAwsS3Key` header,
+or a bucket name supplied through the `CamelAwsS3OverrideBucketName` header, is now used literally. The
+`CamelAwsS3Key` header carries message content — for example the name of a consumed object, which the consumer
+sets on the exchange — whereas a dynamic key or bucket is a route authoring feature.
+
+Configured dynamic keys and buckets are unchanged:
+
+[source,java]
+----
+from("direct:start")
+    .to("aws2-s3://mybucket?keyName=RAW(${date:now:yyyyMMdd}/file.txt)");
+----
+
+A route that needs a dynamic value on the header must evaluate it in the route, so the header already holds the
+resolved value when it reaches the producer:
+
+[source,java]
+----
+from("direct:start")
+    .setHeader(AWS2S3Constants.KEY, simple("${date:now:yyyyMMdd}/file.txt"))
+    .to("aws2-s3://mybucket");
+----
+
+A header that carries a literal `${...}` string is now used as the object key verbatim instead of being evaluated.
+
+A configured `keyName` or `bucketName` whose Simple expression resolves to `null` now fails with an
+`IllegalArgumentException` at the producer, instead of passing a `null` key/bucket on to the AWS SDK.
+
+=== camel-docling - custom-argument path validation
+
+Absolute paths in path-like values of the `CamelDoclingCustomArguments` header are now rejected with an
+`IllegalArgumentException`. This applies both to values following their flag and to the `--flag=value` form,
+including the path passed to `--artifacts-path`.
+
+Routes that previously supplied an absolute custom-argument path must use a relative path without traversal
+segments instead. Use the `workingDirectory` endpoint option to select the directory against which Docling
+resolves that relative path.
+
+=== camel-docling - output path handling
+
+The `CamelDoclingOutputFilePath` header, which selects the CLI output directory, is now normalized lexically
+(redundant separators and `.`/`..` segments are resolved) before it is passed to Docling; a header value
+without such segments is still used as given. A new `outputBaseDirectory` option additionally confines the
+header the same way `inputBaseDirectory` confines input paths - when set, an output path that resolves outside
+it, including an absolute path, is rejected with an `IOException`. `outputBaseDirectory` is unset by default.
+
 == Upgrading from 4.22.0 to 4.22.1
 
 === camel-hazelcast - ReplicatedHazelcastAggregationRepository now applies the default serialization filter
