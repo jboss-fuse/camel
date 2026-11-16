@@ -16,8 +16,11 @@
  */
 package org.apache.camel.main.util;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;
+import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -122,6 +125,21 @@ public final class VersionHelper {
             if (matcher.find() && matcher.groupCount() > 0) {
                 return matcher.group(1);
             }
+        }
+
+        // Executable JARs do not expose their nested dependencies in java.class.path.
+        try (InputStream is = VersionHelper.class.getResourceAsStream(
+                "/META-INF/maven/org.apache.camel.kamelets/camel-kamelets/pom.properties")) {
+            if (is != null) {
+                Properties properties = new Properties();
+                properties.load(is);
+                String version = properties.getProperty("version");
+                if (ObjectHelper.isNotEmpty(version)) {
+                    return version;
+                }
+            }
+        } catch (IOException e) {
+            // Use the default version if the catalog metadata cannot be read.
         }
 
         return KameletCatalogHelper.KAMELETS_VERSION;
