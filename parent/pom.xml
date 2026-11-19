@@ -399,7 +399,7 @@
         <neethi-version>3.2.4</neethi-version>
         <neoscada-version>0.4.0</neoscada-version>
         <neo4j-version>6.2.0</neo4j-version>
-        <netty-version>4.2.19.Final</netty-version>
+        <netty-version>4.2.21.Final</netty-version>
         <networknt-json-schema-validator-version>2.0.1</networknt-json-schema-validator-version>
         <nimbus-jose-jwt>10.9.1</nimbus-jose-jwt>
         <olingo2-version>2.0.13</olingo2-version>
