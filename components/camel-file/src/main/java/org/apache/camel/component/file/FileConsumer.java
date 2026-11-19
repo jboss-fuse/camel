@@ -54,6 +54,8 @@ public class FileConsumer extends GenericFileConsumer<File> implements ResumeAwa
     private ResumeStrategy resumeStrategy;
     private final String endpointPath;
     private Set<String> extendedAttributes;
+    // the starting directory with its symbolic links resolved, computed once per poll
+    private volatile Path resolvedStartingDirectory;
 
     public FileConsumer(FileEndpoint endpoint, Processor processor, GenericFileOperations<File> operations,
                         GenericFileProcessStrategy<File> processStrategy) {
@@ -73,6 +75,60 @@ public class FileConsumer extends GenericFileConsumer<File> implements ResumeAwa
             file.bindToExchange(exchange, getEndpoint().isProbeContentType());
         }
         return exchange;
+    }
+
+    @Override
+    protected boolean isWithinStartingDirectory(String absoluteFilePath) {
+        // a local listing entry is a single path segment, but it can be a symbolic link to a file or to a directory
+        // (entered with recursive) whose target lies outside the starting directory, so compare the resolved paths
+        // a file that is not a link (nor below a link) needs no resolving; otherwise the starting directory is resolved
+        // once per poll, and the file on every poll (one toRealPath per file)
+        if (GenericFileHelper.isExistingBelowWithoutLinks(Path.of(absoluteFilePath), getEndpoint().getFile().toPath())) {
+            return true;
+        }
+        try {
+            Path startingDirectory = resolvedStartingDirectory;
+            if (startingDirectory == null) {
+                startingDirectory = GenericFileHelper.resolveExistingPathSegments(getEndpoint().getFile().toPath());
+                resolvedStartingDirectory = startingDirectory;
+            }
+            return GenericFileHelper.resolveExistingPathSegments(Path.of(absoluteFilePath)).startsWith(startingDirectory);
+        } catch (IOException e) {
+            // such as a dangling symbolic link
+            LOG.debug("Cannot resolve file: {} against the starting directory due to: {}", absoluteFilePath,
+                    e.getMessage());
+            return false;
+        }
+    }
+
+    @Override
+    protected boolean isValidFile(
+            Exchange dynamic,
+            Supplier<GenericFile<File>> file, String name, String absoluteFilePath,
+            Supplier<String> relativeFilePath, boolean isDirectory, File[] files) {
+        if (!super.isValidFile(dynamic, file, name, absoluteFilePath, relativeFilePath, isDirectory, files)) {
+            return false;
+        }
+        if (isDirectory) {
+            return true;
+        }
+        // CAMEL-25778: TOCTOU guard — after super.isValidFile() added the file to the
+        // in-progress repository, a concurrent async-commit thread may have already moved
+        // the file away (e.g. to .camel). Use a plain File.exists() check (no network cost)
+        // to detect this; if the file is gone, undo the in-progress claim and drop the
+        // eagerly-added idempotent key so the file is not routed a second time.
+        if (!new File(absoluteFilePath).exists()) {
+            LOG.debug("Skipping file as it no longer exists (already committed by another thread): {}", name);
+            getEndpoint().getInProgressRepository().remove(absoluteFilePath);
+            // Drop the eager idempotent key so a future file with the same name is not
+            // permanently blacklisted (mirrors the key resolution in notUnique()).
+            if (Boolean.TRUE.equals(getEndpoint().isIdempotent()) && getEndpoint().isIdempotentEager()
+                    && getEndpoint().getIdempotentRepository() != null) {
+                removeExcessiveIdempotentFile(file.get(), dynamic);
+            }
+            return false;
+        }
+        return true;
     }
 
     private boolean pollDirectory(Exchange dynamic, File directory, List<GenericFile<File>> fileList, int depth) {
@@ -200,6 +256,9 @@ public class FileConsumer extends GenericFileConsumer<File> implements ResumeAwa
     @Override
     protected boolean pollDirectory(Exchange dynamic, String fileName, List<GenericFile<File>> fileList, int depth) {
         LOG.trace("pollDirectory from fileName: {}", fileName);
+
+        // resolved again on the first check of this poll, as the starting directory can be replaced between polls
+        resolvedStartingDirectory = null;
 
         File directory = new File(fileName);
         if (!directory.exists() || !directory.isDirectory()) {
@@ -427,8 +486,6 @@ public class FileConsumer extends GenericFileConsumer<File> implements ResumeAwa
                 startScheduler();
             }
         }
-
-        super.doStart();
     }
 
     private void tryCreateDirectory(File file) throws FileNotFoundException {
