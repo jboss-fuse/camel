@@ -28,6 +28,7 @@
     </parent>
 
     <artifactId>camel-mllp</artifactId>
+    <version>4.18.4.redhat-00007-hf-00001</version>
     <packaging>jar</packaging>
     <name>Camel :: MLLP</name>
     <description>Camel MLLP Component</description>
@@ -86,4 +87,24 @@
             <type>test-jar</type>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-package-maven-plugin</artifactId>
+                <dependencies>
+                    <!-- Hotfix: components/pom.xml uses ${project.version} here, which would resolve to this
+                         module's hotfix version. Pin it to the released camel-core-model instead. -->
+                    <dependency>
+                        <groupId>org.apache.camel</groupId>
+                        <artifactId>camel-core-model</artifactId>
+                        <version>4.18.4.redhat-00007</version>
+                        <scope>compile</scope>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
