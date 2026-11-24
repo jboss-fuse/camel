@@ -41,7 +41,7 @@
         <camel-prepare-component>false</camel-prepare-component>
 
         <!-- Dependency versions -->
-        <camel-kamelets-version>4.18.1</camel-kamelets-version>
+        <camel-kamelets-version>4.18.3</camel-kamelets-version>
         <maven-version>3.9.12</maven-version>
         <maven-resolver-version>1.9.25</maven-resolver-version>
         <plexus-interpolation-version>1.29</plexus-interpolation-version>
@@ -234,6 +234,18 @@
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
             <version>${jcl-over-slf4j-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jolokia</groupId>
+            <artifactId>jolokia-agent-jvm</artifactId>
+            <version>${jolokia-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jolokia</groupId>
+            <artifactId>jolokia-agent-jvm</artifactId>
+            <version>${jolokia-version}</version>
+            <classifier>javaagent</classifier>
+            <scope>provided</scope>
         </dependency>
 
         <!-- Test dependencies -->

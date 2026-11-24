@@ -89,8 +89,9 @@ then
   REPO="$BASEDIR"
 fi
 
-# Set the classpath to the JAR file
+# Set the classpath to the JAR file (skip -sources.jar)
 for f in "$BASEDIR"/camel-launcher-*.jar; do
+  case "$f" in *-sources.jar) continue ;; esac
   if [ -f "$f" ]; then
     CLASSPATH="$f"
     break

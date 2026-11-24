@@ -44,8 +44,8 @@
         <module>camel-spring-ws</module>
         <module>camel-spring-xml</module>
         <module>camel-undertow-spring-security</module>
-        <module>camel-spring-cloud-config</module>
-        <module>camel-spring-ai</module>
+        <!-- <module>camel-spring-cloud-config</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
+        <!-- <module>camel-spring-ai</module> disabled by cq-prod-maven-plugin:camel-prod-excludes -->
     </modules>
 
 </project>

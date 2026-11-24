@@ -220,8 +220,8 @@ public class LRASagaService extends ServiceSupport implements StaticService, Cam
     public void registerStep(CamelSagaStep step) {
         checkOptionNames(step);
         // Register which uris should be exposed
-        step.getCompensation().map(Endpoint::getEndpointUri).map(this.sagaURIs::add);
-        step.getCompletion().map(Endpoint::getEndpointUri).map(this.sagaURIs::add);
+        step.getCompensation().map(Endpoint::getEndpointUri).ifPresent(this.sagaURIs::add);
+        step.getCompletion().map(Endpoint::getEndpointUri).ifPresent(this.sagaURIs::add);
     }
 
     /**
