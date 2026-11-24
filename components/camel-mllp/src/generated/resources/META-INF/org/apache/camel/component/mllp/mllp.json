@@ -11,7 +11,7 @@
     "supportLevel": "Stable",
     "groupId": "org.apache.camel",
     "artifactId": "camel-mllp",
-    "version": "4.18.4.redhat-00007-hf-00001",
+    "version": "4.18.4.redhat-00007-hf-temporary-redhat-00001",
     "scheme": "mllp",
     "extendsScheme": "",
     "syntax": "mllp:hostname:port",

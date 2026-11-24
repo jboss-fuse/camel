@@ -28,7 +28,7 @@
     </parent>
 
     <artifactId>camel-mllp</artifactId>
-    <version>4.18.4.redhat-00007-hf-00001</version>
+    <version>4.18.4.redhat-00007-hf-temporary-redhat-00001</version>
     <packaging>jar</packaging>
     <name>Camel :: MLLP</name>
     <description>Camel MLLP Component</description>
